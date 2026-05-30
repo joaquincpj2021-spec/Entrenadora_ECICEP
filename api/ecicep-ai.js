@@ -1,4 +1,4 @@
-const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
+const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
 function cors(res) {
   res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN || '*');
@@ -68,7 +68,7 @@ Formato JSON:
   return `${base}
 Acción: prueba de conexión.
 Formato JSON:
-{"mensaje":"IA operativa con Gemini","uso":"Transformar frases, sugerir preguntas, evaluar role play, auditar planes y mejorar registros."}`;
+{"mensaje":"IA operativa con Groq","uso":"Transformar frases, sugerir preguntas, evaluar role play, auditar planes y mejorar registros."}`;
 }
 
 function parseJsonText(text) {
@@ -82,48 +82,47 @@ function parseJsonText(text) {
   return { respuesta: cleaned || 'Sin respuesta interpretable.' };
 }
 
-function extractGeminiText(data) {
-  const parts = data?.candidates?.[0]?.content?.parts || [];
-  return parts.map(p => p.text || '').join('\n').trim();
-}
-
 export default async function handler(req, res) {
   cors(res);
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Usa POST.' });
 
   try {
-    if (!process.env.GEMINI_API_KEY) {
-      return res.status(500).json({ error: 'Falta GEMINI_API_KEY en variables de entorno de Vercel.' });
+    if (!process.env.GROQ_API_KEY) {
+      return res.status(500).json({ error: 'Falta GROQ_API_KEY en variables de entorno de Vercel.' });
     }
 
     const body = req.body || {};
     const { action = 'test', role = 'profesional', ...payload } = body;
     const prompt = buildPrompt(action, role, payload);
-    const model = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
-    const url = `${GEMINI_API_BASE}/${encodeURIComponent(model)}:generateContent?key=${process.env.GEMINI_API_KEY}`;
+    const model = process.env.GROQ_MODEL || 'llama-3.1-8b-instant';
 
-    const response = await fetch(url, {
+    const response = await fetch(GROQ_API_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`
+      },
       body: JSON.stringify({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: {
-          temperature: 0.2,
-          maxOutputTokens: 900,
-          responseMimeType: 'application/json'
-        }
+        model,
+        messages: [
+          { role: 'system', content: 'Responde solo JSON válido. Sin markdown.' },
+          { role: 'user', content: prompt }
+        ],
+        temperature: 0.2,
+        max_tokens: 900,
+        response_format: { type: 'json_object' }
       })
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      const msg = data?.error?.message || 'Error desde Gemini API.';
+      const msg = data?.error?.message || data?.error || 'Error desde Groq API.';
       return res.status(response.status).json({ error: msg });
     }
 
-    const text = extractGeminiText(data);
+    const text = data?.choices?.[0]?.message?.content || '';
     return res.status(200).json({ ok: true, ...parseJsonText(text) });
   } catch (error) {
     return res.status(500).json({ error: error.message || 'Error inesperado.' });
