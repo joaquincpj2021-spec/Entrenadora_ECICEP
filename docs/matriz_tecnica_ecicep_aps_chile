@@ -1,0 +1,121 @@
+# Matriz técnica ECICEP APS Chile
+
+Documento interno integrado en la app para orientar entrenamiento ECICEP en APS Chile. No diagnostica, no confirma GES, no indica tratamientos y no reemplaza el juicio clínico ni los protocolos vigentes.
+
+## Eje ECICEP
+
+- Razonamiento: persona y contexto → condición clínica/programa relacionado → barrera/facilitador → prioridad compartida → opciones y riesgo → acuerdo posible → registro trazable → continuidad
+
+- Secuencia clínica: prepararse → abrir → explorar → priorizar → deliberar → acordar → registrar → decidir continuidad
+
+- Movimientos conversacionales: vincular, enfocar, evocar, planificar
+
+## Programas APS integrados
+
+### pscv_dm2_hta_disli
+
+**Activar si:** DM2, HTA, dislipidemia, riesgo cardiovascular, urgencia por presión/glicemia, polifarmacia cardiovascular
+
+**Revisar:** controles PSCV, fármacos y retiro, alimentación, actividad física, tabaco/alcohol, automanejo, exámenes/compensación según rol, pie diabético si corresponde según alcance, salud oral/periodoncia si aplica, barreras de continuidad
+
+**Preguntas:** ¿Cómo le está yendo en la práctica con sus controles y medicamentos? | ¿Qué parte del cuidado cardiovascular se le hace más difícil? | ¿Qué cambio pequeño sería posible esta semana?
+
+### era_epoc_asma
+
+**Activar si:** asma, EPOC, síntomas respiratorios crónicos, uso de inhaladores, exacerbación, consulta respiratoria o urgencia
+
+**Revisar:** control ERA/respiratorio, técnica o uso de inhaladores según rol, síntomas y funcionalidad, tabaco/humo domiciliario, vacunas, plan de acción o señales de alarma, barreras de acceso
+
+**Preguntas:** ¿Qué hace cuando se siente más obstruido/a o con falta de aire? | ¿Qué le complica del uso de inhaladores o controles?
+
+### salud_mental
+
+**Activar si:** depresión, ansiedad, ánimo bajo, insomnio, estrés, duelo, consumo de alcohol/drogas, riesgo psicosocial
+
+**Revisar:** control SM si corresponde, tratamiento farmacológico/psicosocial, red de apoyo, funcionalidad, riesgo suicida o violencia si aparece, barreras para continuidad
+
+**Preguntas:** ¿Cómo ha estado su ánimo y energía últimamente? | ¿Qué le ayuda cuando se siente sobrepasado/a? | ¿Hay algo que le preocupe de su seguridad o la de alguien más?
+
+### adulto_mayor_empam_funcionalidad
+
+**Activar si:** 65+, EMPAM pendiente, fragilidad, caídas, deterioro funcional, dolor, polifarmacia, baja red
+
+**Revisar:** EMPAM si corresponde, funcionalidad, caídas/miedo a caer, cognición/ánimo si corresponde, red y cuidador/a, medicamentos, vacunas, participación social
+
+**Preguntas:** ¿Qué actividad diaria se le ha hecho más difícil? | ¿Ha tenido caídas o miedo a caerse? | ¿Quién le apoya cuando algo se complica?
+
+### dependencia_padds_cuidador
+
+**Activar si:** dependencia severa, PDS, cuidador/a, visita domiciliaria, sobrecarga, dificultad de traslado
+
+**Revisar:** plan persona usuaria y cuidador/a si corresponde, carga de cuidado, red de apoyo, medicamentos/indicaciones, controles pendientes, riesgo social, atención domiciliaria/seguimiento
+
+**Preguntas:** ¿Qué parte del cuidado se le está haciendo más pesada? | ¿Quién más puede apoyar, aunque sea parcialmente? | ¿Qué indicación está más confusa o difícil de sostener?
+
+### preventivo_mujer_adulto
+
+**Activar si:** PAP, mamografía, EMPA/EMPAM, vacunas, neumococo/influenza, tabaquismo, alcohol
+
+**Revisar:** prestaciones preventivas pertinentes según edad/sexo/riesgo, motivos de rechazo o postergación, acceso y continuidad, riesgo comunicado con permiso
+
+**Preguntas:** ¿Hay algún examen o vacuna que le preocupe o prefiera conversar antes? | ¿Qué hizo difícil concretarlo?
+
+### farmacia_fofar_retiro
+
+**Activar si:** retiro de medicamentos, stock percibido, olvido, confusión de dosis, polifarmacia, FOFAR, recetas activas
+
+**Revisar:** recetas activas, retiro real, comprensión de horarios, efectos adversos percibidos, apoyo/pastillero/alarma, barrera de acceso
+
+**Preguntas:** ¿Cuál medicamento toma siempre y cuál le cuesta más? | ¿El problema es recordarlo, retirarlo, entenderlo o tolerarlo?
+
+### some_acceso_continuidad
+
+**Activar si:** agenda, no consigue hora, inasistencia, derivación interna, seguimiento TENS, control pendiente
+
+**Revisar:** prestación requerida, fecha tentativa, profesional/estamento responsable, barrera de acceso, alcance de SOME
+
+**Preguntas:** ¿Qué le hizo difícil pedir o asistir a la hora? | ¿Qué dato necesita SOME para agendar correctamente?
+
+## GES
+Alerta de derecho y continuidad; no confirmar garantía automáticamente. Si una condición puede estar en GES, sugerir verificar diagnóstico, criterios, edad, etapa, registro local y garantía vigente.
+
+## COMGES / IAAPS / REM
+Contexto de gestión y continuidad; nunca reemplaza la conversación clínica. La meta puede recordar una prestación o registro pendiente, pero el plan se decide por pertinencia clínica, riesgo, contexto y prioridad de la persona.
+
+## CIE-10 orientativo
+
+- E10-E14: Diabetes mellitus
+
+- I10-I15: Hipertensión arterial
+
+- E78: Trastornos del metabolismo de lipoproteínas/dislipidemias
+
+- J40-J47: Enfermedades crónicas de vías respiratorias inferiores
+
+- F00-F99: Trastornos mentales y del comportamiento
+
+- Z00-Z99: Factores que influyen en estado de salud/contacto con servicios
+
+- R00-R99: Síntomas/signos no clasificados en otra parte
+
+## NANDA orientativo
+- Autogestión ineficaz de la salud
+- Riesgo de autogestión ineficaz de la salud
+- Preparación para mejorar la autogestión de la salud
+- Conocimientos deficientes
+- Riesgo de caídas
+- Deterioro de la movilidad física
+- Sobrecarga del rol de cuidador/a
+- Afrontamiento ineficaz
+- Conductas de salud propensas a riesgo
+- Aislamiento social o baja participación social según valoración
+
+## Plan de cuidado: mínimos
+- problema priorizado
+- objetivo comprensible
+- actividad concreta
+- responsable(s)
+- fecha/forma de seguimiento
+- barrera considerada
+- facilitador o apoyo
+- estado/causa si parcial o no cumple
