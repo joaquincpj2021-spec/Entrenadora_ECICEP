@@ -33,28 +33,43 @@ function buildPrompt(action, role, payload) {
   const base = basePrompt(role);
 
   if (action === 'aspect_analyze') return `${base}
-Tarea: analizar evaluación inicial de un aspecto del plan de cuidado ECICEP.
+Tarea: fortalecer la anamnesis clínica de un aspecto del plan de cuidado ECICEP.
+
+IMPORTANTE:
+- Tu prioridad NO es cerrar un plan rápidamente.
+- Tu prioridad es ayudar al equipo a comprender mejor el aspecto evaluado.
+- No selecciones barreras frecuentes si no aparecen en el texto.
+- No inventes facilitadores.
+- No inventes ambivalencia.
+- Si el texto es ambiguo, declara "barrera declarada pero inespecífica" y formula la mejor pregunta para aclararla.
+- Distingue explícitamente entre: lo que ya sabemos, lo que NO debemos asumir, hipótesis que hay que aclarar y lo que falta preguntar.
+- Entrega siempre UNA "siguiente mejor pregunta", cálida, respetuosa y concreta.
+- Entrega máximo 5 preguntas para profundizar, ordenadas por utilidad clínica.
+- Indica si la información es suficiente, parcial o insuficiente para construir plan.
+- Si no hay información suficiente, NO propongas problema/objetivo/actividad cerrados; solo posibles focos futuros condicionados a aclaración.
+
 Aspecto: ${payload.aspect?.title}
 Orientación del aspecto: ${payload.aspect?.purpose}
 Preguntas esenciales: ${(payload.aspect?.essential || []).join(' | ')}
-Barreras frecuentes: ${(payload.aspect?.barriers || []).join(' | ')}
+Barreras frecuentes como ayuda de memoria, no como diagnóstico automático: ${(payload.aspect?.barriers || []).join(' | ')}
 Automanejo posible: ${(payload.aspect?.selfcare || []).join(' | ')}
 Riesgos a comunicar: ${payload.aspect?.risks}
-Notas del profesional: ${payload.notes || ''}
+Texto escrito por el profesional: ${payload.notes || ''}
 
 Devuelve JSON:
 {
- "informacion_clara":["..."],
- "barreras":[{"barrera":"...","de_que":"...","evidencia_en_el_texto":"..."}],
- "facilitadores":[{"facilitador":"...","para_que_sirve":"..."}],
- "ambivalencia":{"existe":true,"descripcion":"...","entre_que_tensiones":"..."},
- "informacion_faltante":["..."],
- "preguntas_para_enriquecer":["..."],
+ "lo_que_ya_sabemos":["solo información explícita o muy razonable desde el texto"],
+ "no_asumir_todavia":["cosas que NO se pueden concluir con el texto disponible"],
+ "barrera_principal":{"descripcion":"...","de_que":"...","evidencia_en_el_texto":"...","nivel_de_claridad":"alta|media|baja|inespecífica"},
+ "hipotesis_barreras":["posibles explicaciones a aclarar, no afirmarlas como hechos"],
+ "siguiente_mejor_pregunta":"pregunta única, cálida y concreta para continuar la anamnesis",
+ "preguntas_para_profundizar":["máximo 5 preguntas útiles, no genéricas"],
+ "suficiencia_plan":{"estado":"suficiente|parcial|insuficiente","razon":"...","que_falta_antes_de_cerrar":"..."},
  "texto_pulido":{"observacion":"...","barrera":"...","activos_facilitadores":"...","ambivalencia":"...","informacion_pendiente":"..."},
  "automanejo":{"requiere_fortalecer":true,"que_fortalecer":["..."],"como_conversarlo":"..."},
  "riesgos":{"requiere_comunicar":true,"riesgos_a_comunicar":["..."],"forma_clara_de_comunicar":"..."},
- "potenciales_planes":[{"foco":"...","problema":"...","objetivo":"...","actividad":"...","responsable":"...","seguimiento":"..."}],
- "alerta":"..."
+ "potenciales_planes":[{"foco":"...","condicion_para_usarlo":"qué habría que aclarar o confirmar antes","problema":"...","objetivo":"...","actividad":"...","responsable":"...","seguimiento":"..."}],
+ "alerta":"si no hay alerta, escribir 'Sin alerta identificada con la información disponible'"
 }`;
 
   if (action === 'followup_analyze') return `${base}
