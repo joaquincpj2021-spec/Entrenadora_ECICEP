@@ -177,7 +177,7 @@ header:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;bac
 @media(max-width:920px){.themebar-inner{display:block}.theme-select{width:100%;margin-top:6px}.theme-note{display:block;margin-top:6px}.theme-preview{margin-top:8px}}
 
 
-/* v3.2 corrections: typography, header, role route, training and barrier matrix */
+/* v3.5 corrections: typography, header, role route, training and barrier matrix */
 body{font-family:"Nunito Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:.01em}
 h1,h2,h3,b,.btn,button,label{letter-spacing:-.01em}
 header{padding:22px 14px}
@@ -219,7 +219,7 @@ header{padding:22px 14px}
 }
 
 
-/* v3.2 dynamic simulator */
+/* v3.5 dynamic simulator */
 .sim-config{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
 .sim-config .field{margin:0}
 .sim-decision{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:14px;margin:14px 0}
@@ -230,6 +230,88 @@ header{padding:22px 14px}
 .sim-tag{display:inline-block;border-radius:999px;padding:6px 10px;background:var(--celeste);color:var(--azul2);font-weight:900;font-size:.85rem;margin:2px}
 #simMotivational{border-left:8px solid var(--amarillo)}
 @media(max-width:920px){.sim-config,.option-grid{grid-template-columns:1fr!important}}
+
+
+/* v3.5 guided training cases */
+.guided-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
+.guided-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
+.guided-head h3{margin:0;color:var(--azul2)}
+.guided-badge{display:inline-block;border-radius:999px;background:var(--celeste);color:var(--azul2);padding:6px 10px;font-weight:900;font-size:.84rem;margin:2px}
+.guided-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.guided-card{background:#f8fbfd;border:1px solid var(--linea);border-radius:16px;padding:12px}
+.guided-card b{display:block;color:var(--azul2);margin-bottom:6px}
+.guided-card ul{margin:6px 0 0 18px;padding:0}
+.guided-case-text{background:var(--celeste);border-left:7px solid var(--azul);border-radius:16px;padding:12px;white-space:pre-wrap;margin:10px 0}
+.guided-warning{background:var(--amarillobg);border-left:7px solid var(--amarillo);border-radius:16px;padding:12px}
+.guided-good{background:var(--verdebg);border-left:7px solid var(--verde);border-radius:16px;padding:12px}
+.guided-mi{background:var(--moradobg);border-left:7px solid var(--morado);border-radius:16px;padding:12px}
+@media(max-width:920px){.guided-head,.guided-grid{grid-template-columns:1fr!important}}
+
+
+/* v3.5 interactive ECICEP study guides */
+.study-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
+.study-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
+.study-head h3{margin:0;color:var(--azul2)}
+.study-badge{display:inline-block;border-radius:999px;background:var(--celeste);color:var(--azul2);padding:6px 10px;font-weight:900;font-size:.84rem;margin:2px}
+.study-case-text{background:var(--celeste);border-left:7px solid var(--azul);border-radius:16px;padding:12px;white-space:pre-wrap;margin:10px 0}
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.study-card{background:#f8fbfd;border:1px solid var(--linea);border-radius:16px;padding:12px}
+.study-card b{display:block;color:var(--azul2);margin-bottom:6px}
+.study-card ul{margin:6px 0 0 18px;padding:0}
+.study-decision{background:#fff;border:2px solid var(--moradobg);border-left:7px solid var(--morado);border-radius:18px;padding:14px;margin:12px 0}
+.study-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.study-option{border:1px solid var(--linea);background:#fff;border-radius:16px;padding:12px;text-align:left;cursor:pointer;color:var(--azul2);font-weight:800}
+.study-option:hover{border-color:var(--morado);background:var(--moradobg)}
+.study-option.active{background:var(--moradobg);border-color:var(--morado);box-shadow:0 0 0 3px rgba(89,86,200,.12)}
+.study-feedback{background:var(--verdebg);border-left:7px solid var(--verde);border-radius:16px;padding:12px;margin-top:12px}
+.study-warning{background:var(--amarillobg);border-left:7px solid var(--amarillo);border-radius:16px;padding:12px}
+.study-mi{background:var(--moradobg);border-left:7px solid var(--morado);border-radius:16px;padding:12px}
+.study-register{background:#fbfdff;border-left:7px solid var(--azul);border-radius:16px;padding:12px;white-space:pre-wrap}
+@media(max-width:920px){.study-head,.study-grid,.study-options{grid-template-columns:1fr!important}}
+
+
+/* v3.5 screen architecture */
+body.profile-mode main, body.profile-mode .app-topbar{display:none!important}
+body.app-mode header, body.app-mode .profile-screen{display:none!important}
+.rolebar, nav{display:none!important}
+.profile-screen{max-width:1180px;margin:20px auto;padding:0 14px}
+.profile-wrap{background:#fff;border:1px solid var(--linea);border-radius:26px;box-shadow:var(--sombra);padding:24px}
+.profile-intro{max-width:760px}
+.profile-kicker{display:inline-block;background:var(--celeste);color:var(--azul2);border-radius:999px;padding:6px 10px;font-weight:900;font-size:.85rem;margin-bottom:8px}
+.profile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+.profile-card{border:1px solid var(--linea);background:#fff;border-radius:22px;padding:18px;text-align:left;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,.04);min-height:160px}
+.profile-card b{display:block;color:var(--azul2);font-size:1.08rem;margin-bottom:8px}
+.profile-card span{color:var(--muted);line-height:1.45}
+.profile-card:hover{border-color:var(--azul);background:var(--celeste);transform:translateY(-1px)}
+.app-topbar{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+.app-topbar-inner{max-width:1180px;margin:auto;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.app-brand b{display:block;color:var(--azul2);font-size:1rem}
+.app-brand span{display:block;color:var(--muted);font-size:.84rem}
+.app-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.top-btn,.module-select,.compact-theme{border:1px solid var(--linea);border-radius:999px;background:#fff;color:var(--azul2);font-weight:900;padding:9px 12px;min-height:40px}
+.module-select{min-width:240px}
+.compact-theme{min-width:190px}
+.module-back{margin-bottom:12px}
+.module-back button{border:1px solid var(--linea);background:var(--celeste);color:var(--azul2);font-weight:900;border-radius:999px;padding:9px 12px;cursor:pointer}
+.profile-home-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.profile-route-compact{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:12px}
+.route-pill{background:var(--celeste);border:1px solid var(--linea);border-left:5px solid var(--verde);border-radius:16px;padding:10px}
+.route-pill b{display:block;color:var(--azul2);font-size:.92rem}
+.route-pill span{display:block;color:var(--muted);font-size:.82rem;line-height:1.25;margin-top:4px}
+.profile-action-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.action-card{border:1px solid var(--linea);background:#fff;border-radius:20px;padding:16px;min-height:120px;text-align:left;cursor:pointer}
+.action-card b{display:block;color:var(--azul2);margin-bottom:6px;font-size:1.02rem}
+.action-card span{color:var(--muted);line-height:1.35}
+.action-card:hover{border-color:var(--azul);background:var(--celeste)}
+@media(max-width:920px){
+ .profile-wrap{padding:16px;border-radius:20px}
+ .profile-grid,.profile-route-compact,.profile-action-grid{grid-template-columns:1fr!important}
+ .app-topbar-inner{display:block}
+ .app-actions{justify-content:flex-start;margin-top:8px}
+ .module-select,.compact-theme{width:100%;min-width:0}
+ .top-btn{flex:1}
+ .profile-home-head{display:block}
+}
 
 @media print{nav,.search,.rolebar,.btn,.question button{display:none}body{background:#fff}.section{display:block}.card{box-shadow:none;break-inside:avoid}}
 </style>
@@ -255,6 +337,52 @@ header{padding:22px 14px}
     </div>
   </div>
 </header>
+<div id="profileScreen" class="profile-screen">
+  <div class="profile-wrap">
+    <div class="profile-intro">
+      <span class="profile-kicker">Primer paso</span>
+      <h2>Selecciona cómo quieres entrenar</h2>
+      <p>La app ajustará ruta, accesos y énfasis según el rol. Después entrarás a un inicio limpio con módulos específicos para ese perfil.</p>
+    </div>
+    <div class="profile-grid">
+      <button class="profile-card" onclick="chooseProfile('profesional')">
+        <b>Profesional clínico de box</b>
+        <span>Ingreso, control, plan de cuidado, decisiones compartidas y acuerdos posibles.</span>
+      </button>
+      <button class="profile-card" onclick="chooseProfile('tens')">
+        <b>TENS / seguimiento</b>
+        <span>Seguimiento a distancia, barreras, alertas, refuerzo y continuidad.</span>
+      </button>
+      <button class="profile-card" onclick="chooseProfile('gestor')">
+        <b>Gestor/a ECICEP</b>
+        <span>Casos complejos, barreras persistentes, coordinación y reevaluación.</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="appTopbar" class="app-topbar hidden">
+  <div class="app-topbar-inner">
+    <div class="app-brand">
+      <b>Entrenamiento ECICEP</b>
+      <span id="compactProfile">Perfil no seleccionado</span>
+    </div>
+    <div class="app-actions">
+      <button class="top-btn" onclick="go('inicio')">Inicio</button>
+      <select id="moduleSelect" class="module-select" onchange="go(this.value)"></select>
+      <button class="top-btn" onclick="showProfileScreen()">Cambiar perfil</button>
+      <select id="appThemeSelect" class="theme-select compact-theme" onchange="setTheme(this.value)">
+        <option value="sereno">Sereno profesional</option>
+        <option value="calido">Cuidado cálido</option>
+        <option value="litoral">Litoral claro</option>
+        <option value="lavanda">Lavanda sobria</option>
+        <option value="menta">Menta clínica</option>
+        <option value="contraste">Contraste accesible</option>
+      </select>
+    </div>
+  </div>
+</div>
+
 <div class="rolebar"><div class="rolebar-inner"><div class="role-label">Estoy entrenando como:</div><div class="role-pills"><button class="role-pill active" data-role="profesional" onclick="setRole('profesional')">Profesional clínico de box</button><button class="role-pill" data-role="tens" onclick="setRole('tens')">TENS / seguimiento</button><button class="role-pill" data-role="gestor" onclick="setRole('gestor')">Gestor/a ECICEP</button></div></div><div id="roleNow" class="role-now"></div>
     <div id="roleRoute" class="role-route"></div></div>
 
@@ -264,35 +392,29 @@ header{padding:22px 14px}
 <main>
 <section id="inicio" class="section active">
   <div class="grid block">
-    <div class="card s12">
-      <h2>Cómo usar la app</h2>
-      <p class="lead">Usa esta herramienta para entrenar entrevistas ECICEP, ordenar la anamnesis y construir acuerdos posibles con la persona. No reemplaza el juicio clínico: ayuda a preguntar mejor, registrar mejor y evitar planes impuestos.</p>
-      <div class="home-index">
-        <div class="index-card"><b>1. Elige tu rol</b><span>La ruta y las prácticas se ajustan a tu función.</span></div>
-        <div class="index-card"><b>2. Ubica el momento</b><span>Ingreso, control, seguimiento, gestión o acuerdo.</span></div>
-        <div class="index-card"><b>3. Practica la entrevista</b><span>Aprende, revisa ejemplos y entrena con casos simulados.</span></div>
-        <div class="index-card"><b>4. Ordena información</b><span>Separa observaciones, barreras, facilitadores, ambivalencias y razones para el cambio.</span></div>
-        <div class="index-card"><b>5. Decide con cuidado</b><span>Antes de cerrar plan, revisa si hay información suficiente y si el acuerdo es posible.</span></div>
+    <div class="card s12 profile-home-card">
+      <div class="profile-home-head">
+        <div>
+          <span class="profile-kicker">Inicio del perfil</span>
+          <h2 id="profileHomeTitle">Profesional clínico de box</h2>
+          <p id="profileHomeLead" class="lead"></p>
+        </div>
+        <button class="btn light" onclick="showProfileScreen()">Cambiar perfil</button>
       </div>
-      <div class="focus">Uso recomendado: primero conversa y comprende; luego prioriza con la persona; finalmente registra acuerdos claros, responsables y seguimiento. ECICEP busca continuidad, trazabilidad y cuidado posible en la vida real.</div>
+      <div id="profileRouteCompact" class="profile-route-compact"></div>
     </div>
-    <div class="card s12 quick-actions">
-      <h2>¿Qué necesitas hacer ahora?</h2>
-      <div class="quick-grid">
-        <button class="quick" onclick="go('entrenar');document.getElementById('trainingModuleSelect').value='ingreso';renderTrainingModule()">Entrenar ingreso integral</button>
-        <button class="quick" onclick="go('plan9')">Ordenar por 9 aspectos</button>
-        <button class="quick" onclick="go('seguimiento')">Practicar seguimiento</button>
-        <button class="quick" onclick="go('frases')">Transformar indicación en acuerdo</button>
-        <button class="quick" onclick="go('auditoria')">Auditar si el plan parece impuesto</button>
-      </div>
+    <div class="card s12">
+      <h2>¿Qué quieres hacer ahora?</h2>
+      <p class="small">Elige una pantalla. Cada módulo se abre limpio, con botón para volver al inicio del perfil.</p>
+      <div id="profileActionGrid" class="profile-action-grid"></div>
     </div>
   </div>
 </section>
-<section id="entrenar"<section id="entrenar" class="section">
+<section id="entrenar" class="section">
   <div class="training-hero block">
     <div>
       <h2>Entrenamiento guiado</h2>
-      <p class="lead">Aprende la lógica, revisa un ejemplo, conversa con un caso simulado y ordena lo conversado. La meta es entrenar criterio clínico conversacional ECICEP.</p>
+      <p class="lead">Primero aprende la lógica, luego revisa un ejemplo, después estudia casos específicos y finalmente practica con un caso aleatorio. La meta es entrenar criterio clínico conversacional ECICEP.</p>
     </div>
     <div class="field">
       <label>¿Qué quieres entrenar?</label>
@@ -325,13 +447,27 @@ header{padding:22px 14px}
     </div>
 
     <div class="training-section block full">
-      <span class="training-kicker">Capa 3 · Simulador dinámico de entrevista</span>
-      <h2>Entrenar decisiones conversacionales</h2>
-      <p class="lead">Genera un caso APS/CESFAM y avanza por turnos. La IA responde como persona usuaria, enseña por qué una pregunta ayuda o limita y activa estilo motivacional cuando aparece ambivalencia, resistencia o baja posibilidad.</p>
+      <span class="training-kicker">Capa 3 · Estudio guiado con ejemplos prácticos</span>
+      <h2>Estudiar situaciones ECICEP frecuentes</h2>
+      <p class="lead">Esta capa es para estudiar qué hacer y por qué. Cada ficha tiene un caso breve, una decisión interactiva, retroalimentación inmediata, preguntas útiles, errores a evitar, microlección ECICEP, ordenamiento y registro sugerido.</p>
+      <div class="field">
+        <label>¿Qué situación quieres estudiar?</label>
+        <select id="studyCaseSelect" onchange="renderStudyCase()"></select>
+      </div>
+      <div id="studyCaseOut" class="study-case"></div>
+      <div class="copyline">
+        <button class="btn light" onclick="loadStudyCaseToPractice()">Usar este caso en Capa 4</button>
+      </div>
+    </div>
+
+    <div class="training-section block full">
+      <span class="training-kicker">Capa 4 · Caso aleatorio y práctica con retroalimentación</span>
+      <h2>Practicar con IA</h2>
+      <p class="lead">Aquí sí puedes generar un caso aleatorio de APS Chile, ordenarlo en casillas y recibir retroalimentación formativa. La IA no busca castigarte: te muestra qué hiciste bien, qué faltó explorar y cómo mejorar el registro.</p>
 
       <div class="sim-config">
         <div class="field"><label>Tipo de caso</label>
-          <select id="simType">
+          <select id="randomType">
             <option value="ingreso">Ingreso integral</option>
             <option value="control">Control integral</option>
             <option value="seguimiento">Seguimiento a distancia</option>
@@ -339,20 +475,20 @@ header{padding:22px 14px}
           </select>
         </div>
         <div class="field"><label>Dificultad</label>
-          <select id="simDifficulty">
+          <select id="randomDifficulty">
             <option value="basica">Básica</option>
             <option value="intermedia" selected>Intermedia</option>
             <option value="avanzada">Avanzada</option>
           </select>
         </div>
         <div class="field"><label>Foco principal</label>
-          <select id="simFocus">
+          <select id="randomFocus">
             <option value="aleatorio">Aleatorio APS Chile</option>
             <option value="inasistencia">Inasistencia / pérdida de continuidad</option>
-            <option value="urgencia">Uso de urgencia o descompensación HTA/DM</option>
+            <option value="urgencia">Urgencia o descompensación HTA/DM</option>
             <option value="alta">Alta hospitalaria reciente</option>
             <option value="farmacos">Fármacos / adherencia irregular</option>
-            <option value="nutricion">Alimentación / rechazo o barrera nutricional</option>
+            <option value="nutricion">Alimentación / barrera nutricional</option>
             <option value="actividad">Actividad física, dolor o miedo a caer</option>
             <option value="cuidador">PDS / cuidador/a sobrecargado/a</option>
             <option value="social">Barrera social, traslado o baja red</option>
@@ -360,45 +496,10 @@ header{padding:22px 14px}
           </select>
         </div>
       </div>
+      <button class="btn aiBtn" onclick="aiGenerateRandomPracticeCase()">Generar caso aleatorio</button>
+      <div id="randomCaseOut" class="panel-output">Aún no se genera caso aleatorio.</div>
 
-      <div class="copyline">
-        <button class="btn aiBtn" onclick="aiStartDynamicSimulation()">Iniciar simulación</button>
-        <button class="btn light" onclick="resetSimulation()">Reiniciar</button>
-      </div>
-
-      <div id="simObjective" class="focus">Configura el caso e inicia la simulación.</div>
-      <div id="simCase" class="example-box">Aún no hay caso.</div>
-
-      <div id="simDecisionPanel" class="sim-decision hidden">
-        <h3>¿Qué harías ahora?</h3>
-        <div id="simOptions" class="option-grid"></div>
-        <div class="field" style="margin-top:12px">
-          <label>O escribe tu propia pregunta o acción</label>
-          <textarea id="simCustomQuestion" class="midtext" placeholder="Ej.: ¿Qué es lo que más le preocupa de su salud en este momento?"></textarea>
-        </div>
-        <button class="btn aiBtn" onclick="aiAdvanceSimulation()">Avanzar entrevista</button>
-      </div>
-
-      <div id="simResponse" class="panel-output">Respuesta simulada de la persona aparecerá aquí.</div>
-      <div id="simFeedback" class="panel-output">Retroalimentación ECICEP aparecerá aquí.</div>
-      <div id="simMotivational" class="warn hidden"></div>
-
-      <details class="collapsible">
-        <summary>Ver conversación simulada</summary>
-        <div id="simTranscript" class="inner">Aún no hay conversación.</div>
-      </details>
-
-      <div class="copyline">
-        <button class="btn" onclick="aiTransferSimulationToPractice()">Pasar conversación a Capa 4</button>
-      </div>
-    </div>
-
-    <div class="training-section block full">
-      <span class="training-kicker">Capa 4 · Ordenar lo conversado y recibir retroalimentación</span>
-      <h2>Bitácora de aprendizaje</h2>
-      <p class="lead">Esta sección se puede llenar automáticamente desde la simulación. Luego puedes editarla y pedir retroalimentación. La idea es aprender a convertir una conversación en anamnesis útil, barreras, facilitadores, ambivalencias, problemas potenciales y acuerdos posibles.</p>
-
-      <div class="field"><label>Observaciones de toda la anamnesis</label><textarea id="practiceRaw" class="midtext" placeholder="Pega o escribe aquí la anamnesis/caso o usa 'Pasar conversación a Capa 4' desde la simulación."></textarea></div>
+      <div class="field"><label>Observaciones de toda la anamnesis</label><textarea id="practiceRaw" class="midtext" placeholder="Pega o escribe aquí la anamnesis/caso. Puedes usar un caso guiado o generar uno aleatorio."></textarea></div>
       <div class="practice-grid">
         <div class="field"><label>Barreras</label><textarea id="practiceBarriers"></textarea></div>
         <div class="field"><label>Facilitadores / activos</label><textarea id="practiceFacilitators"></textarea></div>
@@ -413,7 +514,7 @@ header{padding:22px 14px}
     </div>
   </div>
 </section>
-<section id="plan9"<section id="plan9"<section id="plan9" class="section">
+<section id="plan9" class="section">
   <div class="plan-step block narrow">
     <div class="step-head"><div class="step-num">1</div><h2>Seleccione el aspecto a explorar</h2></div>
     <p class="lead">Use esta sección como apoyo para el ingreso o control integral. Primero seleccione el aspecto; luego revise orientación, preguntas esenciales y barreras frecuentes como ayuda de memoria.</p>
@@ -487,8 +588,35 @@ header{padding:22px 14px}
 <script>
 const APP_DATA = {"roles": {"profesional": {"label": "Profesional clínico de box", "focus": "Rol profesional: preparar antecedentes, evaluar integralmente, priorizar con la persona, construir o ajustar el plan consensuado y dejar continuidad registrada.", "route": ["Preparar / retomar antecedentes", "Evaluar integralmente", "Priorizar con la persona", "Construir o ajustar plan", "Registrar y definir continuidad"], "scope": "Puede integrar evaluación clínica, priorizar con la persona, construir o ajustar el plan y definir seguimiento."}, "tens": {"label": "TENS / seguimiento", "focus": "Rol TENS/seguimiento: revisar acuerdos del plan, preguntar sin castigar, detectar barreras o alertas, reforzar comprensión y coordinar continuidad según flujo.", "route": ["Retomar acuerdo del plan", "Revisar resultado", "Detectar barrera o alerta", "Reforzar / reportar / coordinar", "Registrar próxima acción"], "scope": "No toma decisiones clínicas fuera de alcance; detecta, registra, orienta y reporta al equipo."}, "gestor": {"label": "Gestor/a ECICEP", "focus": "Rol gestor/a ECICEP: ordenar complejidad, barreras persistentes, responsables, coordinaciones, avances, pendientes y criterio de reevaluación.", "route": ["Definir foco crítico", "Identificar barreras persistentes", "Coordinar responsables y recursos", "Reevaluar avances y pendientes", "Mantener / intensificar / cerrar"], "scope": "Sostiene coordinación activa cuando el cuidado habitual no alcanza."}}, "aspects": {"controles": {"title": "Adherencia a controles", "purpose": "Explorar continuidad, asistencia, reprogramación, comprensión del propósito del control y barreras de acceso.", "essential": ["Vi que hay controles que han sido difíciles de mantener. ¿Qué se le ha hecho más complicado para venir o reprogramar?", "Para ordenar mejor la continuidad, ¿sabe cuál es el próximo control o cuál quedó pendiente?", "¿Qué apoyo concreto le ayudaría a no perder la continuidad de sus controles?"], "complete": ["¿Ha perdido controles por horario, traslado, cuidado de otras personas u otra situación de la vida diaria?", "Cuando necesita pedir o cambiar una hora, ¿qué parte del proceso se le hace más difícil?", "¿Depende de alguien para venir al CESFAM o para recordar sus controles?", "¿Qué horario, modalidad o apoyo haría más posible mantener el control?", "¿Qué sentido le hace este control para su salud o para su vida diaria?", "¿Hay alguna experiencia previa que le haya quitado ganas de venir?"], "barriers": ["Horario laboral", "Cuidado de hijos/as, nietos/as u otra persona", "Dificultad de traslado", "Costo de locomoción", "Dependencia de acompañante", "Dificultad para pedir hora", "Espera prolongada", "No recibe o no recuerda citación", "Confusión de fechas", "No entiende para qué sirve el control", "Cree que debe venir solo si se siente mal", "Demasiados controles", "Indicaciones contradictorias", "Cansancio del sistema", "Mala experiencia previa", "Se sintió retado/a o juzgado/a", "No se sintió escuchado/a", "No le acomoda el trato", "Vergüenza", "Desacuerdo con recomendaciones", "Preferencia por otro/a profesional", "Baja confianza en la atención", "Sobrecarga de cuidador/a"], "selfcare": ["saber cuándo consultar", "reprogramar", "usar recordatorios", "coordinar apoyo"], "risks": "La pérdida de continuidad puede dificultar ajustar el plan y detectar cambios a tiempo."}, "farmacos": {"title": "Tratamiento farmacológico", "purpose": "Explorar toma, retiro, comprensión, rutina, efectos, miedo, carga farmacológica y apoyos.", "essential": ["¿Cómo le ha ido realmente con los medicamentos en la vida diaria?", "¿Hay algún medicamento que se le haga más difícil tomar, retirar, entender o tolerar?", "¿Qué parte se le hace más difícil: recordarlo, tolerarlo, retirarlo o saber bien para qué sirve?"], "complete": ["¿Cuáles logra tomar todos los días y cuáles quedan más irregulares?", "¿Hay alguno que haya dejado de tomar o que tome solo a veces?", "¿En qué horario o día se le hace más difícil?", "¿Hay algún medicamento que le dé miedo, molestia o duda?", "¿Qué le ayuda cuando logra tomarlo bien?", "¿Usa o le serviría usar pastillero, alarma, calendario o apoyo de alguien?", "Cuando se le olvida, ¿qué suele pasar después?"], "barriers": ["Olvido", "Rutina irregular", "Turnos laborales", "Fin de semana sin rutina", "Efectos adversos o molestias", "Miedo a efectos", "Baja comprensión del propósito", "No sabe para qué sirve", "Suspende si se siente bien", "Polifarmacia", "Confusión de dosis u horarios", "Dificultad de retiro", "Falta de stock percibida", "No quiere depender de otra persona", "No tiene pastillero/alarma", "Dificultad visual o cognitiva", "Costo/traslado para retiro", "Indicaciones contradictorias", "Desconfianza del medicamento", "Vergüenza de reconocer que no lo toma"], "selfcare": ["comprender para qué sirve cada medicamento", "organizar horarios", "anticipar días difíciles", "usar recordatorios"], "risks": "La toma irregular puede dificultar el control sostenido y saber si el tratamiento está funcionando."}, "alimentacion": {"title": "Alimentación", "purpose": "Explorar presupuesto, compra, cocina, horarios, hábitos familiares, cultura alimentaria y posibilidad real.", "essential": ["Pensando en su alimentación real, ¿qué comida del día le cuesta más ordenar?", "¿Qué cambio pequeño podría ser posible sin gastar más?", "¿Quién compra o cocina en la casa, y cómo influye eso en lo que usted puede cambiar?"], "complete": ["¿Qué alimento o hábito siente que sí podría ajustar sin que sea imposible?", "¿Qué alimento o costumbre no está preparado/a para dejar todavía?", "¿Qué compra habitualmente y qué alternativas reales tiene disponibles?", "¿Qué parte de la alimentación le preocupa más hoy?", "¿Qué sería un avance pequeño y realista para usted?", "¿Hay horarios, ansiedad, cansancio o dinámica familiar que dificulten comer como quisiera?"], "barriers": ["Presupuesto limitado", "Compra familiar", "Otra persona cocina", "Horarios irregulares", "Turnos", "Cansancio", "Ansiedad o comer emocional", "Preferencias familiares", "No quiere dejar alimentos significativos", "Indicaciones poco realistas", "Acceso limitado a alimentos", "No sabe qué cambiar primero", "Cree que comer saludable es caro", "Falta de tiempo para cocinar", "Dificultad para planificar", "Colaciones/once difíciles de ordenar", "Comidas fuera de casa", "Baja comprensión", "Sensación de reto o juicio por peso", "Ambivalencia por gusto/costo/salud"], "selfcare": ["ordenar una comida", "elegir cambios pequeños", "adaptar a presupuesto", "planificar compras simples"], "risks": "Evitar mensajes de culpa. Priorizar cambios pequeños y sostenibles."}, "actividad": {"title": "Actividad física", "purpose": "Explorar movimiento seguro, dolor, miedo, funcionalidad, tiempo, gusto, apoyo y seguridad.", "essential": ["¿Qué tipo de movimiento se sentiría seguro y posible para usted en este momento?", "¿Qué le limita más: dolor, miedo, cansancio, tiempo, ánimo u otra dificultad?", "¿Qué versión más pequeña de actividad sí podría intentar sin sobrecargarse?"], "complete": ["¿Caminar le resulta posible o habría otra alternativa más cómoda o segura?", "¿Ha tenido caídas, mareos, dolor intenso, falta de aire u otro síntoma al moverse?", "¿Le acomoda más hacerlo solo/a, acompañado/a, en casa o cerca de su casa?", "¿En qué momento del día sería más realista intentarlo?", "Si un día no puede hacerlo, ¿qué plan B le haría sentido?", "¿Qué le gustaría recuperar o mejorar con más movimiento?"], "barriers": ["Dolor", "Miedo a caer", "Caídas previas", "Mareos", "Falta de aire", "Cansancio", "Baja confianza", "Falta de tiempo", "Inseguridad del barrio", "Clima", "Falta de compañía", "No le gusta caminar", "No sabe qué actividad es segura", "Problemas de movilidad", "Responsabilidades de cuidado", "Ánimo bajo", "Vergüenza", "Meta previa demasiado exigente", "Falta de plan B", "No ve beneficio inmediato"], "selfcare": ["partir pequeño", "reconocer señales para detenerse", "elegir actividad segura", "usar plan B"], "risks": "Si hay dolor intenso, disnea, mareos, caída o síntoma nuevo, no insistir sin evaluación clínica."}, "tabaco": {"title": "Tabaco", "purpose": "Explorar disposición, función del consumo, ambivalencia, intentos previos, apoyos y barreras.", "essential": ["¿Qué lugar ocupa el tabaco en su día a día?", "¿Qué le preocuparía si intentara cambiar algo del consumo?", "¿Hay alguna parte de este tema que sí le haría sentido conversar hoy?"], "complete": ["¿Qué siente que le aporta fumar en ciertos momentos?", "¿Qué le gustaría evitar o cuidar en relación con el tabaco?", "¿Ha intentado reducir o dejar antes? ¿Qué le ayudó y qué lo hizo difícil?", "¿Hay momentos, emociones o personas que aumenten el consumo?", "¿Qué tendría que pasar para que este tema fuera más importante para usted?", "¿Qué cambio muy pequeño, si quisiera, podría ser posible?"], "barriers": ["Baja importancia", "No quiere dejar ahora", "Fuma para calmar ansiedad/estrés", "Entorno fumador", "Miedo a abstinencia", "Intentos previos fallidos", "Cree que no podrá", "Aumento de consumo en conflictos", "Consumo asociado a rutina", "Falta de apoyo", "Temor a subir de peso", "Normalización familiar", "Vergüenza de hablar del tema", "No desea tratamiento, pero acepta conversar", "Ambivalencia: calma ahora vs daño futuro"], "selfcare": ["identificar gatillantes", "reconocer momentos de consumo", "definir conversación futura"], "risks": "Comunicar riesgos sin amenaza; mantener puerta abierta si no quiere cambiar ahora."}, "alcohol": {"title": "Alcohol", "purpose": "Explorar patrón, contexto, riesgos, minimización, disposición, daño percibido y apoyos.", "essential": ["¿En qué momentos suele aparecer el consumo de alcohol?", "¿Ha notado alguna consecuencia, preocupación o comentario de alguien cercano sobre el consumo?", "¿Qué parte de este tema le haría sentido revisar sin sentirse juzgado/a?"], "complete": ["En una semana habitual, ¿cómo describiría su consumo?", "¿Hay días en que toma más de lo que había pensado?", "¿Qué gana y qué pierde con la forma actual de consumo?", "¿Hay situaciones, emociones o reuniones que lo hagan más difícil de manejar?", "¿Qué cambio pequeño sería posible si usted decidiera probar algo distinto?", "¿Qué apoyo necesitaría para conversar esto con tranquilidad?"], "barriers": ["Baja percepción de riesgo", "Normalización social/familiar", "Presión de pares", "Consumo de fin de semana", "Consumo para regular emociones", "Minimización", "Vergüenza", "No identifica cantidad", "Dificultad para poner límites", "Consumo en reuniones", "Problemas familiares asociados", "Relación con sueño/ánimo", "No quiere ser juzgado/a", "No desea cambiar, pero acepta conversar", "Ambivalencia: disfrute/relajo vs consecuencias"], "selfcare": ["reconocer patrón", "identificar contexto de riesgo", "definir límites si acepta"], "risks": "Abordar sin juicio. Si hay señales de riesgo, coordinar evaluación según flujo local."}, "inmunizaciones": {"title": "Inmunizaciones", "purpose": "Explorar vacunas pendientes, dudas, temores, acceso y experiencias previas.", "essential": ["¿Tiene alguna duda, temor o experiencia previa que le preocupe sobre las vacunas?", "¿Sabe si tiene alguna vacuna pendiente o le gustaría que lo revisemos?", "¿Qué información o apoyo le facilitaría decidir y ponerse al día si corresponde?"], "complete": ["¿Qué ha escuchado sobre esta vacuna que le genere dudas?", "¿Ha tenido alguna reacción o experiencia que le preocupe?", "¿Qué necesitaría saber para decidir con más tranquilidad?", "¿Se le hace difícil venir cuando hay campañas o llamados de vacunación?", "¿Quiere que revisemos opciones para hacerlo más fácil?"], "barriers": ["Temor a efectos adversos", "Desinformación", "Experiencia previa negativa", "No sabe si tiene vacunas pendientes", "Baja percepción de riesgo", "Dificultad de acceso", "Horario de campaña", "Olvido", "Desconfianza", "Dudas por enfermedades o medicamentos", "Miedo a agujas", "Información contradictoria en redes", "Necesita decidir con familiar/cuidador/a", "No quiere sentirse presionado/a"], "selfcare": ["saber vacunas pendientes", "resolver dudas", "organizar asistencia"], "risks": "Comunicar beneficios/riesgos con claridad, sin presionar ni ridiculizar dudas."}, "participacion": {"title": "Participación en actividades de salud", "purpose": "Explorar talleres, grupos, vínculo comunitario, barreras de acceso, acompañamiento y motivación.", "essential": ["¿Le haría sentido participar en alguna actividad de salud, taller o grupo?", "¿Qué podría dificultarle asistir o mantenerse participando?", "¿Qué apoyo necesitaría para que participar fuera posible?"], "complete": ["¿Prefiere espacios individuales, grupales, presenciales o a distancia?", "¿Tiene dificultad de traslado, dolor, horarios o necesidad de ir acompañado/a?", "¿Qué tema le motivaría o le daría ganas de participar?", "¿Qué experiencia previa ha tenido con talleres o actividades del CESFAM?", "¿Qué tendría que pasar para que esto se sienta útil para usted?"], "barriers": ["Traslado", "Dolor al desplazarse", "Costo de locomoción", "Necesita acompañante", "Horario", "Vergüenza", "No conoce la actividad", "No ve utilidad", "Prefiere atención individual", "Miedo a grupos", "Responsabilidades de cuidado", "Baja motivación", "Ánimo bajo", "Experiencia previa poco útil", "No quiere exponerse", "Dificultad auditiva/visual", "Falta de cupo o información"], "selfcare": ["identificar actividad útil", "coordinar apoyo", "probar participación gradual"], "risks": "No indicar talleres como obligación. Debe tener sentido, posibilidad y acceso."}, "otros": {"title": "Otros aspectos a considerar", "purpose": "Explorar sueño, ánimo, dolor, funcionalidad, red, cuidador/a, seguridad, carga global y problemas no cubiertos.", "essential": ["¿Hay algo importante de su vida o salud que todavía no hemos mirado y que pueda estar afectando su cuidado?", "¿Qué le está quitando más energía o haciendo más difícil cuidarse?", "¿Hay alguien que le acompañe o le ayude cuando necesita apoyo?"], "complete": ["¿Cómo ha estado durmiendo últimamente?", "¿Cómo ha estado su ánimo o sus ganas de hacer las cosas?", "¿Tiene dolor, cansancio u otro síntoma que le limite?", "¿Hay alguien en la casa que dependa de usted o que usted cuide?", "¿Hay alguna situación familiar, económica o de seguridad que haga más difícil cuidarse?", "¿Hay algo que le dé vergüenza contar, pero que pueda influir en el plan?"], "barriers": ["Ánimo bajo", "Cansancio persistente", "Dolor", "Problemas de sueño", "Soledad", "Baja red", "Cuidador/a sobrecargado/a", "Problemas económicos", "Duelo o estrés familiar", "Dificultad de comprensión", "Baja alfabetización en salud", "Funcionalidad disminuida", "Miedo a depender", "Violencia o inseguridad", "Consumo problemático", "Síntomas que requieren evaluación", "Carga global de tratamientos", "Prioridades familiares por sobre autocuidado", "Vergüenza de contar la situación"], "selfcare": ["reconocer señales de alerta", "pedir apoyo", "priorizar un problema", "coordinar continuidad"], "risks": "Si aparece riesgo clínico/social o seguridad, coordinar evaluación y continuidad según rol/flujo."}}, "barrierActions": {"Comprensión": ["Explicar con lenguaje simple", "Verificar con palabras de la persona", "Usar ejemplo concreto", "Registrar qué entendió y qué queda pendiente"], "Miedo o preocupación": ["Validar", "Explorar origen del temor", "Entregar información con permiso", "Acordar paso seguro"], "Olvido / organización": ["Asociar a rutina", "Alarma/pastillero", "Apoyo familiar si acepta", "Seguimiento breve"], "Tiempo": ["Reducir meta", "Elegir momento realista", "Versión mínima", "Plan B"], "Dinero / recursos": ["Ajustar a recursos disponibles", "Evitar indicaciones inviables", "Coordinar apoyo si corresponde"], "Traslado / acceso": ["Explorar horarios", "Apoyo para traslado", "Coordinar agenda/SOME según flujo", "Considerar seguimiento si corresponde"], "Dolor / síntomas": ["No forzar acuerdo", "Reevaluar seguridad", "Escalar si hay alerta", "Ajustar meta"], "Cansancio / ánimo": ["Validar", "Reducir carga", "Explorar apoyo", "Considerar evaluación clínica si corresponde"], "Apoyo familiar": ["Explorar red", "Acordar participación de familiar si acepta", "Definir responsable realista"], "Cuidador/a sobrecargado/a": ["No agregar más carga sin revisar sostenibilidad", "Explorar apoyos", "Considerar gestión/domicilio/coordinación"], "Indicaciones contradictorias": ["Ordenar indicaciones", "Identificar quién indicó qué", "Coordinar aclaración", "Definir prioridad"], "No le ve sentido": ["No cerrar acción todavía", "Explorar valores/prioridades", "Entregar información con permiso", "Mantener puerta abierta"]}, "guidedTrainings": {"profesional": [{"id": "ingreso", "title": "Ingreso integral: explorar sin imponer", "situation": "Ingreso integral", "skill": "Explorar 9 aspectos para construir plan inicial", "model": "Antes de definir acuerdos, quiero entender qué está pasando en su vida diaria y qué le haría sentido trabajar primero."}, {"id": "control", "title": "Control integral: revisar y ajustar", "situation": "Control integral", "skill": "Revisar avances/barreras sin repetir todo el ingreso", "model": "Retomemos el plan que habíamos acordado: ¿qué resultó, qué no resultó y qué habría que ajustar?"}, {"id": "acuerdo", "title": "Transformar indicación en acuerdo", "situation": "Ajuste de plan", "skill": "Convertir recomendación clínica en acción posible", "model": "Le puedo explicar opciones y usted me dice cuál calza mejor con su realidad."}], "tens": [{"id": "llamada", "title": "Llamada de seguimiento sin fiscalizar", "situation": "Seguimiento a distancia", "skill": "Revisar acuerdo previo y detectar barrera", "model": "Le llamo para revisar cómo le fue con el acuerdo; no es para retarle, es para ver qué apoyo necesita."}, {"id": "alerta", "title": "Detectar alerta y reportar", "situation": "Seguimiento a distancia", "skill": "Reconocer cuándo no resolver por teléfono", "model": "Esto necesita revisión del equipo. Voy a dejarlo informado y coordinar el paso que corresponda."}, {"id": "registro_tens", "title": "Registrar continuidad", "situation": "Seguimiento a distancia", "skill": "Dejar claro acuerdo, resultado, barrera y próximo paso", "model": "Voy a registrar lo que me cuenta para que el equipo pueda continuar el cuidado."}], "gestor": [{"id": "complejidad", "title": "Ordenar complejidad", "situation": "Gestión de casos", "skill": "Identificar foco crítico y barreras persistentes", "model": "Hay varias cosas abiertas; ordenemos qué barrera está impidiendo sostener el plan."}, {"id": "coordinacion", "title": "Coordinar responsables", "situation": "Gestión de casos", "skill": "Definir quién hace qué y cuándo se revisa", "model": "Dejemos claro qué hará la persona, qué hará el equipo y qué queda pendiente."}, {"id": "reevaluacion", "title": "Reevaluar continuidad o cierre", "situation": "Gestión de casos", "skill": "Decidir mantener, intensificar o cerrar gestión", "model": "Revisemos si la gestión sigue siendo necesaria o si ya hay una ruta clara de continuidad."}]}, "cases": [{"role": "profesional", "aspect": "farmacos", "difficulty": "Básico", "type": "Ingreso integral", "title": "Vengo porque me dijeron que tenía que venir", "scenario": "Persona llega a ingreso ECICEP y dice: “No sé para qué me citaron, me dijeron que tenía que venir”. Se muestra respetuosa, pero pasiva.", "goal": "Abrir conversación, explicar con permiso y explorar qué espera de la atención."}, {"role": "profesional", "aspect": "farmacos", "difficulty": "Intermedio", "type": "Ingreso integral", "title": "Medicamentos solo cuando se siente mal", "scenario": "Persona con HTA/DM2 refiere que toma medicamentos cuando se siente mal, pero los suspende cuando se siente bien.", "goal": "Explorar comprensión, creencias, barreras y ambivalencia sin retar."}, {"role": "profesional", "aspect": "controles", "difficulty": "Intermedio", "type": "Ingreso integral", "title": "No entiende tantos controles", "scenario": "Persona dice que tiene controles con varios profesionales y no entiende por qué debe venir tantas veces.", "goal": "Explorar carga de tratamiento, sentido del control y priorización con la persona."}, {"role": "profesional", "aspect": "alimentacion", "difficulty": "Intermedio", "type": "Ingreso integral", "title": "Comer sano es caro", "scenario": "Persona dice que comer sano es caro; la hija compra y cocina. Quiere sentirse con más energía, pero no quiere gastar más.", "goal": "Identificar barrera económica/familiar y acuerdo pequeño."}, {"role": "profesional", "aspect": "otros", "difficulty": "Avanzado", "type": "Ingreso integral", "title": "Prioridad de la persona distinta a la clínica", "scenario": "El equipo está preocupado por presión y glicemia, pero la persona insiste en que lo que más le afecta es dolor, sueño y cansancio.", "goal": "Validar, priorizar con la persona e integrar seguridad clínica sin imponer."}, {"role": "profesional", "aspect": "farmacos", "difficulty": "Avanzado", "type": "Ingreso integral", "title": "Sí automático", "scenario": "Persona responde “sí, sí, lo voy a hacer todo”, pero evita mirar, se nota cansada y no logra explicar el acuerdo con sus palabras.", "goal": "Detectar aceptación por presión y verificar posibilidad real."}, {"role": "profesional", "aspect": "actividad", "difficulty": "Intermedio", "type": "Control integral", "title": "Alta importancia, baja posibilidad", "scenario": "Persona quiere moverse más porque quiere tener más energía, pero tiene dolor de rodillas y miedo a caer.", "goal": "Usar escala, ajustar acuerdo y evitar insistir con una meta poco viable."}, {"role": "profesional", "aspect": "otros", "difficulty": "Avanzado", "type": "Control integral", "title": "Plan anterior no resultó", "scenario": "Persona llega avergonzada y dice: “No hice nada de lo que quedamos, mejor no me rete”.", "goal": "Revisar sin castigo, convertir incumplimiento en información clínica y ajustar plan."}, {"role": "profesional", "aspect": "controles", "difficulty": "Avanzado", "type": "Control integral", "title": "Cansancio del sistema", "scenario": "Persona dice: “Estoy cansado/a de controles, siempre me dicen cosas distintas”.", "goal": "Explorar carga, ordenar prioridades y reconstruir confianza."}, {"role": "profesional", "aspect": "otros", "difficulty": "Avanzado", "type": "Control integral", "title": "Indicaciones contradictorias", "scenario": "Persona trae indicaciones distintas desde varios controles y no sabe cuál seguir.", "goal": "Ordenar información, reconocer confusión y acordar aclaración/continuidad."}, {"role": "tens", "aspect": "controles", "difficulty": "Básico", "type": "Seguimiento a distancia", "title": "No recuerda el acuerdo", "scenario": "En llamada, la persona dice que no recuerda qué acuerdo había quedado en el control.", "goal": "Retomar sin retar, aclarar acuerdo y registrar necesidad de refuerzo."}, {"role": "tens", "aspect": "farmacos", "difficulty": "Intermedio", "type": "Seguimiento a distancia", "title": "No tomó medicamentos el fin de semana", "scenario": "La persona refiere que no tomó medicamento sábado y domingo por cambio de rutina laboral. No refiere síntomas actuales.", "goal": "Revisar acuerdo, detectar barrera y definir si reporta o refuerza."}, {"role": "tens", "aspect": "farmacos", "difficulty": "Avanzado", "type": "Seguimiento a distancia", "title": "Suspendió medicamento por molestia", "scenario": "Persona dice que dejó un medicamento porque “me hizo mal”. No sabe el nombre exacto y no quiere retomarlo.", "goal": "No indicar; explorar, detectar alerta, registrar y coordinar con profesional."}, {"role": "tens", "aspect": "controles", "difficulty": "Intermedio", "type": "Seguimiento a distancia", "title": "Inasistencia por cuidado de otros", "scenario": "Persona no asistió a control porque cuida a nietos/as y depende de familiar para traslado.", "goal": "Detectar barrera de acceso y orientar continuidad."}, {"role": "tens", "aspect": "controles", "difficulty": "Avanzado", "type": "Seguimiento a distancia", "title": "Molestia con el CESFAM", "scenario": "Persona dice: “No fui porque siempre me retan y me hacen perder tiempo”.", "goal": "Validar, no defenderse, recuperar vínculo y detectar barrera real."}, {"role": "tens", "aspect": "otros", "difficulty": "Avanzado", "type": "Seguimiento a distancia", "title": "Síntoma nuevo durante llamada", "scenario": "Durante seguimiento, persona refiere malestar nuevo que le preocupa y dice que ha empeorado desde ayer.", "goal": "Reconocer límite del seguimiento, registrar y coordinar evaluación según flujo."}, {"role": "tens", "aspect": "otros", "difficulty": "Intermedio", "type": "Seguimiento a distancia", "title": "Cuidadora sobrecargada", "scenario": "Cuidadora responde la llamada y dice que está agotada, que le cuesta llevar a la persona a controles y ordenar medicamentos.", "goal": "Detectar sobrecarga, registrar y reportar al equipo."}, {"role": "tens", "aspect": "alimentacion", "difficulty": "Básico", "type": "Seguimiento a distancia", "title": "Acuerdo alimentario parcial", "scenario": "Persona redujo bebidas en la semana, pero el fin de semana volvió al hábito anterior en reuniones familiares.", "goal": "Preguntar sin castigar, rescatar avance parcial y barrera contextual."}, {"role": "tens", "aspect": "controles", "difficulty": "Básico", "type": "Seguimiento a distancia", "title": "No tiene tiempo para hablar", "scenario": "Persona contesta apurada y dice que no puede hablar ahora.", "goal": "Respetar disponibilidad, cuidar vínculo y acordar mejor momento de contacto."}, {"role": "tens", "aspect": "inmunizaciones", "difficulty": "Intermedio", "type": "Seguimiento a distancia", "title": "Dudas sobre vacuna", "scenario": "Persona no fue a vacunarse porque tiene miedo a efectos adversos y leyó información alarmante.", "goal": "Escuchar dudas, no ridiculizar, ofrecer información y coordinar si corresponde."}, {"role": "gestor", "aspect": "otros", "difficulty": "Intermedio", "type": "Gestión de casos", "title": "Cuidadora sobrecargada", "scenario": "Cuidadora principal refiere cansancio, dificultades para llevar a controles y dudas con medicamentos. Hay inasistencias reiteradas.", "goal": "Ordenar foco crítico, barreras persistentes y responsables."}, {"role": "gestor", "aspect": "controles", "difficulty": "Avanzado", "type": "Gestión de casos", "title": "Pérdida de continuidad", "scenario": "Persona G3 tiene controles perdidos, urgencia reciente y múltiples indicaciones de equipos distintos.", "goal": "Ordenar continuidad, coordinación y próxima acción."}, {"role": "gestor", "aspect": "farmacos", "difficulty": "Avanzado", "type": "Gestión de casos", "title": "Barrera persistente con medicamentos", "scenario": "Pese a varios contactos, la persona sigue con confusión del tratamiento. Familiar ayuda parcialmente, pero no hay responsable claro.", "goal": "Distinguir barrera persistente, definir responsables y coordinar revisión."}, {"role": "gestor", "aspect": "controles", "difficulty": "Intermedio", "type": "Gestión de casos", "title": "Dependencia de tercero para asistir", "scenario": "Persona depende de un familiar para asistir, retirar medicamentos y comprender indicaciones. El familiar trabaja y no siempre puede acompañar.", "goal": "Ordenar red, responsabilidades y ruta de continuidad."}, {"role": "gestor", "aspect": "otros", "difficulty": "Avanzado", "type": "Gestión de casos", "title": "Nadie sabe quién sigue el caso", "scenario": "Equipo ha hecho varias acciones, pero no está claro quién hará seguimiento, qué quedó pendiente ni cuándo se reevaluará.", "goal": "Definir foco, responsables, pendientes y criterio de reevaluación."}, {"role": "gestor", "aspect": "participacion", "difficulty": "Intermedio", "type": "Gestión de casos", "title": "Interés en taller, barrera de traslado", "scenario": "Persona quiere participar en actividad de salud, pero tiene dolor al desplazarse y necesita acompañante.", "goal": "Reconocer facilitador, barrera y coordinación posible."}, {"role": "gestor", "aspect": "otros", "difficulty": "Avanzado", "type": "Gestión de casos", "title": "Evaluar cierre de gestión", "scenario": "Se abordaron barreras principales, hay controles programados y responsable definido, pero el equipo duda si cerrar gestión.", "goal": "Evaluar continuidad, cierre o seguimiento habitual."}, {"role": "gestor", "aspect": "otros", "difficulty": "Avanzado", "type": "Gestión de casos", "title": "Barrera social persistente", "scenario": "La persona tiene problemas económicos, baja red y dificultades para sostener indicaciones básicas. El plan clínico no avanza.", "goal": "Ordenar barreras estructurales y decidir coordinación/intensificación."}], "barrierGroups": {"controles": {"Acceso y tiempo": ["Horario laboral", "Cuidado de hijos/as, nietos/as u otra persona", "Dificultad de traslado", "Costo de locomoción", "Dependencia de acompañante", "Dificultad para pedir hora", "Espera prolongada"], "Organización": ["No recibe o no recuerda citación", "Confusión de fechas"], "Sentido del control": ["No entiende para qué sirve el control", "Cree que debe venir solo si se siente mal", "Demasiados controles", "Cansancio del sistema"], "Vínculo y experiencia": ["Mala experiencia previa", "Se sintió retado/a o juzgado/a", "No se sintió escuchado/a", "No le acomoda el trato", "Vergüenza", "Desacuerdo con recomendaciones", "Preferencia por otro/a profesional", "Baja confianza en la atención"], "Red y carga": ["Sobrecarga de cuidador/a", "Indicaciones contradictorias"]}, "farmacos": {"Rutina y organización": ["Olvido", "Rutina irregular", "Turnos laborales", "Fin de semana sin rutina", "No tiene pastillero/alarma"], "Comprensión y creencias": ["Baja comprensión del propósito", "No sabe para qué sirve", "Suspende si se siente bien", "Desconfianza del medicamento"], "Tolerancia y seguridad percibida": ["Efectos adversos o molestias", "Miedo a efectos"], "Acceso y complejidad": ["Dificultad de retiro", "Falta de stock percibida", "Costo/traslado para retiro", "Polifarmacia", "Confusión de dosis u horarios", "Indicaciones contradictorias"], "Apoyo y autonomía": ["No quiere depender de otra persona", "Dificultad visual o cognitiva", "Vergüenza de reconocer que no lo toma"]}, "alimentacion": {"Recursos y acceso": ["Presupuesto limitado", "Acceso limitado a alimentos", "Cree que comer saludable es caro"], "Organización familiar": ["Compra familiar", "Otra persona cocina", "Preferencias familiares"], "Rutina y tiempo": ["Horarios irregulares", "Turnos", "Cansancio", "Falta de tiempo para cocinar", "Dificultad para planificar", "Comidas fuera de casa"], "Emocional y vínculo": ["Ansiedad o comer emocional", "Sensación de reto o juicio por peso"], "Cambio y comprensión": ["No quiere dejar alimentos significativos", "Indicaciones poco realistas", "No sabe qué cambiar primero", "Colaciones/once difíciles de ordenar", "Baja comprensión", "Ambivalencia por gusto/costo/salud"]}, "actividad": {"Síntomas y seguridad": ["Dolor", "Miedo a caer", "Caídas previas", "Mareos", "Falta de aire", "Problemas de movilidad"], "Confianza y ánimo": ["Cansancio", "Baja confianza", "Ánimo bajo", "Vergüenza"], "Contexto": ["Falta de tiempo", "Inseguridad del barrio", "Clima", "Falta de compañía", "Responsabilidades de cuidado"], "Preferencia y planificación": ["No le gusta caminar", "No sabe qué actividad es segura", "Meta previa demasiado exigente", "Falta de plan B", "No ve beneficio inmediato"]}, "tabaco": {"Motivación": ["Baja importancia", "No quiere dejar ahora", "No desea tratamiento, pero acepta conversar"], "Función del consumo": ["Fuma para calmar ansiedad/estrés", "Aumento de consumo en conflictos", "Consumo asociado a rutina"], "Entorno y apoyo": ["Entorno fumador", "Normalización familiar", "Falta de apoyo"], "Miedos y experiencia": ["Miedo a abstinencia", "Intentos previos fallidos", "Cree que no podrá", "Temor a subir de peso", "Vergüenza de hablar del tema", "Ambivalencia: calma ahora vs daño futuro"]}, "alcohol": {"Percepción y motivación": ["Baja percepción de riesgo", "Minimización", "No quiere ser juzgado/a", "No desea cambiar, pero acepta conversar"], "Contexto de consumo": ["Normalización social/familiar", "Presión de pares", "Consumo de fin de semana", "Consumo en reuniones"], "Emocional y consecuencias": ["Consumo para regular emociones", "Problemas familiares asociados", "Relación con sueño/ánimo"], "Organización del cambio": ["No identifica cantidad", "Dificultad para poner límites", "Vergüenza", "Ambivalencia: disfrute/relajo vs consecuencias"]}, "inmunizaciones": {"Dudas y temores": ["Temor a efectos adversos", "Desinformación", "Experiencia previa negativa", "Desconfianza", "Miedo a agujas", "Información contradictoria en redes"], "Acceso y organización": ["No sabe si tiene vacunas pendientes", "Dificultad de acceso", "Horario de campaña", "Olvido"], "Decisión y apoyo": ["Baja percepción de riesgo", "Dudas por enfermedades o medicamentos", "Necesita decidir con familiar/cuidador/a", "No quiere sentirse presionado/a"]}, "participacion": {"Acceso": ["Traslado", "Costo de locomoción", "Horario", "Falta de cupo o información"], "Salud y funcionalidad": ["Dolor al desplazarse", "Dificultad auditiva/visual"], "Apoyo": ["Necesita acompañante", "Responsabilidades de cuidado"], "Vínculo y preferencia": ["Vergüenza", "Miedo a grupos", "Prefiere atención individual", "No quiere exponerse"], "Sentido": ["No conoce la actividad", "No ve utilidad", "Baja motivación", "Ánimo bajo", "Experiencia previa poco útil"]}, "otros": {"Salud y funcionalidad": ["Ánimo bajo", "Cansancio persistente", "Dolor", "Problemas de sueño", "Funcionalidad disminuida", "Síntomas que requieren evaluación"], "Red y cuidado": ["Soledad", "Baja red", "Cuidador/a sobrecargado/a", "Prioridades familiares por sobre autocuidado"], "Contexto social": ["Problemas económicos", "Duelo o estrés familiar", "Violencia o inseguridad"], "Comprensión y carga": ["Dificultad de comprensión", "Baja alfabetización en salud", "Carga global de tratamientos", "Miedo a depender", "Vergüenza de contar la situación", "Consumo problemático"]}}};let currentRole='profesional', currentAspect='farmacos', selectedTraining=null;
 const buttons=document.querySelectorAll('nav button'), sections=document.querySelectorAll('.section');
-const menuByRole={profesional:['inicio','entrenar','plan9','preguntas','roleplay','escala','frases','auditoria','soporte'],tens:['inicio','entrenar','seguimiento','preguntas','roleplay','escala','frases','soporte'],gestor:['inicio','entrenar','gestion','seguimiento','plan9','preguntas','roleplay','escala','frases','auditoria','soporte']};
-function go(id){sections.forEach(s=>s.classList.toggle('active',s.id===id));buttons.forEach(b=>b.classList.toggle('active',b.dataset.section===id));window.scrollTo({top:0,behavior:'smooth'});if(id==='entrenar')renderTrainings();if(id==='preguntas')renderQuestions();if(id==='roleplay')renderCases();}
+const menuByRole={
+ profesional:['inicio','entrenar','plan9','preguntas','roleplay','escala','frases','auditoria','soporte'],
+ tens:['inicio','entrenar','seguimiento','preguntas','roleplay','escala','frases','soporte'],
+ gestor:['inicio','entrenar','gestion','seguimiento','plan9','preguntas','roleplay','escala','frases','auditoria','soporte']
+};
+const moduleLabels={
+ inicio:['Inicio del perfil','Volver al inicio adaptado a tu rol.'],
+ entrenar:['Entrenamiento guiado','Aprender, estudiar ejemplos y practicar con retroalimentación.'],
+ plan9:['Plan 9 aspectos','Ordenar anamnesis por aspecto y fortalecer preguntas.'],
+ seguimiento:['Seguimiento a distancia','Revisar acuerdos, barreras, alertas y continuidad.'],
+ gestion:['Gestión de casos','Ordenar foco crítico, barreras persistentes y coordinación.'],
+ preguntas:['Preguntas útiles','Preguntas por momento, aspecto e intención.'],
+ roleplay:['Role play','Practicar situaciones frecuentes por rol.'],
+ escala:['Escala importancia/posibilidad','Guiar acuerdos difíciles con importancia y posibilidad.'],
+ frases:['Frases IA','Transformar lenguaje impositivo en lenguaje ECICEP.'],
+ auditoria:['Auditoría de plan','Revisar riesgo de plan impuesto y suficiencia de acuerdo.'],
+ soporte:['Soporte IA','Probar conexión y configuración de IA.']
+};
+function go(id){
+ sections.forEach(s=>s.classList.toggle('active',s.id===id));
+ buttons.forEach(b=>b.classList.toggle('active',b.dataset.section===id));
+ const sel=document.getElementById('moduleSelect'); if(sel && sel.value!==id && [...sel.options].some(o=>o.value===id)) sel.value=id;
+ window.scrollTo({top:0,behavior:'smooth'});
+ ensureModuleBackButtons();
+ if(id==='inicio')renderProfileHome();
+ if(id==='entrenar')renderTrainings();
+ if(id==='preguntas')renderQuestions();
+ if(id==='roleplay')renderCases();
+}
 buttons.forEach(b=>b.addEventListener('click',()=>go(b.dataset.section)));
 function updateMenu(){
  const allowed=menuByRole[currentRole]||menuByRole.profesional;
@@ -497,7 +625,13 @@ function updateMenu(){
  if(!allowed.includes(active)) go('inicio');
 }
 
-function setRole(role){currentRole=role;document.querySelectorAll('.role-pill').forEach(b=>b.classList.toggle('active',b.dataset.role===role));document.getElementById('roleNow').innerText=APP_DATA.roles[role].focus+' '+APP_DATA.roles[role].scope;renderHomeRoute();updateMenu();renderTrainings();renderQuestions();renderCases();renderTrainingModule();scaleDecision();}
+function setRole(role){
+ currentRole=role;
+ document.querySelectorAll('.role-pill').forEach(b=>b.classList.toggle('active',b.dataset.role===role));
+ const rn=document.getElementById('roleNow'); if(rn) rn.innerText=(APP_DATA.roles[role].focus||'')+' '+(APP_DATA.roles[role].scope||'');
+ const cp=document.getElementById('compactProfile'); if(cp) cp.innerText='Perfil: '+APP_DATA.roles[role].label;
+ renderHomeRoute();renderProfileHome();renderModuleSelect();updateMenu();renderTrainings();renderQuestions();renderCases();renderTrainingModule();renderStudyCaseOptions();scaleDecision();
+}
 function renderHomeRoute(){
  const route=document.getElementById('roleRoute');
  if(route){
@@ -644,7 +778,7 @@ function setTheme(theme){
  const t=allowed.includes(theme)?theme:'chile';
  document.body.setAttribute('data-theme',t);
  localStorage.setItem('ecicep_theme',t);
- const sel=document.getElementById('themeSelect'); if(sel) sel.value=t;
+ const sel=document.getElementById('themeSelect'); if(sel) sel.value=t; const appSel=document.getElementById('appThemeSelect'); if(appSel) appSel.value=t;
 }
 function initTheme(){
  const saved=localStorage.getItem('ecicep_theme')||'sereno';
@@ -718,90 +852,302 @@ async function aiEvaluateStructuredPractice(){
 }
 
 
-let simState={started:false,caseText:'',objective:'',turn:0,transcript:[],selectedOption:'',lastOptions:[]};
+const STUDY_CASES=[
+ {
+  id:'controles_no_adherencia',
+  title:'No adherencia a controles',
+  situation:'Continuidad interrumpida',
+  skill:'Explorar barrera sin culpar',
+  objective:'Comprender por qué se interrumpió la continuidad y acordar una forma realista de retomarla.',
+  caseText:'Persona con HTA y DM2 no asistió al último control. Refiere: “No me gusta venir porque siempre me dicen lo mismo”, pero reconoce que debería cuidarse.',
+  ecicep:'ECICEP no busca marcar “no cumple” de inmediato. Primero intenta comprender qué interrumpió la continuidad: acceso, sentido del control, trato, cansancio del sistema, horario, traslado o carga familiar.',
+  decisionQuestion:'¿Qué harías primero?',
+  options:[
+   {text:'Reagendar el control inmediatamente.',feedback:'Puede ser necesario, pero todavía falta comprender la barrera. Si solo reagendamos, el próximo control puede volver a perderse.',best:false},
+   {text:'Explicar los riesgos de no controlarse.',feedback:'La educación puede ser útil, pero si se entrega antes de explorar, puede sonar a reto y cerrar la conversación.',best:false},
+   {text:'Preguntar qué parte de venir al control se le hace difícil o poco útil.',feedback:'Buena elección. Permite aclarar si la barrera es acceso, trato, cansancio, baja utilidad percibida o experiencia previa.',best:true},
+   {text:'Registrar inasistencia y derivar a seguimiento.',feedback:'Registrar es importante, pero antes conviene levantar la causa y dejar una orientación útil para continuidad.',best:false}
+  ],
+  usefulQuestions:['Vi que no pudimos concretar el último control. ¿Qué pasó ese día o qué lo hizo difícil?','¿Esto fue algo puntual o le ha pasado otras veces?','Cuando dice que siempre le dicen lo mismo, ¿qué le gustaría que fuera distinto en el control?','¿Qué tendría que cambiar para que retomar el control le pareciera más posible?'],
+  avoid:['“No vino.”','“Está inasistente.”','“Le voy a reagendar no más.”','“Si no viene, después no se queje.”'],
+  micro:'Un “no cumplimiento” no siempre es desinterés. Puede ser una barrera no explorada, un acuerdo poco posible o una experiencia negativa con el sistema.',
+  order:{observaciones:'No asiste a control programado. Refiere baja utilidad percibida: “siempre me dicen lo mismo”. Reconoce necesidad de cuidarse.',barreras:'Continuidad interrumpida; barrera pendiente de aclarar: sentido del control, experiencia previa, trato, horario o acceso.',facilitadores:'Reconoce que debería cuidarse.',ambivalencias:'Sabe que cuidarse es importante, pero evita asistir porque el control no le resulta útil o significativo.',razones:'Cuidarse, evitar descompensaciones y retomar continuidad si el control se vuelve más útil.',problemas:'Riesgo de pérdida de continuidad y plan impuesto si solo se reagenda.',registro:'Persona no asiste a control programado. Refiere baja percepción de utilidad del control y sensación de repetición en indicaciones. Reconoce importancia de cuidarse. Se acuerda explorar barreras específicas y definir alternativa de continuidad posible.'}
+ },
+ {
+  id:'farmacos_irregular',
+  title:'Tratamiento farmacológico irregular',
+  situation:'Adherencia parcial',
+  skill:'Explorar sin retar',
+  objective:'Distinguir olvido, acceso, efectos adversos, comprensión y rutina antes de ajustar acuerdos.',
+  caseText:'Persona refiere que toma los medicamentos de lunes a viernes, pero el fin de semana se le olvida porque cambia su rutina. Dice que “sabe que le hacen bien”.',
+  ecicep:'La adherencia no debe abordarse como falla moral. Se explora qué está pasando realmente para ajustar el plan a la vida diaria.',
+  decisionQuestion:'¿Qué harías primero?',
+  options:[
+   {text:'Decirle que debe tomarlos todos los días.',feedback:'Clínicamente correcto, pero no aclara la barrera. Puede sonar a reto si se usa como primera respuesta.',best:false},
+   {text:'Preguntar qué cambia el fin de semana que lo hace más difícil.',feedback:'Buena elección. Va directo a la barrera específica y permite construir un acuerdo pequeño.',best:true},
+   {text:'Indicar pastillero.',feedback:'Puede ayudar, pero antes conviene preguntar si le haría sentido y qué recordatorio usaría.',best:false},
+   {text:'Registrar mala adherencia.',feedback:'El registro debe ser más preciso: adherencia parcial con barrera de rutina de fin de semana.',best:false}
+  ],
+  usefulQuestions:['¿Qué cambia el fin de semana que hace más difícil tomar los medicamentos?','¿Qué le ayuda de lunes a viernes que podríamos adaptar al fin de semana?','¿Qué recordatorio o apoyo le parecería menos molesto?','¿Qué versión pequeña podríamos probar este fin de semana?'],
+  avoid:['“Es cosa de voluntad.”','“Tiene mala adherencia.”','“Entonces le dejo indicado pastillero.”','“Si sabe que le hacen bien, ¿por qué no los toma?”'],
+  micro:'Cuando la persona reconoce beneficio, hay un facilitador. El acuerdo debe aprovechar esa razón propia y ajustar la barrera concreta.',
+  order:{observaciones:'Toma medicamentos en días hábiles, pero olvida fines de semana. Reconoce que los medicamentos le hacen bien.',barreras:'Cambio de rutina durante fines de semana.',facilitadores:'Rutina laboral de lunes a viernes; reconoce beneficio del tratamiento.',ambivalencias:'Valora el medicamento, pero no logra sostenerlo cuando cambia la rutina.',razones:'Mantener control y evitar descompensaciones.',problemas:'Adherencia farmacológica parcial, vulnerable en fines de semana.',registro:'Persona refiere adherencia regular de lunes a viernes y omisión de medicamentos en fines de semana por cambio de rutina. Reconoce beneficio del tratamiento. Se acuerda explorar recordatorio o apoyo ajustado a rutina de sábado/domingo.'}
+ },
+ {
+  id:'alimentacion_economica',
+  title:'Alimentación con barrera económica',
+  situation:'Cambio de conducta con recursos limitados',
+  skill:'Ajustar recomendación a realidad',
+  objective:'Evitar indicaciones alimentarias poco viables y construir cambios posibles sin aumentar carga económica.',
+  caseText:'Persona con DM2 refiere que quiere comer mejor, pero dice que “comer sano es caro”. En la casa compra la hija y se cocina para varias personas.',
+  ecicep:'El plan alimentario debe ser contextualizado. Si ignora presupuesto, compras y quién cocina, puede transformarse en indicación imposible.',
+  decisionQuestion:'¿Qué harías primero?',
+  options:[
+   {text:'Entregar una pauta saludable estándar.',feedback:'Puede ser técnicamente correcta, pero corre riesgo de no calzar con presupuesto, compras y dinámica familiar.',best:false},
+   {text:'Preguntar qué comida del día sería más posible ordenar sin gastar más.',feedback:'Buena elección. Parte por una acción concreta y viable.',best:true},
+   {text:'Decirle que debe evitar pan, arroz y azúcar.',feedback:'Puede sonar restrictivo y poco realista si no se explora contexto.',best:false},
+   {text:'Derivar a nutrición sin explorar más.',feedback:'Puede corresponder, pero el ingreso debe dejar claro barrera, contexto y qué espera la persona.',best:false}
+  ],
+  usefulQuestions:['¿Qué comida del día le gustaría ordenar primero?','¿Qué compra habitualmente y qué cambios no implicarían gastar más?','¿Quién cocina y qué posibilidad hay de conversar un cambio pequeño?','¿Qué alimento siente que no está preparado/a para dejar todavía?'],
+  avoid:['“Comer sano no es tan difícil.”','“Tiene que seguir la dieta.”','“Deje el pan.”','No considerar quién compra o cocina.'],
+  micro:'Un buen acuerdo alimentario no es el ideal; es el que la persona puede sostener con sus recursos, cultura alimentaria y red familiar.',
+  order:{observaciones:'Quiere mejorar alimentación, percibe que comer sano es caro, hija compra y se cocina para varias personas.',barreras:'Presupuesto limitado, compra familiar y organización del hogar.',facilitadores:'Interés en comer mejor; hija participa en compras/cocina y podría ser apoyo si la persona lo acepta.',ambivalencias:'Quiere mejorar, pero percibe el cambio como costoso y dependiente de otros.',razones:'Mejorar control y sentirse mejor sin aumentar gasto.',problemas:'Plan alimentario puede ser poco viable si no se ajusta al presupuesto y dinámica familiar.',registro:'Persona expresa interés en mejorar alimentación, con barrera económica y dependencia de compra/cocina familiar. Se acuerda explorar una comida del día y un cambio de bajo costo posible.'}
+ },
+ {
+  id:'actividad_miedo',
+  title:'Actividad física con dolor o miedo a caer',
+  situation:'Alta importancia con baja posibilidad',
+  skill:'Ajustar meta y cuidar seguridad',
+  objective:'Enseñar que cuando hay miedo, dolor o baja confianza, no se empuja más fuerte: se ajusta el acuerdo.',
+  caseText:'Persona quería caminar 30 minutos, pero caminó solo una vez. Refiere dolor de rodillas y miedo a caerse. Dice que le gustaría cansarse menos.',
+  ecicep:'El acuerdo debe ser seguro, pequeño y revisable. La meta ideal puede ser clínicamente correcta, pero no viable en ese momento.',
+  decisionQuestion:'¿Qué harías primero?',
+  options:[
+   {text:'Insistir en caminar 30 minutos porque es lo indicado.',feedback:'Riesgo de plan impuesto. Ignora dolor, miedo y posibilidad real.',best:false},
+   {text:'Preguntar qué le preocupa más al caminar: dolor, caída, mareo o estar solo/a.',feedback:'Buena elección. Precisa la barrera de seguridad y permite ajustar.',best:true},
+   {text:'Suspender toda actividad física.',feedback:'Puede ser innecesario si existe una versión más pequeña y segura. Falta explorar.',best:false},
+   {text:'Decirle que camine acompañada.',feedback:'Puede ayudar, pero antes conviene saber si cuenta con apoyo y qué temor específico tiene.',best:false}
+  ],
+  usefulQuestions:['¿Qué le preocupa más al caminar: dolor, caerse, marearse o estar solo/a?','¿Ha tenido caídas o casi caídas?','¿Dónde se sentiría más seguro/a para moverse?','¿Qué versión más pequeña sí podría intentar?','Del 1 al 10, ¿qué tan posible sería probarlo esta semana?'],
+  avoid:['“Tiene que caminar igual.”','“No piense en el dolor.”','Subir la meta sin explorar seguridad.','Cerrar acuerdo sin revisar posibilidad.'],
+  micro:'Alta importancia + baja posibilidad = no presionar más. Ajuste el acuerdo, haga la meta más pequeña y agregue apoyo o seguridad.',
+  order:{observaciones:'Quiere caminar y cansarse menos; dolor de rodillas; miedo a caídas; caminó solo una vez.',barreras:'Dolor y temor a caída.',facilitadores:'Deseo de cansarse menos; disposición a intentar.',ambivalencias:'Quiere moverse, pero teme dolor o caída.',razones:'Sentirse con más energía y autonomía.',problemas:'Meta inicial posiblemente alta o insegura.',registro:'Persona refiere interés en actividad física por cansancio, con barreras de dolor de rodillas y miedo a caída. Se acuerda explorar alternativa segura, pequeña y revisable antes de mantener meta previa.'}
+ },
+ {
+  id:'si_automatico',
+  title:'Persona que dice “sí” a todo',
+  situation:'Riesgo de plan impuesto',
+  skill:'Verificar autonomía y posibilidad',
+  objective:'Distinguir aceptación automática de acuerdo real.',
+  caseText:'Persona acepta caminar, cambiar alimentación y tomar medicamentos “como usted diga”, pero no logra explicar el acuerdo con sus palabras y se muestra cansada.',
+  ecicep:'No todo “sí” es acuerdo. ECICEP requiere participación real, comprensión y posibilidad.',
+  decisionQuestion:'¿Qué harías primero?',
+  options:[
+   {text:'Registrar todo como acuerdo porque aceptó.',feedback:'Alto riesgo de plan impuesto. Falta verificar comprensión y posibilidad.',best:false},
+   {text:'Preguntar si esto le parece realmente posible o si está diciendo que sí para no quedar mal.',feedback:'Buena elección. Cuida autonomía y permite ajustar.',best:true},
+   {text:'Repetir la indicación con más detalle.',feedback:'Puede mejorar comprensión, pero no necesariamente aclara posibilidad ni autonomía.',best:false},
+   {text:'Reducir el plan sin preguntarle.',feedback:'Mejor que sobrecargar, pero sigue decidiendo por la persona si no se conversa.',best:false}
+  ],
+  usefulQuestions:['¿Qué parte de lo conversado sí le hace sentido?','¿Qué parte le parece demasiado para ahora?','Si hiciéramos el acuerdo más realista, ¿cómo quedaría?','¿Con qué prefiere partir primero?'],
+  avoid:['“Perfecto, dejamos todo indicado.”','Confundir silencio con consenso.','Cerrar múltiples acciones sin verificar posibilidad.','No permitir que la persona modifique o rechace.'],
+  micro:'El consentimiento clínico no es solo asentir. La persona debe poder comprender, modificar y sentir propio el acuerdo.',
+  order:{observaciones:'Acepta varias indicaciones, pero no explica el acuerdo y se muestra cansada.',barreras:'Posible aceptación por presión, baja comprensión o baja posibilidad.',facilitadores:'Disposición a conversar.',ambivalencias:'Quiere responder positivamente, pero quizá no se siente capaz.',razones:'Pendiente de explorar.',problemas:'Riesgo alto de plan impuesto y baja sostenibilidad.',registro:'Persona acepta inicialmente varias acciones, pero no logra explicar el acuerdo y se observa cansancio. Se reabre conversación para priorizar un primer foco posible y verificar comprensión.'}
+ },
+ {
+  id:'cuidadora_sobrecarga',
+  title:'Cuidador/a sobrecargado/a',
+  situation:'Gestión de casos / PDS',
+  skill:'Ordenar barrera persistente',
+  objective:'Reconocer que la continuidad puede depender de la capacidad real de la red de apoyo.',
+  caseText:'Cuidadora principal de persona con dependencia refiere cansancio, dificultad para llevar a controles y confusión con medicamentos. Han ocurrido inasistencias reiteradas.',
+  ecicep:'La barrera no está solo en la persona usuaria. Puede estar en la red, sobrecarga de cuidados, traslado, comprensión o coordinación del equipo.',
+  decisionQuestion:'¿Qué harías primero?',
+  options:[
+   {text:'Pedirle que se organice mejor.',feedback:'Puede aumentar culpa y no aborda la sobrecarga real.',best:false},
+   {text:'Preguntar qué parte del cuidado se le está haciendo más pesada esta semana.',feedback:'Buena elección. Valida y abre la barrera principal.',best:true},
+   {text:'Agendar todos los controles pendientes.',feedback:'Puede empeorar la carga si no se prioriza y coordina.',best:false},
+   {text:'Registrar inasistencia familiar.',feedback:'El registro debe explicar barrera de red/cuidado y plan de coordinación.',best:false}
+  ],
+  usefulQuestions:['¿Qué parte del cuidado se le está haciendo más pesada esta semana?','¿Quién más puede apoyar aunque sea parcialmente?','¿Qué controles o tareas se están volviendo imposibles?','¿Qué indicaciones están más confusas?','¿Qué necesita del equipo para sostener el cuidado?'],
+  avoid:['“Tiene que organizarse mejor.”','Agregar más controles sin revisar apoyo.','Registrar solo “no asiste”.','Asumir que la cuidadora puede con todo.'],
+  micro:'La sobrecarga puede bloquear cualquier acuerdo. Antes de pedir más, revise capacidad, red y prioridades.',
+  order:{observaciones:'Cuidadora principal cansada, dificultad para controles, confusión con medicamentos e inasistencias reiteradas.',barreras:'Sobrecarga de cuidadora, traslado/organización y confusión terapéutica.',facilitadores:'Existe cuidadora principal vinculada al cuidado.',ambivalencias:'Quiere cuidar, pero la carga supera su capacidad actual.',razones:'Sostener cuidado sin colapso y evitar pérdida de continuidad.',problemas:'Riesgo de abandono de controles y errores en medicamentos.',registro:'Cuidadora principal refiere sobrecarga, dificultad para traslado a controles y confusión con medicamentos. Se requiere ordenar prioridades, responsables y coordinación de continuidad.'}
+ },
+ {
+  id:'alta_confusa',
+  title:'Alta hospitalaria reciente con plan confuso',
+  situation:'Continuidad post alta',
+  skill:'Ordenar información y responsables',
+  objective:'Evitar duplicidad, confusión o pérdida de continuidad tras alta hospitalaria.',
+  caseText:'Persona mayor con multimorbilidad tuvo alta hospitalaria reciente. Trae documentos, no entiende cambios de medicamentos y no sabe qué control debe priorizar. Su hija le ayuda, pero trabaja.',
+  ecicep:'Después de un alta, el foco es ordenar continuidad: indicaciones, comprensión, red de apoyo, prioridad y seguimiento.',
+  decisionQuestion:'¿Qué harías primero?',
+  options:[
+   {text:'Leer rápidamente los papeles y dejar nuevas indicaciones.',feedback:'Riesgo de aumentar confusión. Primero identifique qué no está claro y qué apoyo existe.',best:false},
+   {text:'Preguntar qué indicación o cambio le quedó menos claro al salir del hospital.',feedback:'Buena elección. Parte por la comprensión de la persona y ordena continuidad.',best:true},
+   {text:'Derivar a todos los controles pendientes.',feedback:'Puede ser necesario, pero sin priorización aumenta carga y confusión.',best:false},
+   {text:'Pedirle a la hija que se encargue.',feedback:'Puede ser apoyo, pero no se debe asumir disponibilidad total.',best:false}
+  ],
+  usefulQuestions:['¿Qué indicación o cambio le quedó menos claro al salir del hospital?','¿Qué medicamentos cambiaron desde el alta?','¿Quién le ayuda a revisarlos?','¿Qué control quedó más urgente o pendiente?','¿Qué le preocupa que pueda pasar si no ordenamos esto?'],
+  avoid:['Agregar indicaciones sin ordenar las previas.','Asumir que la familia puede resolver todo.','Cerrar plan sin responsable.','No registrar pendientes del alta.'],
+  micro:'La continuidad post alta requiere ordenar antes de indicar. Un plan claro reduce duplicidad, errores y nuevas consultas evitables.',
+  order:{observaciones:'Alta hospitalaria reciente; confusión con medicamentos y controles; apoyo parcial de hija.',barreras:'Comprensión del plan, cambios farmacológicos y disponibilidad de apoyo.',facilitadores:'Trae documentos; hija apoya parcialmente.',ambivalencias:'Quiere seguir indicaciones, pero no las comprende con claridad.',razones:'Evitar nueva descompensación o reingreso.',problemas:'Riesgo de errores de tratamiento y pérdida de continuidad.',registro:'Persona con alta hospitalaria reciente refiere dudas sobre cambios de medicamentos y controles pendientes. Trae documentos y cuenta con apoyo parcial de hija. Se prioriza ordenar indicaciones, responsables y seguimiento.'}
+ },
+ {
+  id:'urgencia_descompensacion',
+  title:'Uso de urgencia o descompensación HTA/DM',
+  situation:'Riesgo y continuidad',
+  skill:'Comunicar riesgo sin asustar ni imponer',
+  objective:'Practicar cómo comunicar riesgo de forma clara y explorar qué llevó a la descompensación.',
+  caseText:'Persona con HTA consultó en urgencia por presión elevada. Dice que se asustó, pero también que “en la casa se me junta todo y dejo mis cosas para después”.',
+  ecicep:'El uso de urgencia puede ser una oportunidad para revisar barreras, automanejo, señales de alarma y continuidad, no solo para repetir indicaciones.',
+  decisionQuestion:'¿Qué harías primero?',
+  options:[
+   {text:'Explicar con dureza que pudo haber sido grave.',feedback:'Puede asustar, pero no necesariamente genera acuerdo. Riesgo de cerrar diálogo.',best:false},
+   {text:'Preguntar qué cree que influyó en que llegara a urgencia.',feedback:'Buena elección. Abre comprensión, barreras y automanejo.',best:true},
+   {text:'Indicar control estricto y más medicamentos.',feedback:'No corresponde resolver así en esta herramienta y no explora la causa.',best:false},
+   {text:'Decirle que no vuelva a dejar sus cosas para después.',feedback:'Culpabiliza y no identifica barrera real.',best:false}
+  ],
+  usefulQuestions:['¿Qué cree que influyó en que llegara a urgencia?','¿Qué señales le indicaron que debía consultar?','¿Qué se le junta en la casa que deja su cuidado para después?','¿Qué necesitaría para actuar antes de llegar a urgencia?','¿Qué acuerdo pequeño ayudaría a evitar que esto se repita?'],
+  avoid:['Asustar sin orientar.','Culpar por la descompensación.','Cerrar plan sin revisar barrera doméstica o de automanejo.','No aclarar señales de alarma.'],
+  micro:'Comunicar riesgo no es amenazar. Es ayudar a comprender señales, barreras y acciones posibles para anticiparse.',
+  order:{observaciones:'Consulta de urgencia por presión elevada; susto posterior; refiere carga doméstica y postergación del autocuidado.',barreras:'Carga en casa y dificultad para priorizar autocuidado.',facilitadores:'Reconoce susto y oportunidad de prevenir nueva urgencia.',ambivalencias:'Quiere evitar urgencia, pero posterga cuidado por carga diaria.',razones:'Evitar nueva urgencia y sentirse más seguro/a.',problemas:'Automanejo y continuidad vulnerables ante carga doméstica.',registro:'Persona consultó en urgencia por presión elevada. Refiere susto y dificultad para priorizar autocuidado por carga doméstica. Se acuerda explorar señales de alarma, barrera concreta y acción anticipatoria posible.'}
+ }
+];
 
-function resetSimulation(){
- simState={started:false,caseText:'',objective:'',turn:0,transcript:[],selectedOption:'',lastOptions:[]};
- ['simObjective','simCase','simResponse','simFeedback','simTranscript'].forEach(id=>{const el=document.getElementById(id); if(el) el.innerText=id==='simCase'?'Aún no hay caso.':id==='simObjective'?'Configura el caso e inicia la simulación.':id==='simTranscript'?'Aún no hay conversación.':'';});
- const p=document.getElementById('simDecisionPanel'); if(p) p.classList.add('hidden');
- const m=document.getElementById('simMotivational'); if(m){m.classList.add('hidden');m.innerText='';}
- const cq=document.getElementById('simCustomQuestion'); if(cq)cq.value='';
+function renderStudyCaseOptions(){
+ const sel=document.getElementById('studyCaseSelect'); if(!sel)return;
+ sel.innerHTML='';
+ STUDY_CASES.forEach(c=>{
+  const opt=document.createElement('option'); opt.value=c.id; opt.textContent=`${c.title} · ${c.skill}`; sel.appendChild(opt);
+ });
+ renderStudyCase();
 }
-function renderSimOptions(options){
- simState.lastOptions=options||[];
- simState.selectedOption='';
- const box=document.getElementById('simOptions'); if(!box)return;
- box.innerHTML='';
- (options||[]).forEach((o,i)=>{
-  const label=typeof o==='string'?o:(o.label||o.texto||JSON.stringify(o));
-  box.innerHTML+=`<button type="button" class="option-card" onclick="selectSimOption(${i})">${label}</button>`;
+function currentStudyCase(){
+ const id=document.getElementById('studyCaseSelect')?.value || STUDY_CASES[0].id;
+ return STUDY_CASES.find(c=>c.id===id)||STUDY_CASES[0];
+}
+function li(arr){return '<ul>'+(arr||[]).map(x=>`<li>${x}</li>`).join('')+'</ul>';}
+function renderStudyOptions(c){
+ return (c.options||[]).map((o,i)=>`<button type="button" class="study-option" onclick="selectStudyOption(${i})">${o.text}</button>`).join('');
+}
+function selectStudyOption(i){
+ const c=currentStudyCase(); const opt=c.options[i];
+ document.querySelectorAll('.study-option').forEach((b,idx)=>b.classList.toggle('active',idx===i));
+ const box=document.getElementById('studyFeedback');
+ if(box) box.innerHTML=`<b>${opt.best?'Buena elección':'Esta opción requiere cuidado'}</b><br>${opt.feedback}`;
+}
+function renderStudyCase(){
+ const c=currentStudyCase(); const box=document.getElementById('studyCaseOut'); if(!box)return;
+ box.innerHTML=`<div class="study-head"><div><h3>${c.title}</h3><p>${c.objective}</p></div><div><span class="study-badge">${c.situation}</span><span class="study-badge">${c.skill}</span></div></div>
+ <div class="study-card"><b>Qué busca ECICEP aquí</b>${c.ecicep}</div>
+ <div class="study-case-text">${c.caseText}</div>
+ <div class="study-decision"><b>${c.decisionQuestion}</b><div class="study-options">${renderStudyOptions(c)}</div><div id="studyFeedback" class="study-feedback">Elige una opción para ver la explicación.</div></div>
+ <div class="study-grid">
+   <div class="study-card"><b>Preguntas útiles</b>${li(c.usefulQuestions)}</div>
+   <div class="study-warning"><b>Errores a evitar</b>${li(c.avoid)}</div>
+   <div class="study-mi"><b>Microlección ECICEP</b>${c.micro}</div>
+   <div class="study-card"><b>Cómo ordenar la información</b>${formatData(c.order)}</div>
+   <div class="study-register" style="grid-column:1/-1"><b>Registro sugerido</b>\n${c.order.registro}</div>
+ </div>`;
+}
+function loadStudyCaseToPractice(){
+ const c=currentStudyCase();
+ document.getElementById('practiceRaw').value=c.caseText;
+ document.getElementById('practiceBarriers').value=c.order.barreras||'';
+ document.getElementById('practiceFacilitators').value=c.order.facilitadores||'';
+ document.getElementById('practiceAmbivalence').value=c.order.ambivalencias||'';
+ document.getElementById('practiceReasons').value=c.order.razones||'';
+ document.getElementById('practiceProblems').value=c.order.problemas||'';
+ document.getElementById('practiceAgreement').value='';
+ document.getElementById('practiceFollow').value='';
+}
+async function aiGenerateRandomPracticeCase(){
+ const payload={module:document.getElementById('trainingModuleSelect')?.value||'ingreso',type:val('randomType'),difficulty:val('randomDifficulty'),focus:val('randomFocus')};
+ const data=await aiCall('generate_training_case',payload,'randomCaseOut');
+ if(!data)return;
+ const txt=formatData(data);
+ document.getElementById('randomCaseOut').innerText=txt;
+ const caseText=data.caso_simulado||data.caso_inicial||data.respuesta||txt;
+ document.getElementById('practiceRaw').value=caseText;
+}
+
+
+function chooseProfile(role){
+ setRole(role);
+ document.body.classList.remove('profile-mode');
+ document.body.classList.add('app-mode');
+ localStorage.setItem('ecicep_selected_role',role);
+ go('inicio');
+}
+function showProfileScreen(){
+ document.body.classList.remove('app-mode');
+ document.body.classList.add('profile-mode');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderModuleSelect(){
+ const sel=document.getElementById('moduleSelect'); if(!sel)return;
+ const allowed=menuByRole[currentRole]||menuByRole.profesional;
+ sel.innerHTML='';
+ allowed.forEach(id=>{
+   const opt=document.createElement('option');
+   opt.value=id; opt.textContent=(moduleLabels[id]||[id])[0];
+   sel.appendChild(opt);
+ });
+ const active=document.querySelector('.section.active')?.id || 'inicio';
+ if(allowed.includes(active)) sel.value=active; else sel.value='inicio';
+}
+function routeDescriptions(){
+ return {
+  profesional:['Revisar antecedentes y motivo de ingreso.','Comprender situación clínica, contexto y prioridades.','Elegir con la persona qué trabajar primero.','Definir problema, objetivo, actividad y seguimiento.','Dejar trazabilidad para continuar el cuidado.'],
+  tens:['Revisar el acuerdo del plan.','Preguntar qué resultó, qué no resultó y qué barrera apareció.','Identificar alerta o necesidad de informar.','Reforzar comprensión dentro del rol y coordinar.','Registrar resultado, barrera y próxima acción.'],
+  gestor:['Definir foco crítico del caso.','Identificar barreras persistentes y facilitadores.','Coordinar responsables y continuidad.','Reevaluar avances, pendientes e intensificación.','Decidir continuidad, intensificación o cierre.']
+ };
+}
+function renderProfileHome(){
+ const title=document.getElementById('profileHomeTitle'); if(!title)return;
+ const role=APP_DATA.roles[currentRole];
+ title.innerText=role.label;
+ const lead=document.getElementById('profileHomeLead');
+ const roleLead={
+  profesional:'Tu foco es evaluar integralmente, priorizar con la persona y construir acuerdos clínicamente seguros, claros y posibles.',
+  tens:'Tu foco es retomar acuerdos, preguntar sin castigar, detectar barreras o alertas y dejar continuidad clara para el equipo.',
+  gestor:'Tu foco es ordenar complejidad, distinguir barreras persistentes, coordinar responsables y reevaluar continuidad del caso.'
+ };
+ if(lead)lead.innerText=roleLead[currentRole]||role.focus||'';
+ const routeBox=document.getElementById('profileRouteCompact');
+ if(routeBox){
+   const desc=routeDescriptions()[currentRole]||[];
+   routeBox.innerHTML='';
+   (role.route||[]).forEach((r,i)=>routeBox.innerHTML+=`<div class="route-pill"><b>${r}</b><span>${desc[i]||''}</span></div>`);
+ }
+ const grid=document.getElementById('profileActionGrid');
+ if(grid){
+   const allowed=(menuByRole[currentRole]||[]).filter(id=>id!=='inicio');
+   grid.innerHTML='';
+   allowed.forEach(id=>{
+     const [label,desc]=moduleLabels[id]||[id,''];
+     grid.innerHTML+=`<button class="action-card" onclick="go('${id}')"><b>${label}</b><span>${desc}</span></button>`;
+   });
+ }
+}
+function ensureModuleBackButtons(){
+ document.querySelectorAll('section.section').forEach(sec=>{
+   if(sec.id==='inicio')return;
+   if(sec.querySelector(':scope > .module-back'))return;
+   const div=document.createElement('div');
+   div.className='module-back';
+   div.innerHTML="<button onclick=\"go(\'inicio\')\">← Volver al inicio del perfil</button>";
+   sec.insertBefore(div,sec.firstChild);
  });
 }
-function selectSimOption(i){
- simState.selectedOption=simState.lastOptions[i];
- document.querySelectorAll('.option-card').forEach((b,idx)=>b.classList.toggle('active',idx===i));
-}
-function updateTranscript(){
- const box=document.getElementById('simTranscript'); if(!box)return;
- if(!simState.transcript.length){box.innerText='Aún no hay conversación.';return;}
- box.innerText=simState.transcript.map((t,i)=>`${i+1}. ${t.rol}:\n${t.texto}`).join('\n\n');
-}
-async function aiStartDynamicSimulation(){
- const payload={module:document.getElementById('trainingModuleSelect')?.value||'ingreso',type:val('simType'),difficulty:val('simDifficulty'),focus:val('simFocus')};
- const data=await aiCall('start_dynamic_simulation',payload,'simCase');
- if(!data)return;
- simState.started=true;simState.turn=0;simState.caseText=data.caso_inicial||data.caso_simulado||'';simState.objective=data.objetivo_aprendizaje||data.objetivo_de_entrenamiento||'';
- simState.transcript=[{rol:'Caso inicial',texto:simState.caseText}];
- document.getElementById('simObjective').innerHTML=`<span class="sim-tag">${data.tipo||payload.type}</span><span class="sim-tag">${data.dificultad||payload.difficulty}</span><span class="sim-tag">${data.foco||payload.focus}</span><br><b>Objetivo de aprendizaje:</b><br>${simState.objective}`;
- document.getElementById('simCase').innerText=simState.caseText;
- document.getElementById('simResponse').innerText=data.primera_respuesta_persona||'Elige cómo iniciar la entrevista.';
- document.getElementById('simFeedback').innerText=data.microleccion_inicial||'Comienza explorando preocupación, prioridad o barrera antes de cerrar acuerdos.';
- renderSimOptions(data.opciones_siguiente_accion||[]);
- document.getElementById('simDecisionPanel').classList.remove('hidden');
- const mot=document.getElementById('simMotivational'); if(mot){mot.classList.add('hidden');mot.innerText='';}
- updateTranscript();
-}
-async function aiAdvanceSimulation(){
- if(!simState.started){await aiStartDynamicSimulation();return;}
- const custom=val('simCustomQuestion').trim();
- const selected=custom || (typeof simState.selectedOption==='string'?simState.selectedOption:JSON.stringify(simState.selectedOption||''));
- if(!selected){document.getElementById('simFeedback').innerText='Elige una opción o escribe tu propia pregunta para avanzar.';return;}
- const payload={module:val('trainingModuleSelect'),caseText:simState.caseText,objective:simState.objective,turn:simState.turn,transcript:simState.transcript,action:selected};
- const data=await aiCall('advance_dynamic_simulation',payload,'simResponse');
- if(!data)return;
- simState.turn++;
- simState.transcript.push({rol:'Funcionario/a',texto:selected});
- simState.transcript.push({rol:'Persona simulada',texto:data.respuesta_persona||''});
- document.getElementById('simResponse').innerText=data.respuesta_persona||'';
- document.getElementById('simFeedback').innerText=formatData({que_hiciste_bien:data.que_hiciste_bien,que_abre_tu_pregunta:data.que_abre_tu_pregunta,que_falto:data.que_falto_explorar,riesgo_imposicion:data.riesgo_de_imposicion,mejor_siguiente_paso:data.mejor_siguiente_paso,microleccion:data.microleccion});
- const mot=document.getElementById('simMotivational');
- if(mot){
-  if(data.modo_motivacional?.activar){
-   mot.classList.remove('hidden');
-   mot.innerText='Modo motivacional activado\n\n'+formatValue(data.modo_motivacional);
-  }else{
-   mot.classList.add('hidden');mot.innerText='';
-  }
- }
- renderSimOptions(data.opciones_siguiente_accion||[]);
- document.getElementById('simCustomQuestion').value='';
- updateTranscript();
-}
-async function aiTransferSimulationToPractice(){
- if(!simState.transcript.length){document.getElementById('practiceFeedbackOut').innerText='Primero inicia o avanza una simulación.';return;}
- const data=await aiCall('summarize_simulation_for_practice',{caseText:simState.caseText,objective:simState.objective,transcript:simState.transcript},'practiceFeedbackOut');
- if(!data)return;
- document.getElementById('practiceRaw').value=data.observaciones||'';
- document.getElementById('practiceBarriers').value=data.barreras||'';
- document.getElementById('practiceFacilitators').value=data.facilitadores||'';
- document.getElementById('practiceAmbivalence').value=data.ambivalencias||'';
- document.getElementById('practiceReasons').value=data.razones_para_el_cambio||'';
- document.getElementById('practiceProblems').value=data.problemas_potenciales||'';
- document.getElementById('practiceAgreement').value=data.primer_acuerdo_posible||'';
- document.getElementById('practiceFollow').value=data.seguimiento_sugerido||'';
- document.getElementById('practiceFeedbackOut').innerText=formatData({registro_sugerido:data.registro_sugerido,pendientes:data.informacion_pendiente});
-}
 
-function boot(){initTheme();initSelects();renderAspectGrid();setRole('profesional');renderQuestions();renderCases();renderTrainings();renderTrainingModule();scaleDecision();document.getElementById('apiBaseInput').value=localStorage.getItem('ecicep_ai_url')||'';}boot();
+function boot(){
+ initTheme();initSelects();renderAspectGrid();setRole(localStorage.getItem('ecicep_selected_role')||'profesional');renderQuestions();renderCases();renderTrainings();renderTrainingModule();renderStudyCaseOptions();scaleDecision();
+ const apiInput=document.getElementById('apiBaseInput'); if(apiInput) apiInput.value=localStorage.getItem('ecicep_ai_url')||'';
+ document.body.classList.add('profile-mode');
+ ensureModuleBackButtons();
+}
+boot();
 </script>
 </body></html>
