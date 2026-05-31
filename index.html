@@ -177,7 +177,7 @@ header:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;bac
 @media(max-width:920px){.themebar-inner{display:block}.theme-select{width:100%;margin-top:6px}.theme-note{display:block;margin-top:6px}.theme-preview{margin-top:8px}}
 
 
-/* v3.6 corrections: typography, header, role route, training and barrier matrix */
+/* v3.7 corrections: typography, header, role route, training and barrier matrix */
 body{font-family:"Nunito Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:.01em}
 h1,h2,h3,b,.btn,button,label{letter-spacing:-.01em}
 header{padding:22px 14px}
@@ -219,7 +219,7 @@ header{padding:22px 14px}
 }
 
 
-/* v3.6 dynamic simulator */
+/* v3.7 dynamic simulator */
 .sim-config{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
 .sim-config .field{margin:0}
 .sim-decision{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:14px;margin:14px 0}
@@ -232,7 +232,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.sim-config,.option-grid{grid-template-columns:1fr!important}}
 
 
-/* v3.6 guided training cases */
+/* v3.7 guided training cases */
 .guided-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
 .guided-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
 .guided-head h3{margin:0;color:var(--azul2)}
@@ -248,7 +248,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.guided-head,.guided-grid{grid-template-columns:1fr!important}}
 
 
-/* v3.6 interactive ECICEP study guides */
+/* v3.7 interactive ECICEP study guides */
 .study-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
 .study-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
 .study-head h3{margin:0;color:var(--azul2)}
@@ -270,7 +270,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.study-head,.study-grid,.study-options{grid-template-columns:1fr!important}}
 
 
-/* v3.6 screen architecture */
+/* v3.7 screen architecture */
 body.profile-mode main, body.profile-mode .app-topbar{display:none!important}
 body.app-mode header, body.app-mode .profile-screen{display:none!important}
 .rolebar, nav{display:none!important}
@@ -314,7 +314,7 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
 }
 
 
-/* v3.6 visual refresh and guided training screens */
+/* v3.7 visual refresh and guided training screens */
 .training-app{max-width:1180px;margin:auto}
 .training-toolbar{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;background:linear-gradient(135deg,var(--celeste),#fff);border:1px solid var(--linea);border-radius:24px;padding:18px;box-shadow:var(--sombra)}
 .icon-back{width:44px;height:44px;border-radius:50%;border:1px solid var(--linea);background:#fff;color:var(--azul2);font-weight:900;font-size:1.2rem;cursor:pointer}
@@ -375,6 +375,36 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
  .screen-actions{position:sticky;bottom:0;background:rgba(255,255,255,.92);padding:10px 0}
  .single-card,.phase-card{padding:16px;border-radius:22px}
 }
+
+
+/* v3.7 formative phase interaction */
+.phase-card{border-top:8px solid var(--phase-color,var(--azul))}
+.phase-card.phase-preparar{--phase-color:#4E6E81;--phase-bg:#F1F5F8}
+.phase-card.phase-abrir{--phase-color:#1F6F8B;--phase-bg:#EAF6F7}
+.phase-card.phase-explorar{--phase-color:#5FA777;--phase-bg:#EEF8F1}
+.phase-card.phase-priorizar{--phase-color:#E9B85E;--phase-bg:#FFF5DF}
+.phase-card.phase-deliberar{--phase-color:#6E6BB7;--phase-bg:#F1F0FB}
+.phase-card.phase-motivacional{--phase-color:#8A6BBE;--phase-bg:#F5EFFB}
+.phase-card.phase-acordar{--phase-color:#52A579;--phase-bg:#EAF8EF}
+.phase-card.phase-registrar{--phase-color:#174A5C;--phase-bg:#EAF2F8}
+.phase-card.phase-continuar{--phase-color:#2F6F73;--phase-bg:#ECF8F4}
+.phase-card .training-eyebrow{color:var(--phase-color,var(--morado))}
+.phase-card{background:linear-gradient(180deg,var(--phase-bg,#fff) 0%, #fff 28%)}
+.phase-feedback.good{border-left:7px solid var(--verde);background:var(--verdebg)}
+.phase-feedback.caution{border-left:7px solid var(--amarillo);background:var(--amarillobg)}
+.phase-feedback.stop{border-left:7px solid var(--rojo);background:var(--rojobg)}
+.next-questions{background:#fff;border:1px solid var(--linea);border-left:7px solid var(--phase-color,var(--verde))}
+.next-question-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.next-question-btn{border:1px solid var(--linea);background:#fff;border-radius:16px;padding:12px;text-align:left;color:var(--azul2);font-weight:900;cursor:pointer;min-height:58px}
+.next-question-btn:hover{border-color:var(--phase-color,var(--morado));background:var(--phase-bg,var(--celeste))}
+.next-question-btn.active{background:var(--phase-bg,var(--celeste));border-color:var(--phase-color,var(--morado));box-shadow:0 0 0 3px rgba(0,0,0,.06)}
+.next-question-feedback{margin-top:10px;padding:12px;border-radius:16px;background:var(--phase-bg,var(--verdebg));border-left:7px solid var(--phase-color,var(--verde))}
+.next-locked{opacity:.55;filter:grayscale(.2)}
+.phase-status{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:7px 11px;font-weight:900;font-size:.86rem;background:#fff;border:1px solid var(--linea);color:var(--muted);margin-top:8px}
+.phase-status.ready{color:var(--verde);border-color:rgba(82,165,121,.35);background:var(--verdebg)}
+.phase-status.wait{color:#7a5b00;background:var(--amarillobg);border-color:rgba(233,184,94,.45)}
+#phaseNextBtn[disabled]{opacity:.45;cursor:not-allowed;filter:grayscale(.35)}
+@media(max-width:920px){.next-question-grid{grid-template-columns:1fr!important}}
 
 @media print{nav,.search,.rolebar,.btn,.question button{display:none}body{background:#fff}.section{display:block}.card{box-shadow:none;break-inside:avoid}}
 </style>
@@ -570,7 +600,7 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
             <div id="phaseNextQuestions" class="next-questions"></div>
             <div class="screen-actions">
               <button class="btn light" onclick="prevPhase()">←</button>
-              <button class="btn aiBtn" onclick="nextPhase()">Siguiente →</button>
+              <button id="phaseNextBtn" class="btn aiBtn" onclick="nextPhase()" disabled>Siguiente →</button>
             </div>
           </div>
         </div>
@@ -923,7 +953,8 @@ async function aiEvaluateStructuredPractice(){
 }
 
 
-let trainingStack=['choose'], currentTraining='ingreso', currentStudy='controles_no_adherencia', currentPhase=0;
+
+let trainingStack=['choose'], currentTraining='ingreso', currentStudy='controles_no_adherencia', currentPhase=0, selectedPhaseOption=null, selectedNextQuestion=null;
 
 const ECICEP_ROUTE=[
  {k:'Prepararse',d:'Revisar antecedentes, plan vigente y pendientes.'},
@@ -951,64 +982,375 @@ const BASE_BREAKDOWN=[
  ['Cómo seguir','Explorar → priorizar → deliberar opciones → acordar una acción pequeña → registrar continuidad.']
 ];
 
+function option(text,type,feedback,advance=false){
+ return {text,type,feedback,advance};
+}
+function nextQ(text,feedback,advance=false){
+ return {text,feedback,advance};
+}
+function phase(title,situation,question,options,nextQuestions,guidance){
+ return {title,situation,question,options,nextQuestions,guidance:guidance||{}};
+}
+
 const STUDY_CASES=[
  {
   id:'controles_no_adherencia',title:'Inasistencia a controles',busca:'Comprender qué interrumpió la continuidad antes de reagendar.',caseText:'No asistió al control. Dice: “Siempre me dicen lo mismo”, pero reconoce que debería cuidarse.',
   phases:[
-   phase('Preparar','Revise plan vigente, controles pendientes, últimas inasistencias y motivo actual.','¿Qué mirar primero?',['Plan vigente','Diagnóstico','Meta IAAPS','Última receta'],0,'Bien. En ECICEP el plan vigente permite no empezar desde cero.','El diagnóstico orienta, pero no explica barreras ni acuerdos previos.',['¿Qué acuerdo estaba activo?','¿Qué control quedó pendiente?']),
-   phase('Abrir','La persona llega molesta y dice que venir no le sirve mucho.','¿Cómo abrir?',['¿Qué pasó?','Debe venir','Reagendar','Explicar riesgo'],0,'Buena entrada. Abre la experiencia sin culpar.','Reagendar o explicar puede ser necesario, pero primero conviene comprender la barrera.',['¿Qué hizo difícil venir?','¿Qué espera del control?']),
-   phase('Explorar','Responde: “Siempre me dicen lo mismo, nadie escucha lo que me pasa en la casa”.','¿Qué aparece?',['Barrera vínculo','Desinterés','Falta educación','Problema menor'],0,'Correcto. Hay posible discordancia relacional y baja utilidad percibida.','Tratarlo como desinterés aumenta resistencia y no aborda la causa.',['¿Qué no se sintió escuchado?','¿Qué sería distinto esta vez?']),
-   phase('Priorizar','Hay controles pendientes, medicamentos y cansancio del sistema.','¿Qué enfocar?',['Lo más útil','Todo ahora','Solo agenda','Reto breve'],0,'Bien. Enfocar permite elegir un tema abordable y significativo.','Todo ahora puede aumentar carga y mantener la sensación de repetición.',['¿Qué tema le daría más alivio?','¿Con qué partiría hoy?']),
-   phase('Deliberar','La persona acepta hablar si la atención ayuda a ordenar algo concreto.','¿Cómo deliberar?',['Opciones breves','Indicar control','Convencer','Cerrar plan'],0,'Bien. Revisar opciones breves permite orientar sin imponer.','Indicar o convencer sin opciones reduce participación.',['Podemos ver agenda, medicamentos o una barrera. ¿Qué calza mejor?']),
-   phase('Acordar','La persona elige ordenar próximos controles y entender para qué sirven.','¿Qué falta?',['Responsable','Diagnóstico','Más metas','Sanción'],0,'Correcto. El acuerdo debe decir quién hará qué y cómo se revisará.','Sin responsable ni seguimiento queda poco trazable.',['¿Quién agenda?','¿Cuándo revisamos?']),
-   phase('Registrar','Se identificó baja utilidad percibida y necesidad de aclarar ruta de controles.','¿Qué registrar?',['Barrera + acuerdo','Solo inasiste','Solo diagnóstico','Nada más'],0,'Bien. Registrar barrera y acuerdo permite continuidad.','“No asiste” no explica qué debe retomar el equipo.',['Barrera principal','Acuerdo','Seguimiento']),
-   phase('Continuar','La continuidad dependerá de si logra retomar controles y comprender objetivos.','¿Siguiente paso?',['Seguimiento','Alta','Regaño','Nada'],0,'Bien. Seguimiento permite revisar si el ajuste funcionó.','Cerrar sin revisar puede repetir la pérdida de continuidad.',['¿Se concretó hora?','¿Persistió barrera?'])
+   phase('Preparar','Revise plan vigente, controles pendientes, últimas inasistencias y motivo actual.','¿Qué mirar primero?',[
+    option('Plan vigente','Útil ahora','Permite retomar acuerdos, barreras y pendientes. Es la mejor entrada para no empezar desde cero.',true),
+    option('Diagnóstico','Parcial','Orienta clínicamente, pero no muestra qué se acordó, qué falló ni qué barrera apareció. Úsalo como contexto, no como punto de partida.',false),
+    option('Meta IAAPS','Con cuidado','Puede orientar gestión, pero no debe reemplazar la conversación clínica ni definir el plan por sí sola.',false),
+    option('Última receta','Parcial','Puede ayudar si el problema es tratamiento, pero no explica continuidad, comprensión ni acuerdos vigentes.',false)
+   ],[
+    nextQ('¿Qué estaba acordado?','Buena pregunta. Permite retomar el plan y no repetir la atención desde cero.',true),
+    nextQ('¿Qué diagnóstico tiene?','Sirve como contexto, pero todavía no explica continuidad ni barreras. Falta mirar el acuerdo activo.',false),
+    nextQ('¿Cumplió meta?','Puede orientar gestión, pero adelanta la lógica del indicador antes de comprender a la persona.',false)
+   ],{seguir:'Aún no entrevista; prepare información útil.',guiar:'Ordene antecedentes para decidir qué preguntar.',dirigir:'Si hay alerta clínica registrada, priorice seguridad.'}),
+   phase('Abrir','La persona llega molesta y dice que venir no le sirve mucho.','¿Cómo abrir?',[
+    option('¿Qué pasó?','Útil ahora','Abre la experiencia sin culpar y permite vincular antes de indicar.',true),
+    option('Debe venir','Evitar de entrada','Puede ser cierto clínicamente, pero como primera frase suena impositivo y aumenta resistencia.',false),
+    option('Reagendar','Prematuro','Reagendar puede ser necesario, pero si no entiende la barrera, probablemente se repita la inasistencia.',false),
+    option('Explicar riesgo','Con cuidado','Comunicar riesgo puede ser útil, pero después de escuchar la experiencia y pedir permiso.',false)
+   ],[
+    nextQ('¿Qué lo hizo difícil?','Buena pregunta. Busca barrera concreta sin juicio.',true),
+    nextQ('¿Quiere otra hora?','Puede servir después; antes falta saber por qué no vino.',false),
+    nextQ('¿Sabe el riesgo?','Puede sonar a reto si aparece antes de escuchar.',false)
+   ],{seguir:'Escuche experiencia y emoción.',guiar:'Ayude a poner foco en lo que dificultó asistir.',dirigir:'Dirija solo si hay riesgo o instrucción urgente.'}),
+   phase('Explorar','Responde: “Siempre me dicen lo mismo, nadie escucha lo que me pasa en la casa”.','¿Qué aparece?',[
+    option('Barrera vínculo','Útil ahora','Correcto. Puede haber discordancia relacional, baja utilidad percibida o sensación de no ser escuchado/a.',true),
+    option('Desinterés','No asumir','No hay evidencia suficiente para decir desinterés. La frase muestra molestia y experiencia negativa.',false),
+    option('Falta educación','Parcial','Puede haber baja comprensión, pero primero aparece experiencia relacional y sentido del control.',false),
+    option('Problema menor','Evitar','Minimizar la experiencia puede aumentar distancia y pérdida de continuidad.',false)
+   ],[
+    nextQ('¿Qué no escucharon?','Buena pregunta. Aclara experiencia, vínculo y barrera específica.',true),
+    nextQ('¿Le reagendo?','Aún falta comprender la causa para que no se repita.',false),
+    nextQ('¿Por qué no vino?','Puede servir, pero así formulada puede sonar acusatoria. Mejor: “¿Qué se hizo difícil?”.',false)
+   ],{seguir:'Siga escuchando antes de corregir.',guiar:'Oriente hacia barrera concreta.',dirigir:'No dirija todavía salvo alerta.'}),
+   phase('Priorizar','Hay controles pendientes, medicamentos y cansancio del sistema.','¿Qué enfocar?',[
+    option('Lo más útil','Útil ahora','Bien. Permite elegir con la persona un foco significativo y abordable.',true),
+    option('Todo ahora','Sobrecarga','Puede aumentar carga y confirmar la sensación de “siempre lo mismo”.',false),
+    option('Solo agenda','Parcial','Ordenar agenda ayuda, pero puede ignorar vínculo, sentido y barreras.',false),
+    option('Reto breve','Evitar','Retar reduce participación y puede transformar el plan en imposición.',false)
+   ],[
+    nextQ('¿Qué sería útil hoy?','Buena pregunta. Enfoca desde necesidad y valor para la persona.',true),
+    nextQ('¿Vemos todo?','Puede ser demasiado amplio y poco realista.',false),
+    nextQ('¿Qué meta falta?','Puede servir más adelante, no como foco inicial.',false)
+   ],{seguir:'Valide cansancio.',guiar:'Ayude a elegir un foco.',dirigir:'Dirija si hay prioridad clínica impostergable.'}),
+   phase('Deliberar','La persona acepta hablar si la atención ayuda a ordenar algo concreto.','¿Cómo deliberar?',[
+    option('Opciones breves','Útil ahora','Bien. Ofrecer opciones claras permite decisión compartida sin imponer.',true),
+    option('Indicar control','Prematuro','Puede ser necesario, pero falta conectar la opción con lo que la persona considera útil.',false),
+    option('Convencer','Con cuidado','Convencer con argumentos externos puede aumentar resistencia si no se evocan razones propias.',false),
+    option('Cerrar plan','Prematuro','Aún falta revisar opción, factibilidad y acuerdo.',false)
+   ],[
+    nextQ('¿Qué opción calza?','Buena pregunta. Integra contexto y preferencia.',true),
+    nextQ('¿Acepta venir?','Cierra demasiado pronto y puede generar “sí automático”.',false),
+    nextQ('¿Le explico todo?','Puede saturar; mejor información breve y con permiso.',false)
+   ],{seguir:'Escuche reacción a cada opción.',guiar:'Compare opciones y factibilidad.',dirigir:'Entregue información clara con permiso.'}),
+   phase('Acordar','La persona elige ordenar próximos controles y entender para qué sirven.','¿Qué falta?',[
+    option('Responsable','Útil ahora','Correcto. El acuerdo debe decir quién hará qué y cómo se revisará.',true),
+    option('Diagnóstico','Parcial','El diagnóstico ya orienta, pero no completa el acuerdo operativo.',false),
+    option('Más metas','Sobrecarga','Más metas puede volver el plan menos sostenible.',false),
+    option('Sanción','Evitar','La sanción no construye continuidad ni acuerdo.',false)
+   ],[
+    nextQ('¿Quién hará qué?','Buena pregunta. Vuelve registrable el acuerdo.',true),
+    nextQ('¿Promete venir?','Puede presionar y no define apoyo ni seguimiento.',false),
+    nextQ('¿Le quedó claro?','Sirve, pero mejor pedir que lo explique con sus palabras.',false)
+   ],{seguir:'Observe si el acuerdo parece propio.',guiar:'Haga el acuerdo concreto.',dirigir:'Indique señales de alerta si corresponde.'}),
+   phase('Registrar','Se identificó baja utilidad percibida y necesidad de aclarar ruta de controles.','¿Qué registrar?',[
+    option('Barrera + acuerdo','Útil ahora','Bien. Eso permite que otro integrante retome el cuidado con claridad.',true),
+    option('Solo inasiste','Insuficiente','No explica causa, ajuste ni continuidad.',false),
+    option('Solo diagnóstico','Insuficiente','No muestra lo conversado ni el acuerdo.',false),
+    option('Nada más','Evitar','Sin registro útil, el próximo contacto parte desde cero.',false)
+   ],[
+    nextQ('¿Qué debe retomar otro?','Buena pregunta de registro: deja trazabilidad clínica.',true),
+    nextQ('¿Dónde está el REM?','Importante operativamente, pero no reemplaza calidad del registro clínico.',false),
+    nextQ('¿Qué código usar?','Puede corresponder, pero primero deje claro el acuerdo.',false)
+   ],{seguir:'No aplica: ahora ordene lo conversado.',guiar:'Registre barrera, acuerdo y seguimiento.',dirigir:'Sea claro y específico.'}),
+   phase('Continuar','La continuidad dependerá de si logra retomar controles y comprender objetivos.','¿Siguiente paso?',[
+    option('Seguimiento','Útil ahora','Bien. Permite revisar si el ajuste funcionó y si persiste la barrera.',true),
+    option('Alta','Prematuro','Aún hay barrera y continuidad por verificar.',false),
+    option('Regaño','Evitar','No mejora continuidad ni vínculo.',false),
+    option('Nada','Evitar','Sin continuidad se pierde el ciclo evaluar → ajustar.',false)
+   ],[
+    nextQ('¿Cuándo revisamos?','Buena pregunta. Cierra con continuidad explícita.',true),
+    nextQ('¿Lo dejamos así?','Demasiado débil; falta fecha o modalidad.',false),
+    nextQ('¿Vuelve si quiere?','No asegura continuidad ni responsabilidad compartida.',false)
+   ],{seguir:'Revise aceptación real.',guiar:'Defina modalidad de continuidad.',dirigir:'Escalar si hay alerta o pérdida persistente.'})
   ]
  },
  {
   id:'farmacos_irregular',title:'Medicamentos irregulares',busca:'Explorar rutina, comprensión, acceso o efectos antes de indicar.',caseText:'Toma medicamentos de lunes a viernes, pero el fin de semana se le olvida. Dice que sabe que le hacen bien.',
   phases:[
-   phase('Preparar','Revise fármacos activos, registros previos, presión/glicemia y acuerdo vigente.','¿Qué mirar?',['Plan vigente','Solo dosis','Solo edad','Meta'],0,'Bien. El plan muestra qué ya se acordó y qué barrera persistía.','Mirar solo dosis no explica uso real.',['¿Qué fármaco?','¿Qué acuerdo previo?']),
-   phase('Abrir','La persona dice que “a veces se desordena”.','¿Cómo abrir?',['Cuénteme','Debe tomarlos','Mala adherencia','Subir dosis'],0,'Bien. “Cuénteme” baja defensa y abre contexto.','Nombrar mala adherencia puede sonar a culpa.',['¿Cómo le va en la práctica?','¿Qué días cuesta más?']),
-   phase('Explorar','Cuenta que el fin de semana cambia horario y sale temprano.','¿Qué es?',['Rutina','Desinterés','Rechazo','Ignorancia'],0,'Correcto. Es una barrera de rutina, no necesariamente rechazo.','Asumir desinterés impide ajustar el acuerdo.',['¿Qué cambia?','¿Qué sí funciona de lunes a viernes?']),
-   phase('Priorizar','Podrían revisarse dosis, horarios, pastillero o apoyo familiar.','¿Qué foco?',['Fin de semana','Todo','Dosis','Retar'],0,'Bien. Es concreto y abordable.','Todo a la vez puede ser excesivo.',['¿Qué ajuste pequeño?','¿Qué recordatorio serviría?']),
-   phase('Deliberar','Quiere evitar descompensarse, pero no le gustan muchas alarmas.','¿Cómo ofrecer?',['Opciones','Ordenar solo','Amenazar','Cerrar'],0,'Correcto. Deliberar es revisar opciones posibles.','Imponer alarma puede fallar si no le acomoda.',['¿Alarma, lugar visible o rutina fija?','¿Cuál le acomoda?']),
-   phase('Motivacional','Reconoce importancia, pero duda de poder sostenerlo.','¿Qué explorar?',['Posibilidad','Culpa','Amenaza','Más datos'],0,'Bien. Si la importancia ya existe, explore posibilidad y apoyo.','Insistir puede aumentar resistencia.',['Del 0 al 10, ¿qué tan posible?','¿Qué subiría un punto?']),
-   phase('Acordar','Elige dejar medicamento junto al hervidor y alarma sábado/domingo 10:00.','¿Completo?',['Revisión','Sí basta','Diagnóstico','Castigo'],0,'Falta definir cómo se revisará.','Sin seguimiento, no sabemos si el acuerdo fue posible.',['¿Cuándo revisamos?','¿Qué hará si se olvida?']),
-   phase('Registrar','Acuerdo definido con barrera de rutina.','¿Qué registrar?',['Barrera/acuerdo','Mala adherencia','Solo fármaco','Nada'],0,'Bien. Eso permite continuidad.','“Mala adherencia” es poco específico y poco útil.',['Barrera','Facilitador','Seguimiento'])
+   phase('Preparar','Revise fármacos activos, registros previos, presión/glicemia y acuerdo vigente.','¿Qué mirar?',[
+    option('Plan vigente','Útil ahora','Muestra acuerdo previo, barrera detectada y seguimiento pendiente.',true),
+    option('Solo dosis','Parcial','La dosis importa, pero no explica uso real ni barreras.',false),
+    option('Solo edad','Insuficiente','La edad puede orientar riesgo, pero no la conducta ni el acuerdo.',false),
+    option('Meta','Con cuidado','La meta no debe reemplazar el análisis de adherencia real.',false)
+   ],[
+    nextQ('¿Qué acuerdo previo?','Permite retomar continuidad y no partir desde cero.',true),
+    nextQ('¿Qué fármaco usa?','Útil, pero falta saber cómo lo usa en la vida diaria.',false),
+    nextQ('¿Cuál es la meta?','Puede servir luego, pero no abre la barrera.',false)
+   ],{}),
+   phase('Abrir','La persona dice que “a veces se desordena”.','¿Cómo abrir?',[
+    option('Cuénteme','Útil ahora','Baja defensa y permite comprender rutina.',true),
+    option('Debe tomarlos','Evitar de entrada','Es correcto clínicamente, pero no explora por qué no ocurre.',false),
+    option('Mala adherencia','Etiqueta débil','Puede ser percibido como juicio y no describe la barrera.',false),
+    option('Subir dosis','No corresponde','No se decide sin evaluación clínica; además no aborda olvido.',false)
+   ],[
+    nextQ('¿Qué días cuesta?','Precisa el patrón y permite intervenir mejor.',true),
+    nextQ('¿Por qué no cumple?','Puede sonar acusatorio; reformule con menos juicio.',false),
+    nextQ('¿Sabe que es grave?','Puede cerrar conversación si aparece demasiado pronto.',false)
+   ],{}),
+   phase('Explorar','Cuenta que el fin de semana cambia horario y sale temprano.','¿Qué es?',[
+    option('Rutina','Útil ahora','Correcto. Es una barrera concreta y abordable.',true),
+    option('Desinterés','No asumir','Reconoce que le hacen bien, por lo tanto no es desinterés evidente.',false),
+    option('Rechazo','No aparece','No hay evidencia de rechazo; hay desorganización.',false),
+    option('Ignorancia','No asumir','Puede entender su utilidad y aun así tener barreras prácticas.',false)
+   ],[
+    nextQ('¿Qué cambia?','Buena pregunta. Aclara la barrera operativa.',true),
+    nextQ('¿Por qué sale?','Puede sonar invasiva si no se enfoca en la rutina.',false),
+    nextQ('¿Quiere cuidarse?','Puede ser útil después, pero ya expresó que sabe que le hacen bien.',false)
+   ],{}),
+   phase('Priorizar','Podrían revisarse dosis, horarios, pastillero o apoyo familiar.','¿Qué foco?',[
+    option('Fin de semana','Útil ahora','Es concreto, específico y conectado con la barrera.',true),
+    option('Todo','Sobrecarga','Puede ser demasiado amplio para un primer acuerdo.',false),
+    option('Dosis','No ahora','No es el problema declarado y requiere evaluación clínica si corresponde.',false),
+    option('Retar','Evitar','No mejora automanejo ni confianza.',false)
+   ],[
+    nextQ('¿Qué ajuste pequeño?','Permite pasar de problema a acuerdo posible.',true),
+    nextQ('¿Usará pastillero?','Puede ser opción, pero primero explore si le acomoda.',false),
+    nextQ('¿Promete hacerlo?','Presiona y no resuelve la barrera.',false)
+   ],{}),
+   phase('Deliberar','Quiere evitar descompensarse, pero no le gustan muchas alarmas.','¿Cómo ofrecer?',[
+    option('Opciones','Útil ahora','Permite deliberación: alarma, lugar visible, rutina fija o apoyo.',true),
+    option('Ordenar solo','Poco participativo','Puede resolver en el papel, pero no necesariamente calza con su rutina.',false),
+    option('Amenazar','Evitar','El miedo puede bloquear y no construye acuerdo sostenido.',false),
+    option('Cerrar','Prematuro','Falta elegir opción factible.',false)
+   ],[
+    nextQ('¿Cuál le acomoda?','Integra preferencia y factibilidad.',true),
+    nextQ('¿Quiere alarma?','Es una opción, no necesariamente la mejor.',false),
+    nextQ('¿Entendió?','Verifica poco; mejor que explique qué haría.',false)
+   ],{}),
+   phase('Motivacional','Reconoce importancia, pero duda de poder sostenerlo.','¿Qué explorar?',[
+    option('Posibilidad','Útil ahora','Si ya hay importancia, explore confianza, barreras y apoyo.',true),
+    option('Culpa','Evitar','La culpa reduce autoeficacia y vínculo.',false),
+    option('Amenaza','Evitar','No aumenta capacidad ni oportunidad.',false),
+    option('Más datos','Parcial','Puede ayudar, pero ahora el punto es factibilidad.',false)
+   ],[
+    nextQ('¿Qué subiría un punto?','Buena pregunta motivacional: identifica ajuste o apoyo concreto.',true),
+    nextQ('¿Por qué no puede?','Puede sonar confrontacional; reformule hacia posibilidad.',false),
+    nextQ('¿Quiere hacerlo?','Demasiado general; falta concretar posibilidad.',false)
+   ],{}),
+   phase('Acordar','Elige dejar medicamento junto al hervidor y alarma sábado/domingo 10:00.','¿Completo?',[
+    option('Revisión','Útil ahora','Falta definir cómo y cuándo se revisará.',true),
+    option('Sí basta','Incompleto','Tiene acción, pero no seguimiento explícito.',false),
+    option('Diagnóstico','No aporta ahora','El acuerdo operativo ya está en construcción.',false),
+    option('Castigo','Evitar','No corresponde en enfoque ECICEP.',false)
+   ],[
+    nextQ('¿Cuándo revisamos?','Cierra continuidad y permite ajustar.',true),
+    nextQ('¿Promete cumplir?','Presiona y no agrega trazabilidad.',false),
+    nextQ('¿Lo hará siempre?','Muy amplio; mejor revisar un periodo corto.',false)
+   ],{}),
+   phase('Registrar','Acuerdo definido con barrera de rutina.','¿Qué registrar?',[
+    option('Barrera/acuerdo','Útil ahora','Registra lo que permite continuidad: barrera, facilitador, acuerdo y seguimiento.',true),
+    option('Mala adherencia','Insuficiente','Etiqueta sin explicar causa ni plan.',false),
+    option('Solo fármaco','Parcial','No muestra cómo se acordó sostenerlo.',false),
+    option('Nada','Evitar','Sin registro se pierde continuidad.',false)
+   ],[
+    nextQ('¿Qué se retomará?','Buena guía de registro para continuidad.',true),
+    nextQ('¿Qué código usar?','Operativo, pero no reemplaza redacción útil.',false),
+    nextQ('¿Está compensado?','Importante clínicamente, pero no resume acuerdo.',false)
+   ],{})
   ]
  },
  {
   id:'nutricion_rechazo',title:'Rechazo a nutrición',busca:'Aclarar experiencia, vínculo o factibilidad antes de reagendar.',caseText:'No asistió a nutrición porque “no le gusta”, aunque sabe que es importante para ella.',
   phases:[
-   phase('Preparar','Revise controles de nutrición, acuerdos alimentarios previos y barreras registradas.','¿Qué mirar?',['Experiencia previa','Solo peso','Solo HbA1c','Meta'],0,'Bien. La experiencia previa puede explicar la barrera actual.','Solo mirar peso/HbA1c puede empujar una solución sin comprender.',['¿Qué se registró?','¿Hubo acuerdo previo?']),
-   phase('Abrir','La persona dice que no quiere volver a nutrición.','¿Cómo abrir?',['Qué pasó','Debe ir','Reagendar','Explicar dieta'],0,'Buena elección. Primero aclare qué significa “no le gusta”.','Reagendar sin comprender puede repetir inasistencia.',['¿Qué pasó?','¿Fue trato, indicación o contexto?']),
-   phase('Explorar','Refiere que se sintió juzgada y que la pauta era cara.','¿Qué aparece?',['Vínculo y costo','Desinterés','Falta educación','Rebeldía'],0,'Correcto. Hay barrera relacional y económica.','Llamarlo desinterés invisibiliza barreras reales.',['¿Qué la hizo sentir juzgada?','¿Qué cambio sería más realista?']),
-   phase('Enfocar','Hay varias cosas: trato, presupuesto, alimentación familiar.','¿Qué enfocar?',['Lo posible','Pauta ideal','Peso','Reto'],0,'Bien. Enfocar en lo posible baja carga y mejora adherencia.','Pauta ideal sin contexto puede sentirse impuesta.',['¿Qué comida ordenar primero?','¿Qué no aumenta gasto?']),
-   phase('Evocar','Ella dice que quiere cuidarse para tener más energía.','¿Qué hacer?',['Razones propias','Más indicaciones','Asustar','Cerrar'],0,'Bien. Evoque razones propias para sostener el cambio.','Más indicaciones no necesariamente aumentan motivación.',['¿Qué ganaría si mejora?','¿Qué le importa recuperar?']),
-   phase('Deliberar','Se podrían probar cambios de bajo costo o retomar nutrición con foco distinto.','¿Cómo ofrecer?',['Opciones','Enviar igual','Pauta fija','Nada'],0,'Correcto. Ofrecer opciones devuelve agencia.','Enviar igual no resuelve vínculo ni costo.',['¿Qué opción calza mejor?','¿Qué ajuste haría más posible volver?']),
-   phase('Acordar','Elige revisar once y bebidas antes que pauta completa.','¿Qué falta?',['Seguimiento','Más metas','Peso ideal','Retar'],0,'Bien. Todo acuerdo requiere revisión.','Más metas puede hacerlo menos sostenible.',['¿Desde cuándo?','¿Cuándo revisamos?']),
-   phase('Registrar','Se aclaró barrera de trato y costo, con acuerdo pequeño.','¿Qué registrar?',['Barrera + ajuste','No quiere','Solo dieta','Nada'],0,'Bien. Deja trazabilidad y evita repetir el mismo error.','“No quiere” no explica qué debe ajustar el equipo.',['Barrera relacional','Barrera económica','Acuerdo'])
+   phase('Preparar','Revise controles de nutrición, acuerdos alimentarios previos y barreras registradas.','¿Qué mirar?',[
+    option('Experiencia previa','Útil ahora','Puede explicar rechazo, pérdida de confianza o sensación de juicio.',true),
+    option('Solo peso','Parcial','El peso no explica por qué evita la atención.',false),
+    option('Solo HbA1c','Parcial','Orienta riesgo, pero no la barrera relacional o práctica.',false),
+    option('Meta','Con cuidado','No debe empujar un plan sin comprender la resistencia.',false)
+   ],[
+    nextQ('¿Qué pasó antes?','Abre la barrera real sin asumir.',true),
+    nextQ('¿Cuánto pesa?','Puede ser dato clínico, pero no abre el rechazo.',false),
+    nextQ('¿Acepta nutrición?','Demasiado pronto; falta comprender.',false)
+   ],{}),
+   phase('Abrir','La persona dice que no quiere volver a nutrición.','¿Cómo abrir?',[
+    option('Qué pasó','Útil ahora','Aclara qué significa “no le gusta” antes de decidir.',true),
+    option('Debe ir','Evitar de entrada','Puede aumentar rechazo y sentirse impuesto.',false),
+    option('Reagendar','Prematuro','Si no aclaramos la barrera, puede volver a inasistir.',false),
+    option('Explicar dieta','No ahora','Aún no se comprende la experiencia ni la factibilidad.',false)
+   ],[
+    nextQ('¿Qué no le gustó?','Buena pregunta. Precisa trato, pauta, costo o vínculo.',true),
+    nextQ('¿Por qué no coopera?','Juzga y cierra conversación.',false),
+    nextQ('¿Le doy otra hora?','Todavía no resuelve el rechazo.',false)
+   ],{}),
+   phase('Explorar','Refiere que se sintió juzgada y que la pauta era cara.','¿Qué aparece?',[
+    option('Vínculo y costo','Útil ahora','Correcto. Hay barrera relacional y económica.',true),
+    option('Desinterés','No asumir','Reconoce importancia; el problema no es falta simple de interés.',false),
+    option('Falta educación','Parcial','Puede requerir información, pero la barrera principal es experiencia/costo.',false),
+    option('Rebeldía','Evitar','Etiqueta que daña vínculo y no aporta al plan.',false)
+   ],[
+    nextQ('¿Qué la hizo sentir juzgada?','Permite reparar vínculo y ajustar el apoyo.',true),
+    nextQ('¿Cuánto gasta?','Puede servir después, pero primero valide experiencia.',false),
+    nextQ('¿Quiere cambiar?','Muy general; ya dijo que le importa.',false)
+   ],{}),
+   phase('Enfocar','Hay trato, presupuesto y alimentación familiar.','¿Qué enfocar?',[
+    option('Lo posible','Útil ahora','Permite pasar de rechazo a alternativa viable.',true),
+    option('Pauta ideal','Riesgoso','Puede repetir la barrera de costo y sensación de juicio.',false),
+    option('Peso','Parcial','Puede ser clínico, pero no es el foco conversacional ahora.',false),
+    option('Reto','Evitar','Aumenta resistencia.',false)
+   ],[
+    nextQ('¿Qué comida ordenar?','Concreta un cambio abordable.',true),
+    nextQ('¿Dejará pan?','Indicación cerrada y posiblemente impositiva.',false),
+    nextQ('¿Volverá a nutrición?','Puede venir después de ajustar condiciones.',false)
+   ],{}),
+   phase('Evocar','Ella dice que quiere cuidarse para tener más energía.','¿Qué hacer?',[
+    option('Razones propias','Útil ahora','Evoca motivación desde su vida, no desde la presión externa.',true),
+    option('Más indicaciones','Prematuro','Más indicaciones pueden repetir la experiencia negativa.',false),
+    option('Asustar','Evitar','No construye confianza ni acuerdo.',false),
+    option('Cerrar','Prematuro','Aún falta transformar en acuerdo.',false)
+   ],[
+    nextQ('¿Qué ganaría?','Evoca razones personales para sostener el cambio.',true),
+    nextQ('¿Sabe el riesgo?','Puede ser útil luego, pero ahora conviene evocar.',false),
+    nextQ('¿Promete seguir?','Presiona y no explora barreras.',false)
+   ],{}),
+   phase('Deliberar','Se podrían probar cambios de bajo costo o retomar nutrición con foco distinto.','¿Cómo ofrecer?',[
+    option('Opciones','Útil ahora','Devuelve agencia y permite adaptar el plan.',true),
+    option('Enviar igual','Riesgoso','No resuelve vínculo ni costo.',false),
+    option('Pauta fija','Riesgoso','Puede ser poco viable y percibida como imposición.',false),
+    option('Nada','Insuficiente','Deja barrera sin abordaje.',false)
+   ],[
+    nextQ('¿Qué calza mejor?','Integra preferencias y factibilidad.',true),
+    nextQ('¿Acepta la pauta?','Cierra demasiado pronto.',false),
+    nextQ('¿Le explico otra vez?','Podría repetir la lógica anterior sin ajustar.',false)
+   ],{}),
+   phase('Acordar','Elige revisar once y bebidas antes que pauta completa.','¿Qué falta?',[
+    option('Seguimiento','Útil ahora','Todo acuerdo necesita revisión para ajustar.',true),
+    option('Más metas','Sobrecarga','Puede hacer menos sostenible el cambio.',false),
+    option('Peso ideal','Prematuro','No conecta con acuerdo actual.',false),
+    option('Retar','Evitar','No ayuda al automanejo.',false)
+   ],[
+    nextQ('¿Cuándo revisamos?','Asegura continuidad del acuerdo.',true),
+    nextQ('¿Promete hacerlo?','Presiona y no define revisión.',false),
+    nextQ('¿Lo hará perfecto?','No realista ni útil.',false)
+   ],{}),
+   phase('Registrar','Se aclaró barrera de trato y costo, con acuerdo pequeño.','¿Qué registrar?',[
+    option('Barrera + ajuste','Útil ahora','Deja visible qué debe considerar el equipo para no repetir el problema.',true),
+    option('No quiere','Insuficiente','No explica experiencia, costo ni alternativa.',false),
+    option('Solo dieta','Parcial','No registra barrera ni acuerdo consensuado.',false),
+    option('Nada','Evitar','Se pierde aprendizaje para continuidad.',false)
+   ],[
+    nextQ('¿Qué debe saber el equipo?','Buena guía: barrera relacional, costo, acuerdo.',true),
+    nextQ('¿Qué meta clínica?','Importante, pero no reemplaza acuerdo.',false),
+    nextQ('¿Quién tuvo culpa?','No aporta y puede dañar vínculo.',false)
+   ],{})
   ]
  },
  {
   id:'actividad_miedo',title:'Dolor o miedo a caer',busca:'Ajustar la actividad a seguridad, confianza y posibilidad.',caseText:'Quería caminar 30 minutos, pero caminó una vez. Tiene dolor de rodillas y miedo a caerse.',
   phases:[
-   phase('Preparar','Revise funcionalidad, caídas, dolor, acuerdo previo y alertas.','¿Qué mirar?',['Seguridad','Solo meta','Peso','Edad'],0,'Bien. La seguridad define si se ajusta, deriva o avanza.','La meta sola no basta.',['¿Caídas?','¿Dolor?','¿Ayudas técnicas?']),
-   phase('Abrir','La persona se siente frustrada porque no cumplió.','¿Cómo abrir?',['Qué pasó','No cumplió','Debe caminar','Subir meta'],0,'Bien. Abre sin culpa.','Decir “no cumplió” puede cerrar la conversación.',['¿Qué se hizo difícil?','¿Qué parte resultó?']),
-   phase('Explorar','Dice que le duele y teme caerse si sale sola.','¿Qué aparece?',['Seguridad','Desinterés','Flojera','Educación'],0,'Correcto. La barrera principal es seguridad/confianza.','Tratarlo como desinterés impone la meta.',['¿Qué teme más?','¿Dónde se sentiría segura?']),
-   phase('Priorizar','El objetivo era moverse más, pero la meta no fue viable.','¿Qué ajustar?',['Meta pequeña','Insistir','Suspender todo','Reto'],0,'Bien. Meta pequeña y segura.','Insistir aumenta riesgo de fracaso.',['¿Qué versión sí podría?','¿Con quién o dónde?']),
-   phase('Deliberar','Opciones: caminar acompañada, ejercicios en casa, pausas breves.','¿Cómo ofrecer?',['Opciones','Una orden','Nada','Amenaza'],0,'Correcto. La persona elige lo más seguro.','Una orden puede no calzar con miedo o dolor.',['¿Cuál es más segura?','¿Qué apoyo tiene?']),
-   phase('Motivacional','Quiere cansarse menos, pero duda de poder hacerlo.','¿Qué escala?',['Posibilidad','Culpa','Exigencia','Peso'],0,'Bien. Explore posibilidad antes de cerrar.','Exigir más no aumenta confianza.',['0 a 10, ¿posible?','¿Qué subiría un punto?']),
-   phase('Acordar','Elige 5 minutos en pasillo del edificio, 3 veces por semana.','¿Qué falta?',['Plan B','Más tiempo','Nada','Reto'],0,'Bien. Anticipar dificultades fortalece automanejo.','Sin plan B, se corta ante la primera barrera.',['Si duele, ¿qué hará?','¿Cuándo revisamos?']),
-   phase('Registrar','El acuerdo es pequeño, seguro y revisable.','¿Qué registrar?',['Dolor/miedo/acuerdo','No cumple','Caminar 30','Nada'],0,'Bien. Registre barrera y ajuste.','Mantener 30 min ignora lo aprendido.',['Barrera','Acuerdo','Seguimiento'])
+   phase('Preparar','Revise funcionalidad, caídas, dolor, acuerdo previo y alertas.','¿Qué mirar?',[
+    option('Seguridad','Útil ahora','Dolor, caídas y miedo definen si avanzar, ajustar o derivar.',true),
+    option('Solo meta','Parcial','La meta previa no explica si era segura o posible.',false),
+    option('Peso','Parcial','Puede ser dato, pero no la barrera principal.',false),
+    option('Edad','Insuficiente','La edad no reemplaza evaluación funcional.',false)
+   ],[
+    nextQ('¿Hubo caídas?','Pregunta clave de seguridad antes de acordar actividad.',true),
+    nextQ('¿Cuánto pesa?','No es la prioridad inmediata para seguridad.',false),
+    nextQ('¿Cumplió meta?','Suena evaluativo; falta comprender barrera.',false)
+   ],{}),
+   phase('Abrir','La persona se siente frustrada porque no cumplió.','¿Cómo abrir?',[
+    option('Qué pasó','Útil ahora','Abre sin culpa y permite revisar si la meta era viable.',true),
+    option('No cumplió','Evitar','Transforma el control en juicio.',false),
+    option('Debe caminar','Impositivo','Ignora dolor, miedo y seguridad.',false),
+    option('Subir meta','Riesgoso','Aumenta exigencia sin resolver barrera.',false)
+   ],[
+    nextQ('¿Qué parte resultó?','Rescata avance y baja sensación de fracaso.',true),
+    nextQ('¿Por qué falló?','Puede sonar acusatorio.',false),
+    nextQ('¿Quiere caminar más?','Muy general; falta seguridad.',false)
+   ],{}),
+   phase('Explorar','Dice que le duele y teme caerse si sale sola.','¿Qué aparece?',[
+    option('Seguridad','Útil ahora','Correcto. Hay dolor, miedo y posible riesgo de caída.',true),
+    option('Desinterés','No asumir','Quiere cansarse menos; hay motivación.',false),
+    option('Flojera','Evitar','Juicio que invisibiliza dolor y miedo.',false),
+    option('Educación','Parcial','Puede necesitar orientación, pero primero hay que ajustar seguridad.',false)
+   ],[
+    nextQ('¿Qué teme más?','Aclara si la barrera es dolor, caída, mareo o estar sola.',true),
+    nextQ('¿Le explico beneficios?','Puede servir luego, pero ya quiere mejorar.',false),
+    nextQ('¿Por qué no sale?','Menos preciso; mejor explorar miedo específico.',false)
+   ],{}),
+   phase('Priorizar','El objetivo era moverse más, pero la meta no fue viable.','¿Qué ajustar?',[
+    option('Meta pequeña','Útil ahora','Bien. Baja carga y aumenta autoeficacia.',true),
+    option('Insistir','Evitar','Mantiene una meta que ya mostró baja posibilidad.',false),
+    option('Suspender todo','Prematuro','Puede haber alternativas seguras y pequeñas.',false),
+    option('Reto','Evitar','No ayuda con miedo ni dolor.',false)
+   ],[
+    nextQ('¿Qué sí podría?','Pregunta central para ajustar acuerdo.',true),
+    nextQ('¿Caminará 30 min?','Repite meta no viable.',false),
+    nextQ('¿Puede esforzarse?','Suena a culpa y no mejora seguridad.',false)
+   ],{}),
+   phase('Deliberar','Opciones: caminar acompañada, ejercicios en casa, pausas breves.','¿Cómo ofrecer?',[
+    option('Opciones','Útil ahora','Permite elegir según seguridad y contexto.',true),
+    option('Una orden','Riesgoso','Puede no calzar con dolor o miedo.',false),
+    option('Nada','Insuficiente','No apoya automanejo.',false),
+    option('Amenaza','Evitar','Aumenta miedo y reduce confianza.',false)
+   ],[
+    nextQ('¿Cuál es segura?','Integra preferencia y seguridad.',true),
+    nextQ('¿Cuál baja peso?','No es el foco inmediato.',false),
+    nextQ('¿Quiere intentarlo?','Falta concretar condiciones.',false)
+   ],{}),
+   phase('Motivacional','Quiere cansarse menos, pero duda de poder hacerlo.','¿Qué escala?',[
+    option('Posibilidad','Útil ahora','Explore confianza y condiciones para intentarlo.',true),
+    option('Culpa','Evitar','La culpa reduce autoeficacia.',false),
+    option('Exigencia','Evitar','No ajusta el acuerdo.',false),
+    option('Peso','Parcial','No resuelve miedo ni seguridad.',false)
+   ],[
+    nextQ('¿Qué subiría un punto?','Permite identificar apoyo o ajuste concreto.',true),
+    nextQ('¿Por qué tan bajo?','Puede sonar confrontacional.',false),
+    nextQ('¿Acepta caminar?','Cierra sin explorar confianza.',false)
+   ],{}),
+   phase('Acordar','Elige 5 minutos en pasillo del edificio, 3 veces por semana.','¿Qué falta?',[
+    option('Plan B','Útil ahora','Anticipa dificultad y sostiene el acuerdo.',true),
+    option('Más tiempo','Sobrecarga','Sube meta antes de probar seguridad.',false),
+    option('Nada','Incompleto','Falta seguimiento o plan ante dolor.',false),
+    option('Reto','Evitar','No corresponde.',false)
+   ],[
+    nextQ('Si duele, ¿qué hará?','Anticipa dificultades y seguridad.',true),
+    nextQ('¿Lo hará perfecto?','No realista.',false),
+    nextQ('¿Le digo que aguante?','Riesgoso y poco seguro.',false)
+   ],{}),
+   phase('Registrar','El acuerdo es pequeño, seguro y revisable.','¿Qué registrar?',[
+    option('Dolor/miedo/acuerdo','Útil ahora','Registra barrera, ajuste y continuidad.',true),
+    option('No cumple','Insuficiente','No explica dolor, miedo ni ajuste.',false),
+    option('Caminar 30','Incorrecto','Mantiene meta no viable.',false),
+    option('Nada','Evitar','Se pierde continuidad.',false)
+   ],[
+    nextQ('¿Qué retomará otro?','Permite registrar lo esencial para continuidad.',true),
+    nextQ('¿Qué peso tiene?','No resume el acuerdo.',false),
+    nextQ('¿Qué meta ideal?','No corresponde si no fue posible.',false)
+   ],{})
   ]
  }
 ];
 
-function phase(title,situation,question,options,best,good,careful,nextQuestions){
- return {title,situation,question,options,best,good,careful,nextQuestions};
+function phaseClass(title){
+ const t=(title||'').toLowerCase();
+ if(t.includes('prepar'))return 'phase-preparar';
+ if(t.includes('abrir'))return 'phase-abrir';
+ if(t.includes('explor'))return 'phase-explorar';
+ if(t.includes('prior'))return 'phase-priorizar';
+ if(t.includes('deliber'))return 'phase-deliberar';
+ if(t.includes('motiv'))return 'phase-motivacional';
+ if(t.includes('acord'))return 'phase-acordar';
+ if(t.includes('registr'))return 'phase-registrar';
+ if(t.includes('continu'))return 'phase-continuar';
+ if(t.includes('enfocar'))return 'phase-priorizar';
+ if(t.includes('evocar'))return 'phase-motivacional';
+ return 'phase-abrir';
 }
+
 function showTrainingScreen(name, push=true){
  document.querySelectorAll('#trainingApp .train-screen').forEach(s=>s.classList.remove('active'));
  const el=document.getElementById('trainScreen'+cap(name)); if(el)el.classList.add('active');
@@ -1024,14 +1366,14 @@ function trainingBack(){
 function updateTrainingHeader(name){
  const map={choose:['Entrenamiento guiado','Aprende la lógica, revisa ejemplos y practica con retroalimentación.'],orientation:['Orientación','Ruta clínica ECICEP y movimientos conversacionales.'],baseExample:['Ejemplo guiado','Observa cómo se ordena una entrevista desde anamnesis hasta continuidad.'],studySelect:['Ejemplos prácticos','Elige una situación frecuente para estudiar.'],studyExample:['Ejemplo por fases','Avanza por preparación, apertura, exploración, decisión y acuerdo.'],practice:['Practicar con IA','Genera un caso, ordénalo y recibe retroalimentación.']};
  const [t,l]=map[name]||map.choose;
- document.getElementById('trainingScreenTitle').innerText=t;
- document.getElementById('trainingScreenLead').innerText=l;
- document.getElementById('trainingCrumb').innerText='Entrenamiento ECICEP';
+ const title=document.getElementById('trainingScreenTitle'); if(title)title.innerText=t;
+ const lead=document.getElementById('trainingScreenLead'); if(lead)lead.innerText=l;
+ const crumb=document.getElementById('trainingCrumb'); if(crumb)crumb.innerText='Entrenamiento ECICEP';
 }
 function selectTrainingTopic(topic){
  currentTraining=topic;
  renderTrainingTopic();
- showTrainingScreen(topic==='motivacional'?'orientation':'orientation');
+ showTrainingScreen('orientation');
 }
 function renderTrainingTopic(){
  const t=TRAIN_TOPICS[currentTraining]||TRAIN_TOPICS.ingreso;
@@ -1066,30 +1408,72 @@ function renderStudyIntro(){
  box.innerHTML=`<h3>${c.title}</h3><p><b>Qué busca:</b> ${c.busca}</p><div class="case-ribbon"><b>Situación</b><p>${c.caseText}</p></div>`;
 }
 function openStudyExample(){
- currentPhase=0;
+ currentPhase=0;selectedPhaseOption=null;selectedNextQuestion=null;
  renderStudyExample();
  showTrainingScreen('studyExample');
 }
 function renderStudyExample(){
  const c=currentStudyCase(); const p=c.phases[currentPhase]||c.phases[0];
+ selectedPhaseOption=null;selectedNextQuestion=null;
+ const card=document.querySelector('#trainScreenStudyExample .phase-card');
+ if(card){card.className='phase-card '+phaseClass(p.title);}
  document.getElementById('studyExampleTitle').innerText=c.title;
  document.getElementById('phaseLabel').innerText='Fase '+(currentPhase+1)+' de '+c.phases.length;
  document.getElementById('phaseTitle').innerText=p.title;
  document.getElementById('phaseSituation').innerText=p.situation;
  document.getElementById('phaseQuestion').innerText=p.question;
- document.getElementById('phaseOptions').innerHTML=p.options.map((o,i)=>`<button class="phase-option" onclick="selectPhaseOption(${i})">${o}</button>`).join('');
- document.getElementById('phaseFeedback').innerText='Elige una alternativa para ver la orientación.';
- document.getElementById('phaseGuidance').innerHTML=`<div class="guide-card"><b>Cuándo seguir</b><p>Cuando falta comprender experiencia, barrera o emoción.</p></div><div class="guide-card"><b>Cuándo guiar/dirigir</b><p>Guía para ordenar opciones; dirige si hay riesgo, instrucción necesaria o solicitud clara.</p></div>`;
- document.getElementById('phaseNextQuestions').innerHTML='<b>Siguientes preguntas</b><ul>'+(p.nextQuestions||[]).map(q=>`<li>${q}</li>`).join('')+'</ul>';
+ document.getElementById('phaseOptions').innerHTML=p.options.map((o,i)=>`<button class="phase-option" onclick="selectPhaseOption(${i})">${o.text}</button>`).join('');
+ const feedback=document.getElementById('phaseFeedback'); feedback.className='phase-feedback'; feedback.innerHTML='Elige una alternativa para ver la orientación.';
+ document.getElementById('phaseGuidance').innerHTML=`<div class="guide-card"><b>Cuándo seguir</b><p>${p.guidance?.seguir||'Cuando falta comprender experiencia, barrera o emoción.'}</p></div><div class="guide-card"><b>Cuándo guiar/dirigir</b><p>${p.guidance?.guiar||'Guía para ordenar opciones; dirige si hay riesgo, instrucción necesaria o solicitud clara.'}</p></div>`;
+ renderNextQuestions(false);
  document.getElementById('phaseProgress').innerHTML=c.phases.map((ph,i)=>`<button class="phase-dot ${i===currentPhase?'active':''}" onclick="currentPhase=${i};renderStudyExample()">${i+1}. ${ph.title}</button>`).join('');
+ updatePhaseStatus(false);
+}
+function renderNextQuestions(enabled){
+ const c=currentStudyCase(); const p=c.phases[currentPhase]||c.phases[0];
+ const box=document.getElementById('phaseNextQuestions');
+ box.classList.toggle('next-locked',!enabled);
+ box.innerHTML=`<b>Siguientes preguntas</b><p class="small">Elige la pregunta que permite avanzar sin imponer.</p><div class="next-question-grid">${(p.nextQuestions||[]).map((q,i)=>`<button class="next-question-btn" ${enabled?'':'disabled'} onclick="selectNextQuestion(${i})">${q.text}</button>`).join('')}</div><div id="nextQuestionFeedback" class="next-question-feedback">${enabled?'Elige una pregunta para habilitar el avance.':'Primero elige una alternativa inicial.'}</div>`;
 }
 function selectPhaseOption(i){
- const c=currentStudyCase(); const p=c.phases[currentPhase];
+ const c=currentStudyCase(); const p=c.phases[currentPhase]; const o=p.options[i];
+ selectedPhaseOption=o; selectedNextQuestion=null;
  document.querySelectorAll('.phase-option').forEach((b,idx)=>b.classList.toggle('active',idx===i));
- const msg=i===p.best?`<b>Útil ahora.</b><br>${p.good}`:`<b>Úsalo con precaución.</b><br>${p.careful}`;
- document.getElementById('phaseFeedback').innerHTML=msg;
+ const feedback=document.getElementById('phaseFeedback');
+ const cls=o.advance?'good':(o.type&&o.type.toLowerCase().includes('evitar')?'stop':'caution');
+ feedback.className='phase-feedback '+cls;
+ feedback.innerHTML=`<b>${o.type}</b><br>${o.feedback}`;
+ renderNextQuestions(true);
+ updatePhaseStatus(false);
 }
-function nextPhase(){const c=currentStudyCase(); if(currentPhase<c.phases.length-1){currentPhase++;renderStudyExample();}else showTrainingScreen('practice');}
+function selectNextQuestion(i){
+ const c=currentStudyCase(); const p=c.phases[currentPhase]; const q=p.nextQuestions[i];
+ selectedNextQuestion=q;
+ document.querySelectorAll('.next-question-btn').forEach((b,idx)=>b.classList.toggle('active',idx===i));
+ const nf=document.getElementById('nextQuestionFeedback');
+ nf.innerHTML=`<b>${q.advance?'Permite avanzar':'Todavía no conviene avanzar'}</b><br>${q.feedback}`;
+ updatePhaseStatus(!!(selectedPhaseOption?.advance && selectedNextQuestion?.advance));
+}
+function updatePhaseStatus(ready){
+ const old=document.getElementById('phaseStatus'); if(old)old.remove();
+ const status=document.createElement('div');
+ status.id='phaseStatus';
+ status.className='phase-status '+(ready?'ready':'wait');
+ status.innerText=ready?'Listo para avanzar':'Aún conviene ajustar la decisión';
+ const box=document.querySelector('.decision-box');
+ if(box)box.appendChild(status);
+ const btn=document.getElementById('phaseNextBtn');
+ if(btn)btn.disabled=!ready;
+}
+function nextPhase(){
+ if(!(selectedPhaseOption?.advance && selectedNextQuestion?.advance)){
+   updatePhaseStatus(false);
+   return;
+ }
+ const c=currentStudyCase();
+ if(currentPhase<c.phases.length-1){currentPhase++;renderStudyExample();}
+ else showTrainingScreen('practice');
+}
 function prevPhase(){if(currentPhase>0){currentPhase--;renderStudyExample();}else showTrainingScreen('studySelect');}
 function loadStudyCaseToPractice(){
  const c=currentStudyCase();
