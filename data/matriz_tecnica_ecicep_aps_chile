@@ -1,0 +1,358 @@
+{
+  "version": "4.0",
+  "nombre": "Matriz técnica ECICEP APS Chile",
+  "proposito": "Documento interno integrado para orientar casos, lectura técnica, práctica IA, registro y continuidad sin sobrecargar la interfaz.",
+  "advertencias": [
+    "Es orientativa y formativa: no diagnostica, no confirma GES, no indica tratamiento y no reemplaza protocolos vigentes ni juicio clínico.",
+    "Toda sugerencia debe verificarse en ficha clínica, normativa local, guías vigentes y alcance del rol."
+  ],
+  "eje_ecicep": {
+    "orden_razonamiento": [
+      "persona y contexto",
+      "condición clínica/programa relacionado",
+      "barrera/facilitador",
+      "prioridad compartida",
+      "opciones y riesgo",
+      "acuerdo posible",
+      "registro trazable",
+      "continuidad"
+    ],
+    "secuencia_clinica": [
+      "prepararse",
+      "abrir",
+      "explorar",
+      "priorizar",
+      "deliberar",
+      "acordar",
+      "registrar",
+      "decidir continuidad"
+    ],
+    "movimientos_conversacionales": [
+      "vincular",
+      "enfocar",
+      "evocar",
+      "planificar"
+    ],
+    "regla": "Los programas, GES, CIE-10, NANDA, IAAPS/COMGES y REM apoyan la conversación; no reemplazan la construcción del plan con la persona."
+  },
+  "programas_aps": {
+    "pscv_dm2_hta_disli": {
+      "activar_si": [
+        "DM2",
+        "HTA",
+        "dislipidemia",
+        "riesgo cardiovascular",
+        "urgencia por presión/glicemia",
+        "polifarmacia cardiovascular"
+      ],
+      "revisar": [
+        "controles PSCV",
+        "fármacos y retiro",
+        "alimentación",
+        "actividad física",
+        "tabaco/alcohol",
+        "automanejo",
+        "exámenes/compensación según rol",
+        "pie diabético si corresponde según alcance",
+        "salud oral/periodoncia si aplica",
+        "barreras de continuidad"
+      ],
+      "preguntas": [
+        "¿Cómo le está yendo en la práctica con sus controles y medicamentos?",
+        "¿Qué parte del cuidado cardiovascular se le hace más difícil?",
+        "¿Qué cambio pequeño sería posible esta semana?"
+      ],
+      "registro": [
+        "aspecto del plan afectado",
+        "barrera específica",
+        "facilitador",
+        "acuerdo",
+        "responsable",
+        "seguimiento"
+      ]
+    },
+    "era_epoc_asma": {
+      "activar_si": [
+        "asma",
+        "EPOC",
+        "síntomas respiratorios crónicos",
+        "uso de inhaladores",
+        "exacerbación",
+        "consulta respiratoria o urgencia"
+      ],
+      "revisar": [
+        "control ERA/respiratorio",
+        "técnica o uso de inhaladores según rol",
+        "síntomas y funcionalidad",
+        "tabaco/humo domiciliario",
+        "vacunas",
+        "plan de acción o señales de alarma",
+        "barreras de acceso"
+      ],
+      "preguntas": [
+        "¿Qué hace cuando se siente más obstruido/a o con falta de aire?",
+        "¿Qué le complica del uso de inhaladores o controles?"
+      ],
+      "registro": [
+        "síntomas/barrera",
+        "automanejo respiratorio",
+        "alerta o coordinación requerida"
+      ]
+    },
+    "salud_mental": {
+      "activar_si": [
+        "depresión",
+        "ansiedad",
+        "ánimo bajo",
+        "insomnio",
+        "estrés",
+        "duelo",
+        "consumo de alcohol/drogas",
+        "riesgo psicosocial"
+      ],
+      "revisar": [
+        "control SM si corresponde",
+        "tratamiento farmacológico/psicosocial",
+        "red de apoyo",
+        "funcionalidad",
+        "riesgo suicida o violencia si aparece",
+        "barreras para continuidad"
+      ],
+      "preguntas": [
+        "¿Cómo ha estado su ánimo y energía últimamente?",
+        "¿Qué le ayuda cuando se siente sobrepasado/a?",
+        "¿Hay algo que le preocupe de su seguridad o la de alguien más?"
+      ],
+      "registro": [
+        "motivo/afectación",
+        "red/apoyo",
+        "alerta si existe",
+        "continuidad o coordinación"
+      ]
+    },
+    "adulto_mayor_empam_funcionalidad": {
+      "activar_si": [
+        "65+",
+        "EMPAM pendiente",
+        "fragilidad",
+        "caídas",
+        "deterioro funcional",
+        "dolor",
+        "polifarmacia",
+        "baja red"
+      ],
+      "revisar": [
+        "EMPAM si corresponde",
+        "funcionalidad",
+        "caídas/miedo a caer",
+        "cognición/ánimo si corresponde",
+        "red y cuidador/a",
+        "medicamentos",
+        "vacunas",
+        "participación social"
+      ],
+      "preguntas": [
+        "¿Qué actividad diaria se le ha hecho más difícil?",
+        "¿Ha tenido caídas o miedo a caerse?",
+        "¿Quién le apoya cuando algo se complica?"
+      ],
+      "registro": [
+        "funcionalidad",
+        "riesgo de caída",
+        "apoyo/red",
+        "acuerdo de continuidad"
+      ]
+    },
+    "dependencia_padds_cuidador": {
+      "activar_si": [
+        "dependencia severa",
+        "PDS",
+        "cuidador/a",
+        "visita domiciliaria",
+        "sobrecarga",
+        "dificultad de traslado"
+      ],
+      "revisar": [
+        "plan persona usuaria y cuidador/a si corresponde",
+        "carga de cuidado",
+        "red de apoyo",
+        "medicamentos/indicaciones",
+        "controles pendientes",
+        "riesgo social",
+        "atención domiciliaria/seguimiento"
+      ],
+      "preguntas": [
+        "¿Qué parte del cuidado se le está haciendo más pesada?",
+        "¿Quién más puede apoyar, aunque sea parcialmente?",
+        "¿Qué indicación está más confusa o difícil de sostener?"
+      ],
+      "registro": [
+        "diferenciar persona usuaria/cuidador",
+        "barrera de cuidado",
+        "responsables",
+        "seguimiento"
+      ]
+    },
+    "preventivo_mujer_adulto": {
+      "activar_si": [
+        "PAP",
+        "mamografía",
+        "EMPA/EMPAM",
+        "vacunas",
+        "neumococo/influenza",
+        "tabaquismo",
+        "alcohol"
+      ],
+      "revisar": [
+        "prestaciones preventivas pertinentes según edad/sexo/riesgo",
+        "motivos de rechazo o postergación",
+        "acceso y continuidad",
+        "riesgo comunicado con permiso"
+      ],
+      "preguntas": [
+        "¿Hay algún examen o vacuna que le preocupe o prefiera conversar antes?",
+        "¿Qué hizo difícil concretarlo?"
+      ],
+      "registro": [
+        "pendiente preventivo",
+        "barrera",
+        "decisión/acuerdo",
+        "fecha o ruta"
+      ]
+    },
+    "farmacia_fofar_retiro": {
+      "activar_si": [
+        "retiro de medicamentos",
+        "stock percibido",
+        "olvido",
+        "confusión de dosis",
+        "polifarmacia",
+        "FOFAR",
+        "recetas activas"
+      ],
+      "revisar": [
+        "recetas activas",
+        "retiro real",
+        "comprensión de horarios",
+        "efectos adversos percibidos",
+        "apoyo/pastillero/alarma",
+        "barrera de acceso"
+      ],
+      "preguntas": [
+        "¿Cuál medicamento toma siempre y cuál le cuesta más?",
+        "¿El problema es recordarlo, retirarlo, entenderlo o tolerarlo?"
+      ],
+      "registro": [
+        "adherencia real",
+        "barrera concreta",
+        "apoyo acordado",
+        "revisión"
+      ]
+    },
+    "some_acceso_continuidad": {
+      "activar_si": [
+        "agenda",
+        "no consigue hora",
+        "inasistencia",
+        "derivación interna",
+        "seguimiento TENS",
+        "control pendiente"
+      ],
+      "revisar": [
+        "prestación requerida",
+        "fecha tentativa",
+        "profesional/estamento responsable",
+        "barrera de acceso",
+        "alcance de SOME"
+      ],
+      "preguntas": [
+        "¿Qué le hizo difícil pedir o asistir a la hora?",
+        "¿Qué dato necesita SOME para agendar correctamente?"
+      ],
+      "registro": [
+        "prestación solicitada",
+        "fecha tentativa",
+        "responsable",
+        "si falta pertinencia clínica devolver a quien deriva"
+      ]
+    }
+  },
+  "ges": {
+    "uso": "Alerta de derecho y continuidad; no confirmar garantía automáticamente.",
+    "regla": "Si una condición puede estar en GES, sugerir verificar diagnóstico, criterios, edad, etapa, registro local y garantía vigente.",
+    "mostrar_como": [
+      "Posible alerta GES",
+      "Verificar en ficha y normativa vigente",
+      "No usar como argumento para imponer el plan"
+    ],
+    "ejemplos": [
+      "DM2",
+      "HTA primaria 15+",
+      "depresión 15+",
+      "EPOC tratamiento ambulatorio",
+      "asma bronquial",
+      "salud oral integral según grupo/criterio",
+      "cáncer activo o sospecha según flujo"
+    ]
+  },
+  "comges_iaaps_rem": {
+    "uso": "Contexto de gestión y continuidad; nunca reemplaza la conversación clínica.",
+    "regla": "La meta puede recordar una prestación o registro pendiente, pero el plan se decide por pertinencia clínica, riesgo, contexto y prioridad de la persona.",
+    "recordatorios": [
+      "Ingreso ECICEP y plan de cuidado cuando corresponde",
+      "Control integral solo si revisa/actualiza plan",
+      "Registrar programa abordado + ECICEP según protocolo local",
+      "Si parcial/no cumple, registrar causa y ajustar plan",
+      "SOME apoya acceso, no define pertinencia clínica"
+    ]
+  },
+  "cie10_orientativo": {
+    "uso": "Agrupación orientativa para ordenar casos; no diagnostica.",
+    "familias": {
+      "E10-E14": "Diabetes mellitus",
+      "I10-I15": "Hipertensión arterial",
+      "E78": "Trastornos del metabolismo de lipoproteínas/dislipidemias",
+      "J40-J47": "Enfermedades crónicas de vías respiratorias inferiores",
+      "F00-F99": "Trastornos mentales y del comportamiento",
+      "Z00-Z99": "Factores que influyen en estado de salud/contacto con servicios",
+      "R00-R99": "Síntomas/signos no clasificados en otra parte"
+    },
+    "regla": "Mostrar solo como posible familia CIE-10 si el diagnóstico ya consta o debe verificarse en ficha."
+  },
+  "nanda_orientativo": {
+    "uso": "Apoyo al juicio de enfermería y gestión del cuidado; no diagnóstico automático.",
+    "patrones_frecuentes": [
+      "Autogestión ineficaz de la salud",
+      "Riesgo de autogestión ineficaz de la salud",
+      "Preparación para mejorar la autogestión de la salud",
+      "Conocimientos deficientes",
+      "Riesgo de caídas",
+      "Deterioro de la movilidad física",
+      "Sobrecarga del rol de cuidador/a",
+      "Afrontamiento ineficaz",
+      "Conductas de salud propensas a riesgo",
+      "Aislamiento social o baja participación social según valoración"
+    ],
+    "regla": "Sugerir como patrón a valorar, confirmable solo por profesional competente según valoración."
+  },
+  "plan_cuidado": {
+    "minimos": [
+      "problema priorizado",
+      "objetivo comprensible",
+      "actividad concreta",
+      "responsable(s)",
+      "fecha/forma de seguimiento",
+      "barrera considerada",
+      "facilitador o apoyo",
+      "estado/causa si parcial o no cumple"
+    ],
+    "pregunta_final": "¿Esto ya es plan de cuidado o todavía es anamnesis?",
+    "riesgo_imposicion": [
+      "no hay prioridad de la persona",
+      "no se exploró posibilidad",
+      "no se registró barrera",
+      "el acuerdo parece indicación",
+      "no hay seguimiento"
+    ]
+  }
+}
