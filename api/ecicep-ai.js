@@ -188,6 +188,90 @@ Evalúa con tono formativo, positivo y útil. No castigues. Identifica qué hizo
 Devuelve JSON:
 {"retroalimentacion_positiva":["..."],"lo_que_falto_explorar":["..."],"pregunta_que_habria_ayudado":"...","riesgo_de_plan_impuesto":"bajo|medio|alto","version_mejorada":{"observaciones":"...","barreras":"...","facilitadores":"...","ambivalencias":"...","razones_para_el_cambio":"...","problemas_potenciales":"...","primer_acuerdo_posible":"...","seguimiento_sugerido":"..."}}`;
 
+
+  if (action === 'start_dynamic_simulation') return `${base}
+Tarea: iniciar un simulador dinámico de entrevista ECICEP para APS/CESFAM Valparaíso.
+Módulo de entrenamiento: ${payload.module || 'ingreso'}
+Tipo de caso: ${payload.type || 'ingreso'}
+Dificultad: ${payload.difficulty || 'intermedia'}
+Foco principal: ${payload.focus || 'aleatorio'}
+
+Marco de generación seguro y realista:
+- Caso ficticio, sin nombres, RUT, direcciones, teléfonos ni datos identificatorios.
+- Basado en situaciones plausibles de APS Chile, ECICEP, multimorbilidad, continuidad, automanejo, cambio de conducta, controles y seguimiento.
+- Puede incluir: G2/G3, HTA, DM2, ERA/EPOC, PSCV, inasistencias, urgencia reciente, alta hospitalaria, PDS/cuidador/a, polifarmacia, adherencia irregular, alimentación con barrera económica, actividad limitada por dolor/caída, PAP/mamografía/EMPA/EMPAM/vacunas pendientes, tabaco/alcohol, salud mental, baja red, traslado, indicaciones contradictorias.
+- No diagnostiques enfermedades nuevas ni indiques tratamientos.
+- El caso debe entrenar criterio conversacional: evaluar, priorizar, acordar, registrar, revisar y ajustar.
+- Incluye un objetivo de aprendizaje explícito.
+- Entrega opciones de próxima acción, no como examen, sino para enseñar criterio.
+
+Devuelve JSON:
+{
+ "tipo":"...",
+ "dificultad":"...",
+ "foco":"...",
+ "objetivo_aprendizaje":"habilidad ECICEP que se entrenará",
+ "caso_inicial":"caso breve pero suficiente",
+ "primera_respuesta_persona":"respuesta inicial simulada de la persona, si corresponde",
+ "microleccion_inicial":"microlección breve de 2-3 líneas",
+ "opciones_siguiente_accion":["opción A...","opción B...","opción C...","Escribir mi propia pregunta"]
+}`;
+
+  if (action === 'advance_dynamic_simulation') return `${base}
+Tarea: continuar una simulación dinámica de entrevista ECICEP.
+Caso inicial: ${payload.caseText || ''}
+Objetivo de aprendizaje: ${payload.objective || ''}
+Turno actual: ${payload.turn || 0}
+Conversación previa: ${JSON.stringify(payload.transcript || [])}
+Acción o pregunta del funcionario/a: ${payload.action || ''}
+
+Actúa en dos capas:
+1) Responde como persona usuaria de APS de forma realista, breve y humana.
+2) Luego entrena al funcionario/a con retroalimentación ECICEP.
+
+Reglas:
+- No evalúes como "correcto/incorrecto"; enseña criterio.
+- Indica qué abrió la pregunta y qué faltó explorar.
+- Señala riesgo de imposición si la pregunta adelanta indicaciones, culpabiliza o cierra acuerdo sin explorar.
+- Si aparece ambivalencia, resistencia, cansancio, vergüenza, baja confianza, "sí automático", alta importancia/baja posibilidad o rechazo a una prestación, activa modo motivacional.
+- En modo motivacional: reflejar, validar, explorar importancia, explorar posibilidad, evocar razones propias y ajustar acuerdo.
+- Después de cada turno entrega nuevas opciones de acción.
+- Mantén coherencia con el rol ECICEP y APS; no indiques tratamientos ni diagnostiques.
+
+Devuelve JSON:
+{
+ "respuesta_persona":"respuesta simulada de la persona",
+ "que_hiciste_bien":["..."],
+ "que_abre_tu_pregunta":"...",
+ "que_falto_explorar":["..."],
+ "riesgo_de_imposicion":"bajo|medio|alto",
+ "mejor_siguiente_paso":"...",
+ "microleccion":"microlección breve y aplicable",
+ "modo_motivacional":{"activar":true,"por_que":"...","evitar":["..."],"hacer_ahora":["..."],"pregunta_motivacional_sugerida":"..."},
+ "opciones_siguiente_accion":["opción A...","opción B...","opción C...","Escribir mi propia pregunta"]
+}`;
+
+  if (action === 'summarize_simulation_for_practice') return `${base}
+Tarea: transformar una conversación simulada ECICEP en una bitácora de práctica para Capa 4.
+Caso inicial: ${payload.caseText || ''}
+Objetivo de aprendizaje: ${payload.objective || ''}
+Conversación: ${JSON.stringify(payload.transcript || [])}
+
+Ordena lo conversado de forma clara, útil y editable. No inventes datos. Si falta información, declárala como pendiente.
+Devuelve JSON:
+{
+ "observaciones":"...",
+ "barreras":"...",
+ "facilitadores":"...",
+ "ambivalencias":"...",
+ "razones_para_el_cambio":"...",
+ "problemas_potenciales":"...",
+ "primer_acuerdo_posible":"...",
+ "seguimiento_sugerido":"...",
+ "registro_sugerido":"...",
+ "informacion_pendiente":["..."]
+}`;
+
   return `${base}
 Tarea: prueba de conexión.
 Devuelve JSON: {"mensaje":"Conexión establecida con GroqCloud para sistema ECICEP","uso":"IA operativa para Plan 9 aspectos, seguimiento, gestión, preguntas, role play, escala, frases y auditoría."}`;
