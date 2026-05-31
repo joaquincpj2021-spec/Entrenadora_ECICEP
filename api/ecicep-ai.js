@@ -33,39 +33,50 @@ function buildPrompt(action, role, payload) {
   const base = basePrompt(role);
 
   if (action === 'aspect_analyze') return `${base}
-Tarea: fortalecer la anamnesis clínica de un aspecto del plan de cuidado ECICEP.
+Tarea: actuar como asistente de entrevista en tiempo real para fortalecer la anamnesis clínica de un aspecto del plan de cuidado ECICEP.
 
-IMPORTANTE:
-- Tu prioridad NO es cerrar un plan rápidamente.
-- Tu prioridad es ayudar al equipo a comprender mejor el aspecto evaluado.
-- No selecciones barreras frecuentes si no aparecen en el texto.
-- No inventes facilitadores.
-- No inventes ambivalencia.
-- Si el texto es ambiguo, declara "barrera declarada pero inespecífica" y formula la mejor pregunta para aclararla.
-- Distingue explícitamente entre: lo que ya sabemos, lo que NO debemos asumir, hipótesis que hay que aclarar y lo que falta preguntar.
-- Entrega siempre UNA "siguiente mejor pregunta", cálida, respetuosa y concreta.
+OBJETIVO PRINCIPAL:
+Ayudar al funcionario/a a seguir preguntando mejor ANTES de cerrar un plan. La primera respuesta debe ser la pregunta inmediata más útil para enriquecer lo escrito.
+
+REGLAS CRÍTICAS:
+- Esto aplica a TODOS los aspectos del plan: controles, fármacos, alimentación, actividad física, tabaco, alcohol, inmunizaciones, participación y otros aspectos.
+- La primera salida debe ser "pregunta_inmediata_recomendada".
+- Esa pregunta debe basarse en el dato MÁS ESPECÍFICO escrito por el profesional, no en el aspecto general.
+- Si el texto contiene expresiones como "no le gusta", "no quiere", "le cuesta", "no puede", "no entiende", "le da miedo", "no tiene tiempo", "se le olvida", "le hizo mal", la primera pregunta debe aclarar exactamente qué significa esa expresión.
+- Si el texto contiene "pero", "aunque", "sin embargo", "sabe que es importante", "quiere, pero", "le gustaría, pero", identifica posible ambivalencia y úsala para preguntar por motivos de importancia y barreras.
+- No uses primero preguntas genéricas del banco del aspecto si el texto ya trae una barrera específica.
+- No selecciones barreras frecuentes si no aparecen en el texto. Las barreras frecuentes son solo ayuda de memoria.
+- No inventes facilitadores ni ambivalencia; si aparecen motivos de importancia, disposición, reconocimiento de beneficio, rutina que funciona o apoyo disponible, rescátalos como activos/facilitadores.
+- Si el texto es ambiguo, declara "barrera declarada pero inespecífica" y orienta preguntas para precisarla.
 - Entrega máximo 5 preguntas para profundizar, ordenadas por utilidad clínica.
 - Indica si la información es suficiente, parcial o insuficiente para construir plan.
-- Si no hay información suficiente, NO propongas problema/objetivo/actividad cerrados; solo posibles focos futuros condicionados a aclaración.
+- Si falta información, NO propongas problema/objetivo/actividad cerrados; solo posibles focos futuros condicionados a aclaración.
+- En texto_pulido NO escribas "no se menciona la orientación del aspecto". Nunca evalúes si se mencionó la orientación del aspecto. Ordena clínicamente lo que el profesional escribió.
+- En texto_pulido, si falta información, declárala solo en "informacion_pendiente".
+- El texto_pulido debe ser una versión clara y ordenada de la anamnesis escrita por el profesional, no un informe de errores.
 
 Aspecto: ${payload.aspect?.title}
 Orientación del aspecto: ${payload.aspect?.purpose}
-Preguntas esenciales: ${(payload.aspect?.essential || []).join(' | ')}
+Preguntas esenciales de referencia, no obligatorias: ${(payload.aspect?.essential || []).join(' | ')}
 Barreras frecuentes como ayuda de memoria, no como diagnóstico automático: ${(payload.aspect?.barriers || []).join(' | ')}
 Automanejo posible: ${(payload.aspect?.selfcare || []).join(' | ')}
 Riesgos a comunicar: ${payload.aspect?.risks}
 Texto escrito por el profesional: ${payload.notes || ''}
 
+Ejemplo de lógica esperada:
+Si el texto dice "No asistió a nutricionista porque no le gusta, pero sabe que es importante para ella", la pregunta inmediata debe ir primero a aclarar "qué no le gusta" o "qué pasó en esa atención", luego explorar desde cuándo ocurre y después rescatar por qué lo considera importante. No partir con preguntas genéricas de reprogramación u horarios.
+
 Devuelve JSON:
 {
+ "pregunta_inmediata_recomendada":"pregunta única, cálida, concreta y atingente al dato más específico del texto",
+ "preguntas_para_profundizar":["máximo 5 preguntas, ordenadas para enriquecer anamnesis"],
+ "por_que_preguntar_esto":"explicación breve de por qué esta pregunta es la mejor siguiente",
  "lo_que_ya_sabemos":["solo información explícita o muy razonable desde el texto"],
  "no_asumir_todavia":["cosas que NO se pueden concluir con el texto disponible"],
  "barrera_principal":{"descripcion":"...","de_que":"...","evidencia_en_el_texto":"...","nivel_de_claridad":"alta|media|baja|inespecífica"},
  "hipotesis_barreras":["posibles explicaciones a aclarar, no afirmarlas como hechos"],
- "siguiente_mejor_pregunta":"pregunta única, cálida y concreta para continuar la anamnesis",
- "preguntas_para_profundizar":["máximo 5 preguntas útiles, no genéricas"],
  "suficiencia_plan":{"estado":"suficiente|parcial|insuficiente","razon":"...","que_falta_antes_de_cerrar":"..."},
- "texto_pulido":{"observacion":"...","barrera":"...","activos_facilitadores":"...","ambivalencia":"...","informacion_pendiente":"..."},
+ "texto_pulido":{"observacion":"ordenar lo que se escribió, sin inventar","barrera":"barrera clara o inespecífica","activos_facilitadores":"rescatar importancia, disposición, apoyos o rutinas si aparecen","ambivalencia":"describir tensión específica si aparece; si no, decir que requiere exploración","informacion_pendiente":"qué falta preguntar antes de cerrar plan"},
  "automanejo":{"requiere_fortalecer":true,"que_fortalecer":["..."],"como_conversarlo":"..."},
  "riesgos":{"requiere_comunicar":true,"riesgos_a_comunicar":["..."],"forma_clara_de_comunicar":"..."},
  "potenciales_planes":[{"foco":"...","condicion_para_usarlo":"qué habría que aclarar o confirmar antes","problema":"...","objetivo":"...","actividad":"...","responsable":"...","seguimiento":"..."}],
