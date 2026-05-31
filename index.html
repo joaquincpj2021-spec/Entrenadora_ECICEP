@@ -5,7 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Entrenamiento ECICEP IA v2.6</title>
 <style>
-:root{--azul:#0f4c75;--azul2:#0b3554;--celeste:#eaf6ff;--verde:#3fa34d;--verdebg:#eaf8ee;--amarillo:#f4b942;--amarillobg:#fff8df;--rojo:#d94f4f;--rojobg:#fff0f0;--gris:#f4f7fa;--texto:#1f2933;--muted:#60758a;--linea:#d7e2ea;--card:#fff;--morado:#5151c6;--moradobg:#eef0ff;--sombra:0 12px 28px rgba(15,76,117,.12);--r:22px}
+:root{
+ --azul:#0039A6;--azul2:#0B4F71;--celeste:#EAF6FB;--verde:#3FA66B;--verdebg:#EAF7EF;
+ --amarillo:#F4B942;--amarillobg:#FFF8DF;--rojo:#D52B1E;--rojobg:#FDECEC;--gris:#F5F8FA;
+ --texto:#1F2933;--muted:#60758A;--linea:#D7E2EA;--card:#FFFFFF;--morado:#5956C8;--moradobg:#EEF0FF;
+ --sombra:0 12px 28px rgba(0,57,166,.12);--r:22px;
+ --header1:#0039A6;--header2:#0B4F71;--accent-line:#D52B1E;--chip:#FFFFFF
+}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--gris);color:var(--texto);line-height:1.5;overflow-x:hidden}
 header{background:linear-gradient(135deg,var(--azul2),var(--azul));color:#fff;padding:24px 14px}.wrap{max-width:1180px;margin:auto}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center}h1{margin:0 0 10px;font-size:2rem;line-height:1.08}header p{margin:0;font-size:1.02rem;opacity:.95}.privacy-top{margin-top:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:16px;padding:10px 12px;font-weight:900}.hero-card{background:#fff;color:var(--azul2);border-radius:var(--r);padding:18px;box-shadow:var(--sombra)}.hero-card b{display:block;margin-bottom:8px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.26);border-radius:999px;padding:6px 10px;font-size:.82rem;font-weight:800}
 nav{position:sticky;top:92px;z-index:40;background:#fff;border-bottom:1px solid var(--linea);box-shadow:0 4px 18px rgba(0,0,0,.06);padding:10px 8px}.nav-inner{max-width:1180px;margin:auto;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.nav-inner::-webkit-scrollbar{display:none}.nav-inner button{flex:0 0 auto;min-height:44px;border:1px solid var(--linea);background:#fff;color:var(--azul);border-radius:999px;padding:10px 14px;font-weight:900;cursor:pointer;white-space:nowrap}.nav-inner button.active,.nav-inner button:hover{background:var(--azul);color:#fff}
@@ -44,39 +50,182 @@ main{max-width:1180px;margin:auto;padding:18px}.search{width:100%;border:1px sol
 @media(max-width:920px){.subgrid,.intent-grid{grid-template-columns:1fr!important}.plan-step{padding:14px}.big-question{font-size:1rem}}
 
 @media(max-width:920px){header{padding:20px 12px}.hero,.grid,.tiles,.flow,.three-panel,.aspect-grid,.kpi{grid-template-columns:1fr!important}.s8,.s7,.s6,.s5,.s4,.s3{grid-column:span 12}.rolebar{top:0;padding:8px}nav{top:132px}.rolebar-inner{grid-template-columns:1fr;gap:6px}.role-label{font-size:.92rem}.role-pill{min-height:44px;font-size:.88rem}.role-now{font-size:.88rem;margin-top:6px}h1{font-size:1.55rem}h2{font-size:1.25rem}header p,.lead{font-size:.96rem}main{padding:12px}.card{padding:16px;border-radius:18px}.step{min-height:auto;text-align:left;padding:16px}.step:before{position:static;margin-bottom:8px}.question{display:block}.question button{margin-top:8px}.panel-output{min-height:120px}}
+
+/* v2.8 responsive polish: PC limpio + Android cómodo */
+.wrap, main, .nav-inner, .rolebar-inner, .role-now{max-width:1180px}
+.card,.plan-step,.training-section,.training-hero{border-color:#dbe7ef}
+.section{animation:fadeIn .18s ease}
+@keyframes fadeIn{from{opacity:.7;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+.rolebar{position:relative;top:auto;background:#f4f7fa;border-bottom:1px solid var(--linea)}
+.rolebar-inner{grid-template-columns:auto minmax(0,1fr)}
+.role-now{background:#eaf6ff;border-left:6px solid var(--azul);max-height:none;overflow:visible}
+
+nav{position:sticky!important;top:0!important;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(10px)}
+.nav-inner{justify-content:flex-start}
+
+.home-index{grid-template-columns:repeat(5,minmax(0,1fr))}
+.index-card{min-height:138px;display:flex;flex-direction:column;justify-content:flex-start}
+.index-card span{color:#486073;font-size:.94rem}
+.route-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.route-card{min-height:124px;display:flex;flex-direction:column;gap:6px}
+.route-card span{color:#486073;font-size:.9rem}
+
+.training-main-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:stretch}
+.training-main-grid .training-section{margin:0}
+.training-section.full{grid-column:1/-1}
+.training-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:end}
+.training-hero .field{margin:0}
+.training-hero p{margin-bottom:0}
+
+.plan-step.narrow{max-width:1000px;margin-left:auto;margin-right:auto}
+.plan-intro-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:14px}
+.plan-step textarea{max-width:100%}
+#aspectGuide,#aspectPolished,#aspectPlanOut,#practiceFeedbackOut,#generatedCaseOut{font-size:.97rem;line-height:1.55}
+#aspectGuide{background:#f7f6ff;border:1px solid #d8d5ff}
+#aspectPolished{background:#fbfdff}
+#aspectSufficiency{background:#fff}
+
+@media(min-width:921px){
+  .section.active{padding-top:4px}
+  .training-section .subgrid{grid-template-columns:1fr 1fr}
+  .plan-step .subgrid{grid-template-columns:1fr 1fr}
+  .plan-step:nth-of-type(2),
+  .plan-step:nth-of-type(3),
+  .plan-step:nth-of-type(4),
+  .plan-step:nth-of-type(5){max-width:980px;margin-left:auto;margin-right:auto}
+}
+
+@media(max-width:920px){
+  header{padding:18px 12px}
+  .rolebar{position:relative!important;top:auto!important;padding:8px}
+  .rolebar-inner{display:block}
+  .role-pills{padding-bottom:4px}
+  .role-now{font-size:.86rem;line-height:1.42;max-height:96px;overflow:auto;margin-top:8px}
+  nav{top:0!important}
+  .nav-inner{padding:0 2px}
+  .nav-inner button{font-size:.9rem;padding:9px 12px;min-height:42px}
+  main{padding:10px}
+  .home-index,.route-cards,.training-main-grid,.training-hero,.plan-intro-grid{grid-template-columns:1fr!important}
+  .index-card{min-height:auto}
+  .route-card{min-height:auto}
+  .training-hero{display:block}
+  .training-hero .field{margin-top:12px}
+  .plan-step,.training-section,.training-hero{margin:12px 0;border-radius:18px}
+  .step-head{align-items:flex-start}
+  .step-num{width:30px;height:30px}
+  #aspectGuide,#aspectPolished,#aspectPlanOut,#practiceFeedbackOut,#generatedCaseOut{font-size:.94rem}
+}
+
+
+/* v2.9 theme system */
+body[data-theme="chile"]{
+ --azul:#0039A6;--azul2:#0B4F71;--celeste:#EAF6FB;--verde:#3FA66B;--verdebg:#EAF7EF;
+ --amarillo:#F4B942;--amarillobg:#FFF8DF;--rojo:#D52B1E;--rojobg:#FDECEC;--gris:#F5F8FA;
+ --texto:#1F2933;--muted:#60758A;--linea:#D7E2EA;--card:#FFFFFF;--morado:#5956C8;--moradobg:#EEF0FF;
+ --sombra:0 12px 28px rgba(0,57,166,.12);--header1:#0039A6;--header2:#0B4F71;--accent-line:#D52B1E
+}
+body[data-theme="clinico"]{
+ --azul:#0B4F71;--azul2:#083B56;--celeste:#EAF6FB;--verde:#2E7D62;--verdebg:#EEF8F4;
+ --amarillo:#D9A441;--amarillobg:#FFF8E6;--rojo:#B94A48;--rojobg:#FDEEEE;--gris:#F6F9FB;
+ --texto:#1F2933;--muted:#66788A;--linea:#DCE6ED;--card:#FFFFFF;--morado:#5E638F;--moradobg:#F0F2FA;
+ --sombra:0 10px 24px rgba(8,59,86,.10);--header1:#083B56;--header2:#0B4F71;--accent-line:#2E7D62
+}
+body[data-theme="calido"]{
+ --azul:#1E5F74;--azul2:#184B5D;--celeste:#EEF7F6;--verde:#4F9D69;--verdebg:#EEF8EF;
+ --amarillo:#E8A93A;--amarillobg:#FFF6E3;--rojo:#C85C45;--rojobg:#FDEFEA;--gris:#FAF7F2;
+ --texto:#25323A;--muted:#6F7F82;--linea:#E7DED3;--card:#FFFFFF;--morado:#7463B6;--moradobg:#F2EEFB;
+ --sombra:0 12px 26px rgba(30,95,116,.11);--header1:#1E5F74;--header2:#4F9D69;--accent-line:#E8A93A
+}
+body[data-theme="dinamico"]{
+ --azul:#1455D9;--azul2:#073B8E;--celeste:#EAF2FF;--verde:#21A67A;--verdebg:#EAFBF5;
+ --amarillo:#FFB020;--amarillobg:#FFF5DA;--rojo:#E5484D;--rojobg:#FFECEF;--gris:#F7F9FC;
+ --texto:#172033;--muted:#5E6F86;--linea:#D9E4F2;--card:#FFFFFF;--morado:#6D5DF6;--moradobg:#F0EEFF;
+ --sombra:0 14px 30px rgba(20,85,217,.13);--header1:#073B8E;--header2:#1455D9;--accent-line:#21A67A
+}
+body[data-theme="contraste"]{
+ --azul:#002B5B;--azul2:#001F3F;--celeste:#E6F0FF;--verde:#007A3D;--verdebg:#E7F8EF;
+ --amarillo:#B77900;--amarillobg:#FFF1CC;--rojo:#B00020;--rojobg:#FFE6EA;--gris:#F2F4F7;
+ --texto:#111827;--muted:#374151;--linea:#AAB7C4;--card:#FFFFFF;--morado:#4B3FA3;--moradobg:#ECE9FF;
+ --sombra:0 8px 18px rgba(0,0,0,.16);--header1:#001F3F;--header2:#002B5B;--accent-line:#B00020
+}
+header{background:linear-gradient(135deg,var(--header1),var(--header2));position:relative}
+header:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--accent-line)}
+.themebar{background:#fff;border-bottom:1px solid var(--linea);padding:8px 10px}
+.themebar-inner{max-width:1180px;margin:auto;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.theme-label{font-weight:900;color:var(--azul2);font-size:.92rem}
+.theme-select{min-width:230px;max-width:100%;border:1px solid var(--linea);border-radius:999px;padding:10px 14px;background:#fff;color:var(--azul2);font-weight:800}
+.theme-note{font-size:.86rem;color:var(--muted)}
+.theme-preview{display:flex;gap:5px;align-items:center}
+.theme-dot{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+.theme-dot.az{background:var(--azul)}.theme-dot.bl{background:#fff}.theme-dot.ro{background:var(--rojo)}.theme-dot.ve{background:var(--verde)}.theme-dot.mo{background:var(--morado)}
+.btn{box-shadow:0 4px 10px rgba(0,0,0,.05)}
+.btn.aiBtn{background:var(--morado)}
+.btn.light{background:var(--celeste);color:var(--azul2)}
+.ask-card,#aspectGuide{border-left:8px solid var(--morado)}
+#aspectPolished{border-left:8px solid var(--verde);background:var(--verdebg)}
+.barrier-group .pill{border-color:rgba(244,185,66,.65);background:var(--amarillobg);color:#5F4700}
+.focus{background:var(--celeste)}
+.ok{background:var(--verdebg)}.warn{background:var(--amarillobg)}.bad{background:var(--rojobg)}
+@media(max-width:920px){.themebar-inner{display:block}.theme-select{width:100%;margin-top:6px}.theme-note{display:block;margin-top:6px}.theme-preview{margin-top:8px}}
+
 @media print{nav,.search,.rolebar,.btn,.question button{display:none}body{background:#fff}.section{display:block}.card{box-shadow:none;break-inside:avoid}}
 </style>
 </head>
-<body>
+<body data-theme="chile">
 <header><div class="wrap hero"><div><h1>Entrenamiento ECICEP IA v2.6</h1><p>Herramienta piloto para entrenar entrevista ECICEP con lenguaje cálido, plan por 9 aspectos, seguimiento y gestión de casos con IA.</p><div class="privacy-top">No ingreses RUT, nombres, direcciones, teléfonos ni datos identificatorios. Usa casos anonimizados o simulados.</div><div class="badges"><span class="badge">ECICEP</span><span class="badge">Plan consensuado</span><span class="badge">Preguntas por momento</span><span class="badge">IA segura</span></div></div><div class="hero-card"><b>Pregunta guía</b>¿Este plan fue construido <u>con</u> la persona o fue diseñado <u>para</u> la persona?</div></div></header>
 <div class="rolebar"><div class="rolebar-inner"><div class="role-label">Estoy entrenando como:</div><div class="role-pills"><button class="role-pill active" data-role="profesional" onclick="setRole('profesional')">Profesional clínico de box</button><button class="role-pill" data-role="tens" onclick="setRole('tens')">TENS / seguimiento</button><button class="role-pill" data-role="gestor" onclick="setRole('gestor')">Gestor/a ECICEP</button></div></div><div id="roleNow" class="role-now"></div></div>
+
+
+<div class="themebar">
+  <div class="themebar-inner">
+    <div>
+      <span class="theme-label">Apariencia visual</span>
+      <span class="theme-note">Elige un tema según contexto, edad del equipo o preferencia de lectura.</span>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <div class="theme-preview" aria-hidden="true">
+        <span class="theme-dot az"></span><span class="theme-dot bl"></span><span class="theme-dot ro"></span><span class="theme-dot ve"></span><span class="theme-dot mo"></span>
+      </div>
+      <select id="themeSelect" class="theme-select" onchange="setTheme(this.value)">
+        <option value="chile">Chile institucional</option>
+        <option value="clinico">Clínico limpio</option>
+        <option value="calido">Cálido humano</option>
+        <option value="dinamico">Dinámico moderno</option>
+        <option value="contraste">Alto contraste</option>
+      </select>
+    </div>
+  </div>
+</div>
 
 <nav><div class="nav-inner"><button class="active" data-section="inicio">Inicio</button><button data-section="entrenar">Entrenar</button><button data-section="plan9">Plan 9 aspectos</button><button data-section="seguimiento">Seguimiento</button><button data-section="gestion">Gestión casos</button><button data-section="preguntas">Preguntas</button><button data-section="roleplay">Role play</button><button data-section="escala">Escala</button><button data-section="frases">Frases IA</button><button data-section="auditoria">Auditoría</button><button data-section="soporte">Soporte IA</button></div></nav>
 <main>
 <section id="inicio" class="section active"><div class="grid block"><div class="card s8"><h2>Cómo usar esta versión</h2><p class="lead">Primero elige tu rol. Luego la app adapta ruta, preguntas, práctica, registro y orientación IA.</p><div class="tiles"><div class="tile" onclick="go('plan9')"><b>Plan 9 aspectos</b><p>Ingreso/control: escribir evaluación, enriquecer con IA y construir plan.</p></div><div class="tile" onclick="go('seguimiento')"><b>Seguimiento</b><p>Llamada telefónica: revisar acuerdo, detectar barrera/alerta y registrar.</p></div><div class="tile" onclick="go('gestion')"><b>Gestión de casos</b><p>Bitácora viva: foco crítico, barreras persistentes, responsables y próximos pasos.</p></div></div></div><div class="card s4"><h2>Ruta según rol</h2><div id="homeRoute" class="flow" style="grid-template-columns:1fr"></div></div></div></section>
 <section id="entrenar" class="section"><div class="grid block"><div class="card s4"><h2>Entrenamiento guiado</h2><p class="lead">Elige una práctica según tu rol.</p><div id="trainingList"></div></div><div class="card s8"><h2 id="trainingTitle">Selecciona un entrenamiento</h2><div id="trainingDetail" class="focus">El entrenamiento mostrará objetivo, frase modelo, preguntas, error frecuente y práctica con IA.</div><div class="field"><label>Practica tu respuesta</label><textarea id="trainingAnswer" class="midtext" placeholder="Escribe cómo lo dirías..."></textarea></div><button class="btn aiBtn" onclick="aiTraining()">Evaluar práctica con IA</button><div id="trainingOut" class="result hidden"></div></div></div></section>
 <section id="plan9" class="section">
-  <div class="plan-step block">
+  <div class="plan-step block narrow">
     <div class="step-head"><div class="step-num">1</div><h2>Seleccione el aspecto a explorar</h2></div>
     <p class="lead">Use esta sección como apoyo para el ingreso o control integral. Primero seleccione el aspecto; luego revise orientación, preguntas esenciales y barreras frecuentes como ayuda de memoria.</p>
     <div class="field"><label>Aspecto del plan de cuidado</label><select id="planAspectSelect" onchange="setAspect(this.value)"></select></div>
-    <div id="aspectPurpose" class="intro-card"></div>
-
-    <div class="subgrid">
-      <div class="note-card">
-        <b>Preguntas esenciales</b>
-        <div id="aspectQuestions"></div>
+    <div class="plan-intro-grid">
+      <div>
+        <div id="aspectPurpose" class="intro-card"></div>
+        <details class="collapsible">
+          <summary>Ver preguntas por intención</summary>
+          <div id="aspectIntentQuestions" class="inner"></div>
+        </details>
       </div>
-      <div class="note-card">
-        <b>Barreras frecuentes como ayuda de memoria</b>
-        <div id="aspectBarriersGrouped"></div>
+      <div>
+        <div class="note-card">
+          <b>Preguntas esenciales</b>
+          <div id="aspectQuestions"></div>
+        </div>
+        <div class="note-card">
+          <b>Barreras frecuentes como ayuda de memoria</b>
+          <div id="aspectBarriersGrouped"></div>
+        </div>
       </div>
     </div>
-
-    <details class="collapsible">
-      <summary>Ver preguntas por intención</summary>
-      <div id="aspectIntentQuestions" class="inner"></div>
-    </details>
   </div>
 
   <div class="plan-step block">
@@ -268,6 +417,19 @@ async function aiScale(){const data=await aiCall('guided_scale',{change:val('sca
 async function aiReformulate(){const data=await aiCall('reformulate',{aspect:APP_DATA.aspects[document.getElementById('phraseAspect').value],text:val('freePhrase')},'phraseOut');if(data)document.getElementById('phraseOut').innerText=formatData(data);}
 async function aiAudit(){const data=await aiCall('audit_plan',{text:val('auditText')},'auditOut');if(data)document.getElementById('auditOut').innerText=formatData(data);}
 async function testAI(){const data=await aiCall('test',{text:'prueba'},'configOut');if(data)showResult('configOut',formatData(data),'ai');}
-function val(id){return document.getElementById(id).value||''}function showResult(id,text,kind){const out=document.getElementById(id);out.className='result '+(kind||'ai');out.innerText=text;out.classList.remove('hidden');}function escapeAttr(s){return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,' ')}function copyText(t){navigator.clipboard?.writeText(t)}function copyFrom(id){navigator.clipboard?.writeText(document.getElementById(id).innerText)}function boot(){initSelects();renderAspectGrid();setRole('profesional');renderQuestions();renderCases();renderTrainings();scaleDecision();document.getElementById('apiBaseInput').value=localStorage.getItem('ecicep_ai_url')||'';}boot();
+function val(id){return document.getElementById(id).value||''}function showResult(id,text,kind){const out=document.getElementById(id);out.className='result '+(kind||'ai');out.innerText=text;out.classList.remove('hidden');}function escapeAttr(s){return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,' ')}function copyText(t){navigator.clipboard?.writeText(t)}function copyFrom(id){navigator.clipboard?.writeText(document.getElementById(id).innerText)}
+function setTheme(theme){
+ const allowed=['chile','clinico','calido','dinamico','contraste'];
+ const t=allowed.includes(theme)?theme:'chile';
+ document.body.setAttribute('data-theme',t);
+ localStorage.setItem('ecicep_theme',t);
+ const sel=document.getElementById('themeSelect'); if(sel) sel.value=t;
+}
+function initTheme(){
+ const saved=localStorage.getItem('ecicep_theme')||'chile';
+ setTheme(saved);
+}
+
+function boot(){initTheme();initSelects();renderAspectGrid();setRole('profesional');renderQuestions();renderCases();renderTrainings();scaleDecision();document.getElementById('apiBaseInput').value=localStorage.getItem('ecicep_ai_url')||'';}boot();
 </script>
 </body></html>
