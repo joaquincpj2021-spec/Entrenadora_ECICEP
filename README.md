@@ -1,5 +1,5 @@
-[README.md](https://github.com/user-attachments/files/28444083/README.md)
-# Entrenamiento ECICEP IA v3.7
+[README.md](https://github.com/user-attachments/files/28444524/README.md)
+# Entrenamiento ECICEP IA v4.0
 
 Incluye:
 - Selector permanente de rol.
@@ -28,13 +28,13 @@ Pega la URL del backend Vercel en Soporte IA:
 https://TU-PROYECTO.vercel.app/api/ecicep-ai
 
 
-## Cambios v3.7
+## Cambios v4.0
 - Eliminada barra de búsqueda global.
 - Menú dinámico según rol.
 - Preguntas reescritas con lenguaje más cálido, respetuoso e inclusivo.
 - Role play ampliado con más casos por rol, tipo de atención y dificultad.
 
-## Cambios v3.7
+## Cambios v4.0
 - Ruta según rol ajustada a lógica protocolo/manual.
 - Advertencia de privacidad movida al encabezado.
 - Barreras frecuentes ampliadas por aspecto como ayuda de memoria clínica.
@@ -43,7 +43,7 @@ https://TU-PROYECTO.vercel.app/api/ecicep-ai
 - IA entrega "siguiente mejor pregunta", hipótesis a aclarar y suficiencia para plan.
 - La salida visual del análisis por aspecto ya no muestra JSON crudo.
 
-## Cambios v3.7
+## Cambios v4.0
 - La casilla 2 ahora parte con "PREGUNTE AHORA".
 - La pregunta inmediata se basa en el dato más específico escrito por el profesional.
 - Funciona para todos los 9 aspectos del plan.
@@ -51,7 +51,7 @@ https://TU-PROYECTO.vercel.app/api/ecicep-ai
 - El texto pulido fue ajustado para ordenar anamnesis, no para decir "no se menciona".
 - Se fuerza detección de ambivalencia cuando hay tensión del tipo "quiere/sabe que es importante, pero...".
 
-## Cambios v3.7
+## Cambios v4.0
 - Rediseño visual completo del módulo Plan 9 aspectos.
 - Selector desplegable de aspecto en lugar de grilla.
 - Flujo vertical por pasos: aspecto → evaluación → pregunte ahora → texto pulido → suficiencia para plan.
@@ -61,7 +61,7 @@ https://TU-PROYECTO.vercel.app/api/ecicep-ai
 - Análisis clínico completo queda en desplegable para no saturar el uso en box.
 - Suficiencia para plan se muestra con semáforo visual.
 
-## Cambios v3.7
+## Cambios v4.0
 - Corrección móvil: el bloque de rol ya no queda fijo detrás del menú.
 - Inicio rediseñado como índice breve y orientador.
 - Ruta por rol más limpia y legible.
@@ -70,7 +70,7 @@ https://TU-PROYECTO.vercel.app/api/ecicep-ai
 - Ingreso/control/acuerdo con lenguaje breve, cálido y operativo.
 - Práctica estructurada con retroalimentación IA.
 
-## Cambios v3.7
+## Cambios v4.0
 - Optimización visual para PC y Android sin perder limpieza.
 - Se corrige comportamiento móvil: rol no tapa contenido y menú queda estable.
 - Inicio se transforma en tablero/índice más claro en PC.
@@ -78,20 +78,20 @@ https://TU-PROYECTO.vercel.app/api/ecicep-ai
 - Entrenar aprovecha dos columnas en PC para aprender + ejemplo, pero mantiene una columna en Android.
 - Plan 9 aspectos mantiene flujo vertical, con paso inicial mejor aprovechado en PC.
 
-## Cambios v3.7
+## Cambios v4.0
 - Nueva matriz visual institucional basada en azul, blanco y rojo de Chile.
 - Selector de apariencia visual persistente en el navegador.
 - Temas disponibles: Chile institucional, Clínico limpio, Cálido humano, Dinámico moderno y Alto contraste.
 - Los colores se aplican por función: azul estructura, blanco lectura, rojo alerta, verde avance, amarillo barrera/parcial, morado IA.
 - Se mantiene la misma lógica clínica y de IA; solo cambia la capa visual.
 
-## Cambios v3.7
+## Cambios v4.0
 - Se reemplaza el foco "Chile institucional" por un sistema de estilos cálidos, amables y agradables a la vista.
 - Nuevos temas: Sereno ECICEP, Cálido humano, Litoral Valparaíso, Lavanda profesional, Menta clínica y Alto contraste amable.
 - Se mantiene la lógica de color funcional: azul/verde para estructura y cuidado, amarillo para barreras, rojo para alertas y morado para IA.
 - El selector de estilo visual queda dentro de la app y se guarda en el navegador.
 
-## Cambios v3.7
+## Cambios v4.0
 - Fuente cambiada a Nunito Sans para una lectura más cálida y menos plana.
 - Selector de estilo visual movido al encabezado superior derecho.
 - Nombres de estilos más formales.
@@ -101,7 +101,7 @@ https://TU-PROYECTO.vercel.app/api/ecicep-ai
 - Entrenamiento guiado reconstruido en 4 capas: aprender rápido, ejemplo completo, caso IA y práctica opcional.
 - Barreras frecuentes en Plan 9 aspectos mejor distribuidas en PC.
 
-## Cambios v3.7
+## Cambios v4.0
 - Capa 3 se transforma en simulador dinámico de entrevista ECICEP.
 - La simulación permite configurar tipo de caso, dificultad y foco principal.
 - La IA responde como persona usuaria y enseña criterio por turno.
@@ -109,20 +109,20 @@ https://TU-PROYECTO.vercel.app/api/ecicep-ai
 - Capa 4 queda conectada a la simulación: la conversación se transfiere automáticamente a observaciones, barreras, facilitadores, ambivalencias, razones para el cambio, problemas, acuerdo y seguimiento.
 - Se agrega retroalimentación formativa: qué abrió la pregunta, qué faltó explorar, riesgo de imposición y microlección.
 
-## Cambios v3.7
+## Cambios v4.0
 - Capa 3 vuelve a ser estructurada y guiada, con casos específicos seleccionados.
 - Cada caso enseña una habilidad concreta: barrera relacional, adherencia de fin de semana, actividad con miedo a caída, cuidador/a sobrecargado/a, sí automático y alta hospitalaria.
 - Capa 4 queda como espacio de caso aleatorio + práctica + retroalimentación IA.
 - Se elimina la lógica de simulación dinámica por turnos porque no era la experiencia deseada.
 - La práctica mantiene casillas para ordenar observaciones, barreras, facilitadores, ambivalencias, razones para el cambio, problemas, acuerdo y seguimiento.
 
-## Cambios v3.7
+## Cambios v4.0
 - Capa 3 se transforma en “Estudio guiado con ejemplos prácticos”.
 - Cada ficha combina situación ECICEP, caso práctico, decisión interactiva, retroalimentación, preguntas útiles, errores a evitar, microlección, ordenamiento y registro sugerido.
 - Capa 4 se mantiene como práctica con caso aleatorio y retroalimentación IA.
 - Se agregan situaciones ECICEP frecuentes: controles, fármacos, alimentación, actividad, sí automático, cuidador/a, alta hospitalaria y urgencia/descompensación.
 
-## Cambios v3.7
+## Cambios v4.0
 - Arquitectura visual por pantallas/capas.
 - Nueva pantalla inicial de selección de perfil.
 - Después de elegir perfil, la app entra a un inicio adaptado por rol.
@@ -131,7 +131,7 @@ https://TU-PROYECTO.vercel.app/api/ecicep-ai
 - La ruta según rol queda dentro del inicio del perfil y ocupa menos espacio.
 - Se mantiene el selector de estilo visual en formato compacto.
 
-## Cambios v3.7
+## Cambios v4.0
 - Rediseño completo de Entrenamiento guiado por pantallas internas.
 - Se eliminan las etiquetas "Capa" del contenido visible.
 - Entrenamiento ahora separa: elección del foco, orientación, ejemplo guiado, ejemplos prácticos por fases y práctica con IA.
@@ -140,9 +140,25 @@ https://TU-PROYECTO.vercel.app/api/ecicep-ai
 - Los ejemplos prácticos avanzan por fases con alternativas breves y retroalimentación profesional.
 - Se mantiene práctica con IA como pantalla independiente, accesible sin pasar por todos los ejemplos.
 
-## Cambios v3.7
+## Cambios v4.0
 - Corrige retroalimentación duplicada: cada alternativa ahora tiene análisis propio.
 - Las “siguientes preguntas” pasan a ser interactivas.
 - La app no permite avanzar hasta elegir una alternativa inicial y una siguiente pregunta que habilite continuidad.
 - Cada fase cambia su color visual para distinguir el momento de la entrevista.
 - Se mejora el tono formativo: útil ahora, parcial, con cuidado, prematuro o evitar.
+
+## Cambios v4.0
+- Practicar con IA ahora tiene flujo visual: generar caso, profundizar, bitácora, anamnesis acumulativa, extracción por categoría y evaluación.
+- Se agregan botones “Ayúdame” en cada casilla: observaciones, barreras, facilitadores, ambivalencias, razones, problemas, acuerdo y seguimiento.
+- La IA distingue encontrado, inferido con cautela, no aparece y pregunta necesaria.
+- La IA analiza lo que el usuario ya escribió antes de sugerir cambios.
+- El caso y la bitácora se resaltan visualmente con colores por categoría.
+- Los casos aleatorios se solicitan más completos para entrenar ECICEP con barreras, facilitadores, ambivalencias, razones y continuidad.
+
+## Cambios v4.0
+- Se integra documento interno: `docs/matriz_tecnica_ecicep_aps_chile.md`.
+- Se integra base JSON: `data/matriz_tecnica_ecicep_aps_chile.json`.
+- Nueva pantalla “Matriz APS Chile”.
+- La app incorpora matriz interna para APS Chile, GES, COMGES/IAAPS/REM, CIE-10 orientativo, NANDA orientativo y mínimos del plan de cuidado.
+- En Práctica con IA se agrega botón “Lectura técnica APS Chile”.
+- El API usa la matriz como contexto interno para generar casos, orientar lectura técnica y evaluar sin diagnosticar ni confirmar garantías.
