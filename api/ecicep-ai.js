@@ -6,20 +6,20 @@ function cors(res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
 
-const APS_CHILE_MATRIX_CONTEXT = `
-MATRIZ TÉCNICA ECICEP APS CHILE (uso interno):
-- Usar ECICEP como eje: persona/contexto -> condición/programa -> barreras/facilitadores -> prioridad compartida -> opciones/riesgo -> acuerdo -> registro -> continuidad.
-- Programas APS a considerar según caso: PSCV/DM2/HTA/dislipidemia, ERA/EPOC/asma, Salud Mental, Adulto Mayor/EMPAM, Dependencia/PADDS/cuidador/a, preventivos (PAP/mamografía/EMPA/EMPAM/vacunas), Farmacia/FOFAR/retiro, SOME/acceso/agenda.
-- GES: solo alerta orientativa de derecho/continuidad; no confirmar garantía. Verificar diagnóstico, criterios, edad, etapa, registro local y normativa vigente.
-- COMGES/IAAPS/REM: contexto de gestión y continuidad, nunca motivo para imponer. Recordar registro si corresponde: ingreso/control ECICEP, programa abordado, plan de cuidado y actualización.
-- CIE-10 orientativo: sugerir familias, no diagnosticar. E10-E14 DM; I10-I15 HTA; E78 dislipidemia; J40-J47 crónicas respiratorias; F00-F99 salud mental; Z00-Z99 contactos/factores; R00-R99 síntomas.
-- NANDA orientativo: patrones a valorar, no diagnóstico automático: autogestión ineficaz, riesgo de autogestión ineficaz, disposición para mejorar autogestión, conocimientos deficientes, riesgo de caídas, deterioro movilidad, sobrecarga rol cuidador/a, afrontamiento ineficaz, conductas de salud propensas a riesgo.
-- Plan de cuidado mínimo: problema priorizado, objetivo comprensible, actividad concreta, responsable, seguimiento, barrera considerada, facilitador/apoyo, estado/causa si parcial o no cumple.
-`;
+const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.1 (uso interno):
+- Eje central: persona/contexto -> condición/programa -> barreras/facilitadores -> prioridad compartida -> opciones/riesgo -> acuerdo -> registro -> continuidad.
+- La matriz no diagnostica, no confirma GES y no indica tratamiento. Entrena razonamiento clínico-comunicacional.
+- Casos de práctica deben incluir, cuando sea pertinente: datos clínicos/contextuales, programa APS, situación actual, barrera explícita, facilitador, ambivalencia/tensión, razón para el cambio, riesgo o pendiente, información faltante, posible acuerdo y continuidad.
+- Programas/situaciones: PSCV/DM2/HTA/dislipidemia; ERA/EPOC/asma; Salud Mental; Adulto mayor/EMPAM; Dependencia/PADDS/cuidador/a; preventivos PAP/mamografía/EMPA/EMPAM/vacunas; Farmacia/FOFAR; SOME/acceso/agenda; urgencia/descompensación; alta hospitalaria.
+- GES: alerta orientativa de derecho/continuidad; verificar criterios, edad, diagnóstico, etapa, red y registro local.
+- COMGES/IAAPS/REM: contexto de gestión y continuidad; nunca motivo para imponer. Recordar registro si corresponde.
+- CIE-10: familia orientativa, no diagnóstico. E10-E14 DM; I10-I15 HTA; E78 dislipidemia; J40-J47 respiratorias crónicas; F00-F99 salud mental; Z00-Z99 contacto/factores; R00-R99 síntomas.
+- NANDA: patrón a valorar, no diagnóstico automático. Autogestión ineficaz/riesgo/disposición; conocimientos deficientes; riesgo de caídas; deterioro movilidad; sobrecarga rol cuidador/a; afrontamiento ineficaz; conductas de salud propensas a riesgo.
+- Cierre de plan: problema priorizado, objetivo comprensible, actividad concreta, responsable, seguimiento, barrera considerada, facilitador/apoyo, riesgo/alerta si existe, registro útil y revisión de imposición.`;
 
 const roleText = {
   profesional: 'Profesional clínico de box: integra evaluación clínica, prioriza con la persona, construye o ajusta plan de cuidado consensuado y define seguimiento.',
-  tens: 'TENS / seguimiento a distancia: revisa acuerdos del plan, detecta barreras o alertas, refuerza comprensión y coordina/reporta continuidad; no toma decisiones clínicas fuera de alcance.',
+  tens: 'TENS / seguimiento a distancia: revisa acuerdos del plan, detecta barreras o alertas, refuerza comprensión y coordina/reporta continuidad. No construye diagnóstico ni cambia tratamiento; si aparece alerta o decisión clínica fuera de alcance, debe reportar/coordinar.',
   gestor: 'Gestor/a ECICEP: ordena complejidad, barreras persistentes, coordinación de equipo/red, responsables, pendientes, reevaluación e intensificación/cierre.'
 };
 
@@ -182,7 +182,7 @@ Margen seguro:
 - El caso debe servir para entrenar entrevista centrada en la persona y plan consensuado.
 
 Devuelve JSON:
-{"caso_simulado":"caso narrativo completo y realista, sin datos identificatorios","datos_clave":["..."],"barreras_potenciales":["..."],"facilitadores_potenciales":["..."],"ambivalencias_posibles":["..."],"razones_para_el_cambio":["..."],"problemas_potenciales":["..."],"informacion_pendiente":["..."],"tension_ecicep":"...","objetivo_de_entrenamiento":"...","pregunta_inicial_sugerida":"..."}`;
+{"caso_simulado":"caso narrativo completo y realista, sin datos identificatorios","programa_aps_relacionado":["..."],"datos_clinicos_contextuales":["..."],"barrera_explicita":"...","barrera_oculta_posible":"...","facilitador":"...","ambivalencia":"...","razon_para_el_cambio":"...","riesgo_o_alerta":"...","pendiente_preventivo_programatico":"...","informacion_pendiente":["..."],"posible_acuerdo":"...","continuidad_sugerida":"...","datos_clave":["..."],"tension_ecicep":"...","objetivo_de_entrenamiento":"...","pregunta_inicial_sugerida":"..."}`;
 
   if (action === 'evaluate_structured_practice') return `${base}
 Tarea: evaluar una práctica de separación de anamnesis ECICEP.
@@ -346,6 +346,56 @@ Devuelve JSON:
  "evidencias":[{"frase":"frase exacta del caso o respuesta","categoria":"${payload.category || ''}"}]
 }`;
 
+
+
+  if (action === 'plan_readiness') return `${base}
+Tarea: evaluar si la información levantada en práctica ECICEP ya permite construir un plan de cuidado consensuado o si todavía es anamnesis insuficiente.
+
+Rol del usuario: ${payload.role || role}
+Módulo: ${payload.module || 'ingreso'}
+Anamnesis/observaciones: ${payload.raw || ''}
+Observaciones estructuradas: ${payload.observations || ''}
+Barreras: ${payload.barriers || ''}
+Facilitadores: ${payload.facilitators || ''}
+Ambivalencias: ${payload.ambivalence || ''}
+Razones para el cambio: ${payload.reasons || ''}
+Problemas/riesgos: ${payload.problems || ''}
+Acuerdo posible: ${payload.agreement || ''}
+Seguimiento: ${payload.follow || ''}
+Bitácora: ${JSON.stringify(payload.transcript || [])}
+
+Evalúa con enfoque ECICEP/APS Chile:
+- problema priorizado con la persona;
+- objetivo claro y comprensible;
+- actividad concreta y posible;
+- responsable;
+- seguimiento;
+- barrera considerada;
+- facilitador considerado;
+- riesgo/alerta abordado si existe;
+- registro útil para continuidad;
+- riesgo de plan impuesto.
+
+Si el rol es TENS, distingue qué puede registrar/reforzar y qué debe reportar/coordinar.
+
+Devuelve JSON:
+{
+ "estado":"listo_para_plan|parcial|aun_anamnesis",
+ "criterios":[
+  {"criterio":"Problema priorizado","estado":"cumple|parcial|falta","comentario":"..."},
+  {"criterio":"Objetivo","estado":"cumple|parcial|falta","comentario":"..."},
+  {"criterio":"Actividad concreta","estado":"cumple|parcial|falta","comentario":"..."},
+  {"criterio":"Responsable","estado":"cumple|parcial|falta","comentario":"..."},
+  {"criterio":"Seguimiento","estado":"cumple|parcial|falta","comentario":"..."},
+  {"criterio":"Barrera considerada","estado":"cumple|parcial|falta","comentario":"..."},
+  {"criterio":"Facilitador/apoyo","estado":"cumple|parcial|falta","comentario":"..."},
+  {"criterio":"Riesgo de imposición","estado":"cumple|parcial|falta","comentario":"..."}
+ ],
+ "que_falta":["..."],
+ "pregunta_para_cerrar_mejor":"...",
+ "registro_sugerido":"...",
+ "cuidado_ecicep":"..."
+}`;
 
   if (action === 'technical_case_reading') return `${base}
 Tarea: realizar lectura técnica orientativa de un caso de práctica ECICEP usando matriz APS Chile integrada.
