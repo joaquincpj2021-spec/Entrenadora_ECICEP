@@ -156,6 +156,38 @@ Texto: ${payload.text || ''}
 Devuelve JSON:
 {"resultado":"consensuado|parcial|impuesto","senales_positivas":["..."],"brechas":["..."],"como_reabrir_conversacion":"...","version_ecicep":"..."}`;
 
+
+  if (action === 'generate_training_case') return `${base}
+Tarea: generar un caso simulado para entrenamiento ECICEP en APS/CESFAM Valparaíso.
+Módulo: ${payload.module || 'ingreso'}
+
+Margen seguro:
+- Caso ficticio, sin nombres reales, RUT, direcciones ni datos identificatorios.
+- Debe incluir 3 a 6 datos clínicos o contextuales plausibles.
+- Puede incluir: inasistencias, atención de urgencia, alta hospitalaria reciente, PDS/cuidador/a, descompensación HTA/DM, polifarmacia, salud mental, barrera económica, dificultad de traslado, baja red, tabaco/alcohol.
+- No diagnostiques condiciones nuevas ni indiques tratamientos.
+- El caso debe servir para entrenar entrevista centrada en la persona y plan consensuado.
+
+Devuelve JSON:
+{"caso_simulado":"...","datos_clave":["..."],"tension_ecicep":"...","objetivo_de_entrenamiento":"...","pregunta_inicial_sugerida":"..."}`;
+
+  if (action === 'evaluate_structured_practice') return `${base}
+Tarea: evaluar una práctica de separación de anamnesis ECICEP.
+Módulo: ${payload.module || ''}
+Texto bruto/anamnesis: ${payload.raw || ''}
+Respuesta del usuario:
+Barreras: ${payload.barriers || ''}
+Facilitadores: ${payload.facilitators || ''}
+Ambivalencias: ${payload.ambivalence || ''}
+Razones para el cambio: ${payload.reasons || ''}
+Problemas potenciales: ${payload.problems || ''}
+Primer acuerdo posible: ${payload.agreement || ''}
+Seguimiento sugerido: ${payload.follow || ''}
+
+Evalúa con tono formativo, positivo y útil. No castigues. Identifica qué hizo bien y qué faltó explorar.
+Devuelve JSON:
+{"retroalimentacion_positiva":["..."],"lo_que_falto_explorar":["..."],"pregunta_que_habria_ayudado":"...","riesgo_de_plan_impuesto":"bajo|medio|alto","version_mejorada":{"observaciones":"...","barreras":"...","facilitadores":"...","ambivalencias":"...","razones_para_el_cambio":"...","problemas_potenciales":"...","primer_acuerdo_posible":"...","seguimiento_sugerido":"..."}}`;
+
   return `${base}
 Tarea: prueba de conexión.
 Devuelve JSON: {"mensaje":"Conexión establecida con GroqCloud para sistema ECICEP","uso":"IA operativa para Plan 9 aspectos, seguimiento, gestión, preguntas, role play, escala, frases y auditoría."}`;
