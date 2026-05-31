@@ -177,7 +177,7 @@ header:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;bac
 @media(max-width:920px){.themebar-inner{display:block}.theme-select{width:100%;margin-top:6px}.theme-note{display:block;margin-top:6px}.theme-preview{margin-top:8px}}
 
 
-/* v3.1 corrections: typography, header, role route, training and barrier matrix */
+/* v3.2 corrections: typography, header, role route, training and barrier matrix */
 body{font-family:"Nunito Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:.01em}
 h1,h2,h3,b,.btn,button,label{letter-spacing:-.01em}
 header{padding:22px 14px}
@@ -217,6 +217,19 @@ header{padding:22px 14px}
  #aspectBarriersGrouped{columns:1}
  .privacy-top{font-size:.92rem}
 }
+
+
+/* v3.2 dynamic simulator */
+.sim-config{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
+.sim-config .field{margin:0}
+.sim-decision{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:14px;margin:14px 0}
+.option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.option-card{border:1px solid var(--linea);background:#fff;border-radius:16px;padding:12px;text-align:left;cursor:pointer;color:var(--azul2);font-weight:800}
+.option-card:hover{border-color:var(--morado);background:var(--moradobg)}
+.option-card.active{border-color:var(--morado);box-shadow:0 0 0 3px rgba(89,86,200,.12);background:var(--moradobg)}
+.sim-tag{display:inline-block;border-radius:999px;padding:6px 10px;background:var(--celeste);color:var(--azul2);font-weight:900;font-size:.85rem;margin:2px}
+#simMotivational{border-left:8px solid var(--amarillo)}
+@media(max-width:920px){.sim-config,.option-grid{grid-template-columns:1fr!important}}
 
 @media print{nav,.search,.rolebar,.btn,.question button{display:none}body{background:#fff}.section{display:block}.card{box-shadow:none;break-inside:avoid}}
 </style>
@@ -279,7 +292,7 @@ header{padding:22px 14px}
   <div class="training-hero block">
     <div>
       <h2>Entrenamiento guiado</h2>
-      <p class="lead">Primero aprende la lógica, luego revisa un ejemplo y finalmente practica. La app busca entrenar conversaciones, no memorizar respuestas.</p>
+      <p class="lead">Aprende la lógica, revisa un ejemplo, conversa con un caso simulado y ordena lo conversado. La meta es entrenar criterio clínico conversacional ECICEP.</p>
     </div>
     <div class="field">
       <label>¿Qué quieres entrenar?</label>
@@ -312,35 +325,95 @@ header{padding:22px 14px}
     </div>
 
     <div class="training-section block full">
-      <span class="training-kicker">Capa 3 · Caso simulado por IA</span>
-      <h2>Generar caso de entrenamiento</h2>
-      <p class="lead">Genera un caso simulado de APS/CESFAM Valparaíso. Puede incluir inasistencias, urgencias, altas hospitalarias, PDS/cuidador/a, descompensación HTA/DM, polifarmacia, salud mental, barrera económica, traslado o baja red. No uses datos reales.</p>
-      <button class="btn aiBtn" onclick="aiGenerateTrainingCase()">Generar caso simulado</button>
-      <button class="btn light" onclick="loadGeneratedCase()">Usar caso generado en práctica</button>
-      <div id="generatedCaseOut" class="panel-output">Aún no se genera caso.</div>
+      <span class="training-kicker">Capa 3 · Simulador dinámico de entrevista</span>
+      <h2>Entrenar decisiones conversacionales</h2>
+      <p class="lead">Genera un caso APS/CESFAM y avanza por turnos. La IA responde como persona usuaria, enseña por qué una pregunta ayuda o limita y activa estilo motivacional cuando aparece ambivalencia, resistencia o baja posibilidad.</p>
+
+      <div class="sim-config">
+        <div class="field"><label>Tipo de caso</label>
+          <select id="simType">
+            <option value="ingreso">Ingreso integral</option>
+            <option value="control">Control integral</option>
+            <option value="seguimiento">Seguimiento a distancia</option>
+            <option value="gestion">Gestión de casos</option>
+          </select>
+        </div>
+        <div class="field"><label>Dificultad</label>
+          <select id="simDifficulty">
+            <option value="basica">Básica</option>
+            <option value="intermedia" selected>Intermedia</option>
+            <option value="avanzada">Avanzada</option>
+          </select>
+        </div>
+        <div class="field"><label>Foco principal</label>
+          <select id="simFocus">
+            <option value="aleatorio">Aleatorio APS Chile</option>
+            <option value="inasistencia">Inasistencia / pérdida de continuidad</option>
+            <option value="urgencia">Uso de urgencia o descompensación HTA/DM</option>
+            <option value="alta">Alta hospitalaria reciente</option>
+            <option value="farmacos">Fármacos / adherencia irregular</option>
+            <option value="nutricion">Alimentación / rechazo o barrera nutricional</option>
+            <option value="actividad">Actividad física, dolor o miedo a caer</option>
+            <option value="cuidador">PDS / cuidador/a sobrecargado/a</option>
+            <option value="social">Barrera social, traslado o baja red</option>
+            <option value="saludmental">Ánimo, cansancio o salud mental</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="copyline">
+        <button class="btn aiBtn" onclick="aiStartDynamicSimulation()">Iniciar simulación</button>
+        <button class="btn light" onclick="resetSimulation()">Reiniciar</button>
+      </div>
+
+      <div id="simObjective" class="focus">Configura el caso e inicia la simulación.</div>
+      <div id="simCase" class="example-box">Aún no hay caso.</div>
+
+      <div id="simDecisionPanel" class="sim-decision hidden">
+        <h3>¿Qué harías ahora?</h3>
+        <div id="simOptions" class="option-grid"></div>
+        <div class="field" style="margin-top:12px">
+          <label>O escribe tu propia pregunta o acción</label>
+          <textarea id="simCustomQuestion" class="midtext" placeholder="Ej.: ¿Qué es lo que más le preocupa de su salud en este momento?"></textarea>
+        </div>
+        <button class="btn aiBtn" onclick="aiAdvanceSimulation()">Avanzar entrevista</button>
+      </div>
+
+      <div id="simResponse" class="panel-output">Respuesta simulada de la persona aparecerá aquí.</div>
+      <div id="simFeedback" class="panel-output">Retroalimentación ECICEP aparecerá aquí.</div>
+      <div id="simMotivational" class="warn hidden"></div>
+
+      <details class="collapsible">
+        <summary>Ver conversación simulada</summary>
+        <div id="simTranscript" class="inner">Aún no hay conversación.</div>
+      </details>
+
+      <div class="copyline">
+        <button class="btn" onclick="aiTransferSimulationToPractice()">Pasar conversación a Capa 4</button>
+      </div>
     </div>
 
     <div class="training-section block full">
-      <details>
-        <summary style="font-weight:900;color:var(--azul);font-size:1.1rem;cursor:pointer">Capa 4 · Quiero practicar y recibir retroalimentación</summary>
-        <p class="lead" style="margin-top:12px">Escribe una anamnesis breve o pega un caso. Luego intenta separar la información. La IA entregará retroalimentación positiva y qué faltó explorar.</p>
-        <div class="field"><label>Observaciones de toda la anamnesis</label><textarea id="practiceRaw" class="midtext" placeholder="Pega o escribe aquí la anamnesis/caso..."></textarea></div>
-        <div class="practice-grid">
-          <div class="field"><label>Barreras</label><textarea id="practiceBarriers"></textarea></div>
-          <div class="field"><label>Facilitadores / activos</label><textarea id="practiceFacilitators"></textarea></div>
-          <div class="field"><label>Ambivalencias</label><textarea id="practiceAmbivalence"></textarea></div>
-          <div class="field"><label>Razones para el cambio</label><textarea id="practiceReasons"></textarea></div>
-          <div class="field"><label>Problema(s) potencial(es)</label><textarea id="practiceProblems"></textarea></div>
-          <div class="field"><label>Primer acuerdo posible</label><textarea id="practiceAgreement"></textarea></div>
-          <div class="field"><label>Seguimiento sugerido</label><textarea id="practiceFollow"></textarea></div>
-        </div>
-        <button class="btn aiBtn" onclick="aiEvaluateStructuredPractice()">Evaluar mi práctica con IA</button>
-        <div id="practiceFeedbackOut" class="panel-output">Aún no hay retroalimentación.</div>
-      </details>
+      <span class="training-kicker">Capa 4 · Ordenar lo conversado y recibir retroalimentación</span>
+      <h2>Bitácora de aprendizaje</h2>
+      <p class="lead">Esta sección se puede llenar automáticamente desde la simulación. Luego puedes editarla y pedir retroalimentación. La idea es aprender a convertir una conversación en anamnesis útil, barreras, facilitadores, ambivalencias, problemas potenciales y acuerdos posibles.</p>
+
+      <div class="field"><label>Observaciones de toda la anamnesis</label><textarea id="practiceRaw" class="midtext" placeholder="Pega o escribe aquí la anamnesis/caso o usa 'Pasar conversación a Capa 4' desde la simulación."></textarea></div>
+      <div class="practice-grid">
+        <div class="field"><label>Barreras</label><textarea id="practiceBarriers"></textarea></div>
+        <div class="field"><label>Facilitadores / activos</label><textarea id="practiceFacilitators"></textarea></div>
+        <div class="field"><label>Ambivalencias</label><textarea id="practiceAmbivalence"></textarea></div>
+        <div class="field"><label>Razones para el cambio</label><textarea id="practiceReasons"></textarea></div>
+        <div class="field"><label>Problema(s) potencial(es)</label><textarea id="practiceProblems"></textarea></div>
+        <div class="field"><label>Primer acuerdo posible</label><textarea id="practiceAgreement"></textarea></div>
+        <div class="field"><label>Seguimiento sugerido</label><textarea id="practiceFollow"></textarea></div>
+      </div>
+      <button class="btn aiBtn" onclick="aiEvaluateStructuredPractice()">Evaluar mi práctica con IA</button>
+      <div id="practiceFeedbackOut" class="panel-output">Aún no hay retroalimentación.</div>
     </div>
   </div>
 </section>
-<section id="plan9"<section id="plan9" class="section">
+<section id="plan9"<section id="plan9"<section id="plan9" class="section">
   <div class="plan-step block narrow">
     <div class="step-head"><div class="step-num">1</div><h2>Seleccione el aspecto a explorar</h2></div>
     <p class="lead">Use esta sección como apoyo para el ingreso o control integral. Primero seleccione el aspecto; luego revise orientación, preguntas esenciales y barreras frecuentes como ayuda de memoria.</p>
@@ -642,6 +715,91 @@ async function aiEvaluateStructuredPractice(){
  const payload={module:key,raw:val('practiceRaw'),barriers:val('practiceBarriers'),facilitators:val('practiceFacilitators'),ambivalence:val('practiceAmbivalence'),reasons:val('practiceReasons'),problems:val('practiceProblems'),agreement:val('practiceAgreement'),follow:val('practiceFollow')};
  const data=await aiCall('evaluate_structured_practice',payload,'practiceFeedbackOut');
  if(data)document.getElementById('practiceFeedbackOut').innerText=formatData(data);
+}
+
+
+let simState={started:false,caseText:'',objective:'',turn:0,transcript:[],selectedOption:'',lastOptions:[]};
+
+function resetSimulation(){
+ simState={started:false,caseText:'',objective:'',turn:0,transcript:[],selectedOption:'',lastOptions:[]};
+ ['simObjective','simCase','simResponse','simFeedback','simTranscript'].forEach(id=>{const el=document.getElementById(id); if(el) el.innerText=id==='simCase'?'Aún no hay caso.':id==='simObjective'?'Configura el caso e inicia la simulación.':id==='simTranscript'?'Aún no hay conversación.':'';});
+ const p=document.getElementById('simDecisionPanel'); if(p) p.classList.add('hidden');
+ const m=document.getElementById('simMotivational'); if(m){m.classList.add('hidden');m.innerText='';}
+ const cq=document.getElementById('simCustomQuestion'); if(cq)cq.value='';
+}
+function renderSimOptions(options){
+ simState.lastOptions=options||[];
+ simState.selectedOption='';
+ const box=document.getElementById('simOptions'); if(!box)return;
+ box.innerHTML='';
+ (options||[]).forEach((o,i)=>{
+  const label=typeof o==='string'?o:(o.label||o.texto||JSON.stringify(o));
+  box.innerHTML+=`<button type="button" class="option-card" onclick="selectSimOption(${i})">${label}</button>`;
+ });
+}
+function selectSimOption(i){
+ simState.selectedOption=simState.lastOptions[i];
+ document.querySelectorAll('.option-card').forEach((b,idx)=>b.classList.toggle('active',idx===i));
+}
+function updateTranscript(){
+ const box=document.getElementById('simTranscript'); if(!box)return;
+ if(!simState.transcript.length){box.innerText='Aún no hay conversación.';return;}
+ box.innerText=simState.transcript.map((t,i)=>`${i+1}. ${t.rol}:\n${t.texto}`).join('\n\n');
+}
+async function aiStartDynamicSimulation(){
+ const payload={module:document.getElementById('trainingModuleSelect')?.value||'ingreso',type:val('simType'),difficulty:val('simDifficulty'),focus:val('simFocus')};
+ const data=await aiCall('start_dynamic_simulation',payload,'simCase');
+ if(!data)return;
+ simState.started=true;simState.turn=0;simState.caseText=data.caso_inicial||data.caso_simulado||'';simState.objective=data.objetivo_aprendizaje||data.objetivo_de_entrenamiento||'';
+ simState.transcript=[{rol:'Caso inicial',texto:simState.caseText}];
+ document.getElementById('simObjective').innerHTML=`<span class="sim-tag">${data.tipo||payload.type}</span><span class="sim-tag">${data.dificultad||payload.difficulty}</span><span class="sim-tag">${data.foco||payload.focus}</span><br><b>Objetivo de aprendizaje:</b><br>${simState.objective}`;
+ document.getElementById('simCase').innerText=simState.caseText;
+ document.getElementById('simResponse').innerText=data.primera_respuesta_persona||'Elige cómo iniciar la entrevista.';
+ document.getElementById('simFeedback').innerText=data.microleccion_inicial||'Comienza explorando preocupación, prioridad o barrera antes de cerrar acuerdos.';
+ renderSimOptions(data.opciones_siguiente_accion||[]);
+ document.getElementById('simDecisionPanel').classList.remove('hidden');
+ const mot=document.getElementById('simMotivational'); if(mot){mot.classList.add('hidden');mot.innerText='';}
+ updateTranscript();
+}
+async function aiAdvanceSimulation(){
+ if(!simState.started){await aiStartDynamicSimulation();return;}
+ const custom=val('simCustomQuestion').trim();
+ const selected=custom || (typeof simState.selectedOption==='string'?simState.selectedOption:JSON.stringify(simState.selectedOption||''));
+ if(!selected){document.getElementById('simFeedback').innerText='Elige una opción o escribe tu propia pregunta para avanzar.';return;}
+ const payload={module:val('trainingModuleSelect'),caseText:simState.caseText,objective:simState.objective,turn:simState.turn,transcript:simState.transcript,action:selected};
+ const data=await aiCall('advance_dynamic_simulation',payload,'simResponse');
+ if(!data)return;
+ simState.turn++;
+ simState.transcript.push({rol:'Funcionario/a',texto:selected});
+ simState.transcript.push({rol:'Persona simulada',texto:data.respuesta_persona||''});
+ document.getElementById('simResponse').innerText=data.respuesta_persona||'';
+ document.getElementById('simFeedback').innerText=formatData({que_hiciste_bien:data.que_hiciste_bien,que_abre_tu_pregunta:data.que_abre_tu_pregunta,que_falto:data.que_falto_explorar,riesgo_imposicion:data.riesgo_de_imposicion,mejor_siguiente_paso:data.mejor_siguiente_paso,microleccion:data.microleccion});
+ const mot=document.getElementById('simMotivational');
+ if(mot){
+  if(data.modo_motivacional?.activar){
+   mot.classList.remove('hidden');
+   mot.innerText='Modo motivacional activado\n\n'+formatValue(data.modo_motivacional);
+  }else{
+   mot.classList.add('hidden');mot.innerText='';
+  }
+ }
+ renderSimOptions(data.opciones_siguiente_accion||[]);
+ document.getElementById('simCustomQuestion').value='';
+ updateTranscript();
+}
+async function aiTransferSimulationToPractice(){
+ if(!simState.transcript.length){document.getElementById('practiceFeedbackOut').innerText='Primero inicia o avanza una simulación.';return;}
+ const data=await aiCall('summarize_simulation_for_practice',{caseText:simState.caseText,objective:simState.objective,transcript:simState.transcript},'practiceFeedbackOut');
+ if(!data)return;
+ document.getElementById('practiceRaw').value=data.observaciones||'';
+ document.getElementById('practiceBarriers').value=data.barreras||'';
+ document.getElementById('practiceFacilitators').value=data.facilitadores||'';
+ document.getElementById('practiceAmbivalence').value=data.ambivalencias||'';
+ document.getElementById('practiceReasons').value=data.razones_para_el_cambio||'';
+ document.getElementById('practiceProblems').value=data.problemas_potenciales||'';
+ document.getElementById('practiceAgreement').value=data.primer_acuerdo_posible||'';
+ document.getElementById('practiceFollow').value=data.seguimiento_sugerido||'';
+ document.getElementById('practiceFeedbackOut').innerText=formatData({registro_sugerido:data.registro_sugerido,pendientes:data.informacion_pendiente});
 }
 
 function boot(){initTheme();initSelects();renderAspectGrid();setRole('profesional');renderQuestions();renderCases();renderTrainings();renderTrainingModule();scaleDecision();document.getElementById('apiBaseInput').value=localStorage.getItem('ecicep_ai_url')||'';}boot();
