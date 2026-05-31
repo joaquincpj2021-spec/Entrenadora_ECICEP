@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Entrenamiento ECICEP v4.2</title>
+<title>Entrenamiento ECICEP v4.3</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
 :root{
@@ -177,7 +177,7 @@ header:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;bac
 @media(max-width:920px){.themebar-inner{display:block}.theme-select{width:100%;margin-top:6px}.theme-note{display:block;margin-top:6px}.theme-preview{margin-top:8px}}
 
 
-/* v4.2 corrections: typography, header, role route, training and barrier matrix */
+/* v4.3 corrections: typography, header, role route, training and barrier matrix */
 body{font-family:"Nunito Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:.01em}
 h1,h2,h3,b,.btn,button,label{letter-spacing:-.01em}
 header{padding:22px 14px}
@@ -219,7 +219,7 @@ header{padding:22px 14px}
 }
 
 
-/* v4.2 dynamic simulator */
+/* v4.3 dynamic simulator */
 .sim-config{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
 .sim-config .field{margin:0}
 .sim-decision{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:14px;margin:14px 0}
@@ -232,7 +232,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.sim-config,.option-grid{grid-template-columns:1fr!important}}
 
 
-/* v4.2 guided training cases */
+/* v4.3 guided training cases */
 .guided-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
 .guided-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
 .guided-head h3{margin:0;color:var(--azul2)}
@@ -248,7 +248,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.guided-head,.guided-grid{grid-template-columns:1fr!important}}
 
 
-/* v4.2 interactive ECICEP study guides */
+/* v4.3 interactive ECICEP study guides */
 .study-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
 .study-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
 .study-head h3{margin:0;color:var(--azul2)}
@@ -270,7 +270,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.study-head,.study-grid,.study-options{grid-template-columns:1fr!important}}
 
 
-/* v4.2 screen architecture */
+/* v4.3 screen architecture */
 body.profile-mode main, body.profile-mode .app-topbar{display:none!important}
 body.app-mode header, body.app-mode .profile-screen{display:none!important}
 .rolebar, nav{display:none!important}
@@ -314,7 +314,7 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
 }
 
 
-/* v4.2 visual refresh and guided training screens */
+/* v4.3 visual refresh and guided training screens */
 .training-app{max-width:1180px;margin:auto}
 .training-toolbar{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;background:linear-gradient(135deg,var(--celeste),#fff);border:1px solid var(--linea);border-radius:24px;padding:18px;box-shadow:var(--sombra)}
 .icon-back{width:44px;height:44px;border-radius:50%;border:1px solid var(--linea);background:#fff;color:var(--azul2);font-weight:900;font-size:1.2rem;cursor:pointer}
@@ -377,7 +377,7 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
 }
 
 
-/* v4.2 formative phase interaction */
+/* v4.3 formative phase interaction */
 .phase-card{border-top:8px solid var(--phase-color,var(--azul))}
 .phase-card.phase-preparar{--phase-color:#4E6E81;--phase-bg:#F1F5F8}
 .phase-card.phase-abrir{--phase-color:#1F6F8B;--phase-bg:#EAF6F7}
@@ -407,7 +407,7 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
 @media(max-width:920px){.next-question-grid{grid-template-columns:1fr!important}}
 
 
-/* v4.2 visual IA practice lab */
+/* v4.3 visual IA practice lab */
 .practice-lab{background:linear-gradient(180deg,#fff 0%, var(--gris) 100%)}
 .practice-step{background:#fff;border:1px solid var(--linea);border-radius:24px;padding:18px;margin:16px 0;box-shadow:0 8px 20px rgba(0,0,0,.04)}
 .step-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
@@ -455,7 +455,7 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 @media(max-width:920px){.deepen-grid,.practice-grid.enhanced{grid-template-columns:1fr!important}.deepen-actions{display:flex;flex-wrap:wrap}}
 
 
-/* v4.2 matriz técnica APS Chile */
+/* v4.3 matriz técnica APS Chile */
 .matrix-hero{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;background:linear-gradient(135deg,var(--celeste),#fff);border:1px solid var(--linea);border-radius:28px;padding:22px;box-shadow:var(--sombra)}
 .matrix-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 .matrix-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -469,7 +469,7 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 @media(max-width:920px){.matrix-hero{display:block}.matrix-grid{grid-template-columns:1fr!important}.matrix-actions{justify-content:flex-start;margin-top:12px}}
 
 
-/* v4.2 consolidation: clinical engine cards */
+/* v4.3 consolidation: clinical engine cards */
 .step-planreadiness{border-left:8px solid #174A5C;background:linear-gradient(180deg,#fff 0%,#eef6f7 100%)}
 .plan-readiness-output{margin-top:12px;background:#fff;border:1px solid var(--linea);border-radius:20px;padding:14px;white-space:pre-wrap;line-height:1.45}
 .quad-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
@@ -491,7 +491,7 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 @media(max-width:920px){.quad-cards,.tech-grid,.plan-check-grid{grid-template-columns:1fr!important}}
 
 
-/* v4.2 practice refinement: profession/scope, synthesis and vertical categories */
+/* v4.3 practice refinement: profession/scope, synthesis and vertical categories */
 .synthesis-card{margin-top:14px;background:#fff;border:1px solid rgba(23,74,92,.18);border-left:8px solid #174A5C;border-radius:20px;padding:14px}
 .step-head.mini{margin-bottom:8px}
 .step-head.mini>span{background:#174A5C}
@@ -507,6 +507,13 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 .quad-card b .numhint{opacity:.65;font-weight:700}
 .practice-step .sim-config{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:920px){.practice-step .sim-config,.cat-analysis .quad-cards{grid-template-columns:1fr!important}}
+
+
+/* v4.3 clearer practice configuration */
+.config-note{margin:10px 0 0;background:#fff;border:1px solid var(--linea);border-left:7px solid var(--azul);border-radius:18px;padding:12px;color:var(--muted);line-height:1.4}
+.practice-step .sim-config{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1100px){.practice-step .sim-config{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.practice-step .sim-config{grid-template-columns:1fr!important}}
 
 @media print{nav,.search,.rolebar,.btn,.question button{display:none}body{background:#fff}.section{display:block}.card{box-shadow:none;break-inside:avoid}}
 </style>
@@ -717,7 +724,7 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
         <div class="practice-step step-case">
           <div class="step-head"><span>1</span><div><b>Generar o pegar caso</b><small>Usa un caso simulado APS Chile o escribe uno anonimizado.</small></div></div>
           <div class="sim-config">
-            <div class="field"><label>Tipo de caso</label>
+            <div class="field"><label>Momento ECICEP</label>
               <select id="randomType">
                 <option value="ingreso">Ingreso integral</option>
                 <option value="control">Control integral</option>
@@ -741,18 +748,6 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
                 <option value="some">SOME / acceso</option>
               </select>
             </div>
-            <div class="field"><label>Ámbito de práctica</label>
-              <select id="randomScope">
-                <option value="box_clinico">Box clínico</option>
-                <option value="seguimiento_distancia">Seguimiento a distancia</option>
-                <option value="control_programatico">Control programático</option>
-                <option value="gestion_casos">Gestión de casos</option>
-                <option value="domicilio">Domicilio / dependencia</option>
-                <option value="post_alta">Alta hospitalaria / continuidad</option>
-                <option value="preventivo">Preventivos y acceso</option>
-                <option value="comunitario">Comunitario / participación social</option>
-              </select>
-            </div>
             <div class="field"><label>Dificultad</label>
               <select id="randomDifficulty">
                 <option value="basica">Básica</option>
@@ -760,21 +755,25 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
                 <option value="avanzada">Avanzada</option>
               </select>
             </div>
-            <div class="field"><label>Foco principal</label>
+            <div class="field"><label>Foco clínico-programático</label>
               <select id="randomFocus">
                 <option value="aleatorio">Aleatorio APS Chile</option>
-                <option value="inasistencia">Inasistencia / continuidad</option>
-                <option value="urgencia">Urgencia o HTA/DM</option>
-                <option value="alta">Alta hospitalaria</option>
-                <option value="farmacos">Fármacos</option>
-                <option value="nutricion">Alimentación</option>
-                <option value="actividad">Actividad física</option>
-                <option value="cuidador">PDS / cuidador/a</option>
-                <option value="social">Barrera social</option>
-                <option value="saludmental">Ánimo / salud mental</option>
+                <option value="pscv">PSCV / HTA / DM2 / RCV</option>
+                <option value="farmacos">Medicamentos / farmacia</option>
+                <option value="alimentacion">Alimentación y presupuesto</option>
+                <option value="actividad">Actividad física / funcionalidad</option>
+                <option value="era">ERA / respiratorio crónico</option>
+                <option value="saludmental">Salud mental y afrontamiento</option>
+                <option value="adultomayor">Adulto mayor / EMPAM</option>
+                <option value="dependencia">Dependencia severa / cuidador/a</option>
+                <option value="preventivos">Preventivos: PAP / mamo / EMPA / vacunas</option>
+                <option value="postalta">Alta hospitalaria / urgencia / continuidad</option>
+                <option value="acceso">Acceso / agenda / SOME</option>
+                <option value="social">Barrera social / red de apoyo</option>
               </select>
             </div>
           </div>
+          <div class="config-note"><b>Cómo leer esta selección:</b> Momento ECICEP define la estructura de la atención; profesión ajusta el alcance; foco clínico-programático orienta el contenido del caso.
           <button class="btn aiBtn" onclick="aiGenerateRandomPracticeCase()">Generar caso</button>
           <div id="randomCaseOut" class="case-source">Aún no se genera caso.</div>
           <div class="copyline"><button class="btn light" onclick="aiTechnicalReadingCase()">Lectura técnica APS Chile</button></div>
@@ -1146,14 +1145,14 @@ async function aiGenerateTrainingCase(){
 }
 
 async function aiPlanReadiness(){
- const payload={role:currentRole,module:currentTraining||'ingreso',profession:val('randomProfession'),scope:val('randomScope'),synthesis:document.getElementById('practiceSynthesisOut')?.innerText||'',raw:val('practiceRaw'),observations:val('practiceObservations'),barriers:val('practiceBarriers'),facilitators:val('practiceFacilitators'),ambivalence:val('practiceAmbivalence'),reasons:val('practiceReasons'),problems:val('practiceProblems'),agreement:val('practiceAgreement'),follow:val('practiceFollow'),transcript:practiceTranscript,matrix:APP_DATA.matrix};
+ const payload={role:currentRole,module:currentTraining||'ingreso',profession:val('randomProfession'),synthesis:document.getElementById('practiceSynthesisOut')?.innerText||'',raw:val('practiceRaw'),observations:val('practiceObservations'),barriers:val('practiceBarriers'),facilitators:val('practiceFacilitators'),ambivalence:val('practiceAmbivalence'),reasons:val('practiceReasons'),problems:val('practiceProblems'),agreement:val('practiceAgreement'),follow:val('practiceFollow'),transcript:practiceTranscript,matrix:APP_DATA.matrix};
  const data=await aiCall('plan_readiness',payload,'planReadinessOut');
  if(data)renderPlanReadiness(data);
 }
 
 async function aiEvaluateStructuredPractice(){
  const key=document.getElementById('trainingModuleSelect')?.value||currentTraining||'ingreso';
- const payload={module:key,profession:val('randomProfession'),scope:val('randomScope'),synthesis:document.getElementById('practiceSynthesisOut')?.innerText||'',raw:val('practiceRaw'),observations:val('practiceObservations'),barriers:val('practiceBarriers'),facilitators:val('practiceFacilitators'),ambivalence:val('practiceAmbivalence'),reasons:val('practiceReasons'),problems:val('practiceProblems'),agreement:val('practiceAgreement'),follow:val('practiceFollow'),transcript:practiceTranscript,highlights:practiceHighlights};
+ const payload={module:key,profession:val('randomProfession'),synthesis:document.getElementById('practiceSynthesisOut')?.innerText||'',raw:val('practiceRaw'),observations:val('practiceObservations'),barriers:val('practiceBarriers'),facilitators:val('practiceFacilitators'),ambivalence:val('practiceAmbivalence'),reasons:val('practiceReasons'),problems:val('practiceProblems'),agreement:val('practiceAgreement'),follow:val('practiceFollow'),transcript:practiceTranscript,highlights:practiceHighlights};
  const data=await aiCall('evaluate_structured_practice',payload,'practiceFeedbackOut');
  if(data)document.getElementById('practiceFeedbackOut').innerText=formatData(data);
 }
@@ -1797,7 +1796,7 @@ function clearPracticeInterview(){
 }
 
 async function aiGenerateRandomPracticeCase(){
- const payload={module:currentTraining||'ingreso',type:val('randomType'),profession:val('randomProfession'),scope:val('randomScope'),difficulty:val('randomDifficulty'),focus:val('randomFocus')};
+ const payload={module:currentTraining||'ingreso',type:val('randomType'),profession:val('randomProfession'),difficulty:val('randomDifficulty'),focus:val('randomFocus')};
  const data=await aiCall('generate_training_case',payload,'randomCaseOut');
  if(!data)return;
  const caseText=data.caso_simulado||data.caso_inicial||data.caso||data.respuesta||formatData(data);
@@ -1814,7 +1813,7 @@ async function aiGenerateRandomPracticeCase(){
 async function aiAskPracticeCase(){
  const q=val('deepenQuestion').trim();
  if(!q){document.getElementById('deepenOut').innerText='Escribe una pregunta para profundizar el caso.';return;}
- const payload={caseText:practiceBaseCase||document.getElementById('practiceRaw')?.value||'',transcript:practiceTranscript,question:q,module:currentTraining||'ingreso',profession:val('randomProfession'),scope:val('randomScope')};
+ const payload={caseText:practiceBaseCase||document.getElementById('practiceRaw')?.value||'',transcript:practiceTranscript,question:q,module:currentTraining||'ingreso',profession:val('randomProfession')};
  const data=await aiCall('deepen_practice_case',payload,'deepenOut');
  if(!data)return;
  const answer=data.respuesta_persona||data.respuesta||'';
@@ -1830,7 +1829,7 @@ async function aiAskPracticeCase(){
 async function aiExtractCategory(category){
  const meta=practiceFieldMap[category]; if(!meta)return;
  const current=val(meta.id);
- const payload={category,categoryLabel:meta.label,caseText:fullPracticeText(),currentText:current,module:currentTraining||'ingreso',profession:val('randomProfession'),scope:val('randomScope')};
+ const payload={category,categoryLabel:meta.label,caseText:fullPracticeText(),currentText:current,module:currentTraining||'ingreso',profession:val('randomProfession')};
  const data=await aiCall('extract_practice_category',payload,'analysis_'+category);
  if(!data)return;
  const field=document.getElementById(meta.id);
@@ -1935,7 +1934,7 @@ function renderMatrix(){
 }
 function copyMatrixSummary(){copyText(JSON.stringify(APS_CHILE_MATRIX,null,2));}
 async function aiTechnicalReadingCase(){
- const payload={caseText:fullPracticeText(),role:currentRole,module:currentTraining||'ingreso',profession:val('randomProfession'),scope:val('randomScope'),matrix:APP_DATA.matrix};
+ const payload={caseText:fullPracticeText(),role:currentRole,module:currentTraining||'ingreso',profession:val('randomProfession'),matrix:APP_DATA.matrix};
  const data=await aiCall('technical_case_reading',payload,'technicalReadingOut');
  if(data)renderTechnicalCards(data);
 }
