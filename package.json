@@ -1,6 +1,6 @@
 {
-  "name": "entrenamiento-ecicep-gemini",
-  "version": "1.1.0",
+  "name": "ecicep-entrenamiento-ia",
+  "version": "2.2.0",
   "private": true,
   "type": "module",
   "scripts": {
