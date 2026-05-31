@@ -6,6 +6,17 @@ function cors(res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
 
+const APS_CHILE_MATRIX_CONTEXT = `
+MATRIZ TÉCNICA ECICEP APS CHILE (uso interno):
+- Usar ECICEP como eje: persona/contexto -> condición/programa -> barreras/facilitadores -> prioridad compartida -> opciones/riesgo -> acuerdo -> registro -> continuidad.
+- Programas APS a considerar según caso: PSCV/DM2/HTA/dislipidemia, ERA/EPOC/asma, Salud Mental, Adulto Mayor/EMPAM, Dependencia/PADDS/cuidador/a, preventivos (PAP/mamografía/EMPA/EMPAM/vacunas), Farmacia/FOFAR/retiro, SOME/acceso/agenda.
+- GES: solo alerta orientativa de derecho/continuidad; no confirmar garantía. Verificar diagnóstico, criterios, edad, etapa, registro local y normativa vigente.
+- COMGES/IAAPS/REM: contexto de gestión y continuidad, nunca motivo para imponer. Recordar registro si corresponde: ingreso/control ECICEP, programa abordado, plan de cuidado y actualización.
+- CIE-10 orientativo: sugerir familias, no diagnosticar. E10-E14 DM; I10-I15 HTA; E78 dislipidemia; J40-J47 crónicas respiratorias; F00-F99 salud mental; Z00-Z99 contactos/factores; R00-R99 síntomas.
+- NANDA orientativo: patrones a valorar, no diagnóstico automático: autogestión ineficaz, riesgo de autogestión ineficaz, disposición para mejorar autogestión, conocimientos deficientes, riesgo de caídas, deterioro movilidad, sobrecarga rol cuidador/a, afrontamiento ineficaz, conductas de salud propensas a riesgo.
+- Plan de cuidado mínimo: problema priorizado, objetivo comprensible, actividad concreta, responsable, seguimiento, barrera considerada, facilitador/apoyo, estado/causa si parcial o no cumple.
+`;
+
 const roleText = {
   profesional: 'Profesional clínico de box: integra evaluación clínica, prioriza con la persona, construye o ajusta plan de cuidado consensuado y define seguimiento.',
   tens: 'TENS / seguimiento a distancia: revisa acuerdos del plan, detecta barreras o alertas, refuerza comprensión y coordina/reporta continuidad; no toma decisiones clínicas fuera de alcance.',
@@ -26,7 +37,9 @@ Reglas:
 - Si falta información clave, dilo claramente.
 - Diferencia: información registrada, inferencias razonables y preguntas pendientes.
 - Si hay posible alerta o algo fuera del alcance del rol, sugiere registrar y coordinar continuidad según flujo local.
-- Devuelve solo JSON válido, sin markdown.`;
+- Devuelve solo JSON válido, sin markdown.
+- Usa la matriz técnica APS Chile solo como orientación, sin diagnosticar ni confirmar GES.
+${APS_CHILE_MATRIX_CONTEXT}`;
 }
 
 function buildPrompt(action, role, payload) {
@@ -158,24 +171,25 @@ Devuelve JSON:
 
 
   if (action === 'generate_training_case') return `${base}
-Tarea: generar un caso simulado para entrenamiento ECICEP en APS/CESFAM Valparaíso.
+Tarea: generar un caso simulado COMPLETO para entrenamiento ECICEP en APS/CESFAM Valparaíso.
 Módulo: ${payload.module || 'ingreso'}
 
 Margen seguro:
 - Caso ficticio, sin nombres reales, RUT, direcciones ni datos identificatorios.
-- Debe incluir 3 a 6 datos clínicos o contextuales plausibles.
+- Debe incluir material suficiente para entrenar anamnesis ECICEP: datos clínicos/contextuales, barreras, facilitadores, ambivalencia, razones para el cambio, problemas potenciales, posible acuerdo o información pendiente. No todo debe estar explícito; algunas cosas pueden requerir preguntas.
 - Puede incluir: inasistencias, atención de urgencia, alta hospitalaria reciente, PDS/cuidador/a, descompensación HTA/DM, polifarmacia, salud mental, barrera económica, dificultad de traslado, baja red, tabaco/alcohol.
 - No diagnostiques condiciones nuevas ni indiques tratamientos.
 - El caso debe servir para entrenar entrevista centrada en la persona y plan consensuado.
 
 Devuelve JSON:
-{"caso_simulado":"...","datos_clave":["..."],"tension_ecicep":"...","objetivo_de_entrenamiento":"...","pregunta_inicial_sugerida":"..."}`;
+{"caso_simulado":"caso narrativo completo y realista, sin datos identificatorios","datos_clave":["..."],"barreras_potenciales":["..."],"facilitadores_potenciales":["..."],"ambivalencias_posibles":["..."],"razones_para_el_cambio":["..."],"problemas_potenciales":["..."],"informacion_pendiente":["..."],"tension_ecicep":"...","objetivo_de_entrenamiento":"...","pregunta_inicial_sugerida":"..."}`;
 
   if (action === 'evaluate_structured_practice') return `${base}
 Tarea: evaluar una práctica de separación de anamnesis ECICEP.
 Módulo: ${payload.module || ''}
 Texto bruto/anamnesis: ${payload.raw || ''}
 Respuesta del usuario:
+Observaciones: ${payload.observations || ''}
 Barreras: ${payload.barriers || ''}
 Facilitadores: ${payload.facilitators || ''}
 Ambivalencias: ${payload.ambivalence || ''}
@@ -183,10 +197,12 @@ Razones para el cambio: ${payload.reasons || ''}
 Problemas potenciales: ${payload.problems || ''}
 Primer acuerdo posible: ${payload.agreement || ''}
 Seguimiento sugerido: ${payload.follow || ''}
+Bitácora de preguntas al caso: ${JSON.stringify(payload.transcript || [])}
+Ayudas/colores usados: ${JSON.stringify(payload.highlights || [])}
 
 Evalúa con tono formativo, positivo y útil. No castigues. Identifica qué hizo bien y qué faltó explorar.
 Devuelve JSON:
-{"retroalimentacion_positiva":["..."],"lo_que_falto_explorar":["..."],"pregunta_que_habria_ayudado":"...","riesgo_de_plan_impuesto":"bajo|medio|alto","version_mejorada":{"observaciones":"...","barreras":"...","facilitadores":"...","ambivalencias":"...","razones_para_el_cambio":"...","problemas_potenciales":"...","primer_acuerdo_posible":"...","seguimiento_sugerido":"..."}}`;
+{"retroalimentacion_positiva":["..."],"lo_que_falto_explorar":["..."],"pregunta_que_habria_ayudado":"...","riesgo_de_plan_impuesto":"bajo|medio|alto","version_mejorada":{"observaciones":"...","barreras":"...","facilitadores":"...","ambivalencias":"...","razones_para_el_cambio":"...","problemas_potenciales":"...","primer_acuerdo_posible":"...","seguimiento_sugerido":"..."},"analisis_de_uso_de_ayuda_ia":"comenta brevemente si la persona usó ayuda IA y si integró bien la evidencia"}`;
 
 
   if (action === 'start_dynamic_simulation') return `${base}
@@ -270,6 +286,88 @@ Devuelve JSON:
  "seguimiento_sugerido":"...",
  "registro_sugerido":"...",
  "informacion_pendiente":["..."]
+}`;
+
+
+  if (action === 'deepen_practice_case') return `${base}
+Tarea: responder como persona usuaria simulada a una pregunta de profundización durante práctica ECICEP.
+Caso base: ${payload.caseText || ''}
+Bitácora previa: ${JSON.stringify(payload.transcript || [])}
+Pregunta del funcionario/a: ${payload.question || ''}
+Módulo: ${payload.module || 'ingreso'}
+
+Instrucciones:
+- Responde como persona usuaria, de forma humana, breve y realista.
+- Mantén coherencia con el caso base y la bitácora.
+- Puedes entregar nueva información útil para anamnesis: barreras, facilitadores, ambivalencias, razones para el cambio o datos pendientes.
+- No inventes datos identificatorios ni tratamientos.
+- No resuelvas como profesional; responde desde la vivencia de la persona.
+- Luego agrega una lectura formativa ECICEP breve.
+
+Devuelve JSON:
+{
+ "respuesta_persona":"...",
+ "nuevos_datos":["..."],
+ "posibles_barreras":["..."],
+ "posibles_facilitadores":["..."],
+ "posibles_ambivalencias":["..."],
+ "razones_para_el_cambio":["..."],
+ "pregunta_siguiente_sugerida":"...",
+ "sintesis_acumulada":"síntesis breve que puede agregarse a anamnesis",
+ "evidencias":[{"categoria":"barreras|facilitadores|ambivalencias|razones|observaciones|problemas","frase":"frase exacta de la respuesta que respalda la categoría"}]
+}`;
+
+  if (action === 'extract_practice_category') return `${base}
+Tarea: extraer y enseñar una categoría ECICEP desde un caso de práctica.
+Categoría solicitada: ${payload.categoryLabel || payload.category || ''}
+Texto completo del caso y bitácora: ${payload.caseText || ''}
+Texto ya escrito por el usuario en esa casilla: ${payload.currentText || ''}
+Módulo: ${payload.module || 'ingreso'}
+
+Instrucciones estrictas:
+- No inventes evidencia.
+- Distingue claramente:
+  1) Encontrado en el caso.
+  2) Inferido con cautela.
+  3) No aparece todavía.
+  4) Pregunta necesaria para aclarar.
+- Si el usuario ya escribió algo, analízalo brevemente: qué está bien, qué está inespecífico, qué falta precisar.
+- Devuelve frases de evidencia lo más exactas posible para poder marcarlas visualmente en el texto.
+- Si no hay evidencia, no rellenes como si existiera; propone pregunta.
+
+Devuelve JSON:
+{
+ "analisis_de_lo_escrito":"...",
+ "encontrado_en_el_caso":["..."],
+ "inferido_con_cautela":["..."],
+ "no_aparece":["..."],
+ "pregunta_necesaria":"...",
+ "texto_sugerido":"texto breve para completar o mejorar la casilla",
+ "evidencias":[{"frase":"frase exacta del caso o respuesta","categoria":"${payload.category || ''}"}]
+}`;
+
+
+  if (action === 'technical_case_reading') return `${base}
+Tarea: realizar lectura técnica orientativa de un caso de práctica ECICEP usando matriz APS Chile integrada.
+Caso y bitácora: ${payload.caseText || ''}
+Rol del usuario: ${roleText[role] || roleText.profesional}
+Módulo: ${payload.module || 'ingreso'}
+
+Usa esta lectura para enseñar, no para diagnosticar. Debes distinguir lo explícito, lo probable y lo pendiente.
+Considera APS Chile, programas, posible GES, COMGES/IAAPS/REM, CIE-10 orientativo, NANDA orientativo y plan de cuidado.
+
+Devuelve JSON:
+{
+ "lectura_ecicep":"...",
+ "programas_aps_relacionados":[{"programa":"...","por_que":"...","que_revisar":"..."}],
+ "posible_ges":{"existe_alerta":true,"orientacion":"verificar criterios; no confirmar garantía","condiciones_a_verificar":["..."]},
+ "comges_iaaps_rem":{"oportunidades":["..."],"cuidado":"no usar indicador para imponer plan"},
+ "cie10_orientativo":[{"familia":"...","solo_si":"verificar diagnóstico en ficha"}],
+ "nanda_orientativo":[{"patron":"...","por_que_valorar":"...","no_confirmar_automaticamente":true}],
+ "aspectos_ecicep_prioritarios":["..."],
+ "alertas_o_pendientes":["..."],
+ "preguntas_para_completar":["..."],
+ "orientacion_de_continuidad":"..."
 }`;
 
   return `${base}
