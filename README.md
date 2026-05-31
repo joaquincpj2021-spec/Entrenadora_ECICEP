@@ -1,5 +1,5 @@
-[README.md](https://github.com/user-attachments/files/28436499/README.md)
-# Entrenamiento ECICEP IA v2.3
+[README.md](https://github.com/user-attachments/files/28436789/README.md)
+# Entrenamiento ECICEP IA v2.4
 
 Incluye:
 - Selector permanente de rol.
@@ -28,8 +28,17 @@ Pega la URL del backend Vercel en Soporte IA:
 https://TU-PROYECTO.vercel.app/api/ecicep-ai
 
 
-## Cambios v2.3
+## Cambios v2.4
 - Eliminada barra de búsqueda global.
 - Menú dinámico según rol.
 - Preguntas reescritas con lenguaje más cálido, respetuoso e inclusivo.
 - Role play ampliado con más casos por rol, tipo de atención y dificultad.
+
+## Cambios v2.4
+- Ruta según rol ajustada a lógica protocolo/manual.
+- Advertencia de privacidad movida al encabezado.
+- Barreras frecuentes ampliadas por aspecto como ayuda de memoria clínica.
+- "IA: qué falta explorar" renombrado a "IA: fortalecer anamnesis del aspecto".
+- Prompt IA quirúrgico: no inventar barreras, facilitadores ni ambivalencia.
+- IA entrega "siguiente mejor pregunta", hipótesis a aclarar y suficiencia para plan.
+- La salida visual del análisis por aspecto ya no muestra JSON crudo.
