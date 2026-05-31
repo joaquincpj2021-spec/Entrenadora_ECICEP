@@ -6,7 +6,7 @@ function cors(res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
 
-const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.1 (uso interno):
+const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.2 (uso interno):
 - Eje central: persona/contexto -> condición/programa -> barreras/facilitadores -> prioridad compartida -> opciones/riesgo -> acuerdo -> registro -> continuidad.
 - La matriz no diagnostica, no confirma GES y no indica tratamiento. Entrena razonamiento clínico-comunicacional.
 - Casos de práctica deben incluir, cuando sea pertinente: datos clínicos/contextuales, programa APS, situación actual, barrera explícita, facilitador, ambivalencia/tensión, razón para el cambio, riesgo o pendiente, información faltante, posible acuerdo y continuidad.
@@ -15,7 +15,8 @@ const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.1 (uso int
 - COMGES/IAAPS/REM: contexto de gestión y continuidad; nunca motivo para imponer. Recordar registro si corresponde.
 - CIE-10: familia orientativa, no diagnóstico. E10-E14 DM; I10-I15 HTA; E78 dislipidemia; J40-J47 respiratorias crónicas; F00-F99 salud mental; Z00-Z99 contacto/factores; R00-R99 síntomas.
 - NANDA: patrón a valorar, no diagnóstico automático. Autogestión ineficaz/riesgo/disposición; conocimientos deficientes; riesgo de caídas; deterioro movilidad; sobrecarga rol cuidador/a; afrontamiento ineficaz; conductas de salud propensas a riesgo.
-- Cierre de plan: problema priorizado, objetivo comprensible, actividad concreta, responsable, seguimiento, barrera considerada, facilitador/apoyo, riesgo/alerta si existe, registro útil y revisión de imposición.`;
+- Cierre de plan: problema priorizado, objetivo comprensible, actividad concreta, responsable, seguimiento, barrera considerada, facilitador/apoyo, riesgo/alerta si existe, registro útil y revisión de imposición.
+- Profesiones de práctica: enfermería, medicina, nutrición, psicología, trabajo social, kinesiología, matronería, odontología, química/farmacia, TENS, gestor/a ECICEP y SOME. Ajustar los casos y orientaciones al ámbito de práctica, sin sobrepasar alcance.`;
 
 const roleText = {
   profesional: 'Profesional clínico de box: integra evaluación clínica, prioriza con la persona, construye o ajusta plan de cuidado consensuado y define seguimiento.',
@@ -173,6 +174,8 @@ Devuelve JSON:
   if (action === 'generate_training_case') return `${base}
 Tarea: generar un caso simulado COMPLETO para entrenamiento ECICEP en APS/CESFAM Valparaíso.
 Módulo: ${payload.module || 'ingreso'}
+Profesión que practica: ${payload.profession || 'no especificada'}
+Ámbito de práctica: ${payload.scope || 'no especificado'}
 
 Margen seguro:
 - Caso ficticio, sin nombres reales, RUT, direcciones ni datos identificatorios.
@@ -295,6 +298,8 @@ Caso base: ${payload.caseText || ''}
 Bitácora previa: ${JSON.stringify(payload.transcript || [])}
 Pregunta del funcionario/a: ${payload.question || ''}
 Módulo: ${payload.module || 'ingreso'}
+Profesión que practica: ${payload.profession || 'no especificada'}
+Ámbito de práctica: ${payload.scope || 'no especificado'}
 
 Instrucciones:
 - Responde como persona usuaria, de forma humana, breve y realista.
@@ -313,7 +318,7 @@ Devuelve JSON:
  "posibles_ambivalencias":["..."],
  "razones_para_el_cambio":["..."],
  "pregunta_siguiente_sugerida":"...",
- "sintesis_acumulada":"síntesis breve que puede agregarse a anamnesis",
+ "sintesis_acumulada":"síntesis integradora de TODO lo entendido hasta ahora según caso inicial, bitácora y respuesta actual; debe facilitar encontrar barreras, facilitadores, ambivalencias, razones, problemas y continuidad",
  "evidencias":[{"categoria":"barreras|facilitadores|ambivalencias|razones|observaciones|problemas","frase":"frase exacta de la respuesta que respalda la categoría"}]
 }`;
 
@@ -323,6 +328,8 @@ Categoría solicitada: ${payload.categoryLabel || payload.category || ''}
 Texto completo del caso y bitácora: ${payload.caseText || ''}
 Texto ya escrito por el usuario en esa casilla: ${payload.currentText || ''}
 Módulo: ${payload.module || 'ingreso'}
+Profesión que practica: ${payload.profession || 'no especificada'}
+Ámbito de práctica: ${payload.scope || 'no especificado'}
 
 Instrucciones estrictas:
 - No inventes evidencia.
@@ -333,6 +340,7 @@ Instrucciones estrictas:
   4) Pregunta necesaria para aclarar.
 - Si el usuario ya escribió algo, analízalo brevemente: qué está bien, qué está inespecífico, qué falta precisar.
 - Devuelve frases de evidencia lo más exactas posible para poder marcarlas visualmente en el texto.
+- Ordena los hallazgos por importancia clínica/formativa, de mayor a menor relevancia.
 - Si no hay evidencia, no rellenes como si existiera; propone pregunta.
 
 Devuelve JSON:
@@ -353,6 +361,9 @@ Tarea: evaluar si la información levantada en práctica ECICEP ya permite const
 
 Rol del usuario: ${payload.role || role}
 Módulo: ${payload.module || 'ingreso'}
+Profesión que practica: ${payload.profession || 'no especificada'}
+Ámbito de práctica: ${payload.scope || 'no especificado'}
+Síntesis IA acumulada: ${payload.synthesis || ''}
 Anamnesis/observaciones: ${payload.raw || ''}
 Observaciones estructuradas: ${payload.observations || ''}
 Barreras: ${payload.barriers || ''}
