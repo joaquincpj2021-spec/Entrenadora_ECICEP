@@ -177,7 +177,7 @@ header:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;bac
 @media(max-width:920px){.themebar-inner{display:block}.theme-select{width:100%;margin-top:6px}.theme-note{display:block;margin-top:6px}.theme-preview{margin-top:8px}}
 
 
-/* v3.5 corrections: typography, header, role route, training and barrier matrix */
+/* v3.6 corrections: typography, header, role route, training and barrier matrix */
 body{font-family:"Nunito Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:.01em}
 h1,h2,h3,b,.btn,button,label{letter-spacing:-.01em}
 header{padding:22px 14px}
@@ -219,7 +219,7 @@ header{padding:22px 14px}
 }
 
 
-/* v3.5 dynamic simulator */
+/* v3.6 dynamic simulator */
 .sim-config{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
 .sim-config .field{margin:0}
 .sim-decision{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:14px;margin:14px 0}
@@ -232,7 +232,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.sim-config,.option-grid{grid-template-columns:1fr!important}}
 
 
-/* v3.5 guided training cases */
+/* v3.6 guided training cases */
 .guided-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
 .guided-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
 .guided-head h3{margin:0;color:var(--azul2)}
@@ -248,7 +248,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.guided-head,.guided-grid{grid-template-columns:1fr!important}}
 
 
-/* v3.5 interactive ECICEP study guides */
+/* v3.6 interactive ECICEP study guides */
 .study-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
 .study-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
 .study-head h3{margin:0;color:var(--azul2)}
@@ -270,7 +270,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.study-head,.study-grid,.study-options{grid-template-columns:1fr!important}}
 
 
-/* v3.5 screen architecture */
+/* v3.6 screen architecture */
 body.profile-mode main, body.profile-mode .app-topbar{display:none!important}
 body.app-mode header, body.app-mode .profile-screen{display:none!important}
 .rolebar, nav{display:none!important}
@@ -311,6 +311,69 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
  .module-select,.compact-theme{width:100%;min-width:0}
  .top-btn{flex:1}
  .profile-home-head{display:block}
+}
+
+
+/* v3.6 visual refresh and guided training screens */
+.training-app{max-width:1180px;margin:auto}
+.training-toolbar{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;background:linear-gradient(135deg,var(--celeste),#fff);border:1px solid var(--linea);border-radius:24px;padding:18px;box-shadow:var(--sombra)}
+.icon-back{width:44px;height:44px;border-radius:50%;border:1px solid var(--linea);background:#fff;color:var(--azul2);font-weight:900;font-size:1.2rem;cursor:pointer}
+.icon-back.small{width:38px;height:38px;font-size:1rem}
+.training-eyebrow{display:inline-block;color:var(--morado);font-weight:900;font-size:.86rem;text-transform:uppercase;letter-spacing:.06em}
+.train-screen{display:none;animation:fadeIn .18s ease}
+.train-screen.active{display:block}
+@keyframes fadeIn{from{opacity:.2;transform:translateY(4px)}to{opacity:1;transform:none}}
+.training-hero-card{background:linear-gradient(135deg,var(--azul2),var(--azul));color:#fff;border-radius:28px;padding:24px;display:flex;justify-content:space-between;gap:16px;align-items:center;box-shadow:var(--sombra);margin-bottom:14px}
+.training-hero-card h3{color:#fff;margin:0 0 6px}
+.training-hero-card p{margin:0;opacity:.92;max-width:720px}
+.training-choice-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.training-choice{border:1px solid var(--linea);background:#fff;border-radius:22px;padding:18px;min-height:148px;text-align:left;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,.04)}
+.training-choice b{display:block;color:var(--azul2);font-size:1.05rem;margin-bottom:8px}
+.training-choice span{color:var(--muted);line-height:1.35}
+.training-choice:hover{border-color:var(--morado);background:var(--moradobg);transform:translateY(-1px)}
+.single-card{background:#fff;border:1px solid var(--linea);border-radius:28px;padding:24px;box-shadow:var(--sombra)}
+.route-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0}
+.route-step{background:var(--celeste);border-left:6px solid var(--verde);border-radius:18px;padding:12px;min-height:92px}
+.route-step b{display:block;color:var(--azul2)}
+.route-step span{display:block;color:var(--muted);font-size:.86rem;line-height:1.3;margin-top:4px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.soft-panel{background:#f8fbfd;border:1px solid var(--linea);border-radius:18px;padding:14px}
+.soft-panel b{color:var(--azul2)}
+.warn-lite{background:var(--amarillobg);border-left:6px solid var(--amarillo)}
+.ok-lite{background:var(--verdebg);border-left:6px solid var(--verde)}
+.violet-lite{background:var(--moradobg);border-left:6px solid var(--morado)}
+.screen-actions{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.case-ribbon{background:var(--celeste);border-left:8px solid var(--azul);border-radius:20px;padding:16px;margin:14px 0}
+.phase-stack{display:grid;gap:10px}
+.phase-mini{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:14px}
+.phase-mini b{display:block;color:var(--azul2);margin-bottom:4px}
+.study-intro-card{background:#fff;border:1px solid var(--linea);border-radius:22px;padding:18px;margin-top:12px;border-left:8px solid var(--morado)}
+.study-intro-card h3{margin-top:0;color:var(--azul2)}
+.example-shell{display:grid;grid-template-columns:290px minmax(0,1fr);gap:16px}
+.phase-side{background:#fff;border:1px solid var(--linea);border-radius:28px;padding:18px;box-shadow:var(--sombra);height:max-content;position:sticky;top:76px}
+.phase-progress{display:grid;gap:8px;margin:14px 0}
+.phase-dot{border:1px solid var(--linea);border-radius:16px;padding:10px;background:#fff;color:var(--muted);font-weight:800;text-align:left;cursor:pointer}
+.phase-dot.active{background:var(--celeste);color:var(--azul2);border-left:6px solid var(--verde)}
+.phase-card{background:#fff;border:1px solid var(--linea);border-radius:28px;padding:24px;box-shadow:var(--sombra)}
+.decision-box{background:var(--moradobg);border-left:8px solid var(--morado);border-radius:22px;padding:16px;margin:16px 0}
+.phase-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+.phase-option{border:1px solid var(--linea);background:#fff;color:var(--azul2);border-radius:16px;padding:12px;font-weight:900;cursor:pointer;min-height:54px}
+.phase-option:hover{border-color:var(--morado);background:#fff}
+.phase-option.active{background:var(--morado);border-color:var(--morado);color:#fff}
+.phase-feedback{background:#fff;border-radius:16px;padding:12px;margin-top:12px;color:var(--texto)}
+.phase-guidance{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.guide-card{background:#f8fbfd;border:1px solid var(--linea);border-radius:18px;padding:12px}
+.guide-card b{color:var(--azul2)}
+.next-questions{margin-top:12px;background:var(--verdebg);border-left:7px solid var(--verde);border-radius:18px;padding:12px}
+.next-questions b{color:var(--azul2)}
+.full-btn{width:100%;margin-top:8px}
+@media(min-width:1200px){.training-choice-grid{grid-template-columns:repeat(5,1fr)}}
+@media(max-width:920px){
+ .training-toolbar,.training-hero-card{display:block}
+ .training-choice-grid,.route-timeline,.two-col,.example-shell,.phase-guidance,.phase-options{grid-template-columns:1fr!important}
+ .phase-side{position:relative;top:auto}
+ .screen-actions{position:sticky;bottom:0;background:rgba(255,255,255,.92);padding:10px 0}
+ .single-card,.phase-card{padding:16px;border-radius:22px}
 }
 
 @media print{nav,.search,.rolebar,.btn,.question button{display:none}body{background:#fff}.section{display:block}.card{box-shadow:none;break-inside:avoid}}
@@ -411,110 +474,167 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
   </div>
 </section>
 <section id="entrenar" class="section">
-  <div class="training-hero block">
-    <div>
-      <h2>Entrenamiento guiado</h2>
-      <p class="lead">Primero aprende la lógica, luego revisa un ejemplo, después estudia casos específicos y finalmente practica con un caso aleatorio. La meta es entrenar criterio clínico conversacional ECICEP.</p>
-    </div>
-    <div class="field">
-      <label>¿Qué quieres entrenar?</label>
-      <select id="trainingModuleSelect" onchange="renderTrainingModule()">
-        <option value="ingreso">Ingreso integral ECICEP</option>
-        <option value="control">Control integral ECICEP</option>
-        <option value="acuerdo">Transformar indicación en acuerdo</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="training-main-grid">
-    <div class="training-section block">
-      <span class="training-kicker">Capa 1 · Aprender rápido</span>
-      <h2 id="trainTitle">Ingreso integral ECICEP</h2>
-      <div id="trainLearn" class="focus"></div>
-      <div class="note-card"><b>Qué buscamos</b><div id="trainPurpose"></div></div>
-      <div class="note-card"><b>Mínimos para no olvidar</b><div id="trainMinimums"></div></div>
-      <div class="note-card"><b>Sugerencia de apertura</b><div id="trainOpening"></div></div>
-      <div class="warn"><b>Cuidado frecuente y cómo corregirlo</b><br><span id="trainError"></span></div>
-    </div>
-
-    <div class="training-section block">
-      <span class="training-kicker">Capa 2 · Ejemplo completo</span>
-      <h2>Texto bruto de ejemplo</h2>
-      <div id="trainExample" class="example-box"></div>
-      <button class="btn light" onclick="loadTrainingExample()">Usar ejemplo en práctica</button>
-      <h3 style="margin-top:14px">Cómo separar la información</h3>
-      <div id="trainStructured" class="panel-output"></div>
-    </div>
-
-    <div class="training-section block full">
-      <span class="training-kicker">Capa 3 · Estudio guiado con ejemplos prácticos</span>
-      <h2>Estudiar situaciones ECICEP frecuentes</h2>
-      <p class="lead">Esta capa es para estudiar qué hacer y por qué. Cada ficha tiene un caso breve, una decisión interactiva, retroalimentación inmediata, preguntas útiles, errores a evitar, microlección ECICEP, ordenamiento y registro sugerido.</p>
-      <div class="field">
-        <label>¿Qué situación quieres estudiar?</label>
-        <select id="studyCaseSelect" onchange="renderStudyCase()"></select>
-      </div>
-      <div id="studyCaseOut" class="study-case"></div>
-      <div class="copyline">
-        <button class="btn light" onclick="loadStudyCaseToPractice()">Usar este caso en Capa 4</button>
+  <div id="trainingApp" class="training-app">
+    <div class="training-toolbar">
+      <button class="icon-back" onclick="trainingBack()" title="Volver">←</button>
+      <div>
+        <span class="training-eyebrow" id="trainingCrumb">Entrenamiento guiado</span>
+        <h2 id="trainingScreenTitle">Entrenamiento guiado</h2>
+        <p id="trainingScreenLead" class="lead">Aprende a conducir una entrevista ECICEP paso a paso, desde la preparación del encuentro hasta el acuerdo, registro y continuidad.</p>
       </div>
     </div>
 
-    <div class="training-section block full">
-      <span class="training-kicker">Capa 4 · Caso aleatorio y práctica con retroalimentación</span>
-      <h2>Practicar con IA</h2>
-      <p class="lead">Aquí sí puedes generar un caso aleatorio de APS Chile, ordenarlo en casillas y recibir retroalimentación formativa. La IA no busca castigarte: te muestra qué hiciste bien, qué faltó explorar y cómo mejorar el registro.</p>
+    <div id="trainScreenChoose" class="train-screen active">
+      <div class="training-hero-card">
+        <div>
+          <h3>¿Qué quieres entrenar?</h3>
+          <p>Elige un foco. Cada opción abre una pantalla limpia para estudiar, revisar ejemplos y practicar.</p>
+        </div>
+        <button class="btn aiBtn" onclick="showTrainingScreen('practice')">Practicar con IA</button>
+      </div>
+      <div class="training-choice-grid">
+        <button class="training-choice" onclick="selectTrainingTopic('ingreso')"><b>Ingreso integral</b><span>Explorar, priorizar y construir el primer plan consensuado.</span></button>
+        <button class="training-choice" onclick="selectTrainingTopic('control')"><b>Control integral</b><span>Revisar avances, barreras y ajustar acuerdos sin repetir todo.</span></button>
+        <button class="training-choice" onclick="selectTrainingTopic('motivacional')"><b>Entrevista motivacional</b><span>Vincular, enfocar, evocar y planificar cuando indicar no basta.</span></button>
+        <button class="training-choice" onclick="selectTrainingTopic('acuerdo')"><b>Indicación → acuerdo</b><span>Convertir recomendaciones clínicas en acciones posibles.</span></button>
+        <button class="training-choice" onclick="showTrainingScreen('studySelect')"><b>Ejemplos prácticos</b><span>Estudiar situaciones frecuentes y cómo avanzar la conversación.</span></button>
+      </div>
+    </div>
 
-      <div class="sim-config">
-        <div class="field"><label>Tipo de caso</label>
-          <select id="randomType">
-            <option value="ingreso">Ingreso integral</option>
-            <option value="control">Control integral</option>
-            <option value="seguimiento">Seguimiento a distancia</option>
-            <option value="gestion">Gestión de casos</option>
-          </select>
+    <div id="trainScreenOrientation" class="train-screen">
+      <div class="single-card">
+        <h3 id="topicTitle">Ingreso integral ECICEP</h3>
+        <p id="topicIntro"></p>
+        <div id="topicRoute" class="route-timeline"></div>
+        <div class="two-col">
+          <div class="soft-panel"><b>Buscamos</b><p id="topicBusca"></p></div>
+          <div class="soft-panel warn-lite"><b>No buscamos</b><p id="topicNoBusca"></p></div>
+          <div class="soft-panel ok-lite"><b>Debe quedar claro</b><p id="topicDebe"></p></div>
+          <div class="soft-panel violet-lite"><b>Cómo se conversa</b><p id="topicComunica"></p></div>
         </div>
-        <div class="field"><label>Dificultad</label>
-          <select id="randomDifficulty">
-            <option value="basica">Básica</option>
-            <option value="intermedia" selected>Intermedia</option>
-            <option value="avanzada">Avanzada</option>
-          </select>
-        </div>
-        <div class="field"><label>Foco principal</label>
-          <select id="randomFocus">
-            <option value="aleatorio">Aleatorio APS Chile</option>
-            <option value="inasistencia">Inasistencia / pérdida de continuidad</option>
-            <option value="urgencia">Urgencia o descompensación HTA/DM</option>
-            <option value="alta">Alta hospitalaria reciente</option>
-            <option value="farmacos">Fármacos / adherencia irregular</option>
-            <option value="nutricion">Alimentación / barrera nutricional</option>
-            <option value="actividad">Actividad física, dolor o miedo a caer</option>
-            <option value="cuidador">PDS / cuidador/a sobrecargado/a</option>
-            <option value="social">Barrera social, traslado o baja red</option>
-            <option value="saludmental">Ánimo, cansancio o salud mental</option>
-          </select>
+        <div class="screen-actions">
+          <button class="btn light" onclick="showTrainingScreen('choose')">←</button>
+          <button class="btn aiBtn" onclick="showTrainingScreen('baseExample')">Pasar al ejemplo →</button>
         </div>
       </div>
-      <button class="btn aiBtn" onclick="aiGenerateRandomPracticeCase()">Generar caso aleatorio</button>
-      <div id="randomCaseOut" class="panel-output">Aún no se genera caso aleatorio.</div>
+    </div>
 
-      <div class="field"><label>Observaciones de toda la anamnesis</label><textarea id="practiceRaw" class="midtext" placeholder="Pega o escribe aquí la anamnesis/caso. Puedes usar un caso guiado o generar uno aleatorio."></textarea></div>
-      <div class="practice-grid">
-        <div class="field"><label>Barreras</label><textarea id="practiceBarriers"></textarea></div>
-        <div class="field"><label>Facilitadores / activos</label><textarea id="practiceFacilitators"></textarea></div>
-        <div class="field"><label>Ambivalencias</label><textarea id="practiceAmbivalence"></textarea></div>
-        <div class="field"><label>Razones para el cambio</label><textarea id="practiceReasons"></textarea></div>
-        <div class="field"><label>Problema(s) potencial(es)</label><textarea id="practiceProblems"></textarea></div>
-        <div class="field"><label>Primer acuerdo posible</label><textarea id="practiceAgreement"></textarea></div>
-        <div class="field"><label>Seguimiento sugerido</label><textarea id="practiceFollow"></textarea></div>
+    <div id="trainScreenBaseExample" class="train-screen">
+      <div class="single-card">
+        <h3 id="baseExampleTitle">Ejemplo guiado</h3>
+        <p class="lead" id="baseExampleLead">Observa cómo la entrevista se ordena desde la anamnesis hasta el acuerdo.</p>
+        <div class="case-ribbon"><b>Situación inicial</b><p id="baseExampleCase"></p></div>
+        <div id="baseExampleBreakdown" class="phase-stack"></div>
+        <div class="screen-actions">
+          <button class="btn light" onclick="showTrainingScreen('orientation')">←</button>
+          <button class="btn aiBtn" onclick="showTrainingScreen('studySelect')">Ver ejemplos prácticos →</button>
+        </div>
       </div>
-      <button class="btn aiBtn" onclick="aiEvaluateStructuredPractice()">Evaluar mi práctica con IA</button>
-      <div id="practiceFeedbackOut" class="panel-output">Aún no hay retroalimentación.</div>
+    </div>
+
+    <div id="trainScreenStudySelect" class="train-screen">
+      <div class="single-card">
+        <h3>Ejemplos prácticos</h3>
+        <p class="lead">Estudia situaciones frecuentes y aprende cómo avanzar la conversación sin imponer el plan.</p>
+        <div class="field">
+          <label>¿Qué situación quieres ejemplificar?</label>
+          <select id="studyCaseSelect" onchange="renderStudyIntro()"></select>
+        </div>
+        <div id="studyIntroOut" class="study-intro-card"></div>
+        <div class="screen-actions">
+          <button class="btn light" onclick="showTrainingScreen('choose')">←</button>
+          <button class="btn aiBtn" onclick="openStudyExample()">Pasar al ejemplo →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="trainScreenStudyExample" class="train-screen">
+      <div class="example-shell">
+        <div class="phase-side">
+          <button class="icon-back small" onclick="showTrainingScreen('studySelect')" title="Elegir otro ejemplo">←</button>
+          <h3 id="studyExampleTitle">Ejemplo</h3>
+          <div id="phaseProgress" class="phase-progress"></div>
+          <button class="btn light full-btn" onclick="showTrainingScreen('practice')">Practicar con IA</button>
+        </div>
+        <div class="phase-main">
+          <div class="phase-card">
+            <span class="training-eyebrow" id="phaseLabel">Preparar</span>
+            <h3 id="phaseTitle">Preparar</h3>
+            <p id="phaseSituation" class="lead"></p>
+            <div class="decision-box">
+              <b id="phaseQuestion">¿Cómo avanzarías?</b>
+              <div id="phaseOptions" class="phase-options"></div>
+              <div id="phaseFeedback" class="phase-feedback">Elige una alternativa para ver la orientación.</div>
+            </div>
+            <div id="phaseGuidance" class="phase-guidance"></div>
+            <div id="phaseNextQuestions" class="next-questions"></div>
+            <div class="screen-actions">
+              <button class="btn light" onclick="prevPhase()">←</button>
+              <button class="btn aiBtn" onclick="nextPhase()">Siguiente →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="trainScreenPractice" class="train-screen">
+      <div class="single-card">
+        <h3>Practicar con IA</h3>
+        <p class="lead">Genera un caso aleatorio de APS Chile, ordénalo en casillas y recibe retroalimentación formativa.</p>
+        <div class="sim-config">
+          <div class="field"><label>Tipo de caso</label>
+            <select id="randomType">
+              <option value="ingreso">Ingreso integral</option>
+              <option value="control">Control integral</option>
+              <option value="seguimiento">Seguimiento a distancia</option>
+              <option value="gestion">Gestión de casos</option>
+            </select>
+          </div>
+          <div class="field"><label>Dificultad</label>
+            <select id="randomDifficulty">
+              <option value="basica">Básica</option>
+              <option value="intermedia" selected>Intermedia</option>
+              <option value="avanzada">Avanzada</option>
+            </select>
+          </div>
+          <div class="field"><label>Foco principal</label>
+            <select id="randomFocus">
+              <option value="aleatorio">Aleatorio APS Chile</option>
+              <option value="inasistencia">Inasistencia / continuidad</option>
+              <option value="urgencia">Urgencia o HTA/DM</option>
+              <option value="alta">Alta hospitalaria</option>
+              <option value="farmacos">Fármacos</option>
+              <option value="nutricion">Alimentación</option>
+              <option value="actividad">Actividad física</option>
+              <option value="cuidador">PDS / cuidador/a</option>
+              <option value="social">Barrera social</option>
+              <option value="saludmental">Ánimo / salud mental</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn aiBtn" onclick="aiGenerateRandomPracticeCase()">Generar caso</button>
+        <div id="randomCaseOut" class="panel-output">Aún no se genera caso.</div>
+
+        <div class="field"><label>Observaciones de la anamnesis</label><textarea id="practiceRaw" class="midtext" placeholder="Pega, escribe o genera un caso."></textarea></div>
+        <div class="practice-grid">
+          <div class="field"><label>Barreras</label><textarea id="practiceBarriers"></textarea></div>
+          <div class="field"><label>Facilitadores / activos</label><textarea id="practiceFacilitators"></textarea></div>
+          <div class="field"><label>Ambivalencias</label><textarea id="practiceAmbivalence"></textarea></div>
+          <div class="field"><label>Razones para el cambio</label><textarea id="practiceReasons"></textarea></div>
+          <div class="field"><label>Problema(s) potencial(es)</label><textarea id="practiceProblems"></textarea></div>
+          <div class="field"><label>Primer acuerdo posible</label><textarea id="practiceAgreement"></textarea></div>
+          <div class="field"><label>Seguimiento sugerido</label><textarea id="practiceFollow"></textarea></div>
+        </div>
+        <button class="btn aiBtn" onclick="aiEvaluateStructuredPractice()">Evaluar mi práctica</button>
+        <div id="practiceFeedbackOut" class="panel-output">Aún no hay retroalimentación.</div>
+        <div class="screen-actions">
+          <button class="btn light" onclick="showTrainingScreen('choose')">← Volver</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<section id="plan9" class="section">
+<section id="plan9"<section id="plan9" class="section">
   <div class="plan-step block narrow">
     <div class="step-head"><div class="step-num">1</div><h2>Seleccione el aspecto a explorar</h2></div>
     <p class="lead">Use esta sección como apoyo para el ingreso o control integral. Primero seleccione el aspecto; luego revise orientación, preguntas esenciales y barreras frecuentes como ayuda de memoria.</p>
@@ -786,55 +906,6 @@ function initTheme(){
 }
 
 
-const TRAINING_MODULES={
- ingreso:{
-  title:'Ingreso integral ECICEP',
-  learn:'El ingreso integral busca comprender la situación clínica, el contexto, las prioridades, las barreras y los recursos de la persona para construir un primer plan de cuidado consensuado y trazable.',
-  purpose:'Orientar una conversación inicial que permita identificar los aspectos más relevantes para la persona y acordar un primer foco posible, seguro y realista.',
-  minimums:'Revise si corresponde: controles vigentes, tratamientos y adherencia, alimentación, actividad física, tabaco, alcohol, vacunas, EMPA/EMPAM, PAP, mamografía, neumococo/influenza, antecedentes de ACV/IAM, cáncer activo, alta hospitalaria reciente, uso de urgencia, descompensación HTA/DM, salud mental, dependencia/cuidador/a y red de apoyo.',
-  opening:'“Antes de hablar de controles o indicaciones, me gustaría entender cómo está viviendo su salud y qué le preocupa más en este momento. Después revisamos juntos qué sería más importante y posible trabajar.”',
-  error:'Partir directo por metas, exámenes o indicaciones sin preguntar qué le preocupa a la persona, qué carga tiene y qué cambio sería posible. Corrija explorando primero prioridades y barreras; luego explique opciones y recién después acuerde.',
-  example:'Persona con HTA y DM2. Tuvo atención de urgencia reciente por presión elevada. Refiere que no toma medicamentos los fines de semana porque cambia su rutina. No asistió a nutrición porque sintió que las indicaciones no calzaban con su presupuesto. Cuida a su madre dependiente. Sabe que necesita ordenarse porque se cansa más y teme volver a urgencia. PAP y EMPA pendientes; vacuna influenza al día.',
-  structured:{observaciones:'HTA/DM2, urgencia reciente por presión elevada, cansancio, PAP y EMPA pendientes, influenza al día.',barreras:'Rutina de fin de semana dificulta fármacos; indicaciones nutricionales percibidas como poco ajustadas a presupuesto; carga de cuidado de madre dependiente.',facilitadores:'Reconoce necesidad de ordenarse; teme volver a urgencia; mantiene vacuna influenza al día.',ambivalencias:'Quiere cuidarse y evitar urgencia, pero la rutina y el presupuesto dificultan sostener acuerdos.',razones:'Sentirse con más energía, evitar nueva urgencia y sostener cuidado familiar.',problemas:'Adherencia farmacológica irregular; continuidad preventiva pendiente; barrera económica en alimentación; carga de cuidador/a.',acuerdo:'Elegir un primer cambio pequeño: organizar medicamentos de fin de semana o revisar alternativa alimentaria de bajo costo.',seguimiento:'Definir responsable, fecha de revisión y eventual seguimiento telefónico si hay barrera persistente.'}
- },
- control:{
-  title:'Control integral ECICEP',
-  learn:'El control integral retoma el plan previo, revisa avances, barreras y cambios relevantes, sin repetir todo el ingreso ni transformar el incumplimiento en culpa.',
-  purpose:'Identificar qué resultó, qué no resultó, qué cambió y qué acuerdo requiere ajuste para mantener continuidad del plan.',
-  minimums:'Revise acuerdo previo, resultado, cumplimiento parcial/no cumplimiento, barrera específica, síntomas o alertas nuevas, exámenes/controles pendientes, fármacos, automanejo, red de apoyo y próximo paso.',
-  opening:'“Retomemos lo que habíamos acordado. La idea no es retarle, sino entender qué resultó, qué se hizo difícil y qué conviene ajustar para que el plan sea más posible.”',
-  error:'Preguntar solo “¿cumplió o no cumplió?” transforma el seguimiento en evaluación moral. Corrija preguntando qué pasó, qué aprendimos y qué ajuste haría el acuerdo más realista.',
-  example:'Persona había acordado caminar 3 días por semana y tomar medicamentos en la mañana. Caminó un día porque tuvo dolor de rodillas y miedo a caerse. Medicamentos los tomó bien de lunes a viernes, pero no el domingo. Dice que quiere seguir intentando porque le gustaría cansarse menos.',
-  structured:{observaciones:'Cumplimiento parcial de actividad y fármacos. Dolor de rodillas, miedo a caídas y olvido/ruptura de rutina el domingo.',barreras:'Dolor, temor a caída y rutina dominical diferente.',facilitadores:'Quiere seguir intentando; reconoce objetivo de cansarse menos; toma fármacos bien en días hábiles.',ambivalencias:'Quiere moverse más, pero teme dolor/caída.',razones:'Cansarse menos y mantener autonomía.',problemas:'Meta de actividad posiblemente alta o poco segura; adherencia dominical a fármacos vulnerable.',acuerdo:'Ajustar actividad a versión más pequeña y segura; crear recordatorio para domingo.',seguimiento:'Revisar en próximo contacto si disminuyó barrera y si el ajuste fue posible.'}
- },
- acuerdo:{
-  title:'Transformar indicación en acuerdo',
-  learn:'Esta sección ayuda a convertir una recomendación clínica correcta en una acción posible para la persona. No suaviza la indicación: la vuelve concreta, realista y revisable.',
-  purpose:'Evitar planes impuestos. Primero se explica la recomendación, luego se ofrecen opciones y la persona participa en definir qué versión puede intentar.',
-  minimums:'Aclare: qué se recomienda, por qué importa, qué opción le hace sentido, qué barrera puede aparecer, qué versión mínima es posible y cuándo se revisará.',
-  opening:'“Le puedo proponer algunas opciones desde lo clínico y usted me dice cuál calza mejor con su realidad. La idea es dejar un acuerdo posible, no perfecto.”',
-  error:'Decir “tiene que…” y registrar una indicación como si fuera acuerdo. Corrija preguntando posibilidad, barrera y versión más pequeña.',
-  example:'Indicación inicial: “Tiene que caminar 30 minutos diarios”. La persona refiere dolor de rodilla, poco tiempo y miedo a caerse, pero quiere sentirse con más energía.',
-  structured:{observaciones:'Recomendación clínica de aumentar movimiento; dolor de rodilla, poco tiempo y miedo a caerse.',barreras:'Dolor, miedo a caída, tiempo limitado.',facilitadores:'Quiere sentirse con más energía.',ambivalencias:'Desea mejorar energía, pero teme que la actividad sea riesgosa o dolorosa.',razones:'Sentirse con más energía.',problemas:'Indicación inicial demasiado exigente para su posibilidad actual.',acuerdo:'Probar movimiento seguro y pequeño: 5 a 10 minutos en lugar seguro, con pausa si hay dolor, 2 veces por semana.',seguimiento:'Revisar dolor, seguridad y confianza en próximo contacto.'}
- }
-};
-function renderTrainingModule(){
- const key=document.getElementById('trainingModuleSelect')?.value||'ingreso';
- const m=TRAINING_MODULES[key]; if(!m)return;
- document.getElementById('trainTitle').innerText=m.title;
- document.getElementById('trainLearn').innerText=m.learn;
- document.getElementById('trainPurpose').innerText=m.purpose;
- document.getElementById('trainMinimums').innerText=m.minimums;
- document.getElementById('trainOpening').innerText=m.opening;
- document.getElementById('trainError').innerText=m.error;
- document.getElementById('trainExample').innerText=m.example;
- document.getElementById('trainStructured').innerText=formatData(m.structured);
-}
-function loadTrainingExample(){
- const key=document.getElementById('trainingModuleSelect')?.value||'ingreso';
- document.getElementById('practiceRaw').value=TRAINING_MODULES[key].example;
- ['practiceBarriers','practiceFacilitators','practiceAmbivalence','practiceReasons','practiceProblems','practiceAgreement','practiceFollow'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-}
 function loadGeneratedCase(){
  const txt=document.getElementById('generatedCaseOut').innerText;
  if(txt && !txt.includes('Aún no')) document.getElementById('practiceRaw').value=txt;
@@ -852,218 +923,181 @@ async function aiEvaluateStructuredPractice(){
 }
 
 
+let trainingStack=['choose'], currentTraining='ingreso', currentStudy='controles_no_adherencia', currentPhase=0;
+
+const ECICEP_ROUTE=[
+ {k:'Prepararse',d:'Revisar antecedentes, plan vigente y pendientes.'},
+ {k:'Abrir',d:'Explicar propósito y acordar foco.'},
+ {k:'Explorar',d:'Buscar barreras, recursos y prioridades.'},
+ {k:'Priorizar',d:'Definir foco principal con la persona.'},
+ {k:'Deliberar',d:'Compartir información y revisar opciones.'},
+ {k:'Acordar',d:'Definir acción clara, responsable y revisión.'},
+ {k:'Registrar',d:'Dejar trazabilidad útil para el equipo.'},
+ {k:'Continuar',d:'Determinar próximo paso del cuidado.'}
+];
+
+const TRAIN_TOPICS={
+ ingreso:{title:'Ingreso integral ECICEP',intro:'Orienta el primer encuentro para comprender la situación, prioridades y contexto de la persona, y construir un plan de cuidado consensuado.',busca:'Comprender situación clínica, contexto, barreras, facilitadores y lo que más le importa a la persona.',nobusca:'Completar una pauta mecánica ni cerrar un plan impuesto por presión del tiempo o del indicador.',debe:'Problema priorizado, objetivo, actividad, responsable y seguimiento.',comunica:'Vincular, enfocar, evocar y planificar; dirigir solo cuando hay riesgo o información necesaria.',case:'Persona con HTA y DM2, controles irregulares y consulta reciente en urgencia. Refiere cansancio, dificultad para tomar medicamentos los fines de semana y preocupación por volver a urgencia.'},
+ control:{title:'Control integral ECICEP',intro:'Retoma el plan vigente para revisar qué ocurrió, qué cambió, qué barrera apareció y qué ajuste requiere continuidad.',busca:'Revisar avances, barreras y comprensión sin repetir todo el ingreso.',nobusca:'Preguntar solo si cumplió o no cumplió, ni transformar el control en evaluación moral.',debe:'Qué resultó, qué no resultó, qué se ajusta y cómo se revisará.',comunica:'Seguir para comprender, guiar para ordenar y dirigir si hay alerta clínica.',case:'Persona vuelve a control. Había acordado caminar 3 días por semana, pero solo caminó una vez por dolor de rodillas y miedo a caer. Quiere cansarse menos.'},
+ motivacional:{title:'Entrevista motivacional en ECICEP',intro:'Ayuda a acompañar cambios posibles cuando indicar no basta: ambivalencia, baja confianza, cansancio, resistencia o acuerdos difíciles.',busca:'Evocar razones propias, validar dificultad, explorar importancia y posibilidad, y ajustar el acuerdo.',nobusca:'Convencer bonito, insistir con mejores argumentos o retar con empatía.',debe:'Qué hace importante el cambio, qué lo haría posible y qué apoyo o ajuste requiere.',comunica:'Vincular → enfocar → evocar → planificar. Son movimientos flexibles, no pasos rígidos.',case:'Persona dice: “Sé que debería cuidarme, pero estoy cansada de tantos controles”. Acepta lo que se le propone, pero no parece convencida.'},
+ acuerdo:{title:'Transformar indicación en acuerdo',intro:'Convierte una recomendación clínica correcta en una acción posible, concreta y revisable.',busca:'Integrar recomendación clínica con preferencias, contexto, barreras y posibilidad real.',nobusca:'Registrar una indicación como si fuera un acuerdo.',debe:'Qué hará la persona, quién apoyará, cuándo se intentará y cómo se revisará.',comunica:'Pedir permiso, explicar breve, ofrecer opciones y verificar comprensión.',case:'Indicación inicial: “caminar 30 minutos diarios”. La persona refiere dolor de rodilla, poco tiempo y miedo a caerse, pero quiere tener más energía.'}
+};
+
+const BASE_BREAKDOWN=[
+ ['Qué ya sabemos','Condición crónica, dificultad concreta, preocupación de la persona y un riesgo o pendiente de continuidad.'],
+ ['Qué falta aclarar','Barrera principal, posibilidad real, apoyo disponible y qué tema quiere priorizar la persona.'],
+ ['Primera pregunta útil','“Antes de proponer algo, ¿qué es lo que más le preocupa o se le hace difícil de esta situación?”'],
+ ['Riesgo de imponer','Cerrar una indicación antes de comprender barrera, importancia y posibilidad.'],
+ ['Cómo seguir','Explorar → priorizar → deliberar opciones → acordar una acción pequeña → registrar continuidad.']
+];
+
 const STUDY_CASES=[
  {
-  id:'controles_no_adherencia',
-  title:'No adherencia a controles',
-  situation:'Continuidad interrumpida',
-  skill:'Explorar barrera sin culpar',
-  objective:'Comprender por qué se interrumpió la continuidad y acordar una forma realista de retomarla.',
-  caseText:'Persona con HTA y DM2 no asistió al último control. Refiere: “No me gusta venir porque siempre me dicen lo mismo”, pero reconoce que debería cuidarse.',
-  ecicep:'ECICEP no busca marcar “no cumple” de inmediato. Primero intenta comprender qué interrumpió la continuidad: acceso, sentido del control, trato, cansancio del sistema, horario, traslado o carga familiar.',
-  decisionQuestion:'¿Qué harías primero?',
-  options:[
-   {text:'Reagendar el control inmediatamente.',feedback:'Puede ser necesario, pero todavía falta comprender la barrera. Si solo reagendamos, el próximo control puede volver a perderse.',best:false},
-   {text:'Explicar los riesgos de no controlarse.',feedback:'La educación puede ser útil, pero si se entrega antes de explorar, puede sonar a reto y cerrar la conversación.',best:false},
-   {text:'Preguntar qué parte de venir al control se le hace difícil o poco útil.',feedback:'Buena elección. Permite aclarar si la barrera es acceso, trato, cansancio, baja utilidad percibida o experiencia previa.',best:true},
-   {text:'Registrar inasistencia y derivar a seguimiento.',feedback:'Registrar es importante, pero antes conviene levantar la causa y dejar una orientación útil para continuidad.',best:false}
-  ],
-  usefulQuestions:['Vi que no pudimos concretar el último control. ¿Qué pasó ese día o qué lo hizo difícil?','¿Esto fue algo puntual o le ha pasado otras veces?','Cuando dice que siempre le dicen lo mismo, ¿qué le gustaría que fuera distinto en el control?','¿Qué tendría que cambiar para que retomar el control le pareciera más posible?'],
-  avoid:['“No vino.”','“Está inasistente.”','“Le voy a reagendar no más.”','“Si no viene, después no se queje.”'],
-  micro:'Un “no cumplimiento” no siempre es desinterés. Puede ser una barrera no explorada, un acuerdo poco posible o una experiencia negativa con el sistema.',
-  order:{observaciones:'No asiste a control programado. Refiere baja utilidad percibida: “siempre me dicen lo mismo”. Reconoce necesidad de cuidarse.',barreras:'Continuidad interrumpida; barrera pendiente de aclarar: sentido del control, experiencia previa, trato, horario o acceso.',facilitadores:'Reconoce que debería cuidarse.',ambivalencias:'Sabe que cuidarse es importante, pero evita asistir porque el control no le resulta útil o significativo.',razones:'Cuidarse, evitar descompensaciones y retomar continuidad si el control se vuelve más útil.',problemas:'Riesgo de pérdida de continuidad y plan impuesto si solo se reagenda.',registro:'Persona no asiste a control programado. Refiere baja percepción de utilidad del control y sensación de repetición en indicaciones. Reconoce importancia de cuidarse. Se acuerda explorar barreras específicas y definir alternativa de continuidad posible.'}
+  id:'controles_no_adherencia',title:'Inasistencia a controles',busca:'Comprender qué interrumpió la continuidad antes de reagendar.',caseText:'No asistió al control. Dice: “Siempre me dicen lo mismo”, pero reconoce que debería cuidarse.',
+  phases:[
+   phase('Preparar','Revise plan vigente, controles pendientes, últimas inasistencias y motivo actual.','¿Qué mirar primero?',['Plan vigente','Diagnóstico','Meta IAAPS','Última receta'],0,'Bien. En ECICEP el plan vigente permite no empezar desde cero.','El diagnóstico orienta, pero no explica barreras ni acuerdos previos.',['¿Qué acuerdo estaba activo?','¿Qué control quedó pendiente?']),
+   phase('Abrir','La persona llega molesta y dice que venir no le sirve mucho.','¿Cómo abrir?',['¿Qué pasó?','Debe venir','Reagendar','Explicar riesgo'],0,'Buena entrada. Abre la experiencia sin culpar.','Reagendar o explicar puede ser necesario, pero primero conviene comprender la barrera.',['¿Qué hizo difícil venir?','¿Qué espera del control?']),
+   phase('Explorar','Responde: “Siempre me dicen lo mismo, nadie escucha lo que me pasa en la casa”.','¿Qué aparece?',['Barrera vínculo','Desinterés','Falta educación','Problema menor'],0,'Correcto. Hay posible discordancia relacional y baja utilidad percibida.','Tratarlo como desinterés aumenta resistencia y no aborda la causa.',['¿Qué no se sintió escuchado?','¿Qué sería distinto esta vez?']),
+   phase('Priorizar','Hay controles pendientes, medicamentos y cansancio del sistema.','¿Qué enfocar?',['Lo más útil','Todo ahora','Solo agenda','Reto breve'],0,'Bien. Enfocar permite elegir un tema abordable y significativo.','Todo ahora puede aumentar carga y mantener la sensación de repetición.',['¿Qué tema le daría más alivio?','¿Con qué partiría hoy?']),
+   phase('Deliberar','La persona acepta hablar si la atención ayuda a ordenar algo concreto.','¿Cómo deliberar?',['Opciones breves','Indicar control','Convencer','Cerrar plan'],0,'Bien. Revisar opciones breves permite orientar sin imponer.','Indicar o convencer sin opciones reduce participación.',['Podemos ver agenda, medicamentos o una barrera. ¿Qué calza mejor?']),
+   phase('Acordar','La persona elige ordenar próximos controles y entender para qué sirven.','¿Qué falta?',['Responsable','Diagnóstico','Más metas','Sanción'],0,'Correcto. El acuerdo debe decir quién hará qué y cómo se revisará.','Sin responsable ni seguimiento queda poco trazable.',['¿Quién agenda?','¿Cuándo revisamos?']),
+   phase('Registrar','Se identificó baja utilidad percibida y necesidad de aclarar ruta de controles.','¿Qué registrar?',['Barrera + acuerdo','Solo inasiste','Solo diagnóstico','Nada más'],0,'Bien. Registrar barrera y acuerdo permite continuidad.','“No asiste” no explica qué debe retomar el equipo.',['Barrera principal','Acuerdo','Seguimiento']),
+   phase('Continuar','La continuidad dependerá de si logra retomar controles y comprender objetivos.','¿Siguiente paso?',['Seguimiento','Alta','Regaño','Nada'],0,'Bien. Seguimiento permite revisar si el ajuste funcionó.','Cerrar sin revisar puede repetir la pérdida de continuidad.',['¿Se concretó hora?','¿Persistió barrera?'])
+  ]
  },
  {
-  id:'farmacos_irregular',
-  title:'Tratamiento farmacológico irregular',
-  situation:'Adherencia parcial',
-  skill:'Explorar sin retar',
-  objective:'Distinguir olvido, acceso, efectos adversos, comprensión y rutina antes de ajustar acuerdos.',
-  caseText:'Persona refiere que toma los medicamentos de lunes a viernes, pero el fin de semana se le olvida porque cambia su rutina. Dice que “sabe que le hacen bien”.',
-  ecicep:'La adherencia no debe abordarse como falla moral. Se explora qué está pasando realmente para ajustar el plan a la vida diaria.',
-  decisionQuestion:'¿Qué harías primero?',
-  options:[
-   {text:'Decirle que debe tomarlos todos los días.',feedback:'Clínicamente correcto, pero no aclara la barrera. Puede sonar a reto si se usa como primera respuesta.',best:false},
-   {text:'Preguntar qué cambia el fin de semana que lo hace más difícil.',feedback:'Buena elección. Va directo a la barrera específica y permite construir un acuerdo pequeño.',best:true},
-   {text:'Indicar pastillero.',feedback:'Puede ayudar, pero antes conviene preguntar si le haría sentido y qué recordatorio usaría.',best:false},
-   {text:'Registrar mala adherencia.',feedback:'El registro debe ser más preciso: adherencia parcial con barrera de rutina de fin de semana.',best:false}
-  ],
-  usefulQuestions:['¿Qué cambia el fin de semana que hace más difícil tomar los medicamentos?','¿Qué le ayuda de lunes a viernes que podríamos adaptar al fin de semana?','¿Qué recordatorio o apoyo le parecería menos molesto?','¿Qué versión pequeña podríamos probar este fin de semana?'],
-  avoid:['“Es cosa de voluntad.”','“Tiene mala adherencia.”','“Entonces le dejo indicado pastillero.”','“Si sabe que le hacen bien, ¿por qué no los toma?”'],
-  micro:'Cuando la persona reconoce beneficio, hay un facilitador. El acuerdo debe aprovechar esa razón propia y ajustar la barrera concreta.',
-  order:{observaciones:'Toma medicamentos en días hábiles, pero olvida fines de semana. Reconoce que los medicamentos le hacen bien.',barreras:'Cambio de rutina durante fines de semana.',facilitadores:'Rutina laboral de lunes a viernes; reconoce beneficio del tratamiento.',ambivalencias:'Valora el medicamento, pero no logra sostenerlo cuando cambia la rutina.',razones:'Mantener control y evitar descompensaciones.',problemas:'Adherencia farmacológica parcial, vulnerable en fines de semana.',registro:'Persona refiere adherencia regular de lunes a viernes y omisión de medicamentos en fines de semana por cambio de rutina. Reconoce beneficio del tratamiento. Se acuerda explorar recordatorio o apoyo ajustado a rutina de sábado/domingo.'}
+  id:'farmacos_irregular',title:'Medicamentos irregulares',busca:'Explorar rutina, comprensión, acceso o efectos antes de indicar.',caseText:'Toma medicamentos de lunes a viernes, pero el fin de semana se le olvida. Dice que sabe que le hacen bien.',
+  phases:[
+   phase('Preparar','Revise fármacos activos, registros previos, presión/glicemia y acuerdo vigente.','¿Qué mirar?',['Plan vigente','Solo dosis','Solo edad','Meta'],0,'Bien. El plan muestra qué ya se acordó y qué barrera persistía.','Mirar solo dosis no explica uso real.',['¿Qué fármaco?','¿Qué acuerdo previo?']),
+   phase('Abrir','La persona dice que “a veces se desordena”.','¿Cómo abrir?',['Cuénteme','Debe tomarlos','Mala adherencia','Subir dosis'],0,'Bien. “Cuénteme” baja defensa y abre contexto.','Nombrar mala adherencia puede sonar a culpa.',['¿Cómo le va en la práctica?','¿Qué días cuesta más?']),
+   phase('Explorar','Cuenta que el fin de semana cambia horario y sale temprano.','¿Qué es?',['Rutina','Desinterés','Rechazo','Ignorancia'],0,'Correcto. Es una barrera de rutina, no necesariamente rechazo.','Asumir desinterés impide ajustar el acuerdo.',['¿Qué cambia?','¿Qué sí funciona de lunes a viernes?']),
+   phase('Priorizar','Podrían revisarse dosis, horarios, pastillero o apoyo familiar.','¿Qué foco?',['Fin de semana','Todo','Dosis','Retar'],0,'Bien. Es concreto y abordable.','Todo a la vez puede ser excesivo.',['¿Qué ajuste pequeño?','¿Qué recordatorio serviría?']),
+   phase('Deliberar','Quiere evitar descompensarse, pero no le gustan muchas alarmas.','¿Cómo ofrecer?',['Opciones','Ordenar solo','Amenazar','Cerrar'],0,'Correcto. Deliberar es revisar opciones posibles.','Imponer alarma puede fallar si no le acomoda.',['¿Alarma, lugar visible o rutina fija?','¿Cuál le acomoda?']),
+   phase('Motivacional','Reconoce importancia, pero duda de poder sostenerlo.','¿Qué explorar?',['Posibilidad','Culpa','Amenaza','Más datos'],0,'Bien. Si la importancia ya existe, explore posibilidad y apoyo.','Insistir puede aumentar resistencia.',['Del 0 al 10, ¿qué tan posible?','¿Qué subiría un punto?']),
+   phase('Acordar','Elige dejar medicamento junto al hervidor y alarma sábado/domingo 10:00.','¿Completo?',['Revisión','Sí basta','Diagnóstico','Castigo'],0,'Falta definir cómo se revisará.','Sin seguimiento, no sabemos si el acuerdo fue posible.',['¿Cuándo revisamos?','¿Qué hará si se olvida?']),
+   phase('Registrar','Acuerdo definido con barrera de rutina.','¿Qué registrar?',['Barrera/acuerdo','Mala adherencia','Solo fármaco','Nada'],0,'Bien. Eso permite continuidad.','“Mala adherencia” es poco específico y poco útil.',['Barrera','Facilitador','Seguimiento'])
+  ]
  },
  {
-  id:'alimentacion_economica',
-  title:'Alimentación con barrera económica',
-  situation:'Cambio de conducta con recursos limitados',
-  skill:'Ajustar recomendación a realidad',
-  objective:'Evitar indicaciones alimentarias poco viables y construir cambios posibles sin aumentar carga económica.',
-  caseText:'Persona con DM2 refiere que quiere comer mejor, pero dice que “comer sano es caro”. En la casa compra la hija y se cocina para varias personas.',
-  ecicep:'El plan alimentario debe ser contextualizado. Si ignora presupuesto, compras y quién cocina, puede transformarse en indicación imposible.',
-  decisionQuestion:'¿Qué harías primero?',
-  options:[
-   {text:'Entregar una pauta saludable estándar.',feedback:'Puede ser técnicamente correcta, pero corre riesgo de no calzar con presupuesto, compras y dinámica familiar.',best:false},
-   {text:'Preguntar qué comida del día sería más posible ordenar sin gastar más.',feedback:'Buena elección. Parte por una acción concreta y viable.',best:true},
-   {text:'Decirle que debe evitar pan, arroz y azúcar.',feedback:'Puede sonar restrictivo y poco realista si no se explora contexto.',best:false},
-   {text:'Derivar a nutrición sin explorar más.',feedback:'Puede corresponder, pero el ingreso debe dejar claro barrera, contexto y qué espera la persona.',best:false}
-  ],
-  usefulQuestions:['¿Qué comida del día le gustaría ordenar primero?','¿Qué compra habitualmente y qué cambios no implicarían gastar más?','¿Quién cocina y qué posibilidad hay de conversar un cambio pequeño?','¿Qué alimento siente que no está preparado/a para dejar todavía?'],
-  avoid:['“Comer sano no es tan difícil.”','“Tiene que seguir la dieta.”','“Deje el pan.”','No considerar quién compra o cocina.'],
-  micro:'Un buen acuerdo alimentario no es el ideal; es el que la persona puede sostener con sus recursos, cultura alimentaria y red familiar.',
-  order:{observaciones:'Quiere mejorar alimentación, percibe que comer sano es caro, hija compra y se cocina para varias personas.',barreras:'Presupuesto limitado, compra familiar y organización del hogar.',facilitadores:'Interés en comer mejor; hija participa en compras/cocina y podría ser apoyo si la persona lo acepta.',ambivalencias:'Quiere mejorar, pero percibe el cambio como costoso y dependiente de otros.',razones:'Mejorar control y sentirse mejor sin aumentar gasto.',problemas:'Plan alimentario puede ser poco viable si no se ajusta al presupuesto y dinámica familiar.',registro:'Persona expresa interés en mejorar alimentación, con barrera económica y dependencia de compra/cocina familiar. Se acuerda explorar una comida del día y un cambio de bajo costo posible.'}
+  id:'nutricion_rechazo',title:'Rechazo a nutrición',busca:'Aclarar experiencia, vínculo o factibilidad antes de reagendar.',caseText:'No asistió a nutrición porque “no le gusta”, aunque sabe que es importante para ella.',
+  phases:[
+   phase('Preparar','Revise controles de nutrición, acuerdos alimentarios previos y barreras registradas.','¿Qué mirar?',['Experiencia previa','Solo peso','Solo HbA1c','Meta'],0,'Bien. La experiencia previa puede explicar la barrera actual.','Solo mirar peso/HbA1c puede empujar una solución sin comprender.',['¿Qué se registró?','¿Hubo acuerdo previo?']),
+   phase('Abrir','La persona dice que no quiere volver a nutrición.','¿Cómo abrir?',['Qué pasó','Debe ir','Reagendar','Explicar dieta'],0,'Buena elección. Primero aclare qué significa “no le gusta”.','Reagendar sin comprender puede repetir inasistencia.',['¿Qué pasó?','¿Fue trato, indicación o contexto?']),
+   phase('Explorar','Refiere que se sintió juzgada y que la pauta era cara.','¿Qué aparece?',['Vínculo y costo','Desinterés','Falta educación','Rebeldía'],0,'Correcto. Hay barrera relacional y económica.','Llamarlo desinterés invisibiliza barreras reales.',['¿Qué la hizo sentir juzgada?','¿Qué cambio sería más realista?']),
+   phase('Enfocar','Hay varias cosas: trato, presupuesto, alimentación familiar.','¿Qué enfocar?',['Lo posible','Pauta ideal','Peso','Reto'],0,'Bien. Enfocar en lo posible baja carga y mejora adherencia.','Pauta ideal sin contexto puede sentirse impuesta.',['¿Qué comida ordenar primero?','¿Qué no aumenta gasto?']),
+   phase('Evocar','Ella dice que quiere cuidarse para tener más energía.','¿Qué hacer?',['Razones propias','Más indicaciones','Asustar','Cerrar'],0,'Bien. Evoque razones propias para sostener el cambio.','Más indicaciones no necesariamente aumentan motivación.',['¿Qué ganaría si mejora?','¿Qué le importa recuperar?']),
+   phase('Deliberar','Se podrían probar cambios de bajo costo o retomar nutrición con foco distinto.','¿Cómo ofrecer?',['Opciones','Enviar igual','Pauta fija','Nada'],0,'Correcto. Ofrecer opciones devuelve agencia.','Enviar igual no resuelve vínculo ni costo.',['¿Qué opción calza mejor?','¿Qué ajuste haría más posible volver?']),
+   phase('Acordar','Elige revisar once y bebidas antes que pauta completa.','¿Qué falta?',['Seguimiento','Más metas','Peso ideal','Retar'],0,'Bien. Todo acuerdo requiere revisión.','Más metas puede hacerlo menos sostenible.',['¿Desde cuándo?','¿Cuándo revisamos?']),
+   phase('Registrar','Se aclaró barrera de trato y costo, con acuerdo pequeño.','¿Qué registrar?',['Barrera + ajuste','No quiere','Solo dieta','Nada'],0,'Bien. Deja trazabilidad y evita repetir el mismo error.','“No quiere” no explica qué debe ajustar el equipo.',['Barrera relacional','Barrera económica','Acuerdo'])
+  ]
  },
  {
-  id:'actividad_miedo',
-  title:'Actividad física con dolor o miedo a caer',
-  situation:'Alta importancia con baja posibilidad',
-  skill:'Ajustar meta y cuidar seguridad',
-  objective:'Enseñar que cuando hay miedo, dolor o baja confianza, no se empuja más fuerte: se ajusta el acuerdo.',
-  caseText:'Persona quería caminar 30 minutos, pero caminó solo una vez. Refiere dolor de rodillas y miedo a caerse. Dice que le gustaría cansarse menos.',
-  ecicep:'El acuerdo debe ser seguro, pequeño y revisable. La meta ideal puede ser clínicamente correcta, pero no viable en ese momento.',
-  decisionQuestion:'¿Qué harías primero?',
-  options:[
-   {text:'Insistir en caminar 30 minutos porque es lo indicado.',feedback:'Riesgo de plan impuesto. Ignora dolor, miedo y posibilidad real.',best:false},
-   {text:'Preguntar qué le preocupa más al caminar: dolor, caída, mareo o estar solo/a.',feedback:'Buena elección. Precisa la barrera de seguridad y permite ajustar.',best:true},
-   {text:'Suspender toda actividad física.',feedback:'Puede ser innecesario si existe una versión más pequeña y segura. Falta explorar.',best:false},
-   {text:'Decirle que camine acompañada.',feedback:'Puede ayudar, pero antes conviene saber si cuenta con apoyo y qué temor específico tiene.',best:false}
-  ],
-  usefulQuestions:['¿Qué le preocupa más al caminar: dolor, caerse, marearse o estar solo/a?','¿Ha tenido caídas o casi caídas?','¿Dónde se sentiría más seguro/a para moverse?','¿Qué versión más pequeña sí podría intentar?','Del 1 al 10, ¿qué tan posible sería probarlo esta semana?'],
-  avoid:['“Tiene que caminar igual.”','“No piense en el dolor.”','Subir la meta sin explorar seguridad.','Cerrar acuerdo sin revisar posibilidad.'],
-  micro:'Alta importancia + baja posibilidad = no presionar más. Ajuste el acuerdo, haga la meta más pequeña y agregue apoyo o seguridad.',
-  order:{observaciones:'Quiere caminar y cansarse menos; dolor de rodillas; miedo a caídas; caminó solo una vez.',barreras:'Dolor y temor a caída.',facilitadores:'Deseo de cansarse menos; disposición a intentar.',ambivalencias:'Quiere moverse, pero teme dolor o caída.',razones:'Sentirse con más energía y autonomía.',problemas:'Meta inicial posiblemente alta o insegura.',registro:'Persona refiere interés en actividad física por cansancio, con barreras de dolor de rodillas y miedo a caída. Se acuerda explorar alternativa segura, pequeña y revisable antes de mantener meta previa.'}
- },
- {
-  id:'si_automatico',
-  title:'Persona que dice “sí” a todo',
-  situation:'Riesgo de plan impuesto',
-  skill:'Verificar autonomía y posibilidad',
-  objective:'Distinguir aceptación automática de acuerdo real.',
-  caseText:'Persona acepta caminar, cambiar alimentación y tomar medicamentos “como usted diga”, pero no logra explicar el acuerdo con sus palabras y se muestra cansada.',
-  ecicep:'No todo “sí” es acuerdo. ECICEP requiere participación real, comprensión y posibilidad.',
-  decisionQuestion:'¿Qué harías primero?',
-  options:[
-   {text:'Registrar todo como acuerdo porque aceptó.',feedback:'Alto riesgo de plan impuesto. Falta verificar comprensión y posibilidad.',best:false},
-   {text:'Preguntar si esto le parece realmente posible o si está diciendo que sí para no quedar mal.',feedback:'Buena elección. Cuida autonomía y permite ajustar.',best:true},
-   {text:'Repetir la indicación con más detalle.',feedback:'Puede mejorar comprensión, pero no necesariamente aclara posibilidad ni autonomía.',best:false},
-   {text:'Reducir el plan sin preguntarle.',feedback:'Mejor que sobrecargar, pero sigue decidiendo por la persona si no se conversa.',best:false}
-  ],
-  usefulQuestions:['¿Qué parte de lo conversado sí le hace sentido?','¿Qué parte le parece demasiado para ahora?','Si hiciéramos el acuerdo más realista, ¿cómo quedaría?','¿Con qué prefiere partir primero?'],
-  avoid:['“Perfecto, dejamos todo indicado.”','Confundir silencio con consenso.','Cerrar múltiples acciones sin verificar posibilidad.','No permitir que la persona modifique o rechace.'],
-  micro:'El consentimiento clínico no es solo asentir. La persona debe poder comprender, modificar y sentir propio el acuerdo.',
-  order:{observaciones:'Acepta varias indicaciones, pero no explica el acuerdo y se muestra cansada.',barreras:'Posible aceptación por presión, baja comprensión o baja posibilidad.',facilitadores:'Disposición a conversar.',ambivalencias:'Quiere responder positivamente, pero quizá no se siente capaz.',razones:'Pendiente de explorar.',problemas:'Riesgo alto de plan impuesto y baja sostenibilidad.',registro:'Persona acepta inicialmente varias acciones, pero no logra explicar el acuerdo y se observa cansancio. Se reabre conversación para priorizar un primer foco posible y verificar comprensión.'}
- },
- {
-  id:'cuidadora_sobrecarga',
-  title:'Cuidador/a sobrecargado/a',
-  situation:'Gestión de casos / PDS',
-  skill:'Ordenar barrera persistente',
-  objective:'Reconocer que la continuidad puede depender de la capacidad real de la red de apoyo.',
-  caseText:'Cuidadora principal de persona con dependencia refiere cansancio, dificultad para llevar a controles y confusión con medicamentos. Han ocurrido inasistencias reiteradas.',
-  ecicep:'La barrera no está solo en la persona usuaria. Puede estar en la red, sobrecarga de cuidados, traslado, comprensión o coordinación del equipo.',
-  decisionQuestion:'¿Qué harías primero?',
-  options:[
-   {text:'Pedirle que se organice mejor.',feedback:'Puede aumentar culpa y no aborda la sobrecarga real.',best:false},
-   {text:'Preguntar qué parte del cuidado se le está haciendo más pesada esta semana.',feedback:'Buena elección. Valida y abre la barrera principal.',best:true},
-   {text:'Agendar todos los controles pendientes.',feedback:'Puede empeorar la carga si no se prioriza y coordina.',best:false},
-   {text:'Registrar inasistencia familiar.',feedback:'El registro debe explicar barrera de red/cuidado y plan de coordinación.',best:false}
-  ],
-  usefulQuestions:['¿Qué parte del cuidado se le está haciendo más pesada esta semana?','¿Quién más puede apoyar aunque sea parcialmente?','¿Qué controles o tareas se están volviendo imposibles?','¿Qué indicaciones están más confusas?','¿Qué necesita del equipo para sostener el cuidado?'],
-  avoid:['“Tiene que organizarse mejor.”','Agregar más controles sin revisar apoyo.','Registrar solo “no asiste”.','Asumir que la cuidadora puede con todo.'],
-  micro:'La sobrecarga puede bloquear cualquier acuerdo. Antes de pedir más, revise capacidad, red y prioridades.',
-  order:{observaciones:'Cuidadora principal cansada, dificultad para controles, confusión con medicamentos e inasistencias reiteradas.',barreras:'Sobrecarga de cuidadora, traslado/organización y confusión terapéutica.',facilitadores:'Existe cuidadora principal vinculada al cuidado.',ambivalencias:'Quiere cuidar, pero la carga supera su capacidad actual.',razones:'Sostener cuidado sin colapso y evitar pérdida de continuidad.',problemas:'Riesgo de abandono de controles y errores en medicamentos.',registro:'Cuidadora principal refiere sobrecarga, dificultad para traslado a controles y confusión con medicamentos. Se requiere ordenar prioridades, responsables y coordinación de continuidad.'}
- },
- {
-  id:'alta_confusa',
-  title:'Alta hospitalaria reciente con plan confuso',
-  situation:'Continuidad post alta',
-  skill:'Ordenar información y responsables',
-  objective:'Evitar duplicidad, confusión o pérdida de continuidad tras alta hospitalaria.',
-  caseText:'Persona mayor con multimorbilidad tuvo alta hospitalaria reciente. Trae documentos, no entiende cambios de medicamentos y no sabe qué control debe priorizar. Su hija le ayuda, pero trabaja.',
-  ecicep:'Después de un alta, el foco es ordenar continuidad: indicaciones, comprensión, red de apoyo, prioridad y seguimiento.',
-  decisionQuestion:'¿Qué harías primero?',
-  options:[
-   {text:'Leer rápidamente los papeles y dejar nuevas indicaciones.',feedback:'Riesgo de aumentar confusión. Primero identifique qué no está claro y qué apoyo existe.',best:false},
-   {text:'Preguntar qué indicación o cambio le quedó menos claro al salir del hospital.',feedback:'Buena elección. Parte por la comprensión de la persona y ordena continuidad.',best:true},
-   {text:'Derivar a todos los controles pendientes.',feedback:'Puede ser necesario, pero sin priorización aumenta carga y confusión.',best:false},
-   {text:'Pedirle a la hija que se encargue.',feedback:'Puede ser apoyo, pero no se debe asumir disponibilidad total.',best:false}
-  ],
-  usefulQuestions:['¿Qué indicación o cambio le quedó menos claro al salir del hospital?','¿Qué medicamentos cambiaron desde el alta?','¿Quién le ayuda a revisarlos?','¿Qué control quedó más urgente o pendiente?','¿Qué le preocupa que pueda pasar si no ordenamos esto?'],
-  avoid:['Agregar indicaciones sin ordenar las previas.','Asumir que la familia puede resolver todo.','Cerrar plan sin responsable.','No registrar pendientes del alta.'],
-  micro:'La continuidad post alta requiere ordenar antes de indicar. Un plan claro reduce duplicidad, errores y nuevas consultas evitables.',
-  order:{observaciones:'Alta hospitalaria reciente; confusión con medicamentos y controles; apoyo parcial de hija.',barreras:'Comprensión del plan, cambios farmacológicos y disponibilidad de apoyo.',facilitadores:'Trae documentos; hija apoya parcialmente.',ambivalencias:'Quiere seguir indicaciones, pero no las comprende con claridad.',razones:'Evitar nueva descompensación o reingreso.',problemas:'Riesgo de errores de tratamiento y pérdida de continuidad.',registro:'Persona con alta hospitalaria reciente refiere dudas sobre cambios de medicamentos y controles pendientes. Trae documentos y cuenta con apoyo parcial de hija. Se prioriza ordenar indicaciones, responsables y seguimiento.'}
- },
- {
-  id:'urgencia_descompensacion',
-  title:'Uso de urgencia o descompensación HTA/DM',
-  situation:'Riesgo y continuidad',
-  skill:'Comunicar riesgo sin asustar ni imponer',
-  objective:'Practicar cómo comunicar riesgo de forma clara y explorar qué llevó a la descompensación.',
-  caseText:'Persona con HTA consultó en urgencia por presión elevada. Dice que se asustó, pero también que “en la casa se me junta todo y dejo mis cosas para después”.',
-  ecicep:'El uso de urgencia puede ser una oportunidad para revisar barreras, automanejo, señales de alarma y continuidad, no solo para repetir indicaciones.',
-  decisionQuestion:'¿Qué harías primero?',
-  options:[
-   {text:'Explicar con dureza que pudo haber sido grave.',feedback:'Puede asustar, pero no necesariamente genera acuerdo. Riesgo de cerrar diálogo.',best:false},
-   {text:'Preguntar qué cree que influyó en que llegara a urgencia.',feedback:'Buena elección. Abre comprensión, barreras y automanejo.',best:true},
-   {text:'Indicar control estricto y más medicamentos.',feedback:'No corresponde resolver así en esta herramienta y no explora la causa.',best:false},
-   {text:'Decirle que no vuelva a dejar sus cosas para después.',feedback:'Culpabiliza y no identifica barrera real.',best:false}
-  ],
-  usefulQuestions:['¿Qué cree que influyó en que llegara a urgencia?','¿Qué señales le indicaron que debía consultar?','¿Qué se le junta en la casa que deja su cuidado para después?','¿Qué necesitaría para actuar antes de llegar a urgencia?','¿Qué acuerdo pequeño ayudaría a evitar que esto se repita?'],
-  avoid:['Asustar sin orientar.','Culpar por la descompensación.','Cerrar plan sin revisar barrera doméstica o de automanejo.','No aclarar señales de alarma.'],
-  micro:'Comunicar riesgo no es amenazar. Es ayudar a comprender señales, barreras y acciones posibles para anticiparse.',
-  order:{observaciones:'Consulta de urgencia por presión elevada; susto posterior; refiere carga doméstica y postergación del autocuidado.',barreras:'Carga en casa y dificultad para priorizar autocuidado.',facilitadores:'Reconoce susto y oportunidad de prevenir nueva urgencia.',ambivalencias:'Quiere evitar urgencia, pero posterga cuidado por carga diaria.',razones:'Evitar nueva urgencia y sentirse más seguro/a.',problemas:'Automanejo y continuidad vulnerables ante carga doméstica.',registro:'Persona consultó en urgencia por presión elevada. Refiere susto y dificultad para priorizar autocuidado por carga doméstica. Se acuerda explorar señales de alarma, barrera concreta y acción anticipatoria posible.'}
+  id:'actividad_miedo',title:'Dolor o miedo a caer',busca:'Ajustar la actividad a seguridad, confianza y posibilidad.',caseText:'Quería caminar 30 minutos, pero caminó una vez. Tiene dolor de rodillas y miedo a caerse.',
+  phases:[
+   phase('Preparar','Revise funcionalidad, caídas, dolor, acuerdo previo y alertas.','¿Qué mirar?',['Seguridad','Solo meta','Peso','Edad'],0,'Bien. La seguridad define si se ajusta, deriva o avanza.','La meta sola no basta.',['¿Caídas?','¿Dolor?','¿Ayudas técnicas?']),
+   phase('Abrir','La persona se siente frustrada porque no cumplió.','¿Cómo abrir?',['Qué pasó','No cumplió','Debe caminar','Subir meta'],0,'Bien. Abre sin culpa.','Decir “no cumplió” puede cerrar la conversación.',['¿Qué se hizo difícil?','¿Qué parte resultó?']),
+   phase('Explorar','Dice que le duele y teme caerse si sale sola.','¿Qué aparece?',['Seguridad','Desinterés','Flojera','Educación'],0,'Correcto. La barrera principal es seguridad/confianza.','Tratarlo como desinterés impone la meta.',['¿Qué teme más?','¿Dónde se sentiría segura?']),
+   phase('Priorizar','El objetivo era moverse más, pero la meta no fue viable.','¿Qué ajustar?',['Meta pequeña','Insistir','Suspender todo','Reto'],0,'Bien. Meta pequeña y segura.','Insistir aumenta riesgo de fracaso.',['¿Qué versión sí podría?','¿Con quién o dónde?']),
+   phase('Deliberar','Opciones: caminar acompañada, ejercicios en casa, pausas breves.','¿Cómo ofrecer?',['Opciones','Una orden','Nada','Amenaza'],0,'Correcto. La persona elige lo más seguro.','Una orden puede no calzar con miedo o dolor.',['¿Cuál es más segura?','¿Qué apoyo tiene?']),
+   phase('Motivacional','Quiere cansarse menos, pero duda de poder hacerlo.','¿Qué escala?',['Posibilidad','Culpa','Exigencia','Peso'],0,'Bien. Explore posibilidad antes de cerrar.','Exigir más no aumenta confianza.',['0 a 10, ¿posible?','¿Qué subiría un punto?']),
+   phase('Acordar','Elige 5 minutos en pasillo del edificio, 3 veces por semana.','¿Qué falta?',['Plan B','Más tiempo','Nada','Reto'],0,'Bien. Anticipar dificultades fortalece automanejo.','Sin plan B, se corta ante la primera barrera.',['Si duele, ¿qué hará?','¿Cuándo revisamos?']),
+   phase('Registrar','El acuerdo es pequeño, seguro y revisable.','¿Qué registrar?',['Dolor/miedo/acuerdo','No cumple','Caminar 30','Nada'],0,'Bien. Registre barrera y ajuste.','Mantener 30 min ignora lo aprendido.',['Barrera','Acuerdo','Seguimiento'])
+  ]
  }
 ];
 
+function phase(title,situation,question,options,best,good,careful,nextQuestions){
+ return {title,situation,question,options,best,good,careful,nextQuestions};
+}
+function showTrainingScreen(name, push=true){
+ document.querySelectorAll('#trainingApp .train-screen').forEach(s=>s.classList.remove('active'));
+ const el=document.getElementById('trainScreen'+cap(name)); if(el)el.classList.add('active');
+ if(push && trainingStack[trainingStack.length-1]!==name)trainingStack.push(name);
+ updateTrainingHeader(name);
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function trainingBack(){
+ if(trainingStack.length>1){trainingStack.pop();showTrainingScreen(trainingStack[trainingStack.length-1],false);}
+ else go('inicio');
+}
+function updateTrainingHeader(name){
+ const map={choose:['Entrenamiento guiado','Aprende la lógica, revisa ejemplos y practica con retroalimentación.'],orientation:['Orientación','Ruta clínica ECICEP y movimientos conversacionales.'],baseExample:['Ejemplo guiado','Observa cómo se ordena una entrevista desde anamnesis hasta continuidad.'],studySelect:['Ejemplos prácticos','Elige una situación frecuente para estudiar.'],studyExample:['Ejemplo por fases','Avanza por preparación, apertura, exploración, decisión y acuerdo.'],practice:['Practicar con IA','Genera un caso, ordénalo y recibe retroalimentación.']};
+ const [t,l]=map[name]||map.choose;
+ document.getElementById('trainingScreenTitle').innerText=t;
+ document.getElementById('trainingScreenLead').innerText=l;
+ document.getElementById('trainingCrumb').innerText='Entrenamiento ECICEP';
+}
+function selectTrainingTopic(topic){
+ currentTraining=topic;
+ renderTrainingTopic();
+ showTrainingScreen(topic==='motivacional'?'orientation':'orientation');
+}
+function renderTrainingTopic(){
+ const t=TRAIN_TOPICS[currentTraining]||TRAIN_TOPICS.ingreso;
+ document.getElementById('topicTitle').innerText=t.title;
+ document.getElementById('topicIntro').innerText=t.intro;
+ document.getElementById('topicBusca').innerText=t.busca;
+ document.getElementById('topicNoBusca').innerText=t.nobusca;
+ document.getElementById('topicDebe').innerText=t.debe;
+ document.getElementById('topicComunica').innerText=t.comunica;
+ document.getElementById('topicRoute').innerHTML=ECICEP_ROUTE.map((r,i)=>`<div class="route-step"><b>${i+1}. ${r.k}</b><span>${r.d}</span></div>`).join('');
+ renderBaseExample();
+}
+function renderBaseExample(){
+ const t=TRAIN_TOPICS[currentTraining]||TRAIN_TOPICS.ingreso;
+ document.getElementById('baseExampleTitle').innerText='Ejemplo guiado: '+t.title;
+ document.getElementById('baseExampleCase').innerText=t.case;
+ document.getElementById('baseExampleBreakdown').innerHTML=BASE_BREAKDOWN.map(([a,b])=>`<div class="phase-mini"><b>${a}</b><span>${b}</span></div>`).join('');
+}
 function renderStudyCaseOptions(){
  const sel=document.getElementById('studyCaseSelect'); if(!sel)return;
  sel.innerHTML='';
- STUDY_CASES.forEach(c=>{
-  const opt=document.createElement('option'); opt.value=c.id; opt.textContent=`${c.title} · ${c.skill}`; sel.appendChild(opt);
- });
- renderStudyCase();
+ STUDY_CASES.forEach(c=>{const opt=document.createElement('option');opt.value=c.id;opt.textContent=c.title;sel.appendChild(opt);});
+ renderStudyIntro();
 }
 function currentStudyCase(){
- const id=document.getElementById('studyCaseSelect')?.value || STUDY_CASES[0].id;
+ const id=document.getElementById('studyCaseSelect')?.value || currentStudy;
  return STUDY_CASES.find(c=>c.id===id)||STUDY_CASES[0];
 }
-function li(arr){return '<ul>'+(arr||[]).map(x=>`<li>${x}</li>`).join('')+'</ul>';}
-function renderStudyOptions(c){
- return (c.options||[]).map((o,i)=>`<button type="button" class="study-option" onclick="selectStudyOption(${i})">${o.text}</button>`).join('');
+function renderStudyIntro(){
+ const c=currentStudyCase(); currentStudy=c.id;
+ const box=document.getElementById('studyIntroOut'); if(!box)return;
+ box.innerHTML=`<h3>${c.title}</h3><p><b>Qué busca:</b> ${c.busca}</p><div class="case-ribbon"><b>Situación</b><p>${c.caseText}</p></div>`;
 }
-function selectStudyOption(i){
- const c=currentStudyCase(); const opt=c.options[i];
- document.querySelectorAll('.study-option').forEach((b,idx)=>b.classList.toggle('active',idx===i));
- const box=document.getElementById('studyFeedback');
- if(box) box.innerHTML=`<b>${opt.best?'Buena elección':'Esta opción requiere cuidado'}</b><br>${opt.feedback}`;
+function openStudyExample(){
+ currentPhase=0;
+ renderStudyExample();
+ showTrainingScreen('studyExample');
 }
-function renderStudyCase(){
- const c=currentStudyCase(); const box=document.getElementById('studyCaseOut'); if(!box)return;
- box.innerHTML=`<div class="study-head"><div><h3>${c.title}</h3><p>${c.objective}</p></div><div><span class="study-badge">${c.situation}</span><span class="study-badge">${c.skill}</span></div></div>
- <div class="study-card"><b>Qué busca ECICEP aquí</b>${c.ecicep}</div>
- <div class="study-case-text">${c.caseText}</div>
- <div class="study-decision"><b>${c.decisionQuestion}</b><div class="study-options">${renderStudyOptions(c)}</div><div id="studyFeedback" class="study-feedback">Elige una opción para ver la explicación.</div></div>
- <div class="study-grid">
-   <div class="study-card"><b>Preguntas útiles</b>${li(c.usefulQuestions)}</div>
-   <div class="study-warning"><b>Errores a evitar</b>${li(c.avoid)}</div>
-   <div class="study-mi"><b>Microlección ECICEP</b>${c.micro}</div>
-   <div class="study-card"><b>Cómo ordenar la información</b>${formatData(c.order)}</div>
-   <div class="study-register" style="grid-column:1/-1"><b>Registro sugerido</b>\n${c.order.registro}</div>
- </div>`;
+function renderStudyExample(){
+ const c=currentStudyCase(); const p=c.phases[currentPhase]||c.phases[0];
+ document.getElementById('studyExampleTitle').innerText=c.title;
+ document.getElementById('phaseLabel').innerText='Fase '+(currentPhase+1)+' de '+c.phases.length;
+ document.getElementById('phaseTitle').innerText=p.title;
+ document.getElementById('phaseSituation').innerText=p.situation;
+ document.getElementById('phaseQuestion').innerText=p.question;
+ document.getElementById('phaseOptions').innerHTML=p.options.map((o,i)=>`<button class="phase-option" onclick="selectPhaseOption(${i})">${o}</button>`).join('');
+ document.getElementById('phaseFeedback').innerText='Elige una alternativa para ver la orientación.';
+ document.getElementById('phaseGuidance').innerHTML=`<div class="guide-card"><b>Cuándo seguir</b><p>Cuando falta comprender experiencia, barrera o emoción.</p></div><div class="guide-card"><b>Cuándo guiar/dirigir</b><p>Guía para ordenar opciones; dirige si hay riesgo, instrucción necesaria o solicitud clara.</p></div>`;
+ document.getElementById('phaseNextQuestions').innerHTML='<b>Siguientes preguntas</b><ul>'+(p.nextQuestions||[]).map(q=>`<li>${q}</li>`).join('')+'</ul>';
+ document.getElementById('phaseProgress').innerHTML=c.phases.map((ph,i)=>`<button class="phase-dot ${i===currentPhase?'active':''}" onclick="currentPhase=${i};renderStudyExample()">${i+1}. ${ph.title}</button>`).join('');
 }
+function selectPhaseOption(i){
+ const c=currentStudyCase(); const p=c.phases[currentPhase];
+ document.querySelectorAll('.phase-option').forEach((b,idx)=>b.classList.toggle('active',idx===i));
+ const msg=i===p.best?`<b>Útil ahora.</b><br>${p.good}`:`<b>Úsalo con precaución.</b><br>${p.careful}`;
+ document.getElementById('phaseFeedback').innerHTML=msg;
+}
+function nextPhase(){const c=currentStudyCase(); if(currentPhase<c.phases.length-1){currentPhase++;renderStudyExample();}else showTrainingScreen('practice');}
+function prevPhase(){if(currentPhase>0){currentPhase--;renderStudyExample();}else showTrainingScreen('studySelect');}
 function loadStudyCaseToPractice(){
  const c=currentStudyCase();
  document.getElementById('practiceRaw').value=c.caseText;
- document.getElementById('practiceBarriers').value=c.order.barreras||'';
- document.getElementById('practiceFacilitators').value=c.order.facilitadores||'';
- document.getElementById('practiceAmbivalence').value=c.order.ambivalencias||'';
- document.getElementById('practiceReasons').value=c.order.razones||'';
- document.getElementById('practiceProblems').value=c.order.problemas||'';
- document.getElementById('practiceAgreement').value='';
- document.getElementById('practiceFollow').value='';
+ showTrainingScreen('practice');
 }
 async function aiGenerateRandomPracticeCase(){
- const payload={module:document.getElementById('trainingModuleSelect')?.value||'ingreso',type:val('randomType'),difficulty:val('randomDifficulty'),focus:val('randomFocus')};
+ const payload={module:currentTraining||'ingreso',type:val('randomType'),difficulty:val('randomDifficulty'),focus:val('randomFocus')};
  const data=await aiCall('generate_training_case',payload,'randomCaseOut');
  if(!data)return;
  const txt=formatData(data);
@@ -1071,7 +1105,8 @@ async function aiGenerateRandomPracticeCase(){
  const caseText=data.caso_simulado||data.caso_inicial||data.respuesta||txt;
  document.getElementById('practiceRaw').value=caseText;
 }
-
+function renderTrainingModule(){renderTrainingTopic();renderStudyCaseOptions();}
+function loadTrainingExample(){showTrainingScreen('baseExample');}
 
 function chooseProfile(role){
  setRole(role);
@@ -1137,7 +1172,7 @@ function ensureModuleBackButtons(){
    if(sec.querySelector(':scope > .module-back'))return;
    const div=document.createElement('div');
    div.className='module-back';
-   div.innerHTML="<button onclick=\"go(\'inicio\')\">← Volver al inicio del perfil</button>";
+   div.innerHTML="<button onclick=\"go('inicio')\">← Volver al inicio del perfil</button>";
    sec.insertBefore(div,sec.firstChild);
  });
 }
