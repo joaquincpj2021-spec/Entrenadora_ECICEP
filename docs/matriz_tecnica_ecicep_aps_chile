@@ -1,4 +1,4 @@
-# Matriz técnica ECICEP APS Chile v4.2
+# Matriz técnica ECICEP APS Chile v4.3
 
 Esta matriz es un documento interno integrado para orientar la app de entrenamiento ECICEP en APS Chile. No diagnostica, no confirma GES, no indica tratamientos y no reemplaza el juicio clínico ni el protocolo local.
 
@@ -103,3 +103,19 @@ La app permite seleccionar una profesión o rol de práctica y un ámbito de ate
 - SOME / acceso
 
 Ámbitos: box clínico, seguimiento a distancia, control programático, gestión de casos, domicilio, post alta, preventivos/acceso y comunitario.
+
+
+## Cambio v4.3: configuración corregida
+
+Se elimina el selector “Ámbito de práctica” porque duplicaba el sentido de “Momento ECICEP”. La práctica queda configurada por:
+
+1. **Momento ECICEP:** ingreso integral, control integral, seguimiento a distancia o gestión de casos.
+2. **Profesión/rol que practica:** ajusta alcance, lenguaje y foco de intervención.
+3. **Foco clínico-programático:** orienta el contenido clínico/programático del caso.
+4. **Dificultad:** regula complejidad.
+
+### Foco PSCV / HTA / DM2 / RCV
+
+Cuando se elige PSCV, la app debe entender que puede involucrar hipertensión, diabetes mellitus tipo 2, dislipidemia, riesgo cardiovascular, antecedentes cardiovasculares, tabaquismo, alimentación, actividad física, tratamiento farmacológico, adherencia a controles, farmacia, exámenes, automanejo, urgencias/descompensaciones, y prestaciones asociadas como pie diabético o salud oral en DM si corresponde.
+
+La app debe usar esto como matriz formativa, no como diagnóstico automático ni indicación terapéutica.
