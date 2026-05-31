@@ -1,4 +1,4 @@
-# Matriz técnica ECICEP APS Chile v4.1
+# Matriz técnica ECICEP APS Chile v4.2
 
 Esta matriz es un documento interno integrado para orientar la app de entrenamiento ECICEP en APS Chile. No diagnostica, no confirma GES, no indica tratamientos y no reemplaza el juicio clínico ni el protocolo local.
 
@@ -83,3 +83,23 @@ Criterios mínimos:
 - riesgo/alerta abordado si existe;
 - registro útil;
 - revisión de riesgo de imposición.
+
+
+## Profesión y ámbito de práctica
+
+La app permite seleccionar una profesión o rol de práctica y un ámbito de atención. Esto orienta el caso simulado, la lectura técnica y la retroalimentación. La selección no reemplaza el perfil principal, sino que permite practicar desde distintas disciplinas de APS:
+
+- Enfermería
+- Medicina
+- Nutrición
+- Psicología
+- Trabajo social
+- Kinesiología
+- Matronería
+- Odontología
+- Química y farmacia / farmacia
+- TENS / seguimiento
+- Gestor/a ECICEP
+- SOME / acceso
+
+Ámbitos: box clínico, seguimiento a distancia, control programático, gestión de casos, domicilio, post alta, preventivos/acceso y comunitario.
