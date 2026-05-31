@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/28437247/README.md)
+[README.md](https://github.com/user-attachments/files/28437404/README.md)
 # Entrenamiento ECICEP IA v2.6
 
 Incluye:
