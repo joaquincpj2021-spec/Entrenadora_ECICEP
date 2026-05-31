@@ -1,4 +1,4 @@
-const OPENAI_API_URL = 'https://api.openai.com/v1/responses';
+const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
 function cors(res) {
   res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN || '*');
@@ -132,7 +132,7 @@ Devuelve JSON:
 
   return `${base}
 Tarea: prueba de conexión.
-Devuelve JSON: {"mensaje":"Conexión establecida con el sistema ECICEP","uso":"IA operativa para Plan 9 aspectos, seguimiento, gestión, preguntas, role play, escala, frases y auditoría."}`;
+Devuelve JSON: {"mensaje":"Conexión establecida con GroqCloud para sistema ECICEP","uso":"IA operativa para Plan 9 aspectos, seguimiento, gestión, preguntas, role play, escala, frases y auditoría."}`;
 }
 
 function parseJsonText(text) {
@@ -150,26 +150,32 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Usa POST.' });
 
   try {
-    if (!process.env.OPENAI_API_KEY) return res.status(500).json({ error: 'Falta OPENAI_API_KEY en variables de entorno.' });
+    if (!process.env.GROQ_API_KEY) return res.status(500).json({ error: 'Falta GROQ_API_KEY en variables de entorno de Vercel.' });
     const body = req.body || {};
     const { action = 'test', role = 'profesional', ...payload } = body;
     const prompt = buildPrompt(action, role, payload);
 
-    const response = await fetch(OPENAI_API_URL, {
+    const response = await fetch(GROQ_API_URL, {
       method: 'POST',
-      headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
+      headers: {
+        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
-        model: process.env.OPENAI_MODEL || 'gpt-4.1-mini',
-        input: prompt,
+        model: process.env.GROQ_MODEL || 'llama-3.3-70b-versatile',
+        messages: [
+          { role: 'system', content: 'Responde solo JSON válido. No uses markdown.' },
+          { role: 'user', content: prompt }
+        ],
         temperature: 0.2,
-        max_output_tokens: 1200
+        max_tokens: 1200
       })
     });
 
     const data = await response.json();
-    if (!response.ok) return res.status(response.status).json({ error: data.error?.message || 'Error desde OpenAI.' });
+    if (!response.ok) return res.status(response.status).json({ error: data.error?.message || data.error || 'Error desde GroqCloud.' });
 
-    const text = data.output_text || data.output?.[0]?.content?.[0]?.text || JSON.stringify(data);
+    const text = data.choices?.[0]?.message?.content || JSON.stringify(data);
     return res.status(200).json({ ok: true, ...parseJsonText(text) });
   } catch (error) {
     return res.status(500).json({ error: error.message || 'Error inesperado.' });
