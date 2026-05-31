@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Entrenamiento ECICEP v4.0</title>
+<title>Entrenamiento ECICEP v4.1</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
 :root{
@@ -177,7 +177,7 @@ header:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;bac
 @media(max-width:920px){.themebar-inner{display:block}.theme-select{width:100%;margin-top:6px}.theme-note{display:block;margin-top:6px}.theme-preview{margin-top:8px}}
 
 
-/* v4.0 corrections: typography, header, role route, training and barrier matrix */
+/* v4.1 corrections: typography, header, role route, training and barrier matrix */
 body{font-family:"Nunito Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:.01em}
 h1,h2,h3,b,.btn,button,label{letter-spacing:-.01em}
 header{padding:22px 14px}
@@ -219,7 +219,7 @@ header{padding:22px 14px}
 }
 
 
-/* v4.0 dynamic simulator */
+/* v4.1 dynamic simulator */
 .sim-config{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
 .sim-config .field{margin:0}
 .sim-decision{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:14px;margin:14px 0}
@@ -232,7 +232,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.sim-config,.option-grid{grid-template-columns:1fr!important}}
 
 
-/* v4.0 guided training cases */
+/* v4.1 guided training cases */
 .guided-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
 .guided-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
 .guided-head h3{margin:0;color:var(--azul2)}
@@ -248,7 +248,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.guided-head,.guided-grid{grid-template-columns:1fr!important}}
 
 
-/* v4.0 interactive ECICEP study guides */
+/* v4.1 interactive ECICEP study guides */
 .study-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
 .study-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
 .study-head h3{margin:0;color:var(--azul2)}
@@ -270,7 +270,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.study-head,.study-grid,.study-options{grid-template-columns:1fr!important}}
 
 
-/* v4.0 screen architecture */
+/* v4.1 screen architecture */
 body.profile-mode main, body.profile-mode .app-topbar{display:none!important}
 body.app-mode header, body.app-mode .profile-screen{display:none!important}
 .rolebar, nav{display:none!important}
@@ -314,7 +314,7 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
 }
 
 
-/* v4.0 visual refresh and guided training screens */
+/* v4.1 visual refresh and guided training screens */
 .training-app{max-width:1180px;margin:auto}
 .training-toolbar{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;background:linear-gradient(135deg,var(--celeste),#fff);border:1px solid var(--linea);border-radius:24px;padding:18px;box-shadow:var(--sombra)}
 .icon-back{width:44px;height:44px;border-radius:50%;border:1px solid var(--linea);background:#fff;color:var(--azul2);font-weight:900;font-size:1.2rem;cursor:pointer}
@@ -377,7 +377,7 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
 }
 
 
-/* v4.0 formative phase interaction */
+/* v4.1 formative phase interaction */
 .phase-card{border-top:8px solid var(--phase-color,var(--azul))}
 .phase-card.phase-preparar{--phase-color:#4E6E81;--phase-bg:#F1F5F8}
 .phase-card.phase-abrir{--phase-color:#1F6F8B;--phase-bg:#EAF6F7}
@@ -407,7 +407,7 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
 @media(max-width:920px){.next-question-grid{grid-template-columns:1fr!important}}
 
 
-/* v4.0 visual IA practice lab */
+/* v4.1 visual IA practice lab */
 .practice-lab{background:linear-gradient(180deg,#fff 0%, var(--gris) 100%)}
 .practice-step{background:#fff;border:1px solid var(--linea);border-radius:24px;padding:18px;margin:16px 0;box-shadow:0 8px 20px rgba(0,0,0,.04)}
 .step-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
@@ -455,7 +455,7 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 @media(max-width:920px){.deepen-grid,.practice-grid.enhanced{grid-template-columns:1fr!important}.deepen-actions{display:flex;flex-wrap:wrap}}
 
 
-/* v4.0 matriz técnica APS Chile */
+/* v4.1 matriz técnica APS Chile */
 .matrix-hero{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;background:linear-gradient(135deg,var(--celeste),#fff);border:1px solid var(--linea);border-radius:28px;padding:22px;box-shadow:var(--sombra)}
 .matrix-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 .matrix-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -467,6 +467,28 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 .matrix-card.ges{border-left-color:#C96A5B}.matrix-card.comges{border-left-color:#E9B85E}.matrix-card.cie{border-left-color:#6E6BB7}.matrix-card.nanda{border-left-color:#52A579}.matrix-card.plan{border-left-color:#174A5C}
 .tech-reading{background:#fff;border:1px solid var(--linea);border-left:8px solid var(--azul2);border-radius:20px;padding:14px;margin-top:12px;white-space:pre-wrap;line-height:1.45}
 @media(max-width:920px){.matrix-hero{display:block}.matrix-grid{grid-template-columns:1fr!important}.matrix-actions{justify-content:flex-start;margin-top:12px}}
+
+
+/* v4.1 consolidation: clinical engine cards */
+.step-planreadiness{border-left:8px solid #174A5C;background:linear-gradient(180deg,#fff 0%,#eef6f7 100%)}
+.plan-readiness-output{margin-top:12px;background:#fff;border:1px solid var(--linea);border-radius:20px;padding:14px;white-space:pre-wrap;line-height:1.45}
+.quad-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+.quad-card{background:#fff;border:1px solid var(--linea);border-radius:16px;padding:12px;min-height:92px}
+.quad-card b{display:block;color:var(--azul2);margin-bottom:6px}
+.quad-found{border-left:7px solid #5FA777}
+.quad-infer{border-left:7px solid #E9B85E}
+.quad-miss{border-left:7px solid #C96A5B}
+.quad-question{border-left:7px solid #6E6BB7}
+.tech-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tech-card{background:#fff;border:1px solid var(--linea);border-left:7px solid var(--azul);border-radius:18px;padding:12px}
+.tech-card h4{margin:0 0 6px;color:var(--azul2)}
+.tech-card small{color:var(--muted)}
+.plan-check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.plan-check-card{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:12px}
+.plan-check-card.ok{border-left:7px solid #5FA777}
+.plan-check-card.partial{border-left:7px solid #E9B85E}
+.plan-check-card.missing{border-left:7px solid #C96A5B}
+@media(max-width:920px){.quad-cards,.tech-grid,.plan-check-grid{grid-template-columns:1fr!important}}
 
 @media print{nav,.search,.rolebar,.btn,.question button{display:none}body{background:#fff}.section{display:block}.card{box-shadow:none;break-inside:avoid}}
 </style>
@@ -754,8 +776,15 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
           </div>
         </div>
 
-        <div class="practice-step step-evaluate">
-          <div class="step-head"><span>5</span><div><b>Evaluar práctica</b><small>La IA revisará lo que escribiste, lo que extrajo y lo que quedó pendiente.</small></div></div>
+        
+        <div class="practice-step step-planreadiness">
+          <div class="step-head"><span>5</span><div><b>¿Ya se puede construir el plan?</b><small>Revisa si lo que tienes alcanza para pasar de anamnesis a plan de cuidado consensuado.</small></div></div>
+          <button class="btn aiBtn" onclick="aiPlanReadiness()">Revisar suficiencia del plan</button>
+          <div id="planReadinessOut" class="plan-readiness-output">La IA revisará problema priorizado, objetivo, actividad, responsable, seguimiento, barrera, facilitador, riesgo de imposición y registro sugerido.</div>
+        </div>
+
+<div class="practice-step step-evaluate">
+          <div class="step-head"><span>6</span><div><b>Evaluar práctica</b><small>La IA revisará lo que escribiste, lo que extrajo y lo que quedó pendiente.</small></div></div>
           <button class="btn aiBtn" onclick="aiEvaluateStructuredPractice()">Evaluar mi práctica</button>
           <div id="practiceFeedbackOut" class="panel-output">Aún no hay retroalimentación.</div>
         </div>
@@ -767,7 +796,7 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
     </div>
   </div>
 </section>
-<section id="plan9"<section id="plan9"<section id="plan9" class="section">
+<section id="plan9" class="section">
   <div class="plan-step block narrow">
     <div class="step-head"><div class="step-num">1</div><h2>Seleccione el aspecto a explorar</h2></div>
     <p class="lead">Use esta sección como apoyo para el ingreso o control integral. Primero seleccione el aspecto; luego revise orientación, preguntas esenciales y barreras frecuentes como ayuda de memoria.</p>
@@ -1065,6 +1094,13 @@ async function aiGenerateTrainingCase(){
  const data=await aiCall('generate_training_case',{module:key},'generatedCaseOut');
  if(data)document.getElementById('generatedCaseOut').innerText=formatData(data);
 }
+
+async function aiPlanReadiness(){
+ const payload={role:currentRole,module:currentTraining||'ingreso',raw:val('practiceRaw'),observations:val('practiceObservations'),barriers:val('practiceBarriers'),facilitators:val('practiceFacilitators'),ambivalence:val('practiceAmbivalence'),reasons:val('practiceReasons'),problems:val('practiceProblems'),agreement:val('practiceAgreement'),follow:val('practiceFollow'),transcript:practiceTranscript,matrix:APP_DATA.matrix};
+ const data=await aiCall('plan_readiness',payload,'planReadinessOut');
+ if(data)renderPlanReadiness(data);
+}
+
 async function aiEvaluateStructuredPractice(){
  const key=document.getElementById('trainingModuleSelect')?.value||currentTraining||'ingreso';
  const payload={module:key,raw:val('practiceRaw'),observations:val('practiceObservations'),barriers:val('practiceBarriers'),facilitators:val('practiceFacilitators'),ambivalence:val('practiceAmbivalence'),reasons:val('practiceReasons'),problems:val('practiceProblems'),agreement:val('practiceAgreement'),follow:val('practiceFollow'),transcript:practiceTranscript,highlights:practiceHighlights};
@@ -1635,6 +1671,47 @@ function renderCaseWithHighlights(){
  });
  box.innerHTML=htmlText;
 }
+
+function listHtml(v){
+ if(Array.isArray(v)) return '<ul>'+v.map(x=>'<li>'+escapeHtml(typeof x==='string'?x:formatValue(x))+'</li>').join('')+'</ul>';
+ if(!v) return '<span class="muted">Sin información</span>';
+ return escapeHtml(formatValue(v));
+}
+function renderQuadEvidence(data){
+ return `<div class="quad-cards">
+  <div class="quad-card quad-found"><b>Encontrado</b>${listHtml(data.encontrado_en_el_caso)}</div>
+  <div class="quad-card quad-infer"><b>Inferido con cautela</b>${listHtml(data.inferido_con_cautela)}</div>
+  <div class="quad-card quad-miss"><b>No aparece</b>${listHtml(data.no_aparece)}</div>
+  <div class="quad-card quad-question"><b>Pregunta necesaria</b>${listHtml(data.pregunta_necesaria)}</div>
+ </div>${data.analisis_de_lo_escrito?`<div class="cat-analysis"><b>Análisis de lo escrito</b><br>${escapeHtml(data.analisis_de_lo_escrito)}</div>`:''}`;
+}
+function renderTechnicalCards(data){
+ const box=document.getElementById('technicalReadingOut'); if(!box)return;
+ const keys=[
+  ['lectura_ecicep','Lectura ECICEP'],
+  ['programas_aps','Programas APS'],
+  ['ges','GES orientativo'],
+  ['comges_iaaps_rem','COMGES / IAAPS / REM'],
+  ['cie10_orientativo','CIE-10 orientativo'],
+  ['nanda_orientativo','NANDA orientativo'],
+  ['aspectos_ecicep_prioritarios','Aspectos ECICEP'],
+  ['alertas_pendientes','Alertas / pendientes'],
+  ['continuidad_sugerida','Continuidad']
+ ];
+ box.innerHTML='<div class="tech-grid">'+keys.map(([k,t])=>`<div class="tech-card"><h4>${t}</h4><small>${listHtml(data[k])}</small></div>`).join('')+'</div>';
+}
+function renderPlanReadiness(data){
+ const box=document.getElementById('planReadinessOut'); if(!box)return;
+ const estado=data.estado||data.resultado||'parcial';
+ const checks=data.criterios||data.checklist||[];
+ const cls=(x)=>String(x.estado||x.resultado||'').toLowerCase().includes('cumple')?'ok':String(x.estado||x.resultado||'').toLowerCase().includes('parcial')?'partial':'missing';
+ let checksHtml='';
+ if(Array.isArray(checks)&&checks.length){
+   checksHtml='<div class="plan-check-grid">'+checks.map(c=>`<div class="plan-check-card ${cls(c)}"><b>${escapeHtml(c.criterio||c.nombre||'Criterio')}</b><br>${escapeHtml(c.estado||c.resultado||'')}${c.comentario?'<br><small>'+escapeHtml(c.comentario)+'</small>':''}</div>`).join('')+'</div>';
+ }
+ box.innerHTML=`<b>Estado:</b> ${escapeHtml(estado)}<br><br>${checksHtml}<br><b>Qué falta antes de cerrar</b><br>${listHtml(data.que_falta||data.pendientes)}<br><br><b>Registro sugerido</b><br>${escapeHtml(data.registro_sugerido||'No informado')}<br><br><b>Cuidado ECICEP</b><br>${escapeHtml(data.cuidado_ecicep||'Verificar que el acuerdo sea comprendido, posible y consensuado.')}`;
+}
+
 function updatePracticeRaw(extraSynthesis=''){
  const base=practiceBaseCase||'';
  const entries=practiceTranscript.map((e,i)=>`Pregunta ${i+1}: ${e.q}\nRespuesta ${i+1}: ${e.a}`).join('\n\n');
@@ -1696,14 +1773,7 @@ async function aiExtractCategory(category){
    field.value = current ? (current.trim()+`\n\nSugerencia IA:\n`+suggestion) : suggestion;
    field.closest('.cat-card')?.classList.add('filled-by-ai');
  }
- const analysis=[
-   data.analisis_de_lo_escrito?`Análisis de lo escrito:\n${data.analisis_de_lo_escrito}`:'',
-   data.encontrado_en_el_caso?`Encontrado:\n${formatValue(data.encontrado_en_el_caso)}`:'',
-   data.inferido_con_cautela?`Inferido con cautela:\n${formatValue(data.inferido_con_cautela)}`:'',
-   data.no_aparece?`No aparece todavía:\n${formatValue(data.no_aparece)}`:'',
-   data.pregunta_necesaria?`Pregunta necesaria:\n${formatValue(data.pregunta_necesaria)}`:''
- ].filter(Boolean).join('\n\n');
- const a=document.getElementById('analysis_'+category); if(a)a.innerText=analysis||formatData(data);
+ const a=document.getElementById('analysis_'+category); if(a)a.innerHTML=renderQuadEvidence(data);
  const phrases=[];
  if(Array.isArray(data.evidencias)) data.evidencias.forEach(ev=>phrases.push(ev.frase||ev.texto||ev));
  if(Array.isArray(data.frases_evidencia)) data.frases_evidencia.forEach(ev=>phrases.push(ev));
@@ -1799,9 +1869,9 @@ function renderMatrix(){
 }
 function copyMatrixSummary(){copyText(JSON.stringify(APS_CHILE_MATRIX,null,2));}
 async function aiTechnicalReadingCase(){
- const payload={caseText:fullPracticeText(),matrix:APS_CHILE_MATRIX,role:currentRole,module:currentTraining||'ingreso'};
+ const payload={caseText:fullPracticeText(),role:currentRole,module:currentTraining||'ingreso',matrix:APP_DATA.matrix};
  const data=await aiCall('technical_case_reading',payload,'technicalReadingOut');
- if(data)document.getElementById('technicalReadingOut').innerText=formatData(data);
+ if(data)renderTechnicalCards(data);
 }
 function boot(){
  initTheme();initSelects();renderAspectGrid();setRole(localStorage.getItem('ecicep_selected_role')||'profesional');renderQuestions();renderCases();renderTrainings();renderTrainingModule();renderStudyCaseOptions();renderMatrix();scaleDecision();
