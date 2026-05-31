@@ -1,5 +1,5 @@
 {
-  "version": "4.1",
+  "version": "4.2",
   "nombre": "Matriz técnica ECICEP APS Chile",
   "proposito": "Motor técnico interno para orientar generación de casos, lectura técnica, práctica IA, auditoría de plan, registro y continuidad en entrenamiento ECICEP APS Chile.",
   "advertencias": [
@@ -677,5 +677,29 @@
         "¿Qué apoyo concreto haría más posible realizarla?"
       ]
     }
+  },
+  "profesiones_practica": {
+    "enfermeria": "Valoración integral, plan de cuidados, educación, automanejo, seguimiento y gestión clínica según rol.",
+    "medicina": "Evaluación médica, riesgo, diagnóstico/terapéutica dentro de marco clínico y deliberación con la persona.",
+    "nutricion": "Alimentación, barreras alimentarias, presupuesto, hábitos, metas posibles y coordinación con PSCV/ECICEP.",
+    "psicologia": "Salud mental, motivación, ambivalencia, afrontamiento, adherencia, red y barreras emocionales.",
+    "trabajo_social": "Determinantes sociales, red, acceso, beneficios, cuidador/a, coordinación intersectorial.",
+    "kinesiologia": "Actividad física, funcionalidad, dolor, miedo a caer, rehabilitación y metas seguras.",
+    "matroneria": "Salud sexual/reproductiva, preventivos, climaterio, continuidad y barreras de acceso.",
+    "odontologia": "Salud oral, diabetes/periodoncia, adherencia a controles, barreras y continuidad.",
+    "quimica_farmacia": "Uso de medicamentos, retiro, comprensión, interacciones potenciales, educación y adherencia.",
+    "tens": "Seguimiento a distancia, refuerzo, detección de barreras/alertas, coordinación y registro.",
+    "gestor_ecicep": "Gestión de casos, barreras persistentes, coordinación y continuidad.",
+    "some": "Acceso, agenda, orientación, continuidad administrativa y alertas de derivación interna."
+  },
+  "ambitos_practica": {
+    "box_clinico": "Atención presencial de box.",
+    "seguimiento_distancia": "Seguimiento telefónico/remoto.",
+    "control_programatico": "Control asociado a programa APS.",
+    "gestion_casos": "Gestión de casos complejos o barreras persistentes.",
+    "domicilio": "Atención domiciliaria/dependencia.",
+    "post_alta": "Continuidad posterior a alta hospitalaria.",
+    "preventivo": "Preventivos, tamizajes y acceso.",
+    "comunitario": "Trabajo comunitario, talleres y participación social."
   }
 }
