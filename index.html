@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Entrenamiento ECICEP v4.4</title>
+<title>Entrenamiento ECICEP v4.6</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
 :root{
@@ -177,7 +177,7 @@ header:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;bac
 @media(max-width:920px){.themebar-inner{display:block}.theme-select{width:100%;margin-top:6px}.theme-note{display:block;margin-top:6px}.theme-preview{margin-top:8px}}
 
 
-/* v4.4 corrections: typography, header, role route, training and barrier matrix */
+/* v4.6 corrections: typography, header, role route, training and barrier matrix */
 body{font-family:"Nunito Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:.01em}
 h1,h2,h3,b,.btn,button,label{letter-spacing:-.01em}
 header{padding:22px 14px}
@@ -219,7 +219,7 @@ header{padding:22px 14px}
 }
 
 
-/* v4.4 dynamic simulator */
+/* v4.6 dynamic simulator */
 .sim-config{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
 .sim-config .field{margin:0}
 .sim-decision{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:14px;margin:14px 0}
@@ -232,7 +232,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.sim-config,.option-grid{grid-template-columns:1fr!important}}
 
 
-/* v4.4 guided training cases */
+/* v4.6 guided training cases */
 .guided-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
 .guided-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
 .guided-head h3{margin:0;color:var(--azul2)}
@@ -248,7 +248,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.guided-head,.guided-grid{grid-template-columns:1fr!important}}
 
 
-/* v4.4 interactive ECICEP study guides */
+/* v4.6 interactive ECICEP study guides */
 .study-case{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:12px;box-shadow:var(--sombra)}
 .study-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
 .study-head h3{margin:0;color:var(--azul2)}
@@ -270,7 +270,7 @@ header{padding:22px 14px}
 @media(max-width:920px){.study-head,.study-grid,.study-options{grid-template-columns:1fr!important}}
 
 
-/* v4.4 screen architecture */
+/* v4.6 screen architecture */
 body.profile-mode main, body.profile-mode .app-topbar{display:none!important}
 body.app-mode header, body.app-mode .profile-screen{display:none!important}
 .rolebar, nav{display:none!important}
@@ -314,7 +314,7 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
 }
 
 
-/* v4.4 visual refresh and guided training screens */
+/* v4.6 visual refresh and guided training screens */
 .training-app{max-width:1180px;margin:auto}
 .training-toolbar{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;background:linear-gradient(135deg,var(--celeste),#fff);border:1px solid var(--linea);border-radius:24px;padding:18px;box-shadow:var(--sombra)}
 .icon-back{width:44px;height:44px;border-radius:50%;border:1px solid var(--linea);background:#fff;color:var(--azul2);font-weight:900;font-size:1.2rem;cursor:pointer}
@@ -377,7 +377,7 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
 }
 
 
-/* v4.4 formative phase interaction */
+/* v4.6 formative phase interaction */
 .phase-card{border-top:8px solid var(--phase-color,var(--azul))}
 .phase-card.phase-preparar{--phase-color:#4E6E81;--phase-bg:#F1F5F8}
 .phase-card.phase-abrir{--phase-color:#1F6F8B;--phase-bg:#EAF6F7}
@@ -407,7 +407,7 @@ body.app-mode header, body.app-mode .profile-screen{display:none!important}
 @media(max-width:920px){.next-question-grid{grid-template-columns:1fr!important}}
 
 
-/* v4.4 visual IA practice lab */
+/* v4.6 visual IA practice lab */
 .practice-lab{background:linear-gradient(180deg,#fff 0%, var(--gris) 100%)}
 .practice-step{background:#fff;border:1px solid var(--linea);border-radius:24px;padding:18px;margin:16px 0;box-shadow:0 8px 20px rgba(0,0,0,.04)}
 .step-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
@@ -455,7 +455,7 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 @media(max-width:920px){.deepen-grid,.practice-grid.enhanced{grid-template-columns:1fr!important}.deepen-actions{display:flex;flex-wrap:wrap}}
 
 
-/* v4.4 matriz técnica APS Chile */
+/* v4.6 matriz técnica APS Chile */
 .matrix-hero{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;background:linear-gradient(135deg,var(--celeste),#fff);border:1px solid var(--linea);border-radius:28px;padding:22px;box-shadow:var(--sombra)}
 .matrix-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 .matrix-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -469,7 +469,7 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 @media(max-width:920px){.matrix-hero{display:block}.matrix-grid{grid-template-columns:1fr!important}.matrix-actions{justify-content:flex-start;margin-top:12px}}
 
 
-/* v4.4 consolidation: clinical engine cards */
+/* v4.6 consolidation: clinical engine cards */
 .step-planreadiness{border-left:8px solid #174A5C;background:linear-gradient(180deg,#fff 0%,#eef6f7 100%)}
 .plan-readiness-output{margin-top:12px;background:#fff;border:1px solid var(--linea);border-radius:20px;padding:14px;white-space:pre-wrap;line-height:1.45}
 .quad-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
@@ -491,7 +491,7 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 @media(max-width:920px){.quad-cards,.tech-grid,.plan-check-grid{grid-template-columns:1fr!important}}
 
 
-/* v4.4 practice refinement: profession/scope, synthesis and vertical categories */
+/* v4.6 practice refinement: profession/scope, synthesis and vertical categories */
 .synthesis-card{margin-top:14px;background:#fff;border:1px solid rgba(23,74,92,.18);border-left:8px solid #174A5C;border-radius:20px;padding:14px}
 .step-head.mini{margin-bottom:8px}
 .step-head.mini>span{background:#174A5C}
@@ -509,14 +509,14 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 @media(max-width:920px){.practice-step .sim-config,.cat-analysis .quad-cards{grid-template-columns:1fr!important}}
 
 
-/* v4.4 clearer practice configuration */
+/* v4.6 clearer practice configuration */
 .config-note{margin:10px 0 0;background:#fff;border:1px solid var(--linea);border-left:7px solid var(--azul);border-radius:18px;padding:12px;color:var(--muted);line-height:1.4}
 .practice-step .sim-config{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media(max-width:1100px){.practice-step .sim-config{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.practice-step .sim-config{grid-template-columns:1fr!important}}
 
 
-/* v4.4 simplified practice flow */
+/* v4.6 simplified practice flow */
 .practice-flow{background:linear-gradient(180deg,#fff 0%,#f6f8fa 100%)}
 .practice-flow-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px}
 .practice-progress{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:14px 0 18px}
@@ -551,6 +551,45 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 .cat-analysis .quad-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:1000px){.compact-config{grid-template-columns:repeat(2,minmax(0,1fr))!important}.practice-progress{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:720px){.practice-flow-head{display:block}.compact-config,.deepen-grid.simplified,.practice-progress,.cat-analysis .quad-cards{grid-template-columns:1fr!important}.stage-card{padding:15px;border-radius:20px}.practice-progress button{text-align:left}}
+
+
+/* v4.6 case quality control */
+.case-quality-status{margin:10px 0;background:#fff;border:1px solid var(--linea);border-left:7px solid #6E6BB7;border-radius:18px;padding:12px;color:var(--azul2);font-weight:900}
+.case-quality-status.ok{border-left-color:#5FA777;background:var(--verdebg)}
+.case-quality-status.warn{border-left-color:#E9B85E;background:var(--amarillobg)}
+.case-quality-status.bad{border-left-color:#C96A5B;background:var(--rojobg)}
+.quick-read-card{margin-top:12px;background:#fff;border:1px solid var(--linea);border-left:7px solid #174A5C;border-radius:20px;padding:14px;line-height:1.45}
+.quick-read-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.quick-read-item{background:#f7fbfc;border:1px solid var(--linea);border-radius:14px;padding:10px}
+.quick-read-item b{display:block;color:var(--azul2);margin-bottom:4px}
+@media(max-width:720px){.quick-read-grid{grid-template-columns:1fr}}
+
+
+/* v4.6 interview with living synthesis */
+.main-synthesis{border-left:8px solid #174A5C;margin-bottom:14px}
+.detected-card,.suggestion-card,.deepen-window-wrap{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:14px;margin:14px 0}
+.detected-card{border-left:8px solid #5FA777}
+.suggestion-card{border-left:8px solid #6E6BB7}
+.deepen-window-wrap{border-left:8px solid #4E6E81}
+.detected-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.detected-category{border:1px solid var(--linea);border-radius:18px;padding:12px;background:#fff}
+.detected-category h4{margin:0 0 8px;color:var(--azul2);display:flex;align-items:center;gap:8px}
+.detected-category .info-btn{border:1px solid currentColor;background:#fff;border-radius:999px;width:28px;height:28px;font-weight:900;cursor:pointer;display:inline-grid;place-items:center}
+.detected-category ul{margin:0;padding-left:18px}
+.detected-category li{margin:8px 0}
+.detected-item{display:flex;gap:8px;align-items:flex-start}
+.detected-item-text{flex:1}
+.detected-item .why-btn{border:1px solid var(--linea);background:#fff;border-radius:999px;width:24px;height:24px;line-height:20px;font-weight:900;cursor:pointer;color:var(--azul2);flex:0 0 auto}
+.why-text{display:none;margin-top:4px;background:#f7fbfc;border-left:5px solid currentColor;border-radius:10px;padding:8px;color:var(--muted);font-size:.88rem;line-height:1.35}
+.why-text.open{display:block}
+.detected-barreras{border-left:7px solid #E9B85E}
+.detected-facilitadores{border-left:7px solid #5FA777}
+.detected-ambivalencias{border-left:7px solid #6E6BB7}
+.detected-razones{border-left:7px solid #126782}
+.suggested-question{background:var(--moradobg);border-radius:16px;padding:12px;line-height:1.45}
+.suggested-question b{color:var(--azul2)}
+.ask-box{margin-top:14px;background:#f8fbfd;border:1px solid var(--linea);border-radius:18px;padding:12px}
+@media(max-width:850px){.detected-grid{grid-template-columns:1fr!important}}
 
 @media print{nav,.search,.rolebar,.btn,.question button{display:none}body{background:#fff}.section{display:block}.card{box-shadow:none;break-inside:avoid}}
 </style>
@@ -836,7 +875,9 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
         <div id="practiceStageCase" class="practice-stage">
           <div class="stage-card stage-case">
             <div class="stage-title"><span>2</span><div><b>Lee el caso simulado</b><small>Primero comprende la situación antes de clasificar o planificar.</small></div></div>
+            <div id="caseQualityStatus" class="case-quality-status">Aún no hay caso generado.</div>
             <div id="randomCaseOut" class="case-source">Aún no se genera caso.</div>
+            <div id="caseQuickReadOut" class="quick-read-card">La lectura rápida aparecerá después de generar y validar el caso.</div>
             <div class="case-actions">
               <button class="btn light" onclick="aiTechnicalReadingCase()">Lectura técnica APS Chile</button>
               <button class="btn aiBtn" onclick="showPracticeStage('interview')">Comenzar entrevista →</button>
@@ -847,19 +888,36 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
 
         <div id="practiceStageInterview" class="practice-stage">
           <div class="stage-card stage-interview">
-            <div class="stage-title"><span>3</span><div><b>Pregunta para comprender mejor</b><small>Haz preguntas como si estuvieras en entrevista. La síntesis se actualizará con lo que vas entendiendo.</small></div></div>
-            <div class="deepen-grid simplified">
-              <div class="field"><label>Pregunta que harías a la persona</label><textarea id="deepenQuestion" class="midtext" placeholder="Ej.: ¿Qué se le hace más difícil de este acuerdo?"></textarea></div>
+            <div class="stage-title"><span>3</span><div><b>Pregunta para comprender mejor</b><small>La síntesis viva queda arriba; la bitácora se acumula abajo.</small></div></div>
+
+            <div class="synthesis-card compact main-synthesis">
+              <div class="stage-title mini"><span>Σ</span><div><b>Síntesis IA de lo entendido hasta ahora</b><small>Resumen vivo del caso. Se actualiza con cada pregunta y respuesta.</small></div></div>
+              <div id="practiceSynthesisOut" class="synthesis-window">Aún no hay síntesis. Se actualizará al generar o profundizar el caso.</div>
+            </div>
+
+            <div class="detected-card">
+              <div class="stage-title mini"><span>◈</span><div><b>Elementos detectados</b><small>Se acumulan mientras preguntas. Usa el ícono para entender por qué algo cae en esa categoría.</small></div></div>
+              <div id="interviewDetectedOut" class="detected-grid">Aún no hay elementos detectados.</div>
+            </div>
+
+            <div class="deepen-window-wrap">
+              <div class="stage-title mini"><span>☰</span><div><b>Bitácora de entrevista</b><small>Preguntas y respuestas quedan acumuladas aquí, sin reemplazar la síntesis.</small></div></div>
+              <div id="deepenOut" class="deepen-window">Aún no hay preguntas al caso.</div>
+            </div>
+
+            <div class="suggestion-card">
+              <div class="stage-title mini"><span>?</span><div><b>Pregunta sugerida</b><small>Se propone según lo que falta aclarar con la información disponible.</small></div></div>
+              <div id="suggestedQuestionOut" class="suggested-question">Aún no hay pregunta sugerida. Haz una pregunta al caso para recibir orientación.</div>
+            </div>
+
+            <div class="deepen-grid simplified ask-box">
+              <div class="field"><label>Tu siguiente pregunta a la persona</label><textarea id="deepenQuestion" class="midtext" placeholder="Ej.: Cuando dice que se descompensó la presión, ¿qué ocurrió exactamente y qué síntomas tuvo?"></textarea></div>
               <div class="deepen-actions">
                 <button class="btn aiBtn" onclick="aiAskPracticeCase()">Preguntar al caso</button>
                 <button class="btn light" onclick="clearPracticeInterview()">Limpiar bitácora</button>
               </div>
             </div>
-            <div id="deepenOut" class="deepen-window">Aún no hay preguntas al caso.</div>
-            <div class="synthesis-card compact">
-              <div class="stage-title mini"><span>Σ</span><div><b>Síntesis IA de lo entendido hasta ahora</b><small>Resumen útil para encontrar barreras, facilitadores, ambivalencias y razones.</small></div></div>
-              <div id="practiceSynthesisOut" class="synthesis-window">Aún no hay síntesis. Se actualizará al generar o profundizar el caso.</div>
-            </div>
+
             <div class="screen-actions">
               <button class="btn light" onclick="showPracticeStage('case')">← Volver</button>
               <button class="btn aiBtn" onclick="showPracticeStage('organize')">Ordenar información →</button>
@@ -867,7 +925,7 @@ mark.hl-seguimiento{background:rgba(23,74,92,.18);box-shadow:inset 0 -2px 0 rgba
           </div>
         </div>
 
-        <div id="practiceStageOrganize" class="practice-stage">
+        <div id="practiceStageOrganize"<div id="practiceStageOrganize" class="practice-stage">
           <div class="stage-card stage-organize">
             <div class="stage-title"><span>4</span><div><b>Separa lo que encontramos</b><small>Escribe primero. Usa “Ayúdame” solo cuando necesites ubicar evidencia o precisar una categoría.</small></div></div>
             <div class="field live-anamnesis"><label>Observaciones de la anamnesis</label><textarea id="practiceRaw" class="midtext" placeholder="Aquí se irá acumulando la anamnesis del caso."></textarea></div>
@@ -1774,7 +1832,7 @@ function loadStudyCaseToPractice(){
  showTrainingScreen('practice');
 }
 
-let practiceTranscript=[], practiceHighlights=[], practiceBaseCase='';
+let practiceTranscript=[], practiceHighlights=[], practiceBaseCase='', practiceDetected={barreras:[],facilitadores:[],ambivalencias:[],razones:[]}, practiceSuggested=null;
 
 const practiceFieldMap={
  observaciones:{id:'practiceObservations',label:'Observaciones'},
@@ -1872,14 +1930,63 @@ function updatePracticeRaw(extraSynthesis=''){
  if(current)current.value=text;
  updateSynthesisBox(extraSynthesis || buildLocalSynthesis());
 }
+
+function normDetectedItem(x){
+ if(!x)return null;
+ if(typeof x==='string')return {texto:x,por_que:'Dato detectado por la IA; revisar si está sustentado en el caso.',certeza:'posible'};
+ return {texto:x.texto||x.dato||x.descripcion||x.item||'',por_que:x.por_que||x.explicacion||x.justificacion||'',certeza:x.certeza||x.nivel||'posible'};
+}
+function mergeDetectedElements(elements){
+ if(!elements)return;
+ const map={barreras:'barreras',facilitadores:'facilitadores',ambivalencias:'ambivalencias',razones:'razones_para_el_cambio'};
+ Object.entries(map).forEach(([target,src])=>{
+   const arr=elements[target]||elements[src]||[];
+   (Array.isArray(arr)?arr:[arr]).map(normDetectedItem).filter(x=>x&&x.texto).forEach(item=>{
+     const exists=practiceDetected[target].some(y=>String(y.texto).toLowerCase()===String(item.texto).toLowerCase());
+     if(!exists)practiceDetected[target].push(item);
+   });
+ });
+ renderDetectedElements();
+}
+function categoryExplanation(cat){
+ const exp={
+  barreras:'Dificultan sostener el cuidado o ejecutar un acuerdo. Pueden ser de acceso, comprensión, rutina, economía, vínculo, red, emoción o salud.',
+  facilitadores:'Recursos, apoyos o capacidades que pueden ayudar a sostener un acuerdo. No son soluciones por sí solos; sirven para planificar.',
+  ambivalencias:'Tensiones tipo “quiero, pero…”. Una emoción aislada no es ambivalencia; debe haber tensión entre deseo/necesidad y dificultad.',
+  razones:'Motivos propios de la persona para intentar un cambio: bienestar, autonomía, evitar urgencia, cuidar a otros o recuperar actividades.'
+ };
+ return exp[cat]||'Categoría de análisis ECICEP.';
+}
+function renderDetectedCategory(cat,label,icon){
+ const arr=practiceDetected[cat]||[];
+ if(!arr.length)return `<div class="detected-category detected-${cat}"><h4>${icon} ${label} <button class="info-btn" onclick="alert('${categoryExplanation(cat).replace(/'/g,"\\'")}')">i</button></h4><span class="muted">Aún sin datos.</span></div>`;
+ return `<div class="detected-category detected-${cat}"><h4>${icon} ${label} <button class="info-btn" onclick="alert('${categoryExplanation(cat).replace(/'/g,"\\'")}')">i</button></h4><ul>${arr.map((it,idx)=>`<li><div class="detected-item"><span class="detected-item-text">${escapeHtml(it.texto)}${it.certeza?` <small>(${escapeHtml(it.certeza)})</small>`:''}<div id="why_${cat}_${idx}" class="why-text">${escapeHtml(it.por_que||categoryExplanation(cat))}</div></span><button class="why-btn" onclick="toggleWhy('why_${cat}_${idx}')" title="¿Por qué?">i</button></div></li>`).join('')}</ul></div>`;
+}
+function renderDetectedElements(){
+ const box=document.getElementById('interviewDetectedOut'); if(!box)return;
+ const total=Object.values(practiceDetected).reduce((a,b)=>a+(b?.length||0),0);
+ if(!total){box.innerHTML='Aún no hay elementos detectados.';return;}
+ box.innerHTML=renderDetectedCategory('barreras','Barreras','⚠️')+renderDetectedCategory('facilitadores','Facilitadores','✅')+renderDetectedCategory('ambivalencias','Ambivalencias','↔️')+renderDetectedCategory('razones','Razones','💬');
+}
+function toggleWhy(id){
+ const el=document.getElementById(id); if(el)el.classList.toggle('open');
+}
+function renderSuggestedQuestion(q){
+ const box=document.getElementById('suggestedQuestionOut'); if(!box)return;
+ if(!q){box.innerText='Aún no hay pregunta sugerida. Haz una pregunta al caso para recibir orientación.';return;}
+ const text=typeof q==='string'?q:(q.texto||q.pregunta||'');
+ const why=typeof q==='string'?'':(q.por_que||q.justificacion||'');
+ box.innerHTML=`<b>${escapeHtml(text)}</b>${why?`<br><small>${escapeHtml(why)}</small>`:''}`;
+}
+
 function renderDeepenWindow(){
  const out=document.getElementById('deepenOut'); if(!out)return;
  if(!practiceTranscript.length){out.innerText='Aún no hay preguntas al caso.';return;}
- out.innerHTML=practiceTranscript.map((e,i)=>`<div class="deepen-entry"><b>Pregunta ${i+1}</b><br>${escapeHtml(e.q)}<br><br><b>Respuesta de la persona simulada</b><br>${escapeHtml(e.a)}${e.learning?`<br><br><b>Lectura ECICEP</b><br>${escapeHtml(e.learning)}`:''}</div>`).join('');
+ out.innerHTML=practiceTranscript.map((e,i)=>`<div class="deepen-entry"><b>Pregunta ${i+1}</b><br>${escapeHtml(e.q)}<br><br><b>Respuesta de la persona simulada</b><br>${escapeHtml(e.a)}</div>`).join('');
 }
 function clearPracticeInterview(){
- practiceTranscript=[]; practiceHighlights=[];
- renderDeepenWindow(); updatePracticeRaw(); renderCaseWithHighlights(); updateSynthesisBox('');
+ practiceTranscript=[]; practiceHighlights=[]; practiceDetected={barreras:[],facilitadores:[],ambivalencias:[],razones:[]}; practiceSuggested=null;
+ renderDeepenWindow(); updatePracticeRaw(); renderCaseWithHighlights(); updateSynthesisBox(''); renderDetectedElements(); renderSuggestedQuestion(null);
  document.getElementById('deepenQuestion').value='';
 }
 
@@ -1894,19 +2001,56 @@ function showPracticeStage(stage){
  window.scrollTo({top:0,behavior:'smooth'});
 }
 
+
+function setCaseQualityStatus(text,type=''){
+ const box=document.getElementById('caseQualityStatus');
+ if(!box)return;
+ box.className='case-quality-status '+type;
+ box.innerText=text;
+}
+function renderQuickRead(read){
+ const box=document.getElementById('caseQuickReadOut');
+ if(!box)return;
+ if(!read){box.innerText='La lectura rápida aparecerá después de generar y validar el caso.';return;}
+ const items=[
+  ['Foco', read.foco],
+  ['Barrera probable', read.barrera_probable],
+  ['Facilitador', read.facilitador],
+  ['Ambivalencia', read.ambivalencia],
+  ['Información pendiente', read.informacion_pendiente],
+  ['Continuidad', read.continuidad_sugerida||read.continuidad]
+ ];
+ box.innerHTML='<div class="quick-read-grid">'+items.map(([k,v])=>`<div class="quick-read-item"><b>${k}</b>${listHtml(v)}</div>`).join('')+'</div>';
+}
+function caseTextFromValidation(data){
+ if(!data)return '';
+ return data.caso_corregido || data.caso_final || data.texto_caso || data.caso_simulado || data.caso_inicial || data.respuesta || formatData(data);
+}
+
 async function aiGenerateRandomPracticeCase(){
  const payload={module:currentTraining||'ingreso',type:val('randomType'),profession:val('randomProfession'),difficulty:val('randomDifficulty'),focus:val('randomFocus')};
- const data=await aiCall('generate_training_case',payload,'randomCaseOut');
- if(!data)return;
- const caseText=data.caso_simulado||data.caso_inicial||data.caso||data.respuesta||formatData(data);
+ setCaseQualityStatus('Generando caso estructurado...', 'warn');
+ renderQuickRead(null);
+ const draft=await aiCall('generate_training_case',payload,'randomCaseOut');
+ if(!draft){setCaseQualityStatus('No se pudo generar el caso.', 'bad');return;}
+ setCaseQualityStatus('Validando coherencia clínica, anonimización y utilidad formativa...', 'warn');
+ const validation=await aiCall('validate_training_case',{...payload,draftCase:draft},'randomCaseOut');
+ const finalData=validation||draft;
+ const approved = finalData.aprobado===true || finalData.estado==='aprobado' || finalData.estado==='corregido';
+ const caseText=caseTextFromValidation(finalData);
  practiceBaseCase=caseText;
  practiceTranscript=[];
  practiceHighlights=[];
+ practiceDetected={barreras:[],facilitadores:[],ambivalencias:[],razones:[]}; practiceSuggested=null;
  renderDeepenWindow();
  renderCaseWithHighlights();
- updatePracticeRaw(data.sintesis_inicial||data.sintesis_ecicep||data.sintesis||'');
+ updatePracticeRaw(finalData.sintesis_inicial||finalData.sintesis_ecicep||finalData.sintesis||'');
  ['practiceObservations','practiceBarriers','practiceFacilitators','practiceAmbivalence','practiceReasons','practiceProblems','practiceAgreement','practiceFollow'].forEach(id=>{const el=document.getElementById(id); if(el)el.value='';});
  Object.keys(practiceFieldMap).forEach(k=>{const a=document.getElementById('analysis_'+k); if(a)a.innerText='';});
+ renderQuickRead(finalData.lectura_rapida||finalData.lectura_rapida_caso||null); renderDetectedElements(); renderSuggestedQuestion(null);
+ const crit=(finalData.errores_criticos||[]).length;
+ const minor=(finalData.alertas_menores||[]).length;
+ setCaseQualityStatus(approved||caseText ? `Caso validado y listo para practicar${crit||minor?` (${crit} error(es) crítico(s) corregido(s), ${minor} alerta(s) menor(es) revisada(s))`:'.'}` : 'Caso generado, pero requiere revisión manual.', approved||caseText?'ok':'bad');
  showPracticeStage('case');
 }
 
@@ -1917,11 +2061,13 @@ async function aiAskPracticeCase(){
  const data=await aiCall('deepen_practice_case',payload,'deepenOut');
  if(!data)return;
  const answer=data.respuesta_persona||data.respuesta||'';
- const learning=formatData({nuevos_datos:data.nuevos_datos, barreras:data.posibles_barreras, facilitadores:data.posibles_facilitadores, ambivalencias:data.posibles_ambivalencias, razones:data.razones_para_el_cambio, pregunta_sugerida:data.pregunta_siguiente_sugerida});
- practiceTranscript.push({q:q,a:answer,learning:learning});
+ practiceTranscript.push({q:q,a:answer});
  if(Array.isArray(data.evidencias)){
    data.evidencias.forEach(ev=>practiceHighlights.push({category:ev.categoria||'observaciones',phrase:ev.frase||ev.texto||''}));
  }
+ mergeDetectedElements(data.elementos_detectados||data.elementos_detectados_acumulados||{barreras:data.posibles_barreras,facilitadores:data.posibles_facilitadores,ambivalencias:data.posibles_ambivalencias,razones:data.razones_para_el_cambio});
+ practiceSuggested=data.pregunta_sugerida||data.pregunta_siguiente_sugerida||null;
+ renderSuggestedQuestion(practiceSuggested);
  document.getElementById('deepenQuestion').value='';
  renderDeepenWindow(); renderCaseWithHighlights(); updatePracticeRaw(data.sintesis_acumulada||'');
 }

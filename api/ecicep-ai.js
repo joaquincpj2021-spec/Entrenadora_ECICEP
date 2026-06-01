@@ -6,7 +6,7 @@ function cors(res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
 
-const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.4 (uso interno):
+const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.6 (uso interno):
 - Eje central: persona/contexto -> condición/programa -> barreras/facilitadores -> prioridad compartida -> opciones/riesgo -> acuerdo -> registro -> continuidad.
 - La matriz no diagnostica, no confirma GES y no indica tratamiento. Entrena razonamiento clínico-comunicacional.
 - Casos de práctica deben incluir, cuando sea pertinente: datos clínicos/contextuales, programa APS, situación actual, barrera explícita, facilitador, ambivalencia/tensión, razón para el cambio, riesgo o pendiente, información faltante, posible acuerdo y continuidad.
@@ -17,7 +17,7 @@ const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.4 (uso int
 - NANDA: patrón a valorar, no diagnóstico automático. Autogestión ineficaz/riesgo/disposición; conocimientos deficientes; riesgo de caídas; deterioro movilidad; sobrecarga rol cuidador/a; afrontamiento ineficaz; conductas de salud propensas a riesgo.
 - Cierre de plan: problema priorizado, objetivo comprensible, actividad concreta, responsable, seguimiento, barrera considerada, facilitador/apoyo, riesgo/alerta si existe, registro útil y revisión de imposición.
 - Profesiones de práctica: enfermería, medicina, nutrición, psicología, trabajo social, kinesiología, matronería, odontología, química/farmacia, TENS, gestor/a ECICEP y SOME. Ajustar los casos y orientaciones al alcance profesional, sin sobrepasarlo.
-- Configuración v4.4: usar Momento ECICEP + profesión/rol + foco clínico-programático + dificultad. No usar 'ámbito de práctica' como selector separado.
+- Configuración v4.6: usar Momento ECICEP + profesión/rol + foco clínico-programático + dificultad. No usar 'ámbito de práctica' como selector separado.
 - Si foco clínico-programático es PSCV/HTA/DM2/RCV, el caso debe considerar según pertinencia: HTA, DM2, dislipidemia, riesgo cardiovascular, adherencia a controles/fármacos, alimentación, actividad física, tabaco/alcohol, farmacia/retiro, exámenes/controles, urgencia/descompensación, pie diabético o salud oral si corresponde, barreras, facilitadores, ambivalencia, razones para el cambio, alerta y continuidad. No diagnosticar ni indicar tratamiento.`;
 
 const roleText = {
@@ -174,7 +174,7 @@ Devuelve JSON:
 
 
   if (action === 'generate_training_case') return `${base}
-Tarea: generar un caso simulado COMPLETO para entrenamiento ECICEP en APS/CESFAM Valparaíso.
+Tarea: generar un BORRADOR estructurado de caso simulado para entrenamiento ECICEP en APS/CESFAM Valparaíso. Este borrador será validado antes de mostrarse.
 Módulo: ${payload.module || 'ingreso'}
 Profesión/rol que practica: ${payload.profession || 'no especificada'}
 
@@ -293,32 +293,99 @@ Devuelve JSON:
 }`;
 
 
+
+  if (action === 'validate_training_case') return `${base}
+Tarea: validar y corregir un caso simulado antes de usarlo para entrenamiento ECICEP APS Chile.
+
+Configuración:
+- Momento ECICEP: ${payload.type || payload.module || 'ingreso'}
+- Profesión/rol: ${payload.profession || 'no especificada'}
+- Foco clínico-programático: ${payload.focus || 'aleatorio'}
+- Dificultad: ${payload.difficulty || 'intermedia'}
+
+Caso borrador generado:
+${JSON.stringify(payload.draftCase || {}, null, 2)}
+
+Reglas duras:
+1. No usar nombres propios. Usar “persona”, “mujer de 65 a 74 años”, “persona mayor”, etc.
+2. No usar RUT, direcciones, teléfonos ni identificadores.
+3. No inventar establecimientos. Usar “CESFAM” o “CESFAM Plaza Justicia” solo si corresponde al contexto, sin inventar otro nombre.
+4. No afirmar descompensación, hospitalización, GES activo, diagnóstico nuevo o evento grave sin fuente simulada.
+5. Si hay datos no verificados, usar: “refiere…”, “según ficha simulada…”, “pendiente de verificar…”.
+6. No llamar cuidador/a a un familiar salvo que exista dependencia o rol claro; si no, decir “familiar que suele acompañar”.
+7. Mantener 1 foco principal y máximo 2 secundarios, con jerarquía clara.
+8. Debe servir para entrenar ECICEP: barrera, facilitador, ambivalencia/tensión, información pendiente, continuidad.
+9. Corregir ortografía, redacción y coherencia.
+10. Respetar alcance del rol/profesión.
+
+Si el foco es PSCV, verificar que el caso considere de forma pertinente HTA/DM2/RCV, adherencia a controles o fármacos, alimentación/actividad/farmacia o descompensación/urgencia si aparece, sin indicar tratamientos.
+
+Devuelve JSON:
+{
+ "aprobado": true,
+ "estado":"aprobado|corregido|requiere_revision",
+ "errores_criticos":["..."],
+ "alertas_menores":["..."],
+ "correcciones_requeridas":["..."],
+ "caso_corregido":"texto breve, humano, institucional, anonimizado y listo para practicar",
+ "sintesis_inicial":"síntesis breve de lo entendido hasta ahora",
+ "lectura_rapida":{
+   "foco":"...",
+   "barrera_probable":"...",
+   "facilitador":"...",
+   "ambivalencia":"...",
+   "informacion_pendiente":["..."],
+   "continuidad_sugerida":"..."
+ },
+ "caso_estructurado":{
+   "momento_ecicep":"...",
+   "profesion_rol":"...",
+   "foco":"...",
+   "condiciones_simuladas":["..."],
+   "barrera_explicita":"...",
+   "barrera_por_aclarar":"...",
+   "facilitador":"...",
+   "ambivalencia":"...",
+   "razon_para_cambio":"...",
+   "riesgo_alerta":"...",
+   "informacion_pendiente":["..."],
+   "posible_continuidad":"..."
+ }
+}`;
+
   if (action === 'deepen_practice_case') return `${base}
-Tarea: responder como persona usuaria simulada a una pregunta de profundización durante práctica ECICEP.
-Caso base: ${payload.caseText || ''}
+Tarea: responder como persona usuaria simulada a una pregunta de profundización durante práctica ECICEP y actualizar una síntesis viva.
+
+Caso base validado: ${payload.caseText || ''}
 Bitácora previa: ${JSON.stringify(payload.transcript || [])}
 Pregunta del funcionario/a: ${payload.question || ''}
 Módulo: ${payload.module || 'ingreso'}
 Profesión/rol que practica: ${payload.profession || 'no especificada'}
 
 Instrucciones:
-- Responde como persona usuaria, de forma humana, breve y realista.
-- Mantén coherencia con el caso base y la bitácora.
-- Puedes entregar nueva información útil para anamnesis: barreras, facilitadores, ambivalencias, razones para el cambio o datos pendientes.
-- No inventes datos identificatorios ni tratamientos.
-- No resuelvas como profesional; responde desde la vivencia de la persona.
-- Luego agrega una lectura formativa ECICEP breve.
+- Responde primero como persona usuaria simulada, de forma humana, breve y coherente con el caso.
+- No entregues “Lectura ECICEP” como bloque textual. La app mostrará la información en tarjetas.
+- Actualiza una síntesis acumulada de TODO lo entendido hasta ahora. No planifiques antes de tiempo.
+- Distingue bien categorías:
+  * Barrera: dificulta sostener cuidado/acuerdo.
+  * Facilitador: recurso, apoyo o capacidad útil.
+  * Ambivalencia: tensión “quiero, pero…”. Una emoción aislada NO es ambivalencia.
+  * Razón para el cambio: motivo propio de la persona.
+- Si algo es solo emoción, carga familiar o dato contextual, no lo clasifiques como ambivalencia salvo que exista tensión explícita.
+- Propón una pregunta sugerida basada en lo que falta aclarar: seguridad clínica, barrera, apoyo, posibilidad, ambivalencia o continuidad.
+- Mantén lenguaje seguro: refiere, pendiente de verificar, según ficha simulada.
 
 Devuelve JSON:
 {
  "respuesta_persona":"...",
- "nuevos_datos":["..."],
- "posibles_barreras":["..."],
- "posibles_facilitadores":["..."],
- "posibles_ambivalencias":["..."],
- "razones_para_el_cambio":["..."],
- "pregunta_siguiente_sugerida":"...",
- "sintesis_acumulada":"síntesis integradora de TODO lo entendido hasta ahora según caso inicial, bitácora y respuesta actual; debe facilitar encontrar barreras, facilitadores, ambivalencias, razones, problemas y continuidad",
+ "sintesis_acumulada":"resumen breve y vivo de lo entendido hasta ahora; debe integrar caso inicial, bitácora y respuesta actual; no debe adelantar plan si falta información",
+ "elementos_detectados":{
+   "barreras":[{"texto":"...","por_que":"explica brevemente por qué es barrera sin repetir el texto","certeza":"encontrado|posible|pendiente"}],
+   "facilitadores":[{"texto":"...","por_que":"...","certeza":"encontrado|posible|pendiente"}],
+   "ambivalencias":[{"texto":"...","por_que":"explica la tensión concreta; no usar emoción aislada","certeza":"encontrado|posible|pendiente"}],
+   "razones":[{"texto":"...","por_que":"...","certeza":"encontrado|posible|pendiente"}]
+ },
+ "pregunta_sugerida":{"texto":"...","por_que":"explica qué brecha aclara"},
  "evidencias":[{"categoria":"barreras|facilitadores|ambivalencias|razones|observaciones|problemas","frase":"frase exacta de la respuesta que respalda la categoría"}]
 }`;
 

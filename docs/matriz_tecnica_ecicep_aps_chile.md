@@ -1,4 +1,4 @@
-# Matriz técnica ECICEP APS Chile v4.4
+# Matriz técnica ECICEP APS Chile v4.6
 
 Esta matriz es un documento interno integrado para orientar la app de entrenamiento ECICEP en APS Chile. No diagnostica, no confirma GES, no indica tratamientos y no reemplaza el juicio clínico ni el protocolo local.
 
@@ -105,7 +105,7 @@ La app permite seleccionar una profesión o rol de práctica y un ámbito de ate
 Ámbitos: box clínico, seguimiento a distancia, control programático, gestión de casos, domicilio, post alta, preventivos/acceso y comunitario.
 
 
-## Cambio v4.4: configuración corregida
+## Cambio v4.6: configuración corregida
 
 Se elimina el selector “Ámbito de práctica” porque duplicaba el sentido de “Momento ECICEP”. La práctica queda configurada por:
 
@@ -120,7 +120,7 @@ Cuando se elige PSCV, la app debe entender que puede involucrar hipertensión, d
 
 La app debe usar esto como matriz formativa, no como diagnóstico automático ni indicación terapéutica.
 
-## Cambio v4.4: práctica con IA simplificada
+## Cambio v4.6: práctica con IA simplificada
 
 La práctica deja de mostrarse como una pantalla única saturada y pasa a organizarse como flujo:
 
@@ -132,3 +132,38 @@ La práctica deja de mostrarse como una pantalla única saturada y pasa a organi
 6. Retroalimentación final.
 
 Se mantiene la potencia técnica de v4.3, pero se dosifica por pantalla para mejorar comprensión, uso en Android y aprendizaje andragógico.
+
+
+## Cambio v4.6: control de calidad de casos
+
+La generación de casos usa un pipeline:
+
+1. Generar borrador estructurado.
+2. Validar coherencia clínica-formativa.
+3. Corregir antes de mostrar.
+4. Mostrar lectura rápida.
+5. Usar el caso validado para entrevista, extracción, plan y evaluación.
+
+Reglas duras:
+- no nombres propios;
+- no datos identificatorios;
+- no establecimientos inventados;
+- no diagnóstico, GES o evento clínico grave sin fuente simulada;
+- no usar “cuidador/a” sin rol claro o dependencia;
+- distinguir hecho, inferencia e información pendiente;
+- mantener foco principal y continuidad;
+- corregir redacción antes de entrenar.
+
+## Cambio v4.6: entrevista con síntesis viva
+
+La pantalla de entrevista se reorganiza:
+
+1. Síntesis IA de lo entendido hasta ahora.
+2. Elementos detectados: barreras, facilitadores, ambivalencias y razones.
+3. Bitácora de entrevista.
+4. Pregunta sugerida según brecha.
+5. Nueva pregunta.
+
+Se elimina el bloque visible “Lectura ECICEP”. La IA sigue analizando, pero la app muestra la información como síntesis viva y categorías acumuladas.
+
+Regla clave: una emoción aislada no es ambivalencia. Ambivalencia requiere una tensión clara entre deseo, necesidad, valor o intención y una dificultad para actuar.

@@ -1,5 +1,5 @@
 {
-  "version": "4.4",
+  "version": "4.6",
   "nombre": "Matriz técnica ECICEP APS Chile",
   "proposito": "Motor técnico interno para orientar generación de casos, lectura técnica, práctica IA, auditoría de plan, registro y continuidad en entrenamiento ECICEP APS Chile.",
   "advertencias": [
@@ -853,6 +853,58 @@
     },
     "social": {
       "nombre": "Barrera social / red de apoyo"
+    }
+  },
+  "control_calidad_casos": {
+    "pipeline": [
+      "generar caso estructurado",
+      "validar coherencia clínica-formativa",
+      "corregir caso antes de mostrar",
+      "mostrar lectura rápida",
+      "usar caso validado en profundización/extracción/plan"
+    ],
+    "prohibido": [
+      "nombres propios",
+      "RUT, direcciones, teléfonos u otros identificadores",
+      "establecimientos inventados o imprecisos",
+      "diagnósticos, garantías GES o eventos clínicos no sustentados",
+      "llamar cuidador/a a un familiar sin rol o dependencia clara",
+      "juicios como no coopera, no cumple, rebelde",
+      "más de dos focos principales sin jerarquía",
+      "errores ortográficos o redacción poco institucional"
+    ],
+    "obligatorio": [
+      "persona anonimizada",
+      "momento ECICEP claro",
+      "foco clínico-programático claro",
+      "barrera explícita",
+      "facilitador o activo",
+      "ambivalencia o tensión",
+      "información pendiente",
+      "posible continuidad",
+      "lenguaje clínico seguro: refiere, según ficha simulada, pendiente de verificar"
+    ],
+    "lectura_rapida": [
+      "foco",
+      "barrera_probable",
+      "facilitador",
+      "ambivalencia",
+      "informacion_pendiente",
+      "continuidad"
+    ]
+  },
+  "entrevista_sintesis_viva": {
+    "orden_pantalla": [
+      "síntesis viva",
+      "elementos detectados",
+      "bitácora",
+      "pregunta sugerida",
+      "nueva pregunta"
+    ],
+    "reglas": {
+      "lectura_ecicep_visible": "eliminada",
+      "ambivalencia": "solo tensión entre intención/valor/necesidad y dificultad; emoción aislada no basta",
+      "pregunta_sugerida": "siempre al final y basada en brecha principal de información"
     }
   }
 }
