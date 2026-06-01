@@ -1,5 +1,5 @@
 {
-  "version": "4.8",
+  "version": "4.9",
   "nombre": "Matriz técnica ECICEP APS Chile",
   "proposito": "Motor técnico interno para orientar generación de casos, lectura técnica, práctica IA, auditoría de plan, registro y continuidad en entrenamiento ECICEP APS Chile.",
   "advertencias": [
@@ -940,6 +940,28 @@
       "cada fragmento marcado debe tener explicación específica y evidencia",
       "la nueva información debe trazarse por número de pregunta",
       "no colorear emociones aisladas como ambivalencia"
+    ]
+  },
+  "normalizacion_estilo_caso": {
+    "objetivo": "Mostrar solo caso limpio al usuario y mantener validaciones internas ocultas.",
+    "oculto_para_usuario": [
+      "estado de validación",
+      "control duro local",
+      "lectura rápida",
+      "lectura técnica APS Chile"
+    ],
+    "visible_para_usuario": [
+      "título Lee el caso simulado",
+      "instrucción breve",
+      "caso simulado",
+      "botones Volver y Comenzar entrevista"
+    ],
+    "reglas_estilo": [
+      "evitar 'Persona, una mujer'",
+      "evitar lenguaje culpabilizante como no cumple",
+      "evitar vaguedad clínica como descompensación en su condición",
+      "usar párrafos breves y clínicamente seguros",
+      "mantener información pendiente explícita"
     ]
   }
 }
