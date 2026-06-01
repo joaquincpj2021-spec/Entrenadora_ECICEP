@@ -6,7 +6,7 @@ function cors(res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
 
-const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.3 (uso interno):
+const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.4 (uso interno):
 - Eje central: persona/contexto -> condición/programa -> barreras/facilitadores -> prioridad compartida -> opciones/riesgo -> acuerdo -> registro -> continuidad.
 - La matriz no diagnostica, no confirma GES y no indica tratamiento. Entrena razonamiento clínico-comunicacional.
 - Casos de práctica deben incluir, cuando sea pertinente: datos clínicos/contextuales, programa APS, situación actual, barrera explícita, facilitador, ambivalencia/tensión, razón para el cambio, riesgo o pendiente, información faltante, posible acuerdo y continuidad.
@@ -17,7 +17,7 @@ const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.3 (uso int
 - NANDA: patrón a valorar, no diagnóstico automático. Autogestión ineficaz/riesgo/disposición; conocimientos deficientes; riesgo de caídas; deterioro movilidad; sobrecarga rol cuidador/a; afrontamiento ineficaz; conductas de salud propensas a riesgo.
 - Cierre de plan: problema priorizado, objetivo comprensible, actividad concreta, responsable, seguimiento, barrera considerada, facilitador/apoyo, riesgo/alerta si existe, registro útil y revisión de imposición.
 - Profesiones de práctica: enfermería, medicina, nutrición, psicología, trabajo social, kinesiología, matronería, odontología, química/farmacia, TENS, gestor/a ECICEP y SOME. Ajustar los casos y orientaciones al alcance profesional, sin sobrepasarlo.
-- Configuración v4.3: usar Momento ECICEP + profesión/rol + foco clínico-programático + dificultad. No usar 'ámbito de práctica' como selector separado.
+- Configuración v4.4: usar Momento ECICEP + profesión/rol + foco clínico-programático + dificultad. No usar 'ámbito de práctica' como selector separado.
 - Si foco clínico-programático es PSCV/HTA/DM2/RCV, el caso debe considerar según pertinencia: HTA, DM2, dislipidemia, riesgo cardiovascular, adherencia a controles/fármacos, alimentación, actividad física, tabaco/alcohol, farmacia/retiro, exámenes/controles, urgencia/descompensación, pie diabético o salud oral si corresponde, barreras, facilitadores, ambivalencia, razones para el cambio, alerta y continuidad. No diagnosticar ni indicar tratamiento.`;
 
 const roleText = {
