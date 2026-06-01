@@ -1,4 +1,4 @@
-# Matriz técnica ECICEP APS Chile v4.6
+# Matriz técnica ECICEP APS Chile v4.8
 
 Esta matriz es un documento interno integrado para orientar la app de entrenamiento ECICEP en APS Chile. No diagnostica, no confirma GES, no indica tratamientos y no reemplaza el juicio clínico ni el protocolo local.
 
@@ -105,7 +105,7 @@ La app permite seleccionar una profesión o rol de práctica y un ámbito de ate
 Ámbitos: box clínico, seguimiento a distancia, control programático, gestión de casos, domicilio, post alta, preventivos/acceso y comunitario.
 
 
-## Cambio v4.6: configuración corregida
+## Cambio v4.8: configuración corregida
 
 Se elimina el selector “Ámbito de práctica” porque duplicaba el sentido de “Momento ECICEP”. La práctica queda configurada por:
 
@@ -120,7 +120,7 @@ Cuando se elige PSCV, la app debe entender que puede involucrar hipertensión, d
 
 La app debe usar esto como matriz formativa, no como diagnóstico automático ni indicación terapéutica.
 
-## Cambio v4.6: práctica con IA simplificada
+## Cambio v4.8: práctica con IA simplificada
 
 La práctica deja de mostrarse como una pantalla única saturada y pasa a organizarse como flujo:
 
@@ -134,7 +134,7 @@ La práctica deja de mostrarse como una pantalla única saturada y pasa a organi
 Se mantiene la potencia técnica de v4.3, pero se dosifica por pantalla para mejorar comprensión, uso en Android y aprendizaje andragógico.
 
 
-## Cambio v4.6: control de calidad de casos
+## Cambio v4.8: control de calidad de casos
 
 La generación de casos usa un pipeline:
 
@@ -154,7 +154,7 @@ Reglas duras:
 - mantener foco principal y continuidad;
 - corregir redacción antes de entrenar.
 
-## Cambio v4.6: entrevista con síntesis viva
+## Cambio v4.8: entrevista con síntesis viva
 
 La pantalla de entrevista se reorganiza:
 
@@ -167,3 +167,29 @@ La pantalla de entrevista se reorganiza:
 Se elimina el bloque visible “Lectura ECICEP”. La IA sigue analizando, pero la app muestra la información como síntesis viva y categorías acumuladas.
 
 Regla clave: una emoción aislada no es ambivalencia. Ambivalencia requiere una tensión clara entre deseo, necesidad, valor o intención y una dificultad para actuar.
+
+## Cambio v4.8: validación dura local y sanitización
+
+Además de la validación IA, la app aplica reglas locales en JavaScript antes de usar el caso:
+
+- Don/Doña/Sr/Sra + nombre se reemplaza por “Persona”.
+- “CESFAM Valparaíso” se reemplaza por “CESFAM”.
+- “cuidador/a” sin dependencia se reemplaza por “familiar de apoyo”.
+- “asiste a controles en su lugar” se corrige a consulta para apoyar continuidad.
+- Eventos como descompensación se formulan como referidos o pendientes de verificar.
+
+Luego se ejecuta `caseHardCheck()`. Si persisten problemas duros, la app solicita una segunda corrección a la IA y advierte antes de practicar.
+
+## Cambio v4.8: síntesis viva coloreada y trazable
+
+La síntesis viva ahora funciona como texto principal del razonamiento:
+
+- reúne todo lo entendido hasta el momento;
+- colorea dentro del mismo texto cuatro categorías:
+  - barreras;
+  - facilitadores;
+  - ambivalencias;
+  - razones para el cambio;
+- cada fragmento coloreado debe tener explicación específica y evidencia;
+- cada pregunta agrega un “aporte nuevo desde Pregunta N” en la bitácora;
+- el ícono del ítem explica por qué ese dato específico fue clasificado ahí, no solo la definición general.

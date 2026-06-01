@@ -1,5 +1,5 @@
 {
-  "version": "4.6",
+  "version": "4.8",
   "nombre": "Matriz técnica ECICEP APS Chile",
   "proposito": "Motor técnico interno para orientar generación de casos, lectura técnica, práctica IA, auditoría de plan, registro y continuidad en entrenamiento ECICEP APS Chile.",
   "advertencias": [
@@ -906,5 +906,40 @@
       "ambivalencia": "solo tensión entre intención/valor/necesidad y dificultad; emoción aislada no basta",
       "pregunta_sugerida": "siempre al final y basada en brecha principal de información"
     }
+  },
+  "validacion_dura_local": {
+    "descripcion": "Reglas aplicadas en JavaScript después de la validación IA para no depender solo del prompt.",
+    "sanitiza": [
+      "Don/Doña/Sr/Sra + nombre -> Persona",
+      "CESFAM Valparaíso -> CESFAM",
+      "cuidador/a sin dependencia -> familiar de apoyo",
+      "control en su lugar -> consulta al equipo para apoyar continuidad",
+      "descompensación hipertensiva -> cifras elevadas referidas pendientes de verificar",
+      "no ha podido controlar -> refiere dificultad pendiente de verificar"
+    ],
+    "bloquea_o_advierte_si_persiste": [
+      "nombre propio",
+      "establecimiento inventado",
+      "RUT/teléfono",
+      "control en su lugar",
+      "cuidador/a sin dependencia",
+      "GES activo",
+      "evento grave no sustentado"
+    ]
+  },
+  "sintesis_viva_coloreada": {
+    "categorias": [
+      "barreras",
+      "facilitadores",
+      "ambivalencias",
+      "razones"
+    ],
+    "reglas": [
+      "la síntesis reúne todo lo entendido hasta ahora",
+      "los fragmentos se colorean dentro del mismo texto",
+      "cada fragmento marcado debe tener explicación específica y evidencia",
+      "la nueva información debe trazarse por número de pregunta",
+      "no colorear emociones aisladas como ambivalencia"
+    ]
   }
 }

@@ -6,7 +6,7 @@ function cors(res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
 
-const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.6 (uso interno):
+const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.8 (uso interno):
 - Eje central: persona/contexto -> condición/programa -> barreras/facilitadores -> prioridad compartida -> opciones/riesgo -> acuerdo -> registro -> continuidad.
 - La matriz no diagnostica, no confirma GES y no indica tratamiento. Entrena razonamiento clínico-comunicacional.
 - Casos de práctica deben incluir, cuando sea pertinente: datos clínicos/contextuales, programa APS, situación actual, barrera explícita, facilitador, ambivalencia/tensión, razón para el cambio, riesgo o pendiente, información faltante, posible acuerdo y continuidad.
@@ -17,7 +17,7 @@ const APS_CHILE_MATRIX_CONTEXT = `MATRIZ TÉCNICA ECICEP APS CHILE v4.6 (uso int
 - NANDA: patrón a valorar, no diagnóstico automático. Autogestión ineficaz/riesgo/disposición; conocimientos deficientes; riesgo de caídas; deterioro movilidad; sobrecarga rol cuidador/a; afrontamiento ineficaz; conductas de salud propensas a riesgo.
 - Cierre de plan: problema priorizado, objetivo comprensible, actividad concreta, responsable, seguimiento, barrera considerada, facilitador/apoyo, riesgo/alerta si existe, registro útil y revisión de imposición.
 - Profesiones de práctica: enfermería, medicina, nutrición, psicología, trabajo social, kinesiología, matronería, odontología, química/farmacia, TENS, gestor/a ECICEP y SOME. Ajustar los casos y orientaciones al alcance profesional, sin sobrepasarlo.
-- Configuración v4.6: usar Momento ECICEP + profesión/rol + foco clínico-programático + dificultad. No usar 'ámbito de práctica' como selector separado.
+- Configuración v4.8: usar Momento ECICEP + profesión/rol + foco clínico-programático + dificultad. No usar 'ámbito de práctica' como selector separado.
 - Si foco clínico-programático es PSCV/HTA/DM2/RCV, el caso debe considerar según pertinencia: HTA, DM2, dislipidemia, riesgo cardiovascular, adherencia a controles/fármacos, alimentación, actividad física, tabaco/alcohol, farmacia/retiro, exámenes/controles, urgencia/descompensación, pie diabético o salud oral si corresponde, barreras, facilitadores, ambivalencia, razones para el cambio, alerta y continuidad. No diagnosticar ni indicar tratamiento.`;
 
 const roleText = {
@@ -307,9 +307,9 @@ Caso borrador generado:
 ${JSON.stringify(payload.draftCase || {}, null, 2)}
 
 Reglas duras:
-1. No usar nombres propios. Usar “persona”, “mujer de 65 a 74 años”, “persona mayor”, etc.
+1. No usar nombres propios ni fórmulas con nombre como “Doña Sofía”. Usar “persona”, “mujer de 65 a 74 años”, “persona mayor”, etc.
 2. No usar RUT, direcciones, teléfonos ni identificadores.
-3. No inventar establecimientos. Usar “CESFAM” o “CESFAM Plaza Justicia” solo si corresponde al contexto, sin inventar otro nombre.
+3. No inventar establecimientos. No usar “CESFAM Valparaíso”. Usar “CESFAM” o “CESFAM Plaza Justicia” solo si corresponde al contexto, sin inventar otro nombre.
 4. No afirmar descompensación, hospitalización, GES activo, diagnóstico nuevo o evento grave sin fuente simulada.
 5. Si hay datos no verificados, usar: “refiere…”, “según ficha simulada…”, “pendiente de verificar…”.
 6. No llamar cuidador/a a un familiar salvo que exista dependencia o rol claro; si no, decir “familiar que suele acompañar”.
@@ -354,38 +354,45 @@ Devuelve JSON:
 }`;
 
   if (action === 'deepen_practice_case') return `${base}
-Tarea: responder como persona usuaria simulada a una pregunta de profundización durante práctica ECICEP y actualizar una síntesis viva.
+Tarea: responder como persona usuaria simulada a una pregunta de profundización y actualizar una síntesis viva coloreable.
 
 Caso base validado: ${payload.caseText || ''}
+Síntesis previa: ${payload.synthesis || ''}
 Bitácora previa: ${JSON.stringify(payload.transcript || [])}
 Pregunta del funcionario/a: ${payload.question || ''}
 Módulo: ${payload.module || 'ingreso'}
 Profesión/rol que practica: ${payload.profession || 'no especificada'}
 
 Instrucciones:
-- Responde primero como persona usuaria simulada, de forma humana, breve y coherente con el caso.
-- No entregues “Lectura ECICEP” como bloque textual. La app mostrará la información en tarjetas.
-- Actualiza una síntesis acumulada de TODO lo entendido hasta ahora. No planifiques antes de tiempo.
-- Distingue bien categorías:
-  * Barrera: dificulta sostener cuidado/acuerdo.
-  * Facilitador: recurso, apoyo o capacidad útil.
-  * Ambivalencia: tensión “quiero, pero…”. Una emoción aislada NO es ambivalencia.
-  * Razón para el cambio: motivo propio de la persona.
-- Si algo es solo emoción, carga familiar o dato contextual, no lo clasifiques como ambivalencia salvo que exista tensión explícita.
-- Propón una pregunta sugerida basada en lo que falta aclarar: seguridad clínica, barrera, apoyo, posibilidad, ambivalencia o continuidad.
-- Mantén lenguaje seguro: refiere, pendiente de verificar, según ficha simulada.
+- Responde primero como persona usuaria simulada, breve, humana y coherente con el caso.
+- Actualiza una síntesis viva que reúna TODO lo entendido hasta ahora.
+- La síntesis viva debe ser un texto integrado, claro y útil para comprender el caso.
+- Dentro de esa síntesis, identifica fragmentos exactos que correspondan a 4 categorías: barreras, facilitadores, ambivalencias y razones.
+- No colorees todo: marca solo fragmentos relevantes.
+- Para cada marca, explica por qué ese fragmento específico pertenece a esa categoría.
+- Ambivalencia: solo si existe tensión “quiero/necesito/me importa, pero…”. Una emoción aislada NO es ambivalencia.
+- Cada elemento detectado debe incluir: texto, por_que_esta_aqui, evidencia y certeza.
+- El aporte de esta pregunta debe distinguir claramente qué dato nuevo viene de la pregunta actual.
+- La pregunta sugerida debe responder a la brecha principal que falta aclarar.
 
 Devuelve JSON:
 {
  "respuesta_persona":"...",
- "sintesis_acumulada":"resumen breve y vivo de lo entendido hasta ahora; debe integrar caso inicial, bitácora y respuesta actual; no debe adelantar plan si falta información",
- "elementos_detectados":{
-   "barreras":[{"texto":"...","por_que":"explica brevemente por qué es barrera sin repetir el texto","certeza":"encontrado|posible|pendiente"}],
-   "facilitadores":[{"texto":"...","por_que":"...","certeza":"encontrado|posible|pendiente"}],
-   "ambivalencias":[{"texto":"...","por_que":"explica la tensión concreta; no usar emoción aislada","certeza":"encontrado|posible|pendiente"}],
-   "razones":[{"texto":"...","por_que":"...","certeza":"encontrado|posible|pendiente"}]
+ "aporte_de_esta_pregunta":{
+   "aportes":["dato nuevo 1","dato nuevo 2"],
+   "pendiente":"lo que esta respuesta deja pendiente o conviene aclarar"
  },
- "pregunta_sugerida":{"texto":"...","por_que":"explica qué brecha aclara"},
+ "sintesis_viva":"texto único integrado de todo lo entendido hasta ahora",
+ "marcas_sintesis":[
+   {"texto":"fragmento exacto dentro de sintesis_viva","categoria":"barreras|facilitadores|ambivalencias|razones","por_que":"por qué ese fragmento corresponde a esa categoría","evidencia":"frase de la respuesta o caso que lo respalda"}
+ ],
+ "elementos_detectados":{
+   "barreras":[{"texto":"...","por_que_esta_aqui":"por qué es barrera específicamente","evidencia":"frase que lo respalda","certeza":"encontrado|posible|pendiente"}],
+   "facilitadores":[{"texto":"...","por_que_esta_aqui":"...","evidencia":"...","certeza":"encontrado|posible|pendiente"}],
+   "ambivalencias":[{"texto":"...","por_que_esta_aqui":"explica la tensión concreta; no usar emoción aislada","evidencia":"...","certeza":"encontrado|posible|pendiente"}],
+   "razones":[{"texto":"...","por_que_esta_aqui":"...","evidencia":"...","certeza":"encontrado|posible|pendiente"}]
+ },
+ "pregunta_sugerida":{"texto":"...","por_que":"qué brecha aclara"},
  "evidencias":[{"categoria":"barreras|facilitadores|ambivalencias|razones|observaciones|problemas","frase":"frase exacta de la respuesta que respalda la categoría"}]
 }`;
 
